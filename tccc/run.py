@@ -96,11 +96,14 @@ def main():
     lines += [f"| {e['file'][9:12]} | {e['field']} | {e['stage']} | {e['kind']} | {e['pred']} | {e['truth']} |" for e in s["errors"]]
     (out / "report.md").write_text("\n".join(lines) + "\n")
     (out / "score.json").write_text(json.dumps(s, indent=1, default=str))
-    with (ROOT / "out" / "runs.jsonl").open("a") as fh:
-        fh.write(json.dumps(dict(model=a.model, split=a.split, prompt=raw_dir.name, transcripts=extract.TRANSCRIPTS.name,
+    ledger = ROOT / "out" / "runs.jsonl"
+    entry = json.dumps(dict(model=a.model, split=a.split, prompt=raw_dir.name, transcripts=extract.TRANSCRIPTS.name,
                                  f1=s["overall"]["f1"], precision=s["overall"]["precision"], recall=s["overall"]["recall"],
                                  critical_f1=s["critical"]["f1"], invented=s["overall"].get("invented", 0),
-                                 boxes_f1=s["injury_boxes"]["f1"], stages=dict(stages), errors=s["errors"]), default=str) + "\n")
+                                 boxes_f1=s["injury_boxes"]["f1"], stages=dict(stages), errors=s["errors"]), default=str)
+    if entry not in (ledger.read_text().splitlines() if ledger.exists() else []):  # re-scoring the same run adds nothing
+        with ledger.open("a") as fh:
+            fh.write(entry + "\n")
     print("\n".join(lines[:lines.index("## Errors by group and stage")]))
 
 

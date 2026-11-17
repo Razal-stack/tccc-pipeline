@@ -46,7 +46,7 @@ Error stages in every report:
   only pays for what changed, and validation or scoring changes cost nothing.
 - The model returns only the ~22 filled fields, not all 138, which keeps output tokens low.
 
-## Results so far (dev, 25 cards)
+## Early extraction comparison (dev, 25 cards, prompts v1/v2)
 
 | Extraction model | Prompt | F1 filled fields | Invented per card | Cost for 25 |
 |---|---|---|---|---|
@@ -131,3 +131,21 @@ Design choices that follow: blanks over guesses; every value traceable to spoken
 works per casualty, so 50 cards are 50 independent jobs (parallel, about a minute in total).
 Later, not now: offline fallback (the local model gets 74% of values, no network), a simple review screen,
 linking cards to casualty IDs, and voice prompts to the sender for missing critical fields ("say again TQ time").
+
+
+## Final results (prompt v5, keyterm transcripts, Gemini 3.8 Flash)
+
+| Set | F1 | Safety-critical F1 | Invented per card | Body boxes F1 |
+|---|---|---|---|---|
+| Held-out 25 (run once) | 92.4% | 96.2% | 0.08 | 80.5% |
+| Dev 25 (tuned on) | 95.3% | 96.1% | 0.20 | 97.0% |
+| All 50 | 94.0% | 96.1% | 0.14 | 89.0% |
+
+Prompt history on dev (Gemini 3.8 Flash): v2 93.3% -> v3 94.3% -> v3 + keyterm transcripts 94.5% -> v4 95.4%
+-> v5 95.3% (body boxes 87% -> 97%). Other models on v3: GPT-5.6 Luna 91.7%, DeepSeek V4 Flash 88.1%,
+Qwen 3.5 Flash failed (provider errors).
+
+Extra layers added after the first full run:
+- PDF read-back after every fill, and text appearances drawn into the PDF (Preview showed blank fields otherwise).
+- `missing_critical`: an "Ask the sender" list per card (identity, evac, tourniquet time, drug dose/route/time).
+- Error kinds per run (left blank, digit off, spelling, wrong, made up) and a run ledger for later tuning.

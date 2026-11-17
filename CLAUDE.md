@@ -27,27 +27,26 @@ web UI. No frameworks or scaffolds until the core pipeline is done and scored.
 | `../tccc-card-blank.pdf` | Fillable AcroForm (copy in `data/`) |
 | `../.env` | `OPENROUTER_API_KEY`, provided with the brief. **Never print, log or commit it.** |
 
-## What's already built and verified
+## Status (2026-11-17): complete, scored, documented
 
-| Module | Status |
+Held-out F1 92.4% (safety-critical 96.2%, 0.08 invented/card); all 50 F1 94.0%. 50 PDFs in
+`out/google__gemini-3.8-flash/all/cards/`, all pass schema and read-back checks. Spend $3.90 of $7 cap.
+Read `README.md` (founder view), `docs/ARCHITECTURE.md` (steps, evals, every experiment), `AI_LOG.md`.
+
+| Module | Job |
 |---|---|
-| `tccc/score.py` | Done. Per field: correct / wrong / invented / missed / blank_ok. Headline = F1 on filled fields; also precision, invented values per card, safety-critical subset, per-group table, injury-box F1, naive accuracy vs empty-card baseline. Verified: ground truth vs itself = 100%; empty card = 0% F1, 84.5% naive. |
-| `tccc/fill_pdf.py` | Done. `fill(card, out.pdf)` and `read_back(pdf)`. Checkboxes on-state is `/1`. Removes XFA, sets NeedAppearances. Verified: all 50 golden cards fill -> read back -> rescore with zero errors, and render correctly. |
-| `tccc/textnorm.py` | Spoken numbers -> digits; `categorized_recall()` checks whether ground-truth values appear in a transcript. |
-| `tccc/stt_bakeoff.py` | Speech-to-text benchmark via OpenRouter `/api/v1/audio/transcriptions`. 21 recordings across conditions (radio, heavy noise, two speakers, corrections, clean). Current flagship models only. Reports % of ground-truth values found by category (vitals, times, doses, ids, names, drugs/kit), cost per audio hour, median seconds per recording. Caches transcripts in `transcripts/<model>/`. |
-| `transcripts/local__parakeet/` | Offline baseline (Parakeet, CPU, no network): 74% of values found overall; radio 65%, heavy noise 61%, two speakers 43%, clean 89%. |
+| `tccc/openrouter.py` | API key, one HTTP call, hard spend cap (`TCCC_BUDGET_USD`, default 7) checked against real key usage |
+| `tccc/stt.py` | Speech-to-text with domain `keyterms` |
+| `tccc/extract.py` | Prompt (v5) + one LLM call; replies cached by prompt+transcript hash in `out/raw/` |
+| `tccc/validate.py` | Format/range/evidence checks, `check_card` schema, `missing_critical` (ask the sender) |
+| `tccc/injury.py` | Notes -> 163 body-diagram boxes (lookup) |
+| `tccc/fill_pdf.py` | Fill DD 1380 with drawn text appearances; `read_back` |
+| `tccc/pipeline.py` | Production: new recording -> card, PDF, review (`finish` shared with run) |
+| `tccc/run.py` | Evaluation: split -> scored report with error stage + kind; appends `out/runs.jsonl` |
+| `tccc/app.py` | FastAPI: dashboard, card review beside PDF, upload |
+| `tccc/stt_bakeoff.py`, `tccc/score.py`, `tccc/textnorm.py` | Speech benchmark, scorer, number normalising |
 
-Commands:
-```bash
-python3 -m tccc.stt_bakeoff --list                 # transcription models this key can use, with prices
-python3 -m tccc.stt_bakeoff                        # benchmark, prints two tables
-python3 -m tccc.stt_bakeoff --models <id> --all    # chosen model on all 50 recordings
-python3 -m tccc.score <predictions_dir>            # score cards (one JSON per recording, ground-truth shape)
-```
-
-OpenRouter transcription request: `{"model", "input_audio": {"data": <base64>, "format": "wav"}, "language": "en",
-"temperature": 0}`; response `{"text", "usage": {"seconds", "cost"}}`. No top-level prompt field; vocabulary hints
-only via provider options (e.g. `provider.options.groq.prompt`).
+Chosen: speech `elevenlabs/scribe-v2-medical` + keyterms; extraction `google/gemini-3.8-flash`.
 
 ## What the data showed (drives every decision)
 
