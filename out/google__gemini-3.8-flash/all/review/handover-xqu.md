@@ -1,5 +1,8 @@
 # handover-xqu
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - Garbled phrase 'combat hilpan' heard; possible combat pill pack not recorded
 - First responder last4 spoken as 6 digits (180501); left blank

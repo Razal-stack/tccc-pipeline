@@ -1,5 +1,8 @@
 # handover-liq
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - Time of wounding stated as 1110 but first tourniquet applied at 1102
 

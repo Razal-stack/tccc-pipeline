@@ -1,5 +1,8 @@
 # handover-vdi
 
+## Ask the sender
+- casualty identity (name / last four / battle roster)
+
 ## Check these
 - Mention of priority 2 alongside Cat A; recorded as urgent per Cat A confirmation
 

@@ -1,0 +1,63 @@
+"""One recording in, one card out: speech-to-text -> extraction -> checks -> PDF -> review sheet.
+
+    python -m tccc.pipeline recording.wav [more.wav ...] [--out out/live]
+
+The production path for new recordings (no ground truth needed). tccc.run is the evaluation path.
+"""
+import argparse
+import json
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+
+from .extract import ask
+from .fill_pdf import fill, read_back
+from .score import norm
+from .stt_bakeoff import guard_budget, load_key, transcribe
+from .validate import check_card, missing_critical, to_card
+
+STT_MODEL = "elevenlabs/scribe-v2-medical"  # chosen by benchmark: best on radio, noise and two speakers
+LLM_MODEL = "google/gemini-3.8-flash"       # chosen by benchmark: best F1 for the price
+
+
+def review_sheet(card, flags, transcript):
+    filled = {k: v for k, v in card.items() if v and k not in ("file", "injury_boxes")}
+    return (f"# {card['file']}\n\n## Ask the sender\n" + "".join(f"- {x}\n" for x in missing_critical(card) or ["nothing missing"])
+            + "\n## Check these\n" + "".join(f"- {x}\n" for x in flags or ["nothing flagged"])
+            + "\n## Card\n" + "".join(f"- {k}: {v}\n" for k, v in filled.items())
+            + f"- injury_boxes: {', '.join(card['injury_boxes']) or 'none'}\n\n## Transcript\n{transcript}\n")
+
+
+def process(wav: Path, out: Path, key=None):
+    """Run one recording through every step; each step's output is saved next to the card."""
+    key = key or load_key()
+    stem = wav.stem
+    for sub in ("transcripts", "cards", "predictions", "review"):
+        (out / sub).mkdir(parents=True, exist_ok=True)
+    text, _ = transcribe(key, STT_MODEL, wav, keyterms=True)
+    (out / "transcripts" / f"{stem}.txt").write_text(text)
+    reply, _ = ask(LLM_MODEL, text, key)
+    card, flags = to_card(wav.name, reply, text)
+    flags += [f"SCHEMA: {p}" for p in check_card(card)]
+    pdf = fill(card, out / "cards" / f"{stem}.pdf")
+    back = read_back(pdf)
+    flags += [f"PDF: {k} reads back wrong" for k in back if k != "file" and norm(back[k]) != norm(card.get(k))]
+    (out / "predictions" / f"{stem}.json").write_text(json.dumps(card, indent=1))
+    (out / "review" / f"{stem}.md").write_text(review_sheet(card, flags, text))
+    return dict(file=wav.name, card=card, flags=flags, ask=missing_critical(card), transcript=text,
+                pdf=str(pdf), review=str(out / "review" / f"{stem}.md"))
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("recordings", nargs="+", type=Path)
+    ap.add_argument("--out", type=Path, default=Path("out/live"))
+    a = ap.parse_args()
+    key = load_key()
+    guard_budget(key)
+    with ThreadPoolExecutor(8) as pool:  # each casualty is independent: 50 cards take about as long as one
+        for r in pool.map(lambda w: process(w, a.out, key), a.recordings):
+            print(f"{r['file']}: {len(r['flags'])} flags, {len(r['ask'])} to ask -> {r['pdf']}")
+
+
+if __name__ == "__main__":
+    main()

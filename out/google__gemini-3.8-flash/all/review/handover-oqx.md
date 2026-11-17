@@ -1,5 +1,8 @@
 # handover-oqx
 
+## Ask the sender
+- time of first observations
+
 ## Check these
 - nothing flagged
 

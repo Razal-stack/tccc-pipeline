@@ -1,5 +1,8 @@
 # handover-cjp
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - Battle roster contains 5 digits (VA62119); confirm last 4 digits
 

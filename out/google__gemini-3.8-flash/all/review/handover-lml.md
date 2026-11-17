@@ -1,5 +1,10 @@
 # handover-lml
 
+## Ask the sender
+- casualty identity (name / last four / battle roster)
+- evac category
+- time of first observations
+
 ## Check these
 - nothing flagged
 

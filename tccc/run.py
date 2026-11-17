@@ -18,7 +18,7 @@ from pathlib import Path
 from . import extract
 from .score import TRUTH, group_of, norm, report, score
 from .textnorm import squash, spoken_to_digits
-from .validate import check_card, clean, to_card
+from .validate import check_card, clean, missing_critical, to_card
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -31,6 +31,20 @@ def heard(value, transcript):
         return all(n in sq for n in nums)
     toks = re.findall(r"[a-z]+", v)
     return any(re.search(rf"\b{t}\b", words) for t in toks)  # whole words, so "iv" must really be said
+
+
+def kind(err):
+    """What kind of problem: the recurring patterns to fix or monitor."""
+    p, t = str(err["pred"] or ""), str(err["truth"] or "")
+    if err["outcome"] == "invented":
+        return "made up"
+    if err["outcome"] == "missed":
+        return "left blank"
+    if p.isdigit() and t.isdigit() and len(p) == len(t):
+        return "digit off"
+    if err["field"].endswith(("name", "unit")):
+        return "name/unit spelling"
+    return "wrong value"
 
 
 def stage(err, transcript, raw):
@@ -76,7 +90,8 @@ def main():
                       for k in list(back) if k != "file" and norm(back.get(k)) != norm(card.get(k))]
         filled = {k: v for k, v in card.items() if v and k not in ("file", "injury_boxes")}
         (out / "review" / f"{stem}.md").write_text(
-            f"# {stem}\n\n## Check these\n" + "".join(f"- {x}\n" for x in flags or ["nothing flagged"])
+            f"# {stem}\n\n## Ask the sender\n" + "".join(f"- {x}\n" for x in missing_critical(card) or ["nothing missing"])
+            + "\n## Check these\n" + "".join(f"- {x}\n" for x in flags or ["nothing flagged"])
             + "\n## Card\n" + "".join(f"- {k}: {v}\n" for k, v in filled.items())
             + f"\n## Transcript\n{texts[f]}\n")
 
@@ -84,16 +99,18 @@ def main():
     stages, by_group_stage = Counter(), Counter()
     for e in s["errors"]:
         st = stage(e, texts[e["file"]], raws[e["file"]])
-        e["stage"] = st
+        e["stage"], e["kind"] = st, kind(e)
         stages[st] += 1
         by_group_stage[(group_of(e["field"]), st)] += 1
     lines = [f"# {a.model} on {a.split} ({len(names)} cards)", "", report(s), "",
              "## Where the errors come from", ""]
     lines += [f"- {k}: {v}" for k, v in stages.most_common()]
+    lines += ["", "## Kinds of problem", ""]
+    lines += [f"- {k}: {n}" for k, n in Counter(e["kind"] for e in s["errors"]).most_common()]
     lines += ["", "## Errors by group and stage", ""]
     lines += [f"- {g} / {st}: {n}" for (g, st), n in sorted(by_group_stage.items(), key=lambda x: -x[1])]
-    lines += ["", "## Every error", "", "| file | field | stage | predicted | truth |", "|---|---|---|---|---|"]
-    lines += [f"| {e['file'][9:12]} | {e['field']} | {e['stage']} | {e['pred']} | {e['truth']} |" for e in s["errors"]]
+    lines += ["", "## Every error", "", "| file | field | stage | kind | predicted | truth |", "|---|---|---|---|---|---|"]
+    lines += [f"| {e['file'][9:12]} | {e['field']} | {e['stage']} | {e['kind']} | {e['pred']} | {e['truth']} |" for e in s["errors"]]
     (out / "report.md").write_text("\n".join(lines) + "\n")
     (out / "score.json").write_text(json.dumps(s, indent=1, default=str))
     with (ROOT / "out" / "runs.jsonl").open("a") as fh:

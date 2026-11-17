@@ -1,5 +1,8 @@
 # handover-roo
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - nothing flagged
 

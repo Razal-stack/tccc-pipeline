@@ -1,5 +1,8 @@
 # handover-jso
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - Casualty last 4 garbled ('4 numerical 6 2')
 

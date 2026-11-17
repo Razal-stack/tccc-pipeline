@@ -1,5 +1,8 @@
 # handover-mbs
 
+## Ask the sender
+- whole blood: route
+
 ## Check these
 - Whole blood administration route unclear from transcript ('via at 04:05')
 

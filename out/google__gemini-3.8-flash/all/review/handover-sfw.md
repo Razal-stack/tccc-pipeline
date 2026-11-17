@@ -1,5 +1,8 @@
 # handover-sfw
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - Verify whether left thigh also sustained injury or was corrected to right thigh
 

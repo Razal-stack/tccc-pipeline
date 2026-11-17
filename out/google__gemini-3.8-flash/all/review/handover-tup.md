@@ -1,5 +1,8 @@
 # handover-tup
 
+## Ask the sender
+- casualty identity (name / last four / battle roster)
+
 ## Check these
 - nothing flagged
 

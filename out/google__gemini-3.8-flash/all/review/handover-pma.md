@@ -1,5 +1,9 @@
 # handover-pma
 
+## Ask the sender
+- casualty identity (name / last four / battle roster)
+- time of first observations
+
 ## Check these
 - nothing flagged
 

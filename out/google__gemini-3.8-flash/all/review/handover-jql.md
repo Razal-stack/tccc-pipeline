@@ -1,5 +1,8 @@
 # handover-jql
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - First responder last 4 interrupted by static
 

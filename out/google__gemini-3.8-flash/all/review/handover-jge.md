@@ -1,5 +1,13 @@
 # handover-jge
 
+## Ask the sender
+- casualty identity (name / last four / battle roster)
+- evac category
+- tourniquet: limb, type and time
+- fentanyl: dose
+- fentanyl: time
+- time of first observations
+
 ## Check these
 - Left arm tourniquet time unknown
 - Fentanyl dose and time not specified

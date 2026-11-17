@@ -1,5 +1,10 @@
 # handover-ato
 
+## Ask the sender
+- casualty identity (name / last four / battle roster)
+- tourniquet time, right leg
+- time of first observations
+
 ## Check these
 - tq_right_leg_time: '1012' not backed by the transcript ('10/12'), left blank
 

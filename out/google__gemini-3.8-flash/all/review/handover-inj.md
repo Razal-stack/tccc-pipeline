@@ -1,5 +1,8 @@
 # handover-inj
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - Injury time reported as 2050, which is after reported vital signs (2020) and medication times (2025, 2030)
 

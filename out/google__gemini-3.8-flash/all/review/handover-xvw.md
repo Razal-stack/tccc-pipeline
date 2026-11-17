@@ -1,5 +1,8 @@
 # handover-xvw
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - Last four garbled as '7 NURO 07' - verify casualty ID
 

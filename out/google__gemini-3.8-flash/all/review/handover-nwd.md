@@ -1,5 +1,9 @@
 # handover-nwd
 
+## Ask the sender
+- casualty identity (name / last four / battle roster)
+- evac category
+
 ## Check these
 - Time of injury unclear ('about 15U')
 

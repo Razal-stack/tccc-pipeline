@@ -101,3 +101,26 @@ def check_card(card):
             problems.append(f"{f} '{v}' not in card format")
     problems += [f"unknown body box {b}" for b in card.get("injury_boxes", []) if b not in BOXES]
     return problems
+
+
+def missing_critical(card):
+    """What a surgeon needs but the handover did not give: ask the sender, never guess."""
+    ask = []
+    if not any(card[k] for k in ("name", "last4", "battle_roster")):
+        ask.append("casualty identity (name / last four / battle roster)")
+    if not any(card[k] for k in ("evac_urgent", "evac_priority", "evac_routine")):
+        ask.append("evac category")
+    for limb in ("right_arm", "left_arm", "right_leg", "left_leg"):
+        if card[f"tq_{limb}_type"] and not card[f"tq_{limb}_time"]:
+            ask.append(f"tourniquet time, {limb.replace('_', ' ')}")
+    if card["tq_extremity"] and not any(card[p + k] for p in LIMB_TQ for k in ("type", "time")):
+        ask.append("tourniquet: limb, type and time")
+    for k in [k for k in card if k.endswith("_name") and k[:-5].rstrip("_0123456789") in ("analgesic", "antibiotic", "other_med", "fluid", "blood")]:
+        if card[k]:
+            base, item = k[:-5], card[k]
+            for part in ("dose" if not base.startswith(("fluid", "blood")) else "volume", "route", "time"):
+                if not card.get(f"{base}_{part}"):
+                    ask.append(f"{item}: {part}")
+    if any(card[f"signs_1_{v}"] for v in ("pulse", "resp_rate", "spo2")) and not card["signs_1_time"]:
+        ask.append("time of first observations")
+    return ask

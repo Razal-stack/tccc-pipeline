@@ -1,5 +1,8 @@
 # handover-lrh
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - Date garbled ('Burns the November 2026')
 

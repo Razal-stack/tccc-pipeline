@@ -1,5 +1,10 @@
 # handover-kdb
 
+## Ask the sender
+- casualty identity (name / last four / battle roster)
+- evac category
+- time of first observations
+
 ## Check these
 - Unclear whether 0405 refers to time of wounding or vital signs
 - Garbled transmission '36 for 22' unassigned

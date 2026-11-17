@@ -1,5 +1,8 @@
 # handover-riq
 
+## Ask the sender
+- time of first observations
+
 ## Check these
 - Garbled time of injury ('21 Solon')
 - Garbled AVPU/BP ('so a lot JP I haven't got a cough')

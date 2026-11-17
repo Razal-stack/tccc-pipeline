@@ -1,5 +1,8 @@
 # handover-rtw
 
+## Ask the sender
+- time of first observations
+
 ## Check these
 - Vitals time garbled ('15 while')
 

@@ -1,5 +1,8 @@
 # handover-oog
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - Date incomplete (November 2026 stated without day)
 

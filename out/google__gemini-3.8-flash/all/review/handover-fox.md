@@ -1,5 +1,8 @@
 # handover-fox
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - Battle roster number has 5 digits (RE88206)
 

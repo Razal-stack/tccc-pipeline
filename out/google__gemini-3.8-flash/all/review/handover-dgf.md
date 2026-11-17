@@ -1,5 +1,8 @@
 # handover-dgf
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - Verify second AVPU status ('a lip now' likely alert)
 

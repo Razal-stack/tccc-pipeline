@@ -1,5 +1,8 @@
 # handover-bwt
 
+## Ask the sender
+- time of first observations
+
 ## Check these
 - Casualty last 4 stated with 5 digits (59033)
 

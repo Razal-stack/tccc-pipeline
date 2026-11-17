@@ -1,5 +1,8 @@
 # handover-oeu
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - Casualty last4 stated with uncertainty (5822 I think)
 - Unit stated with uncertainty (I think she's from the Signals Det)

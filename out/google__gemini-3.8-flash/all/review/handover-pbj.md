@@ -1,5 +1,14 @@
 # handover-pbj
 
+## Ask the sender
+- casualty identity (name / last four / battle roster)
+- evac category
+- fentanyl: dose
+- TXA: dose
+- TXA: route
+- TXA: dose
+- TXA: route
+
 ## Check these
 - Fentanyl dose not specified
 - TXA route not specified

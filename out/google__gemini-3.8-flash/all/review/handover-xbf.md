@@ -1,5 +1,8 @@
 # handover-xbf
 
+## Ask the sender
+- nothing missing
+
 ## Check these
 - Casualty last 4 stated as 362L (non-numeric character)
 
