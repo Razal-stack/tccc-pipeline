@@ -69,6 +69,17 @@ def call(path, key, body=None, timeout=180):
         return json.load(r)
 
 
+BUDGET = float(os.environ.get("TCCC_BUDGET_USD", "7"))  # hard cap on total spend for this key (key limit is $10)
+
+
+def guard_budget(key):
+    """Refuse to start paid calls once the key's real usage reaches the cap."""
+    used = call("/key", key)["data"]["usage"]
+    if used >= BUDGET:
+        sys.exit(f"budget cap reached: ${used:.2f} used of ${BUDGET:.2f} (set TCCC_BUDGET_USD to change)")
+    print(f"spend so far ${used:.2f} of ${BUDGET:.2f} cap")
+
+
 def list_models(key):
     data = call("/models?output_modalities=transcription", key)["data"]
     return [(m["id"], m.get("pricing", {})) for m in data]
@@ -86,9 +97,18 @@ def pick_shortlist(ids):
     return chosen
 
 
-def transcribe(key, model, wav: Path):
+KEYTERMS = ["TXA", "IV", "IO", "IM", "CAT", "SOFTT-W", "tourniquet", "fentanyl", "lozenge", "ketamine", "morphine",
+            "ertapenem", "moxifloxacin", "Hartmann's", "Plasma-Lyte", "whole blood", "NPA", "cric", "chest seal",
+            "needle decompression", "hypothermia prevention kit", "HPMK", "blizzard blanket", "battle roster",
+            "last four", "MIST", "Cat A", "T1", "urgent", "priority", "routine", "AVPU", "Yorks", "Lancs", "Rifles",
+            "Para", "Commando", "Royal Anglian", "Royal Welsh", "RMP", "RAF Regiment", "Irish Guards"]
+
+
+def transcribe(key, model, wav: Path, keyterms=False):
     body = {"model": model, "input_audio": {"data": base64.b64encode(wav.read_bytes()).decode(), "format": "wav"},
             "language": "en", "temperature": 0}
+    if keyterms:
+        body["keyterms"] = KEYTERMS
     if "whisper" in model:
         body["provider"] = {"options": {"groq": {"prompt": VOCAB}}}
     for attempt in range(3):
@@ -115,6 +135,7 @@ def main():
     ap.add_argument("--models", nargs="*")
     ap.add_argument("--all", action="store_true", help="all 50 recordings instead of the 10 hard ones")
     ap.add_argument("--recordings")
+    ap.add_argument("--keyterms", action="store_true", help="bias recognition toward domain terms")
     a = ap.parse_args()
 
     key = load_key()
@@ -146,7 +167,7 @@ def main():
 
     jobs = []
     for m in models:
-        out = ROOT / "transcripts" / m.replace("/", "__")
+        out = ROOT / "transcripts" / (m.replace("/", "__") + ("+keyterms" if a.keyterms else ""))
         out.mkdir(parents=True, exist_ok=True)
         for f in files:
             dst = out / f.replace(".wav", ".txt")
@@ -159,22 +180,26 @@ def main():
     def run(job):
         m, wav, dst = job
         t0 = time.time()
-        text, (c, secs) = transcribe(key, m, wav)
+        text, (c, secs) = transcribe(key, m, wav, a.keyterms)
         wall = time.time() - t0
         dst.parent.mkdir(parents=True, exist_ok=True)
         dst.write_text(text)
         print(f"  {m:40s} {wav.name:22s} {'ERROR' if text.startswith('__ERROR__') else 'ok'}", flush=True)
         return m, wav.name, c, secs, wall
 
+    if jobs:
+        guard_budget(key)
     with ThreadPoolExecutor(6) as pool:
         for m, name, c, secs, wall in pool.map(run, jobs):
-            ledger.setdefault(m, {})[name] = [c, secs, wall]
+            ledger.setdefault(m + ("+keyterms" if a.keyterms else ""), {})[name] = [c, secs, wall]
             ledger_path.write_text(json.dumps(ledger, indent=1))
     cost = sum(v[0] for per in ledger.values() for v in per.values())
 
     groups = {"hard": [f for f in files if f in HARD], "other": [f for f in files if f not in HARD]}
     cats = ["vitals", "times", "doses", "ids", "names", "drugs_kit"]
     rows = []
+    if a.keyterms:
+        models = [m + "+keyterms" for m in models] + models
     for m in models + ["local__parakeet"]:
         d = ROOT / "transcripts" / m.replace("/", "__")
         if not d.exists():

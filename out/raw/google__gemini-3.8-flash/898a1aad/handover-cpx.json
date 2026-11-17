@@ -1,0 +1,94 @@
+{
+ "fields": {
+  "allergies": [
+   "morphine",
+   "allergic to morphine"
+  ],
+  "analgesic_1_dose": [
+   "25 mg",
+   "25 mg"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "ketamine"
+  ],
+  "analgesic_1_route": [
+   "IM",
+   "IM"
+  ],
+  "analgesic_1_time": [
+   "1810",
+   "18:10"
+  ],
+  "date": [
+   "04-NOV-26",
+   "fourth of November 2026"
+  ],
+  "evac_priority": [
+   true,
+   "EVAC priority"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "last4": [
+   "9104",
+   "nine one zero four"
+  ],
+  "mechanism_fall": [
+   true,
+   "fell off the vehicle into a wadi about 3 meters"
+  ],
+  "name": [
+   "Ellis, Jack",
+   "Ellis Jack"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_bp_diastolic": [
+   "88",
+   "88"
+  ],
+  "signs_1_bp_systolic": [
+   "138",
+   "138"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "pain 8"
+  ],
+  "signs_1_pulse": [
+   "96 radial",
+   "pulse 96 radial"
+  ],
+  "signs_1_resp_rate": [
+   "18",
+   "RR 18"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "sats 98"
+  ],
+  "signs_1_time": [
+   "1805",
+   "1805"
+  ],
+  "time": [
+   "1750",
+   "17:50"
+  ],
+  "unit": [
+   "1 Mercian",
+   "I Mercian"
+  ]
+ },
+ "notes": "Injuries: right hip: painful, unable to weight bear; fentanyl withheld due to morphine allergy",
+ "flags": []
+}

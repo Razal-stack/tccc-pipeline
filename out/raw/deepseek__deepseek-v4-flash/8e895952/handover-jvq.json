@@ -1,0 +1,100 @@
+{
+ "fields": {
+  "battle_roster": [
+   "DK4091",
+   "Battle roster Delta. Kilo 4091."
+  ],
+  "gender_m": [
+   true,
+   "Male."
+  ],
+  "service": [
+   "Army",
+   "Army."
+  ],
+  "unit": [
+   "2 Lancs",
+   "Two Larc."
+  ],
+  "date": [
+   "05-NOV-26",
+   "Date 05 November 2026."
+  ],
+  "time": [
+   "1315",
+   "Time of wounding 13:15."
+  ],
+  "mechanism_ied": [
+   true,
+   "Mechanism IED."
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "CAT on the right thigh"
+  ],
+  "tq_right_leg_time": [
+   "1317",
+   "at 13:17"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT on the right thigh"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Celox to the groin."
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "One gram of TXA4"
+  ],
+  "other_med_1_dose": [
+   "1 g",
+   "One gram"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "TXA4"
+  ],
+  "other_med_1_time": [
+   "1330",
+   "at 13:30"
+  ],
+  "signs_1_time": [
+   "1322",
+   "Signs at 13:22"
+  ],
+  "signs_1_pulse": [
+   "126 radial",
+   "pulse 126 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "94",
+   "BP 94/56"
+  ],
+  "signs_1_bp_diastolic": [
+   "56",
+   "BP 94/56"
+  ],
+  "signs_1_resp_rate": [
+   "28",
+   "Resps 28"
+  ],
+  "signs_1_spo2": [
+   "93",
+   "Sats 93"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "Responds to voice."
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "Pain 8."
+  ]
+ },
+ "notes": "Injuries: both thighs: fragment wounds; groin: fragment wounds.",
+ "flags": [
+  "TXA4 interpreted as TXA IV; confirm route and dose"
+ ]
+}

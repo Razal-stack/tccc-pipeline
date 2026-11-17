@@ -8,7 +8,7 @@
 - gender_f: True
 - mechanism_grenade: True
 - dressing_pressure: True
-- name: Carr, Jazz
+- name: Carr, Jas
 - last4: 8336
 - date: 03-NOV-26
 - time: 2040
@@ -25,4 +25,4 @@
 - notes: Injuries: left forearm: fragment wound
 
 ## Transcript
-Casualty is Private Carr Jazz female last 48336 RAF Tactical Medical Wing. Grenade at 2040 3 November 2026 fragment wound to the left forearm. Tourniquet on... No sorry ignore that that's the other casualty. Pressure dressing only on her obs at 2050 pulse 98 radial BP 122/80 resps 18 sats 98 alert pain 5 evac routine
+Casualty is Private Carr, Jas, female, last four eight three three six, RAF Tactical Medical Wing. Grenade at 2040, 3 November 2026, fragment wound to the left forearm. Tourniquet on... No, sorry, ignore that. That's the other casualty. Pressure dressing only on her. OBS at 2050, pulse 98 radial, BP 122 over 80. Resps 18, sats 98, alert, pain 5. Evac routine

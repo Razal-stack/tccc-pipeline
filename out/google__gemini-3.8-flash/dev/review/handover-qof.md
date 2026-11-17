@@ -6,7 +6,6 @@
 ## Card
 - evac_urgent: True
 - gender_m: True
-- mechanism_artillery: True
 - mechanism_blunt: True
 - splint: True
 - hypothermia_prevention: True
@@ -27,9 +26,10 @@
 - analgesic_1_dose: 10 mg
 - analgesic_1_route: IM
 - analgesic_1_time: 0558
+- hypothermia_prevention_type: HPMK
 - first_responder_name: Hogan
 - first_responder_last4: 4772
-- notes: Injuries: both legs: crushed; left leg: badly deformed; trapped under rubble for about 20 minutes
+- notes: Injuries: both legs: crushed; left leg: badly deformed; suspected mortar round (unconfirmed); trapped under rubble for about 20 minutes; no big bleeding
 
 ## Transcript
-[war sounds] Okay, so, uh, the building came down. We think a mortar round hit it, not confirmed, about, uh, 0530. Casualty was trapped under rubble for about 20 minutes. Corporal Wright, male, 1 Royal Irish, last four six six zero four. Date's 5 November 2026. Both legs crushed. The left one's badly deformed. No big bleeding though. OBS at 0550, pulse 116 radial, BP 108 over 70, resps 22, sats 95. He responds to voice. Pain, uh, nine. Splinted both legs. Morphine 10 mg IM at 0558, and he's in the HPMK to keep warm. Evac urgent. Care by Lance Corporal Hogan, CRA, last four four seven seven two. [war sounds]
+[war sounds] Okay, so, uh, the building came down. We think a mortar round hit it, not confirmed, about, uh, 0530. Casualty was trapped under rubble for about 20 minutes. Corporal Wright, male, One Royal Irish, last four six six zero four. Date's 5 November 2026. Both legs crushed. The left one's badly deformed. No big bleeding though. OBS at 0550, pulse 116 radial, BP 108 over 70, resps 22, sats 95. He responds to voice. Pain, uh, nine. Splinted both legs. Morphine 10 mg IM at 0558, and he's in the HPMK to keep warm. Evac urgent. Care by Lance Corporal Hogan, CRA, last four four seven seven two.

@@ -1,0 +1,88 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Category urgent"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_landmine": [
+   true,
+   "landmine"
+  ],
+  "battle_roster": [
+   "LH3088",
+   "battle roster Lima Hotel 3088"
+  ],
+  "name": [
+   "Hughes",
+   "Casualty is Corporal Hughes"
+  ],
+  "time": [
+   "1110",
+   "time of wounding 1110"
+  ],
+  "tq_extremity": [
+   true,
+   "Two tourniquets on the right leg"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "second CAT"
+  ],
+  "tq_right_leg_time": [
+   "1106",
+   "1106"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Wound packed with Celox"
+  ],
+  "blood_1_name": [
+   "whole blood",
+   "whole blood"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "One unit"
+  ],
+  "blood_1_route": [
+   "IO",
+   "IO"
+  ],
+  "blood_1_time": [
+   "1120",
+   "1120"
+  ],
+  "signs_1_time": [
+   "1115",
+   "1115"
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "140 carotid"
+  ],
+  "signs_1_resp_rate": [
+   "32",
+   "resps 32"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responds to pain only"
+  ],
+  "first_responder_name": [
+   "Owen, Rhys",
+   "Lance Corporal Rhys Owen"
+  ],
+  "first_responder_last4": [
+   "9044",
+   "9044"
+  ]
+ },
+ "notes": "Injuries: right lower leg: foot traumatic amputation, mangled up to mid-shin; first CAT right leg placed at 1102; BP unrecordable at 1115; radial pulse absent",
+ "flags": [
+  "Time discrepancy: wounding reported at 1110 but first tourniquet applied at 1102"
+ ]
+}

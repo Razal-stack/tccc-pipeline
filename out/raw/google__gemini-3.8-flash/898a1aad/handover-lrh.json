@@ -1,0 +1,124 @@
+{
+ "fields": {
+  "allergies": [
+   "penicillin",
+   "penicillin"
+  ],
+  "analgesic_1_dose": [
+   "10 mg",
+   "10 mg"
+  ],
+  "analgesic_1_name": [
+   "morphine",
+   "morphine"
+  ],
+  "analgesic_1_route": [
+   "IM",
+   "IM"
+  ],
+  "analgesic_1_time": [
+   "0225",
+   "02.25"
+  ],
+  "antibiotic_1_dose": [
+   "400 mg",
+   "400 mg"
+  ],
+  "antibiotic_1_name": [
+   "moxifloxacin",
+   "moxifloxacin"
+  ],
+  "antibiotic_1_route": [
+   "PO",
+   "by mouth"
+  ],
+  "antibiotic_1_time": [
+   "0230",
+   "02.30"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressing"
+  ],
+  "evac_priority": [
+   true,
+   "priority"
+  ],
+  "first_responder_last4": [
+   "6741",
+   "6741"
+  ],
+  "first_responder_name": [
+   "Ryan, Megan",
+   "Ryan Megan"
+  ],
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "last4": [
+   "5512",
+   "5512"
+  ],
+  "mechanism_fall": [
+   true,
+   "fall from height"
+  ],
+  "name": [
+   "Okafor, Grace",
+   "Okafor Grace"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_bp_diastolic": [
+   "86",
+   "86"
+  ],
+  "signs_1_bp_systolic": [
+   "134",
+   "134"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "8 out of 10"
+  ],
+  "signs_1_pulse": [
+   "96 radial",
+   "radial pulse 96"
+  ],
+  "signs_1_resp_rate": [
+   "18",
+   "18"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "98"
+  ],
+  "signs_1_time": [
+   "0220",
+   "02.20"
+  ],
+  "splint": [
+   true,
+   "splinted"
+  ],
+  "time": [
+   "0210",
+   "02.10"
+  ],
+  "unit": [
+   "1 Rifles",
+   "1 Rifles"
+  ]
+ },
+ "notes": "Injuries: left lower leg: open fracture; scalp: laceration",
+ "flags": [
+  "Date garbled ('Burns the November 2026')"
+ ]
+}

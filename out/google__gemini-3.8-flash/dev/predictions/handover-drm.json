@@ -137,15 +137,11 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Injuries: left forearm: fragmentation wound; left flank: fragmentation wound; left side of the face: fragmentation wound",
+ "notes": "Injuries: left forearm: fragmentation wound; left flank: fragmentation wound; left side of face: fragmentation wound",
  "injury_boxes": [
   "Ant_Left_Middle_Lateral_Forearm",
   "Ant_Left_Middle_Medial_Forearm",
-  "Chin",
   "Left_Cheek",
-  "Left_Flank",
-  "Mouth",
-  "Nose",
-  "Right_Cheek"
+  "Left_Flank"
  ]
 }

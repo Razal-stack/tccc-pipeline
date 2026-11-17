@@ -1,0 +1,45 @@
+{
+ "fields": {
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "fentanyl lozenge"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "lozenge"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA-4"
+  ],
+  "other_med_1_dose": [
+   "1 g",
+   "gram"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "TXA-4"
+  ],
+  "other_med_1_time": [
+   "1820",
+   "18:20"
+  ],
+  "tq_extremity": [
+   true,
+   "Tourniquet on the left arm"
+  ],
+  "signs_1_pulse": [
+   "130",
+   "Pulse 130"
+  ]
+ },
+ "notes": "left arm TQ time unknown; fentanyl lozenge dose and time unknown",
+ "flags": [
+  "Left arm tourniquet time unknown",
+  "Fentanyl dose and time not specified"
+ ]
+}

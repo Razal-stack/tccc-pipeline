@@ -1,0 +1,90 @@
+{
+ "fields": {
+  "evac_routine": [
+   true,
+   "Evac routine"
+  ],
+  "gender_f": [
+   true,
+   "she's"
+  ],
+  "mechanism_mvc": [
+   true,
+   "vehicle rollover"
+  ],
+  "splint": [
+   true,
+   "splint"
+  ],
+  "combat_pill_pack": [
+   true,
+   "combat pill pack"
+  ],
+  "signs_1_time": [
+   "2005",
+   "2005"
+  ],
+  "signs_1_pulse": [
+   "88 radial",
+   "Radial pulse 88"
+  ],
+  "signs_1_bp_systolic": [
+   "118",
+   "118"
+  ],
+  "signs_1_bp_diastolic": [
+   "74",
+   "74"
+  ],
+  "signs_1_resp_rate": [
+   "20",
+   "RR SBS 20"
+  ],
+  "signs_1_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "5 Very Distress",
+   "pain 5 out of 10"
+  ],
+  "time": [
+   "1945",
+   "1945"
+  ],
+  "date": [
+   "30-OCT-26",
+   "30 October 2026"
+  ],
+  "name": [
+   "Ahmed, Sara",
+   "Ahmed, Sara"
+  ],
+  "last4": [
+   "6130",
+   "six one three zero"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "9 Regiment RLC",
+   "Nine Regiment RLC"
+  ],
+  "first_responder_name": [
+   "Fox, Jamie",
+   "Fox Jamie"
+  ],
+  "first_responder_last4": [
+   "8177",
+   "eight one seven seven"
+  ]
+ },
+ "notes": "Injuries: left collarbone: obvious deformity; left side: grazes; left arm in sling; combat pill pack taken at 1955",
+ "flags": []
+}

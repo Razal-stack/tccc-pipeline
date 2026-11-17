@@ -1,0 +1,136 @@
+{
+ "fields": {
+  "name": [
+   "Davis, Rhys",
+   "Lance Corporal Davis, Rhys"
+  ],
+  "last4": [
+   "2906",
+   "last 4: 2906"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "2 Platoon, B Company",
+   "2 Platoon, B Company"
+  ],
+  "allergies": [
+   "NKA",
+   "No known allergies"
+  ],
+  "time": [
+   "0905",
+   "Time of wounding 0905"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_gsw": [
+   true,
+   "gunshot wound"
+  ],
+  "dressing_pressure": [
+   true,
+   "vented chest seals on entry and exit"
+  ],
+  "airway_npa": [
+   true,
+   "NPA in"
+  ],
+  "breathing_o2": [
+   true,
+   "oxygen on"
+  ],
+  "breathing_needle_d": [
+   true,
+   "needle decompression right chest at 0912"
+  ],
+  "signs_1_time": [
+   "0910",
+   "Signs at 0910"
+  ],
+  "signs_1_pulse": [
+   "118 radial",
+   "radial pulse 118"
+  ],
+  "signs_1_resp_rate": [
+   "30",
+   "resp is 30 and labored"
+  ],
+  "signs_1_spo2": [
+   "88",
+   "sats 88 on air"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "7 Very Intense",
+   "pain 7 out of 10"
+  ],
+  "signs_2_time": [
+   "1015",
+   "Repeat obs at 1015"
+  ],
+  "signs_2_pulse": [
+   "106 radial",
+   "radial pulse 106"
+  ],
+  "signs_2_bp_systolic": [
+   "110",
+   "BP 110/70"
+  ],
+  "signs_2_bp_diastolic": [
+   "70",
+   "BP 110/70"
+  ],
+  "signs_2_resp_rate": [
+   "24",
+   "respS 24"
+  ],
+  "signs_2_spo2": [
+   "95",
+   "sats 95"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "antibiotic_1_name": [
+   "ertapenem",
+   "ertapenem 1 gram IV at 0925"
+  ],
+  "antibiotic_1_dose": [
+   "1 g",
+   "ertapenem 1 gram IV at 0925"
+  ],
+  "antibiotic_1_route": [
+   "IV",
+   "ertapenem 1 gram IV at 0925"
+  ],
+  "antibiotic_1_time": [
+   "0925",
+   "ertapenem 1 gram IV at 0925"
+  ],
+  "first_responder_name": [
+   "Nash, Kieran",
+   "Corporal Nash, Kieran"
+  ],
+  "first_responder_last4": [
+   "5019",
+   "last 4: 5019"
+  ]
+ },
+ "notes": "Injuries: right upper chest: single GSW; right upper back: exit wound; vented chest seals applied to entry and exit wounds; needle decompression right chest at 0912; November 2026 stated, but day not stated.",
+ "flags": [
+  "Confirm the casualty date; only November 2026 was stated"
+ ]
+}

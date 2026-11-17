@@ -1,9 +1,8 @@
 # handover-pbj
 
 ## Check these
-- TXL interpreted as TXA; route not stated
 - Fentanyl dose not specified
-- Moxifloxacin dose unit not stated (recorded as 400 mg)
+- TXA route not specified
 - other_med_1_dose: '1 g' not backed by the transcript ('a gram'), left blank
 - other_med_2_dose: '1 g' not backed by the transcript ('second gram'), left blank
 
@@ -21,4 +20,4 @@
 - other_med_2_time: 0920
 
 ## Transcript
-Drugs given: TXL a gram at 0900 and a second gram at 0920. Fentanyl lollipop at 0855. Moxie 400 by mouth same time. Nothing else to add.
+Drugs given: TXA a gram at 0900 and a second gram at 0920, fentanyl lollipop at 0855, moxy 400 by mouth same time. Nothing else to add.

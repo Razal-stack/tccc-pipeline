@@ -1,0 +1,140 @@
+{
+ "fields": {
+  "battle_roster": [
+   "MT7703",
+   "battle roster Mike Tango 7703"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "Queen's Royal Hussars",
+   "Queen's Royal Hussars"
+  ],
+  "time": [
+   "1640",
+   "time of injury 1640"
+  ],
+  "mechanism_rpg": [
+   true,
+   "RPG strike"
+  ],
+  "mechanism_burn": [
+   true,
+   "with fire"
+  ],
+  "signs_1_time": [
+   "1650",
+   "1650"
+  ],
+  "signs_1_pulse": [
+   "104 radial",
+   "radial pulse 104"
+  ],
+  "signs_1_bp_systolic": [
+   "128",
+   "128"
+  ],
+  "signs_1_bp_diastolic": [
+   "80",
+   "80"
+  ],
+  "signs_1_resp_rate": [
+   "22",
+   "resp 22"
+  ],
+  "signs_1_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "6 Intense",
+   "pain 6"
+  ],
+  "eye_shield": [
+   true,
+   "rigid eye shield"
+  ],
+  "eye_shield_right": [
+   true,
+   "rigid eye shield over the right eye"
+  ],
+  "dressing_other": [
+   true,
+   "burns dressings"
+  ],
+  "dressing_type": [
+   "burns dressing",
+   "burns dressings"
+  ],
+  "combat_pill_pack": [
+   true,
+   "combat pill pack given"
+  ],
+  "fluid_1_name": [
+   "Hartmann's",
+   "Hartmann's"
+  ],
+  "fluid_1_volume": [
+   "1 L",
+   "1 liter"
+  ],
+  "fluid_1_route": [
+   "IV",
+   "IV"
+  ],
+  "fluid_1_time": [
+   "1655",
+   "1655"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "ketamine"
+  ],
+  "analgesic_1_dose": [
+   "20 mg",
+   "20 mg"
+  ],
+  "analgesic_1_route": [
+   "IV",
+   "IV"
+  ],
+  "analgesic_1_time": [
+   "1658",
+   "1658"
+  ],
+  "hypothermia_prevention": [
+   true,
+   "blizzard blanket on"
+  ],
+  "hypothermia_prevention_type": [
+   "blizzard blanket",
+   "blizzard blanket"
+  ],
+  "evac_priority": [
+   true,
+   "EVAC priority"
+  ],
+  "first_responder_name": [
+   "Kelly, Dan",
+   "Lance Corporal Kelly Dan"
+  ],
+  "first_responder_last4": [
+   "2225",
+   "last four 222 and static 5"
+  ]
+ },
+ "notes": "Injuries: face: burns (~18% with hands); both hands: burns (~18% with face); right eye: penetrating injury; vehicle commander",
+ "flags": [
+  "First responder last 4 transcribed with static ('222 and static 5' interpreted as 2225)"
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "fields": {
+  "name": [
+   "Scott, Ryan",
+   "Private Scott Ryan"
+  ],
+  "unit": [
+   "3 Scots",
+   "three Scott"
+  ],
+  "last4": [
+   "5290",
+   "five two nine nil"
+  ],
+  "mechanism_grenade": [
+   true,
+   "grenade"
+  ],
+  "breathing_chest_seal": [
+   true,
+   "vented chest seal"
+  ],
+  "signs_1_resp_rate": [
+   28,
+   "28"
+  ],
+  "signs_1_spo2": [
+   94,
+   "94"
+  ],
+  "signs_1_pulse": [
+   "110 radial",
+   "110 radial"
+  ],
+  "signs_1_pain": [
+   "7 Very Intense",
+   "seven"
+  ],
+  "allergies": [
+   "NKA",
+   "no allergies"
+  ],
+  "evac_urgent": [
+   true,
+   "urgent"
+  ],
+  "first_responder_name": [
+   "Weed, Cal",
+   "Corporal Weed Cal"
+  ],
+  "first_responder_last4": [
+   "7420",
+   "seven four two zero"
+  ]
+ },
+ "notes": "Injuries: left side of chest: sucking fragment wound; time of wounding garbled ('21 Solon'); initial SpO2 90% prior to chest seal; no BP cuff available; AVPU likely alert ('talking to me so a lot JP')",
+ "flags": [
+  "Garbled time of injury ('21 Solon')",
+  "Garbled AVPU/BP ('so a lot JP I haven't got a cough')"
+ ]
+}

@@ -13,7 +13,7 @@
 - date: 05-NOV-26
 - time: 1315
 - service: Army
-- unit: 2 Larc
+- unit: 2 Lancs
 - tq_right_leg_type: CAT
 - tq_right_leg_time: 1317
 - signs_1_time: 1322
@@ -31,4 +31,4 @@
 - notes: Injuries: both thighs: fragment wounds; groin: fragment wounds; Celox applied to groin
 
 ## Transcript
-Missed report. Battle roster Delta. Kilo 4091. Male. Army. Two Larc. Date 05 November 2026. Time of wounding 13:15. Mechanism IED. Injuries fragment wounds to both thighs and the groin. Signs at 13:22 pulse 126 radial, BP 94/56, Resps 28, Sats 93. Responds to voice. Pain 8. Treatment CAT on the right thigh at 13:17. Celox to the groin. One gram of TXA4 at 13:30. Evac urgent
+MIST report battle roster Delta Kilo 4091 male Army 2 Lancs Date 05 November 2026 Time of wounding 1315 Mechanism IED Injuries fragment wounds to both thighs and the groin Signs at 1322 pulse 126 radial BP 94 over 56 Resps 28 Sats 93 responds to voice Pain 8 Treatment CAT on the right thigh at 1317 Celox to the groin 1 gram of TXA-4 at 1330 Evac urgent

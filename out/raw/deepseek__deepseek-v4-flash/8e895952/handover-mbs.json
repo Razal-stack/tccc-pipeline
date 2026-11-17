@@ -1,0 +1,157 @@
+{
+ "fields": {
+  "name": [
+   "Shaw, Ben",
+   "gunner Shaw, Ben"
+  ],
+  "last4": [
+   "1505",
+   "last 4 1505"
+  ],
+  "date": [
+   "30-OCT-26",
+   "30 October 2026"
+  ],
+  "time": [
+   "0324",
+   "03240"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "4th Regiment Royal Artillery",
+   "4th Regiment Royal Artillery"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_blunt": [
+   true,
+   "hit by a reversing Mastiff"
+  ],
+  "mechanism_mvc": [
+   true,
+   "hit by a reversing Mastiff"
+  ],
+  "splint": [
+   true,
+   "pelvic binder on"
+  ],
+  "signs_1_time": [
+   "0348",
+   "0348"
+  ],
+  "signs_1_pulse": [
+   "130 radial",
+   "radial pulse 130"
+  ],
+  "signs_1_bp_systolic": [
+   "88",
+   "88"
+  ],
+  "signs_1_bp_diastolic": [
+   "54",
+   "54"
+  ],
+  "signs_1_resp_rate": [
+   "26",
+   "resp 26"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "sats 96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "0 None",
+   "pain none"
+  ],
+  "signs_2_time": [
+   "0450",
+   "0450"
+  ],
+  "signs_2_pulse": [
+   "116 radial",
+   "radial pulse 116"
+  ],
+  "signs_2_bp_systolic": [
+   "98",
+   "98"
+  ],
+  "signs_2_bp_diastolic": [
+   "62",
+   "62"
+  ],
+  "signs_2_resp_rate": [
+   "22",
+   "resp 22"
+  ],
+  "signs_2_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_2_pain": [
+   "6 Intense",
+   "pain 6"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "fentanyl"
+  ],
+  "analgesic_1_dose": [
+   "800 mcg",
+   "800 mcg"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "lozenge"
+  ],
+  "analgesic_1_time": [
+   "0350",
+   "03.50"
+  ],
+  "blood_1_name": [
+   "whole blood",
+   "whole blood"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "one unit"
+  ],
+  "blood_1_route": [
+   "IV",
+   "via"
+  ],
+  "blood_1_time": [
+   "0405",
+   "0405"
+  ],
+  "evac_urgent": [
+   true,
+   "Cat A, T1"
+  ],
+  "first_responder_name": [
+   "Lyle, Owen",
+   "Bombardier Lyle, Owen"
+  ],
+  "first_responder_last4": [
+   "6052",
+   "last 4 6052"
+  ]
+ },
+ "notes": "Injuries: pelvis: crushed unstable when gently pressed; pelvic binder applied; fentanyl 800 mcg lozenge at 0350; whole blood 1 unit at 0405.",
+ "flags": [
+  "Time of injury stated as '03240', interpreted as 0324",
+  "Whole blood route assumed IV from 'via'"
+ ]
+}

@@ -1,0 +1,9 @@
+# handover-qof
+
+## Check these
+- nothing flagged
+
+## Card
+
+## Transcript
+[war sounds] Okay, so, uh, the building came down. We think a mortar round hit it, not confirmed, about, uh, 0530. Casualty was trapped under rubble for about 20 minutes. Corporal Wright, male, 1 Royal Irish, last four six six zero four. Date's 5 November 2026. Both legs crushed. The left one's badly deformed. No big bleeding though. OBS at 0550, pulse 116 radial, BP 108 over 70, resps 22, sats 95. He responds to voice. Pain, uh, nine. Splinted both legs. Morphine 10 mg IM at 0558, and he's in the HPMK to keep warm. Evac urgent. Care by Lance Corporal Hogan, CRA, last four four seven seven two. [war sounds]

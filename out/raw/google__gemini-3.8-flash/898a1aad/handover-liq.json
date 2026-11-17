@@ -1,0 +1,88 @@
+{
+ "fields": {
+  "battle_roster": [
+   "LH3088",
+   "Lima Hotel 3088"
+  ],
+  "blood_1_name": [
+   "whole blood",
+   "whole blood"
+  ],
+  "blood_1_route": [
+   "IO",
+   "IO"
+  ],
+  "blood_1_time": [
+   "1120",
+   "1120"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "One unit"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Wound packed with Celox"
+  ],
+  "evac_urgent": [
+   true,
+   "Category urgent"
+  ],
+  "first_responder_last4": [
+   "9044",
+   "9044"
+  ],
+  "first_responder_name": [
+   "Rhys, Owen",
+   "Rhys Owen"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_landmine": [
+   true,
+   "landmine"
+  ],
+  "name": [
+   "Hughes",
+   "Hughes"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responds to pain only"
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "140 carotid"
+  ],
+  "signs_1_resp_rate": [
+   "32",
+   "32"
+  ],
+  "signs_1_time": [
+   "1115",
+   "1115"
+  ],
+  "time": [
+   "1110",
+   "1110"
+  ],
+  "tq_extremity": [
+   true,
+   "Two tourniquets on the right leg"
+  ],
+  "tq_right_leg_time": [
+   "1106",
+   "1106"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "CAT"
+  ]
+ },
+ "notes": "Injuries: right foot to mid-shin: traumatic amputation and mangled; first right leg CAT applied high and tight at 1102; BP not recordable at 1115; no radial pulse",
+ "flags": [
+  "Time of wounding stated as 1110 but first tourniquet applied at 1102"
+ ]
+}

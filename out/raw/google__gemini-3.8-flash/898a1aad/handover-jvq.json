@@ -1,0 +1,102 @@
+{
+ "fields": {
+  "battle_roster": [
+   "DK4091",
+   "battle roster Delta Kilo 4091"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "2 Lancs",
+   "2 Lancs"
+  ],
+  "date": [
+   "05-NOV-26",
+   "05 November 2026"
+  ],
+  "time": [
+   "1315",
+   "1315"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED"
+  ],
+  "signs_1_time": [
+   "1322",
+   "1322"
+  ],
+  "signs_1_pulse": [
+   "126 radial",
+   "126 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "94",
+   "94"
+  ],
+  "signs_1_bp_diastolic": [
+   "56",
+   "56"
+  ],
+  "signs_1_resp_rate": [
+   "28",
+   "28"
+  ],
+  "signs_1_spo2": [
+   "93",
+   "93"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "responds to voice"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "Pain 8"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT on the right thigh"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "CAT"
+  ],
+  "tq_right_leg_time": [
+   "1317",
+   "1317"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Celox to the groin"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA-4"
+  ],
+  "other_med_1_dose": [
+   "1 g",
+   "1 gram"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "TXA-4"
+  ],
+  "other_med_1_time": [
+   "1330",
+   "1330"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ]
+ },
+ "notes": "Injuries: both thighs: fragment wounds; groin: fragment wounds; Celox applied to groin",
+ "flags": []
+}

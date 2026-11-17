@@ -1,9 +1,7 @@
 # handover-ihg
 
 ## Check these
-- Evac category transcribed as 'virgin', interpreted as urgent
-- First responder ID transcribed as 'last call 3319', interpreted as last four 3319
-- Hypothermia wrap transcribed as 'hydrofoam event packet' - verify device
+- nothing flagged
 
 ## Card
 - evac_urgent: True
@@ -16,26 +14,31 @@
 - date: 03-NOV-26
 - time: 1420
 - service: Army
-- unit: 1 Unit
+- unit: 1 Yorks
+- tq_right_leg_type: CAT
 - tq_right_leg_time: 1425
+- tq_left_leg_type: CAT
 - tq_left_leg_time: 1420
 - signs_1_time: 1428
-- signs_1_pulse: 128 radial
+- signs_1_pulse: 108 radial
 - signs_1_bp_systolic: 92
 - signs_1_bp_diastolic: 58
 - signs_1_resp_rate: 26
 - signs_1_spo2: 94
 - signs_1_avpu: V - Verbal
+- signs_1_pain: 9 Excruciating
 - analgesic_1_name: fentanyl
 - analgesic_1_dose: 800 mcg
 - analgesic_1_route: OTFC
-- analgesic_1_time: 1430
+- analgesic_1_time: 1432
 - other_med_1_name: TXA
 - other_med_1_dose: 2 g
+- other_med_1_route: IV
 - other_med_1_time: 1435
+- hypothermia_prevention_type: hypothermia prevention kit
 - first_responder_name: Jones
 - first_responder_last4: 3319
-- notes: Injuries: left leg: traumatic amputation below the knee; right thigh: heavy bleeding wound; wrapped in a hydrofoam event packet
+- notes: Injuries: left leg below knee: traumatic amputation; right thigh: wound with heavy bleeding; right thigh wound packed with QuikClot at 1430
 
 ## Transcript
-Mission report: one casualty, 3 November 2026. Battle roster Juliet Sierra 4417, male, Army, one unit. Time of wounding: 1420. Mechanism: IED strike on a dismounted foot patrol. Injuries: traumatic amputation of the left leg below the knee, heavy bleeding from the wound to the right thigh. Signs at 1428: radio pulse 128, BP 92/58, respS 26, sats 94. Response to voice, pain, and non-verbal stimuli. Treatment: tourniquet left leg at 1420, second tourniquet right thigh at 1425, right thigh wound packed with QuikClot at 1430, fentanyl lozenge 800 mcg at 1430, 2 grams of TXA administered at 1435 wrapped in a hydrofoam event packet. Evac category virgin. Sent by corporal Jones with SAM at 1090 at last call 3319.
+MIST report one casualty 3 November 2026 battle roster Juliet Sierra 4417 male Army 1 Yorks time of wounding 1420 mechanism IED strike on a dismounted foot patrol injuries traumatic amputation of the left leg below the knee heavy bleeding from the wound to the right thigh signs 1428 radio pulse 108 BP 92/58 resps 26 sats 94 response to voice pain 9/10 treatment CAT tourniquet left leg at 1420 second CAT on the right thigh at 1425 right thigh wound packed with QuikClot at 1430 fentanyl lozenge 800 mcg at 1432 2 grams of TXA IV push at 1435 wrapped in a hypothermia prevention kit evac category urgent sent by corporal Jones with SAM at T0 at last four 3319

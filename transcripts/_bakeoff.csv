@@ -1,3 +1,4 @@
 model,hard_files_numbers,other_files_numbers,all_numbers,vitals,times,doses,ids,names,drugs_kit,cost_per_audio_hour,median_s_per_file,errors
-elevenlabs/scribe-v2-medical,0.851,0.944,0.924,0.963,0.868,0.947,0.844,0.882,0.879,$0.22,3.9,0
+elevenlabs/scribe-v2-medical+keyterms,0.860,0.948,0.929,0.967,0.874,0.947,0.857,0.909,0.914,$0.27,4.7,0
+elevenlabs/scribe-v2-medical,0.860,0.946,0.928,0.971,0.868,0.947,0.844,0.882,0.879,$0.22,3.9,0
 local__parakeet,0.521,0.874,0.799,0.867,0.642,0.842,0.753,0.745,0.690,free (local),-,0

@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "date": [
+   "02-NOV-26",
+   "2 November 2026"
+  ],
+  "name": [
+   "Ward, Josh",
+   "Corporal Ward, Josh"
+  ],
+  "gender_m": [
+   true,
+   "Male"
+  ],
+  "last4": [
+   "3141",
+   "three one four one"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "1 Lancs",
+   "One Lancs"
+  ],
+  "mechanism_gsw": [
+   true,
+   "GSW"
+  ],
+  "time": [
+   "0850",
+   "0850"
+  ],
+  "signs_1_time": [
+   "0855",
+   "0855"
+  ],
+  "signs_1_resp_rate": [
+   28,
+   "Respis 28"
+  ],
+  "signs_1_pulse": [
+   "132 radial",
+   "Pulse is 132 radial"
+  ],
+  "signs_1_bp_systolic": [
+   96,
+   "96"
+  ],
+  "signs_1_bp_diastolic": [
+   62,
+   "62"
+  ],
+  "signs_1_spo2": [
+   94,
+   "Sats 94"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "Response to voice"
+  ],
+  "signs_1_pain": [
+   "9 Excruciating",
+   "Pain 9"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Hemostatic gauze packed"
+  ],
+  "dressing_pressure": [
+   true,
+   "Pressure dressing over"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA-4"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "Two grams"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "TXA-4"
+  ],
+  "other_med_1_time": [
+   "0900",
+   "0900"
+  ],
+  "signs_2_time": [
+   "0910",
+   "09.10"
+  ],
+  "signs_2_pulse": [
+   "118 radial",
+   "Pulse 118 radial"
+  ],
+  "signs_2_bp_systolic": [
+   104,
+   "104"
+  ],
+  "signs_2_bp_diastolic": [
+   68,
+   "68"
+  ],
+  "signs_2_resp_rate": [
+   24,
+   "Respis 24"
+  ],
+  "signs_2_spo2": [
+   96,
+   "Sats 96"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "Alert"
+  ],
+  "evac_urgent": [
+   true,
+   "urgent"
+  ],
+  "first_responder_name": [
+   "Firth, Nina",
+   "Corporal Firth Nina"
+  ],
+  "first_responder_last4": [
+   "9226",
+   "nine two two six"
+  ]
+ },
+ "notes": "Injuries: left buttock: GSW",
+ "flags": []
+}

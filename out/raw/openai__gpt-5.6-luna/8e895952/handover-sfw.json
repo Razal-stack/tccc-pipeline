@@ -1,0 +1,104 @@
+{
+ "fields": {
+  "name": [
+   "Collins, Dan",
+   "Private Collins, Dan"
+  ],
+  "last4": [
+   "2771",
+   "last 427712"
+  ],
+  "unit": [
+   "2 Para",
+   "427712 Para"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_gsw": [
+   true,
+   "GSW"
+  ],
+  "time": [
+   "0515",
+   "No, 0515"
+  ],
+  "tq_extremity": [
+   true,
+   "Cat right leg"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "Cat right leg"
+  ],
+  "tq_right_leg_time": [
+   "0518",
+   "at 0518"
+  ],
+  "signs_1_time": [
+   "0522",
+   "OBs at 0522"
+  ],
+  "signs_1_pulse": [
+   "112",
+   "Pulse 112"
+  ],
+  "signs_1_bp_systolic": [
+   "118",
+   "BP 118"
+  ],
+  "signs_1_bp_diastolic": [
+   "76",
+   "over 76"
+  ],
+  "signs_1_resp_rate": [
+   "22",
+   "Resp is 22"
+  ],
+  "signs_1_spo2": [
+   "97",
+   "Sats 97"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "pain 8"
+  ],
+  "evac_priority": [
+   true,
+   "Priority"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "ketamine"
+  ],
+  "analgesic_1_dose": [
+   "50 mg",
+   "50 mg"
+  ],
+  "analgesic_1_route": [
+   "IM",
+   "IM"
+  ],
+  "analgesic_1_time": [
+   "0525",
+   "at 0525"
+  ],
+  "first_responder_name": [
+   "Wade, Sam",
+   "Lance Corporal Wade, Sam"
+  ],
+  "first_responder_last4": [
+   "8841",
+   "last 48841"
+  ]
+ },
+ "notes": "Injuries: left knee: GSW; right thigh: GSW, through and through",
+ "flags": [
+  "Verify casualty last four: transcript appears to merge the last four with the unit designation."
+ ]
+}

@@ -1,0 +1,149 @@
+{
+ "fields": {
+  "date": [
+   "30-OCT-26",
+   "30 October 2026"
+  ],
+  "name": [
+   "Shaw, Ben",
+   "gunner Shaw, Ben"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "last4": [
+   "1505",
+   "last 4 1505"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "4 Regiment Royal Artillery",
+   "4th Regiment Royal Artillery"
+  ],
+  "mechanism_blunt": [
+   true,
+   "hit by a reversing Mastiff"
+  ],
+  "splint": [
+   true,
+   "pelvic binder on"
+  ],
+  "signs_1_time": [
+   "0348",
+   "at 0348"
+  ],
+  "signs_1_pulse": [
+   "130 radial",
+   "radial pulse 130"
+  ],
+  "signs_1_bp_systolic": [
+   "88",
+   "BP 88"
+  ],
+  "signs_1_bp_diastolic": [
+   "54",
+   "54"
+  ],
+  "signs_1_resp_rate": [
+   "26",
+   "resp 26"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "sats 96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "0 None",
+   "pain none"
+  ],
+  "signs_2_time": [
+   "0450",
+   "at 0450"
+  ],
+  "signs_2_pulse": [
+   "116 radial",
+   "radial pulse 116"
+  ],
+  "signs_2_bp_systolic": [
+   "98",
+   "BP 98"
+  ],
+  "signs_2_bp_diastolic": [
+   "62",
+   "62"
+  ],
+  "signs_2_resp_rate": [
+   "22",
+   "resp 22"
+  ],
+  "signs_2_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_2_pain": [
+   "6 Intense",
+   "pain 6"
+  ],
+  "evac_urgent": [
+   true,
+   "Cat A"
+  ],
+  "evac_priority": [
+   true,
+   "T1"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "fentanyl"
+  ],
+  "analgesic_1_dose": [
+   "800 mcg",
+   "800 mcg"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "lozenge"
+  ],
+  "analgesic_1_time": [
+   "0350",
+   "at 03.50"
+  ],
+  "blood_1_name": [
+   "whole blood",
+   "one unit of whole blood"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "one unit"
+  ],
+  "blood_1_time": [
+   "0405",
+   "at 0405"
+  ],
+  "first_responder_name": [
+   "Lyle, Owen",
+   "Bombardier Lyle, Owen"
+  ],
+  "first_responder_last4": [
+   "6052",
+   "last 4 6052"
+  ]
+ },
+ "notes": "Injuries: pelvis: crushed pelvis, unstable when gently pressed; pelvic binder on. Mechanism occurred on the gun line. Blood route not stated.",
+ "flags": [
+  "Time of injury transcribed as malformed 03240; verify intended four-digit time.",
+  "Confirm whole blood administration route."
+ ]
+}

@@ -1,0 +1,114 @@
+{
+ "fields": {
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_artillery": [
+   true,
+   "mortar round hit it"
+  ],
+  "mechanism_blunt": [
+   true,
+   "trapped under rubble"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "splint": [
+   true,
+   "Splinted both legs"
+  ],
+  "hypothermia_prevention": [
+   true,
+   "HPMK"
+  ],
+  "name": [
+   "Wright",
+   "Corporal Wright"
+  ],
+  "last4": [
+   "6604",
+   "last four six six zero four"
+  ],
+  "date": [
+   "05-NOV-26",
+   "5 November 2026"
+  ],
+  "time": [
+   "0530",
+   "about 0530"
+  ],
+  "service": [
+   "Army",
+   "1 Royal Irish"
+  ],
+  "unit": [
+   "1 Royal Irish",
+   "1 Royal Irish"
+  ],
+  "signs_1_time": [
+   "0550",
+   "OBS at 0550"
+  ],
+  "signs_1_pulse": [
+   "116 radial",
+   "pulse 116 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "108",
+   "BP 108 over 70"
+  ],
+  "signs_1_bp_diastolic": [
+   "70",
+   "BP 108 over 70"
+  ],
+  "signs_1_resp_rate": [
+   "22",
+   "resps 22"
+  ],
+  "signs_1_spo2": [
+   "95",
+   "sats 95"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "responds to voice"
+  ],
+  "signs_1_pain": [
+   "9 Excruciating",
+   "Pain, uh, nine"
+  ],
+  "analgesic_1_name": [
+   "morphine",
+   "Morphine"
+  ],
+  "analgesic_1_dose": [
+   "10 mg",
+   "10 mg"
+  ],
+  "analgesic_1_route": [
+   "IM",
+   "IM"
+  ],
+  "analgesic_1_time": [
+   "0558",
+   "at 0558"
+  ],
+  "hypothermia_prevention_type": [
+   "HPMK",
+   "HPMK"
+  ],
+  "first_responder_name": [
+   "Hogan",
+   "Lance Corporal Hogan"
+  ],
+  "first_responder_last4": [
+   "4772",
+   "last four four seven seven two"
+  ]
+ },
+ "notes": "Injuries: both legs: crushed; left leg: badly deformed; mechanism: mortar round hit building, trapped under rubble for 20 minutes; no significant bleeding; splinted both legs; HPMK applied; care by Lance Corporal Hogan, CRA.",
+ "flags": []
+}

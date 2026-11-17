@@ -51,7 +51,7 @@
  "tq_left_arm_type": "",
  "tq_left_arm_time": "",
  "tq_right_leg_type": "CAT",
- "tq_right_leg_time": "1102",
+ "tq_right_leg_time": "1106",
  "tq_left_leg_type": "",
  "tq_left_leg_time": "",
  "signs_1_time": "1115",
@@ -135,14 +135,14 @@
  "other_med_2_route": "",
  "other_med_2_time": "",
  "hypothermia_prevention_type": "",
- "first_responder_name": "Owen, Rhys",
+ "first_responder_name": "Rhys, Owen",
  "first_responder_last4": "9044",
- "notes": "Injuries: right leg: right foot traumatic amputation, mangled up to mid-shin; second CAT applied to right leg at 1106; BP unrecordable and radial pulse absent at 1115",
+ "notes": "Injuries: right foot to mid-shin: traumatic amputation and mangled; first right leg CAT applied high and tight at 1102; BP not recordable at 1115; no radial pulse",
  "injury_boxes": [
-  "Ant_Right_Knee",
+  "Ant_Right_Distal_Lateral_Lower_Leg",
+  "Ant_Right_Distal_Medial_Lower_Leg",
+  "Ant_Right_Foot",
   "Ant_Right_Middle_Lateral_Lower_Leg",
-  "Ant_Right_Middle_Lateral_Thigh",
-  "Ant_Right_Middle_Medial_Lower_Leg",
-  "Ant_Right_Middle_Medial_Thigh"
+  "Ant_Right_Middle_Medial_Lower_Leg"
  ]
 }

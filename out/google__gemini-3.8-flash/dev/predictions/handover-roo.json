@@ -20,7 +20,7 @@
  "tq_junctional": false,
  "tq_truncal": false,
  "dressing_hemostatic": true,
- "dressing_pressure": false,
+ "dressing_pressure": true,
  "dressing_other": false,
  "airway_intact": false,
  "airway_npa": false,
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "Doyle, Mia",
  "first_responder_last4": "3915",
- "notes": "Injuries: left side of the neck: GSW, no exit wound; manual pressure held",
+ "notes": "Injuries: left side of the neck: GSW, no exit wound",
  "injury_boxes": [
   "AnteriorNeck"
  ]

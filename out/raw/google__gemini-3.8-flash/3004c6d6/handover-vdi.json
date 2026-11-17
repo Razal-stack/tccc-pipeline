@@ -1,0 +1,21 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Cat A"
+  ],
+  "tq_extremity": [
+   true,
+   "left leg tourniquet"
+  ],
+  "tq_left_leg_time": [
+   "1715",
+   "1715"
+  ]
+ },
+ "notes": "Injuries: left leg: tourniquet applied; MIST transmission incomplete, vitals not received",
+ "flags": [
+  "Handover cut off before vital signs received",
+  "Tourniquet type not specified"
+ ]
+}

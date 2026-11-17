@@ -1,0 +1,106 @@
+{
+ "fields": {
+  "name": [
+   "Murphy, Aoi",
+   "Murphy, Aoi"
+  ],
+  "gender_f": [
+   true,
+   "Female"
+  ],
+  "last4": [
+   "7258",
+   "seven two five eight"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "1 Regiment RMP",
+   "One Regiment RMP"
+  ],
+  "mechanism_mvc": [
+   true,
+   "MVC"
+  ],
+  "time": [
+   "2310",
+   "2310"
+  ],
+  "date": [
+   "31-OCT-26",
+   "31 October 2026"
+  ],
+  "signs_1_time": [
+   "2320",
+   "2320"
+  ],
+  "signs_1_pulse": [
+   "108 radial",
+   "radial pulse 108"
+  ],
+  "signs_1_bp_systolic": [
+   "122",
+   "122"
+  ],
+  "signs_1_bp_diastolic": [
+   "74",
+   "74"
+  ],
+  "signs_1_resp_rate": [
+   "20",
+   "20"
+  ],
+  "signs_1_spo2": [
+   "97",
+   "97"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "9 Excruciating",
+   "pain nine"
+  ],
+  "splint": [
+   true,
+   "Traction splint"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressing"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "ketamine"
+  ],
+  "analgesic_1_dose": [
+   "20 mg",
+   "correction 20 mg"
+  ],
+  "analgesic_1_route": [
+   "IV",
+   "IV"
+  ],
+  "analgesic_1_time": [
+   "2325",
+   "2325"
+  ],
+  "evac_priority": [
+   true,
+   "EVAC priority"
+  ],
+  "first_responder_name": [
+   "Ahmed, Zayn",
+   "Ahmed Zayn"
+  ],
+  "first_responder_last4": [
+   "1944",
+   "one nine four four"
+  ]
+ },
+ "notes": "Injuries: right femur: suspected fracture; right forearm: laceration",
+ "flags": []
+}

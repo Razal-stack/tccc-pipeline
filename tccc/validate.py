@@ -3,7 +3,9 @@
 Checks: known field, format (times, doses, dropdown labels), plausible range, and evidence: the quoted words
 must be in the transcript and the value's digits must appear in it. Derived: tq_extremity, injury boxes.
 """
+import json
 import re
+from pathlib import Path
 
 from .extract import AVPU, BOOLS, PAIN, ROUTES, TEXTS
 from .injury import boxes_from_notes
@@ -11,6 +13,7 @@ from .textnorm import spoken_to_digits, squash
 
 RANGES = {"pulse": (20, 250), "bp_systolic": (40, 260), "bp_diastolic": (20, 160), "resp_rate": (2, 70),
           "spo2": (50, 100)}
+BOXES = set(json.loads((Path(__file__).resolve().parent.parent / "data" / "field_map.json").read_text())["injury_boxes"])
 LIMB_TQ = ("tq_right_arm_", "tq_left_arm_", "tq_right_leg_", "tq_left_leg_")
 
 
@@ -83,5 +86,18 @@ def to_card(file, reply, transcript):
     if any(card[p + k] for p in LIMB_TQ for k in ("type", "time")):
         card["tq_extremity"] = True
     card["notes"] = str(reply.get("notes") or "").strip()
-    card["injury_boxes"] = boxes_from_notes(card["notes"])
+    card["injury_boxes"] = sorted(boxes_from_notes(card["notes"]))
     return card, flags
+
+
+def check_card(card):
+    """Schema check before the PDF is written: every field, right type, valid dropdown and box names."""
+    problems = [f"missing {f}" for f in BOOLS + TEXTS if f not in card]
+    problems += [f"{f} not true/false" for f in BOOLS if not isinstance(card.get(f), bool)]
+    problems += [f"{f} not text" for f in TEXTS if not isinstance(card.get(f), str)]
+    for f in TEXTS:
+        v = card.get(f)
+        if v and (f.endswith(("_time", "_avpu", "_pain", "_route")) or f == "time") and clean(f, v) != v:
+            problems.append(f"{f} '{v}' not in card format")
+    problems += [f"unknown body box {b}" for b in card.get("injury_boxes", []) if b not in BOXES]
+    return problems

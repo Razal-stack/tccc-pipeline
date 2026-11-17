@@ -1,0 +1,148 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Urgent urgent"
+  ],
+  "tq_extremity": [
+   true,
+   "two tourniquets both legs"
+  ],
+  "tq_left_leg_type": [
+   "CAT",
+   "CATs"
+  ],
+  "tq_left_leg_time": [
+   "0931",
+   "09:31"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "CATs"
+  ],
+  "tq_right_leg_time": [
+   "0933",
+   "09:33"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED"
+  ],
+  "time": [
+   "0930",
+   "09:30"
+  ],
+  "signs_1_time": [
+   "0940",
+   "09:40"
+  ],
+  "signs_1_pulse": [
+   "120 radial",
+   "120 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "100",
+   "100"
+  ],
+  "signs_1_bp_diastolic": [
+   "60",
+   "60"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "24"
+  ],
+  "signs_1_spo2": [
+   "95",
+   "95"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "responds to voice"
+  ],
+  "signs_2_time": [
+   "0950",
+   "09:50"
+  ],
+  "signs_2_pulse": [
+   "138 radial",
+   "138 and the radial's"
+  ],
+  "signs_2_bp_systolic": [
+   "82",
+   "82"
+  ],
+  "signs_2_bp_diastolic": [
+   "50",
+   "50"
+  ],
+  "signs_2_resp_rate": [
+   "30",
+   "30"
+  ],
+  "signs_2_spo2": [
+   "93",
+   "93"
+  ],
+  "gender_m": [
+   true,
+   "he's"
+  ],
+  "signs_2_avpu": [
+   "P - Pain",
+   "responding to pain"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 g"
+  ],
+  "other_med_1_route": [
+   "IO",
+   "IO"
+  ],
+  "other_med_1_time": [
+   "0945",
+   "09:45"
+  ],
+  "blood_1_name": [
+   "whole blood",
+   "whole blood"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "1 unit"
+  ],
+  "blood_1_route": [
+   "IO",
+   "IO"
+  ],
+  "blood_1_time": [
+   "0952",
+   "09:52"
+  ],
+  "battle_roster": [
+   "RE88206",
+   "Romeo Echo 88206"
+  ],
+  "date": [
+   "31-OCT-26",
+   "31 October 2026"
+  ],
+  "first_responder_name": [
+   "Shaw, Leah",
+   "Shaw Leah"
+  ],
+  "first_responder_last4": [
+   "2660",
+   "2660"
+  ]
+ },
+ "notes": "Injuries: right leg below knee: traumatic amputation; left leg below knee: traumatic amputation; dismounted",
+ "flags": [
+  "Battle roster number has 5 digits (RE88206)"
+ ]
+}

@@ -1,0 +1,80 @@
+{
+ "fields": {
+  "gender_m": [
+   true,
+   "He's male"
+  ],
+  "name": [
+   "Taylor",
+   "Private Taylor"
+  ],
+  "unit": [
+   "2 Yorks",
+   "2 Yorks"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED pressure plate"
+  ],
+  "time": [
+   "1220",
+   "about 12:20"
+  ],
+  "tq_extremity": [
+   true,
+   "Tourniquet CAT"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "CAT"
+  ],
+  "tq_right_leg_time": [
+   "1235",
+   "12:35"
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "carotid of about 140"
+  ],
+  "signs_1_resp_rate": [
+   "30",
+   "about 30"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responding to pain"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams"
+  ],
+  "other_med_1_route": [
+   "IO",
+   "IO"
+  ],
+  "other_med_1_time": [
+   "1238",
+   "12:38"
+  ],
+  "evac_urgent": [
+   true,
+   "EVAC urgent"
+  ],
+  "first_responder_name": [
+   "Byrne, Tom",
+   "Byrne, Tom"
+  ],
+  "first_responder_last4": [
+   "1662",
+   "1662"
+  ]
+ },
+ "notes": "Injuries: right leg: traumatic amputation above knee; initial CAT applied right leg ~1230",
+ "flags": [
+  "Casualty last 4 given as 5 digits (59033)"
+ ]
+}

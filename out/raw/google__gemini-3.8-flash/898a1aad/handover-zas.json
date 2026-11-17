@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "tq_junctional": [
+   true,
+   "Sam junctional tourniquet on the right groin"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Wound packed with Celox"
+  ],
+  "mechanism_artillery": [
+   true,
+   "indirect fire artillery"
+  ],
+  "time": [
+   "0740",
+   "0740"
+  ],
+  "signs_1_time": [
+   "0750",
+   "0750"
+  ],
+  "signs_1_pulse": [
+   "132 radial",
+   "Pulse 132 radial"
+  ],
+  "signs_1_bp_systolic": [
+   84,
+   "84"
+  ],
+  "signs_1_bp_diastolic": [
+   50,
+   "50"
+  ],
+  "signs_1_resp_rate": [
+   28,
+   "28"
+  ],
+  "signs_1_spo2": [
+   95,
+   "95"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "Responds to voice"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "Pain 8"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "Two grams"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "IV"
+  ],
+  "other_med_1_time": [
+   "0750",
+   "0750"
+  ],
+  "blood_1_name": [
+   "freeze-dried plasma",
+   "freeze-dried plasma"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "one unit"
+  ],
+  "blood_1_route": [
+   "IV",
+   "IV"
+  ],
+  "blood_1_time": [
+   "0800",
+   "0800"
+  ],
+  "signs_2_time": [
+   "0810",
+   "0810"
+  ],
+  "signs_2_pulse": [
+   "118 radial",
+   "Pulse 118 radial"
+  ],
+  "signs_2_bp_systolic": [
+   96,
+   "96"
+  ],
+  "signs_2_bp_diastolic": [
+   60,
+   "60"
+  ],
+  "signs_2_resp_rate": [
+   24,
+   "24"
+  ],
+  "signs_2_spo2": [
+   96,
+   "96"
+  ],
+  "signs_2_avpu": [
+   "V - Verbal",
+   "Still responds to voice"
+  ],
+  "battle_roster": [
+   "CD1975",
+   "Charlie Delta 1975"
+  ],
+  "gender_f": [
+   true,
+   "Female"
+  ],
+  "service": [
+   "RAF",
+   "RAF"
+  ],
+  "unit": [
+   "2 Squadron RAF Regiment",
+   "Two Squadron RAF Regiment"
+  ]
+ },
+ "notes": "Injuries: right groin: shrapnel wound; SAM junctional tourniquet applied to right groin at 0748",
+ "flags": []
+}

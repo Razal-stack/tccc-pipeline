@@ -1,0 +1,102 @@
+{
+ "fields": {
+  "time": [
+   "1330",
+   "13:30"
+  ],
+  "date": [
+   "02-NOV-26",
+   "2nd November 2026"
+  ],
+  "mechanism_grenade": [
+   true,
+   "grenade"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressings"
+  ],
+  "eye_shield": [
+   true,
+   "eye shield"
+  ],
+  "eye_shield_left": [
+   true,
+   "eye shield on the left eye"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "fentanyl lozenge"
+  ],
+  "analgesic_1_dose": [
+   "800 mcg",
+   "800 mcg"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "lozenge"
+  ],
+  "analgesic_1_time": [
+   "1340",
+   "13:40"
+  ],
+  "name": [
+   "Brown, Tom",
+   "Brown, Tom"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "last4": [
+   "8021",
+   "8021"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "3 Para",
+   "3 Para"
+  ],
+  "signs_1_time": [
+   "1345",
+   "13:45"
+  ],
+  "signs_1_pulse": [
+   "110 radial",
+   "radial pulse 110"
+  ],
+  "signs_1_bp_systolic": [
+   "120",
+   "120"
+  ],
+  "signs_1_bp_diastolic": [
+   "70",
+   "70"
+  ],
+  "signs_1_resp_rate": [
+   "22",
+   "RR 22"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "sats 96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "7 Very Intense",
+   "pain 7"
+  ],
+  "evac_priority": [
+   true,
+   "EVAC priority"
+  ]
+ },
+ "notes": "Injuries: left forearm: fragmentation wound; left flank: fragmentation wound; left side of the face: fragmentation wound",
+ "flags": []
+}

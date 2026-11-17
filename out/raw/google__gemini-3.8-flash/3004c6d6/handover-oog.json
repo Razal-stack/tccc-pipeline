@@ -1,0 +1,136 @@
+{
+ "fields": {
+  "name": [
+   "Davies, Rhys",
+   "Lance Corporal Davies, Rhys"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "last4": [
+   "2906",
+   "last four 2906"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "2 Platoon, B Company",
+   "2 Platoon, B Company"
+  ],
+  "allergies": [
+   "NKA",
+   "No known allergies"
+  ],
+  "time": [
+   "0905",
+   "0905"
+  ],
+  "mechanism_gsw": [
+   true,
+   "gunshot wound"
+  ],
+  "airway_npa": [
+   true,
+   "NPA in"
+  ],
+  "breathing_chest_seal": [
+   true,
+   "vented chest seals"
+  ],
+  "breathing_needle_d": [
+   true,
+   "needle decompression right chest"
+  ],
+  "breathing_o2": [
+   true,
+   "oxygen on"
+  ],
+  "antibiotic_1_name": [
+   "ertapenem",
+   "ertapenem"
+  ],
+  "antibiotic_1_dose": [
+   "1 g",
+   "1 gram"
+  ],
+  "antibiotic_1_route": [
+   "IV",
+   "IV"
+  ],
+  "antibiotic_1_time": [
+   "0925",
+   "0925"
+  ],
+  "signs_1_time": [
+   "0910",
+   "0910"
+  ],
+  "signs_1_pulse": [
+   "118 radial",
+   "radial pulse 118"
+  ],
+  "signs_1_resp_rate": [
+   "30",
+   "resp is 30"
+  ],
+  "signs_1_spo2": [
+   "88",
+   "sats 88"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "7 Very Intense",
+   "pain 7 out of 10"
+  ],
+  "signs_2_time": [
+   "0915",
+   "0915"
+  ],
+  "signs_2_pulse": [
+   "106 radial",
+   "radial pulse 106"
+  ],
+  "signs_2_bp_systolic": [
+   "110",
+   "110"
+  ],
+  "signs_2_bp_diastolic": [
+   "70",
+   "70"
+  ],
+  "signs_2_resp_rate": [
+   "24",
+   "resp is 24"
+  ],
+  "signs_2_spo2": [
+   "95",
+   "sats 95"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "evac_urgent": [
+   true,
+   "EVAC urgent"
+  ],
+  "first_responder_name": [
+   "Nash, Kieran",
+   "Corporal Nash, Kieran"
+  ],
+  "first_responder_last4": [
+   "5019",
+   "last four 5019"
+  ]
+ },
+ "notes": "Injuries: right upper chest: single GSW; right upper back: exit wound; needle decompression right chest at 0912",
+ "flags": [
+  "Date incomplete (day omitted)"
+ ]
+}

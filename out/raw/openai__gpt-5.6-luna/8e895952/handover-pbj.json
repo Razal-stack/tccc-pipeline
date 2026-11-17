@@ -1,0 +1,30 @@
+{
+ "fields": {
+  "analgesic_1_name": [
+   "fentanyl",
+   "Fentanyl lollipop"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "Fentanyl lollipop"
+  ],
+  "antibiotic_1_name": [
+   "moxie",
+   "Moxie"
+  ],
+  "antibiotic_1_route": [
+   "PO",
+   "by mouth"
+  ],
+  "antibiotic_1_dose": [
+   "400 mg",
+   "Moxie 400"
+  ]
+ },
+ "notes": "TXL is garbled/uncertain; two doses of 1 gram reported at 0900 and 0920, not entered. Fentanyl dose not stated. Moxie dose unit not stated; recorded as 400 mg only if interpreted as milligrams.",
+ "flags": [
+  "Verify TXL drug identity and route before documenting",
+  "Verify Moxie drug identity and whether 400 was mg",
+  "Confirm fentanyl dose"
+ ]
+}

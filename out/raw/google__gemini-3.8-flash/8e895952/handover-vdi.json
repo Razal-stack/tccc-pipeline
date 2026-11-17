@@ -1,0 +1,18 @@
+{
+ "fields": {
+  "tq_extremity": [
+   true,
+   "Left leg tourniquet"
+  ],
+  "tq_left_leg_time": [
+   "1115",
+   "1115"
+  ]
+ },
+ "notes": "TQ left leg at 1115; transmission broken/cut off; garbled speech at start",
+ "flags": [
+  "Garbled transmission ('1 tablet IV arm air pocket of tube')",
+  "Evac category incomplete/not transmitted",
+  "Handover incomplete"
+ ]
+}

@@ -1,0 +1,86 @@
+{
+ "fields": {
+  "name": [
+   "Bell, Adam",
+   "Corporal Bell, Adam"
+  ],
+  "service": [
+   "Royal Marines",
+   "Royal Marines"
+  ],
+  "unit": [
+   "45 Commando",
+   "45 commander"
+  ],
+  "time": [
+   "0620",
+   "0620"
+  ],
+  "last4": [
+   "0061",
+   "0061"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_gsw": [
+   true,
+   "GSW right chest"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressing over the wound"
+  ],
+  "breathing_needle_d": [
+   true,
+   "Needle decompression right side"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "signs_1_time": [
+   "0625",
+   "0625"
+  ],
+  "signs_1_pulse": [
+   "128 radial",
+   "pulse 128 radial"
+  ],
+  "signs_1_resp_rate": [
+   "34",
+   "Resps 34"
+  ],
+  "signs_1_spo2": [
+   "86",
+   "sats 86"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "responds to voice"
+  ],
+  "signs_2_time": [
+   "0640",
+   "0640"
+  ],
+  "signs_2_pulse": [
+   "118 radial",
+   "pulse 118 radial"
+  ],
+  "signs_2_resp_rate": [
+   "26",
+   "Resps 26"
+  ],
+  "signs_2_spo2": [
+   "92",
+   "sats 92"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert now"
+  ]
+ },
+ "notes": "Injuries: right chest: GSW; needle decompression right side at 0630; chest seal ran out, pressure dressing applied; BP not taken",
+ "flags": []
+}

@@ -1,7 +1,7 @@
 # handover-jql
 
 ## Check these
-- First responder last 4 truncated or unclear (heard '222')
+- First responder last 4 interrupted by static
 
 ## Card
 - evac_priority: True
@@ -25,7 +25,7 @@
 - signs_1_spo2: 97
 - signs_1_avpu: A - Alert
 - signs_1_pain: 6 Intense
-- dressing_type: burns dressing
+- dressing_type: burns dressings
 - fluid_1_name: Hartmann's
 - fluid_1_volume: 1 L
 - fluid_1_route: IV
@@ -34,8 +34,9 @@
 - analgesic_1_dose: 20 mg
 - analgesic_1_route: IV
 - analgesic_1_time: 1658
+- hypothermia_prevention_type: blizzard blanket
 - first_responder_name: Kelly, Dan
-- notes: Injuries: face: burns; both hands: burns; right eye: penetrating injury; roughly 18% TBSA burns
+- notes: Injuries: face: burns roughly 18%; both hands: burns roughly 18%; right eye: penetrating injury
 
 ## Transcript
-Mist report. Battle roster Mike Tango 7703. Male vehicle commander, Army Queen's Royal Hussars. Time of injury 16:40. Mechanism RPG strike on the vehicle with fire. Injuries burns to the face and both hands roughly 18% and a penetrating injury to the right eye. Signs at 16:50 radial pulse 104, BP 128 over 80, resp 22, sats 97, alert pain 6. Treatment rigid eye shield over the right eye, burns dressings to the hands, combat pill pack given, 1 liter of Hartman's IV at 16:55, ketamine 20 mg IV at 16:58, blizzard blanket on. Evac priority treated by Lance Corporal Kelly Dan last 4 222 end static 5.
+MIST report battle roster Mike Tango 7703 male vehicle commander Army Queen's Royal Hussars time of injury 1640 mechanism RPG strike on the vehicle with fire injuries burns to the face and both hands roughly 18% and a penetrating injury to the right eye signs at 1650 radial pulse 104 BP 128 over 80 resp 22 sats 97 alert pain 6 treatment rigid eye shield over the right eye burns dressings to the hands combat pill pack given 1 liter Hartmann's IV at 1655 ketamine 20 mg IV at 1658 blizzard blanket on EVAC priority treated by Lance Corporal Kelly Dan last four 222 and static 5

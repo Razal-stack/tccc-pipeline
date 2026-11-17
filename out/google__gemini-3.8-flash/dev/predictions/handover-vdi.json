@@ -1,6 +1,6 @@
 {
  "file": "handover-vdi.wav",
- "evac_urgent": false,
+ "evac_urgent": true,
  "evac_priority": false,
  "evac_routine": false,
  "gender_m": false,
@@ -53,7 +53,7 @@
  "tq_right_leg_type": "",
  "tq_right_leg_time": "",
  "tq_left_leg_type": "",
- "tq_left_leg_time": "1115",
+ "tq_left_leg_time": "1715",
  "signs_1_time": "",
  "signs_1_pulse": "",
  "signs_1_bp_systolic": "",
@@ -137,6 +137,6 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Left leg tourniquet applied; garbled transmission: 'tablet IV arm air pocket of tube'; evac category requested but not provided",
+ "notes": "",
  "injury_boxes": []
 }

@@ -1,0 +1,128 @@
+{
+ "fields": {
+  "battle_roster": [
+   "JS4417",
+   "Juliet Sierra 4417"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "date": [
+   "03-NOV-26",
+   "3 November 2026"
+  ],
+  "time": [
+   "1420",
+   "1420"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED"
+  ],
+  "signs_1_time": [
+   "1428",
+   "1428"
+  ],
+  "signs_1_pulse": [
+   "128 radial",
+   "radio pulse 128"
+  ],
+  "signs_1_bp_systolic": [
+   "92",
+   "92"
+  ],
+  "signs_1_bp_diastolic": [
+   "58",
+   "58"
+  ],
+  "signs_1_resp_rate": [
+   "26",
+   "respS 26"
+  ],
+  "signs_1_spo2": [
+   "94",
+   "sats 94"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "Response to voice"
+  ],
+  "tq_extremity": [
+   true,
+   "tourniquet left leg"
+  ],
+  "tq_left_leg_time": [
+   "1420",
+   "1420"
+  ],
+  "tq_right_leg_time": [
+   "1425",
+   "1425"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "wound packed with QuikClot"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "fentanyl lozenge"
+  ],
+  "analgesic_1_dose": [
+   "800 mcg",
+   "800 mcg"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "fentanyl lozenge"
+  ],
+  "analgesic_1_time": [
+   "1430",
+   "1430"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams"
+  ],
+  "other_med_1_time": [
+   "1435",
+   "1435"
+  ],
+  "hypothermia_prevention": [
+   true,
+   "wrapped in a hydrofoam event packet"
+  ],
+  "hypothermia_prevention_type": [
+   "hydrofoam event packet",
+   "hydrofoam event packet"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac category virgin"
+  ],
+  "first_responder_name": [
+   "Jones",
+   "corporal Jones"
+  ],
+  "first_responder_last4": [
+   "3319",
+   "last call 3319"
+  ]
+ },
+ "notes": "Injuries: left leg: traumatic amputation below the knee; right thigh: heavy bleeding from wound; wound packed with QuikClot at 1430",
+ "flags": [
+  "Unclear unit transcribed as 'one unit'",
+  "Evac category transcribed as 'virgin', interpreted as urgent",
+  "TXA route not stated",
+  "Hypothermia kit transcribed as 'hydrofoam event packet' (possible HPMK)",
+  "First responder last 4 transcribed as 'last call 3319'"
+ ]
+}

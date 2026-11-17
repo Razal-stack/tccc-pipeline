@@ -50,7 +50,7 @@ def locations(notes: str) -> list[str]:
     if not notes or "Injuries:" not in notes:
         return []
     segs = notes.split("Injuries:", 1)[1].split(";")
-    return [s.split(":", 1)[0].strip().lower() for s in segs if ":" in s]
+    return [" ".join(w for w in s.split(":", 1)[0].lower().split() if w != "the") for s in segs if ":" in s]
 
 
 def boxes_for(loc: str) -> set[str]:

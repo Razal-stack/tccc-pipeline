@@ -1,0 +1,13 @@
+{
+ "fields": {
+  "signs_1_spo2": [
+   "95%",
+   "Sachs 95"
+  ]
+ },
+ "notes": "Spoken time 0405 (unclear if time of injury or observations); '36 for 22' garbled",
+ "flags": [
+  "Unclear whether 0405 refers to time of wounding or vital signs",
+  "Garbled transmission '36 for 22' unassigned"
+ ]
+}

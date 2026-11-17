@@ -28,7 +28,7 @@
 - analgesic_1_time: 0835
 - first_responder_name: Hall, Chris
 - first_responder_last4: 4409
-- notes: Injuries: face: massive facial injuries; both legs: fragment wounds; surgical cric at 0828; pressure dressing to left leg only (right leg not bleeding); resps assisted
+- notes: Injuries: face: massive facial injuries; both legs: fragment wounds; surgical cric at 0828; pressure dressing to left leg only; resps assisted
 
 ## Transcript
-Urgent IED 0820 1 November 2026. Casualties Corporal Evans male One Royal Welsh. Massive facial injuries couldn't keep the airway open so surgical cric at 0828. Also fragment wounds to both legs pressure dressings on both. Scrap that dressing on the left leg only the right's not bleeding. Evans last four 1-1-7-6. Oxygen on through the cric obs at 0838 radial pulse 124 sats 92 after the cric resps 24 assisted. Ketamine 50 mg IV at 0835. BP 100/64 responds to pain. Sent by Lance Corporal Hall Chris medic last four 4409.
+urgent IED 0820 1 November 2026 casualties Corporal Evans male One Royal Welsh massive facial injuries couldn't keep the airway open so surgical cric at 0828 also fragment wounds to both legs pressure dressings on both scrap that dressing on the left leg only the right's not bleeding Evans last four 1-1-7-6 oxygen on through the cric obs at 0838 radial pulse 124 sats 92 after the cric resps 24 assisted ketamine 50 mg IV at 0835 BP 100/64 responds to pain sent by Lance Corporal Hall Chris medic last four 4409

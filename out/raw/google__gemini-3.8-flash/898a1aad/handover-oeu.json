@@ -1,0 +1,85 @@
+{
+ "fields": {
+  "gender_f": [
+   true,
+   "Female casualty"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "name": [
+   "Hart, Ellie",
+   "Hart, Ellie"
+  ],
+  "last4": [
+   "5822",
+   "5822"
+  ],
+  "mechanism_ied": [
+   true,
+   "vehicle IED"
+  ],
+  "mechanism_burn": [
+   true,
+   "Burns to her right arm"
+  ],
+  "dressing_other": [
+   true,
+   "Clingfilm on the arm"
+  ],
+  "dressing_type": [
+   "clingfilm",
+   "Clingfilm"
+  ],
+  "signs_1_time": [
+   "1925",
+   "19:25"
+  ],
+  "signs_1_pulse": [
+   "100 radial",
+   "100, radial"
+  ],
+  "signs_1_bp_systolic": [
+   "128",
+   "128"
+  ],
+  "signs_1_bp_diastolic": [
+   "80",
+   "80"
+  ],
+  "signs_1_resp_rate": [
+   "20",
+   "20"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "98"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "Alert"
+  ],
+  "signs_1_pain": [
+   "4 Distressing",
+   "Pain 4"
+  ],
+  "evac_routine": [
+   true,
+   "Evac routine"
+  ],
+  "first_responder_name": [
+   "Lane, Becky",
+   "Lane, Becky"
+  ],
+  "first_responder_last4": [
+   "4088",
+   "4088"
+  ]
+ },
+ "notes": "Injuries: right arm: superficial burns; ears: ringing, probably burst eardrums; time of injury approx 20 minutes prior to 1930; unit suspected Signals Det",
+ "flags": [
+  "Casualty last4 stated with uncertainty (5822 I think)",
+  "Unit stated with uncertainty (I think she's from the Signals Det)"
+ ]
+}

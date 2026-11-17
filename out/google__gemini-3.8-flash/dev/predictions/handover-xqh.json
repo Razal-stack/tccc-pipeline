@@ -135,9 +135,9 @@
  "other_med_2_route": "",
  "other_med_2_time": "",
  "hypothermia_prevention_type": "",
- "first_responder_name": "Zayn, Ahmed",
+ "first_responder_name": "Ahmed, Zayn",
  "first_responder_last4": "1944",
- "notes": "Injuries: right femur: suspected fracture; right forearm: laceration; traction splint applied to right leg",
+ "notes": "Injuries: right femur: suspected fracture; right forearm: laceration",
  "injury_boxes": [
   "Ant_Right_Middle_Lateral_Forearm",
   "Ant_Right_Middle_Lateral_Thigh",

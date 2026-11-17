@@ -1,0 +1,54 @@
+{
+ "fields": {
+  "gender_m": [
+   true,
+   "Male casualty"
+  ],
+  "mechanism_fall": [
+   true,
+   "fell off the back of a truck"
+  ],
+  "time": [
+   "1205",
+   "1205"
+  ],
+  "signs_1_time": [
+   "1215",
+   "1215"
+  ],
+  "signs_1_pulse": [
+   "84 radial",
+   "radial pulse 84"
+  ],
+  "signs_1_bp_systolic": [
+   126,
+   "126"
+  ],
+  "signs_1_bp_diastolic": [
+   82,
+   "82"
+  ],
+  "signs_1_resp_rate": [
+   16,
+   "RR 16"
+  ],
+  "signs_1_spo2": [
+   99,
+   "sats 99"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "4 Distressing",
+   "pain 4"
+  ],
+  "evac_routine": [
+   true,
+   "evac routine"
+  ]
+ },
+ "notes": "Fell approximately 2 meters off the back of a truck",
+ "flags": []
+}

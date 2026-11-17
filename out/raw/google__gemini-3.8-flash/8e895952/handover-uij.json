@@ -1,0 +1,38 @@
+{
+ "fields": {
+  "name": [
+   "Singh, Priya",
+   "Singh Priya"
+  ],
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "last4": [
+   "1212",
+   "last 41212"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "2 Medical Regiment",
+   "2 Medical Regiment"
+  ],
+  "mechanism_fall": [
+   true,
+   "fell down the stairs"
+  ],
+  "date": [
+   "28-OCT-26",
+   "28th October 2026"
+  ],
+  "evac_routine": [
+   true,
+   "routine"
+  ]
+ },
+ "notes": "Injuries: left ankle: twisted; walking wounded",
+ "flags": []
+}
