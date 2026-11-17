@@ -2,22 +2,22 @@
  "cards": 25,
  "predicted": 25,
  "overall": {
-  "precision": 0.9582417582417583,
-  "recall": 0.8916155419222904,
-  "f1": 0.923728813559322,
+  "precision": 0.9583333333333334,
+  "recall": 0.8936605316973415,
+  "f1": 0.924867724867725,
   "blank_ok": 2934,
-  "correct": 436,
-  "missed": 36,
+  "correct": 437,
+  "missed": 35,
   "wrong": 17,
   "invented": 2
  },
  "critical": {
-  "precision": 0.9853479853479854,
-  "recall": 0.9405594405594405,
-  "f1": 0.9624329159212881,
-  "correct": 269,
+  "precision": 0.9854014598540146,
+  "recall": 0.9440559440559441,
+  "f1": 0.9642857142857144,
+  "correct": 270,
   "blank_ok": 2014,
-  "missed": 13,
+  "missed": 12,
   "wrong": 4
  },
  "groups": {
@@ -49,11 +49,10 @@
   },
   "tourniquets": {
    "precision": 1.0,
-   "recall": 0.9629629629629629,
-   "f1": 0.9811320754716981,
+   "recall": 1.0,
+   "f1": 1.0,
    "blank_ok": 273,
-   "correct": 26,
-   "missed": 1
+   "correct": 27
   },
   "vital_signs": {
    "precision": 0.975,
@@ -89,19 +88,10 @@
   "fp": 7,
   "fn": 23
  },
- "naive_accuracy": 0.983941605839416,
+ "naive_accuracy": 0.9842335766423358,
  "empty_card_baseline": 0.8572262773722628,
  "invented_per_card": 0.08,
  "errors": [
-  {
-   "file": "handover-ato.wav",
-   "field": "tq_right_leg_time",
-   "outcome": "missed",
-   "pred": "",
-   "truth": "1012",
-   "stage": "transcription",
-   "kind": "left blank"
-  },
   {
    "file": "handover-ato.wav",
    "field": "breathing_chest_seal",

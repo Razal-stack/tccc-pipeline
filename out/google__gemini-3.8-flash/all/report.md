@@ -2,8 +2,8 @@
 
 Cards scored: 50 (50 with predictions)
 
-F1 on filled fields:      94.0%  (precision 95.9%, recall 92.2%)
-Safety-critical fields:   96.1%  (precision 97.1%, recall 95.2%)
+F1 on filled fields:      94.0%  (precision 95.9%, recall 92.3%)
+Safety-critical fields:   96.2%  (precision 97.1%, recall 95.3%)
 Invented values:          7 total, 0.14 per card
 Injury boxes F1:          89.0%
 Naive field accuracy:     98.7%  (an empty card scores 84.5%)
@@ -12,21 +12,21 @@ Naive field accuracy:     98.7%  (an empty card scores 84.5%)
 |---|---|---|---|---|---|---|---|
 | identity | 89.5% | 93.0% | 86.3% | 265 | 20 | 0 | 22 |
 | mechanism | 94.0% | 95.9% | 92.2% | 47 | 0 | 2 | 4 |
-| tourniquets | 94.0% | 94.8% | 93.2% | 55 | 3 | 0 | 1 |
 | treatments | 94.0% | 96.9% | 91.3% | 63 | 1 | 1 | 5 |
+| tourniquets | 94.9% | 94.9% | 94.9% | 56 | 3 | 0 | 0 |
 | vital_signs | 95.9% | 97.5% | 94.4% | 354 | 9 | 0 | 12 |
 | medications | 96.5% | 96.2% | 96.8% | 150 | 2 | 4 | 3 |
 | evac | 98.9% | 100.0% | 97.8% | 45 | 0 | 0 | 1 |
 
 ## Where the errors come from
 
-- transcription: 47
+- transcription: 46
 - extraction: 36
 - invented: 7
 
 ## Kinds of problem
 
-- left blank: 48
+- left blank: 47
 - digit off: 14
 - name/unit spelling: 12
 - wrong value: 9
@@ -40,9 +40,9 @@ Naive field accuracy:     98.7%  (an empty card scores 84.5%)
 - vital_signs / extraction: 7
 - treatments / extraction: 5
 - mechanism / extraction: 4
-- tourniquets / transcription: 4
 - medications / transcription: 4
 - medications / invented: 4
+- tourniquets / transcription: 3
 - mechanism / invented: 2
 - medications / extraction: 1
 - evac / extraction: 1
@@ -55,7 +55,6 @@ Naive field accuracy:     98.7%  (an empty card scores 84.5%)
 |---|---|---|---|---|---|
 | aim | name | extraction | name/unit spelling | Carr, Jas | Kaur, Jas |
 | aim | mechanism_gsw | extraction | left blank | False | True |
-| ato | tq_right_leg_time | transcription | left blank |  | 1012 |
 | ato | breathing_chest_seal | extraction | left blank | False | True |
 | bwt | last4 | transcription | left blank |  | 5033 |
 | cjp | battle_roster | transcription | wrong value | VA62119 | VA6119 |

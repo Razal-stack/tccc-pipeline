@@ -12,8 +12,8 @@
 ## Check these
 - Fentanyl dose not specified
 - TXA route not specified
-- other_med_1_dose: '1 g' not backed by the transcript ('a gram'), left blank
-- other_med_2_dose: '1 g' not backed by the transcript ('second gram'), left blank
+- Drug 1 dose: heard '1 g' but could not match it to the recording, so it was left blank
+- Drug 2 dose: heard '1 g' but could not match it to the recording, so it was left blank
 
 ## Card
 - analgesic_1_name: fentanyl

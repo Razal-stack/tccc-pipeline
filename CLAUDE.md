@@ -29,7 +29,7 @@ web UI. No frameworks or scaffolds until the core pipeline is done and scored.
 
 ## Status (2026-11-17): complete, scored, documented
 
-Held-out F1 92.4% (safety-critical 96.2%, 0.08 invented/card); all 50 F1 94.0%. 50 PDFs in
+Held-out F1 92.5% (safety-critical 96.4%, 0.08 invented/card); all 50 F1 94.0%. 50 PDFs in
 `out/google__gemini-3.8-flash/all/cards/`, all pass schema and read-back checks. Spend $3.90 of $7 cap.
 Read `README.md` (founder view), `docs/ARCHITECTURE.md` (steps, evals, every experiment), `AI_LOG.md`.
 

@@ -137,9 +137,9 @@ linking cards to casualty IDs, and voice prompts to the sender for missing criti
 
 | Set | F1 | Safety-critical F1 | Invented per card | Body boxes F1 |
 |---|---|---|---|---|
-| Held-out 25 (run once) | 92.4% | 96.2% | 0.08 | 80.5% |
+| Held-out 25 (run once) | 92.5% | 96.4% | 0.08 | 80.5% |
 | Dev 25 (tuned on) | 95.3% | 96.1% | 0.20 | 97.0% |
-| All 50 | 94.0% | 96.1% | 0.14 | 89.0% |
+| All 50 | 94.0% | 96.2% | 0.14 | 89.0% |
 
 Prompt history on dev (Gemini 3.8 Flash): v2 93.3% -> v3 94.3% -> v3 + keyterm transcripts 94.5% -> v4 95.4%
 -> v5 95.3% (body boxes 87% -> 97%). Other models on v3: GPT-5.6 Luna 91.7%, DeepSeek V4 Flash 88.1%,
@@ -149,3 +149,7 @@ Extra layers added after the first full run:
 - PDF read-back after every fill, and text appearances drawn into the PDF (Preview showed blank fields otherwise).
 - `missing_critical`: an "Ask the sender" list per card (identity, evac, tourniquet time, drug dose/route/time).
 - Error kinds per run (left blank, digit off, spelling, wrong, made up) and a run ledger for later tuning.
+
+Later fix (free re-score): the evidence check read "10/12" only as "10 over 12" (needed for blood pressure), which
+rejected a correctly heard tourniquet time. It now accepts both readings. Held-out 92.4% -> 92.5% (safety-critical
+96.2% -> 96.4%); the held-out cached replies were reused, no new model calls.

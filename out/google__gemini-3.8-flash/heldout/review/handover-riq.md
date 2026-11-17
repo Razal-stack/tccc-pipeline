@@ -6,7 +6,7 @@
 ## Check these
 - Garbled time of injury ('21 Solon')
 - Garbled AVPU/BP ('so a lot JP I haven't got a cough')
-- last4: '5290' not backed by the transcript ('five two nine nil'), left blank
+- Last4: heard '5290' but could not match it to the recording, so it was left blank
 
 ## Card
 - evac_urgent: True

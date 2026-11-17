@@ -2,8 +2,8 @@
 
 Cards scored: 25 (25 with predictions)
 
-F1 on filled fields:      92.4%  (precision 95.8%, recall 89.2%)
-Safety-critical fields:   96.2%  (precision 98.5%, recall 94.1%)
+F1 on filled fields:      92.5%  (precision 95.8%, recall 89.4%)
+Safety-critical fields:   96.4%  (precision 98.5%, recall 94.4%)
 Invented values:          2 total, 0.08 per card
 Injury boxes F1:          80.5%
 Naive field accuracy:     98.4%  (an empty card scores 85.7%)
@@ -15,18 +15,18 @@ Naive field accuracy:     98.4%  (an empty card scores 85.7%)
 | mechanism | 93.9% | 92.0% | 95.8% | 23 | 0 | 2 | 1 |
 | vital_signs | 94.3% | 97.5% | 91.2% | 156 | 4 | 0 | 11 |
 | evac | 97.7% | 100.0% | 95.5% | 21 | 0 | 0 | 1 |
-| tourniquets | 98.1% | 100.0% | 96.3% | 26 | 0 | 0 | 1 |
+| tourniquets | 100.0% | 100.0% | 100.0% | 27 | 0 | 0 | 0 |
 | medications | 100.0% | 100.0% | 100.0% | 62 | 0 | 0 | 0 |
 
 ## Where the errors come from
 
-- transcription: 27
 - extraction: 26
+- transcription: 26
 - invented: 2
 
 ## Kinds of problem
 
-- left blank: 36
+- left blank: 35
 - wrong value: 7
 - name/unit spelling: 6
 - digit off: 4
@@ -40,7 +40,6 @@ Naive field accuracy:     98.4%  (an empty card scores 85.7%)
 - vital_signs / extraction: 7
 - treatments / extraction: 5
 - mechanism / invented: 2
-- tourniquets / transcription: 1
 - evac / extraction: 1
 - mechanism / extraction: 1
 - treatments / transcription: 1
@@ -49,7 +48,6 @@ Naive field accuracy:     98.4%  (an empty card scores 85.7%)
 
 | file | field | stage | kind | predicted | truth |
 |---|---|---|---|---|---|
-| ato | tq_right_leg_time | transcription | left blank |  | 1012 |
 | ato | breathing_chest_seal | extraction | left blank | False | True |
 | cjp | battle_roster | transcription | wrong value | VA62119 | VA6119 |
 | dgf | signs_2_avpu | extraction | left blank |  | A - Alert |

@@ -10,13 +10,13 @@ On the 25 recordings I never looked at while tuning (the honest test):
 
 | What we measure | Score |
 |---|---|
-| **Accuracy on the fields the handover actually filled (F1)** | **92.4%** |
-| Safety-critical fields (drugs, doses, tourniquets, vitals, evac) | 96.2% |
+| **Accuracy on the fields the handover actually filled (F1)** | **92.5%** |
+| Safety-critical fields (drugs, doses, tourniquets, vitals, evac) | 96.4% |
 | Of the values it writes, how many are right (precision) | 95.8% |
 | Values made up that were never said | 2 in 25 cards |
 | Medications, specifically | 100% |
 
-On all 50 recordings: 94.0% F1, 96.1% on safety-critical fields. All 50 filled PDF cards are in
+On all 50 recordings: 94.0% F1, 96.2% on safety-critical fields. All 50 filled PDF cards are in
 `out/google__gemini-3.8-flash/all/cards/`.
 
 ### How the % is calculated

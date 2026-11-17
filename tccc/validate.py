@@ -21,11 +21,17 @@ def _words(text):
     return re.findall(r"[a-z0-9]+", spoken_to_digits(text))
 
 
+def label(field):
+    """tq_right_leg_time -> 'Tourniquet right leg time': field names a medic can read."""
+    words = field.replace("tq_", "tourniquet_").replace("signs_", "obs set ").replace("bp_", "BP ").replace("spo2", "SpO2")
+    return words.replace("_", " ").replace("other med", "drug").strip().capitalize()
+
+
 def supported(value, evidence, transcript):
     """Evidence words mostly present in the transcript, and every number in the value said somewhere."""
     have = set(_words(transcript))
     ev = _words(evidence or "")
-    sq = squash(transcript)
+    sq = squash(transcript) + " " + squash(transcript.replace("/", ""))  # "10/12" can be a time (1012) or BP (10 over 12)
     if not ev or (sum(w in have for w in ev) / len(ev) < 0.7 and squash(evidence) not in sq):
         return False
     return all(n in sq or n.lstrip("0") in sq for n in re.findall(r"\d+", value))
@@ -73,9 +79,9 @@ def to_card(file, reply, transcript):
             continue
         v = clean(field, value)
         if v is None:
-            flags.append(f"{field}: '{value}' not a valid value, left blank")
+            flags.append(f"{label(field)}: heard '{value}', which is not a valid value, so it was left blank")
         elif not supported(v, evidence, transcript):
-            flags.append(f"{field}: '{value}' not backed by the transcript ('{evidence}'), left blank")
+            flags.append(f"{label(field)}: heard '{value}' but could not match it to the recording, so it was left blank")
         else:
             card[field] = v
     for i in range(1, 5):  # systolic must exceed diastolic
