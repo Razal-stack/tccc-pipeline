@@ -29,8 +29,8 @@ def heard(value, transcript):
     nums = re.findall(r"\d+", v)
     if nums:
         return all(n in sq for n in nums)
-    toks = [t for t in re.findall(r"[a-z]+", v) if len(t) > 2]
-    return not toks or any(t in words for t in toks)
+    toks = re.findall(r"[a-z]+", v)
+    return any(re.search(rf"\b{t}\b", words) for t in toks)  # whole words, so "iv" must really be said
 
 
 def stage(err, transcript, raw):

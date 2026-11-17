@@ -84,3 +84,20 @@ Not doing:
   nothing else.
 - An audio-native LLM instead of speech-to-text (e.g. gemini-omni-1.2-flash). No strict JSON output on
   OpenRouter, higher price, and the missing values are ones no listener recovered.
+
+## Do we need a verifier model? (measured, free, from cached replies)
+
+On dev, Gemini 3.8 Flash and Opus 5.5 disagree on only 14 of 3,425 fields. Even a perfect referee picking the
+right one of the two would lift F1 from 93.3% to 93.7%; a 3-model majority vote gives 93.5%. The models make the
+same mistakes, so the errors are systematic: a second model cannot catch an error both share.
+
+Of the errors both models make, about 20 are beyond any text model (wrong numbers in the transcript, unreadable
+radio, misspelled names, ground-truth quirks). The rest are conventions, fixed in the prompt:
+hypothermia kit names, UK unit names misheard ("2 Larc" -> 2 Lancs), drug/kit words lost by speech-to-text.
+
+Decision:
+- Primary path: one cheap model + code checks (as now), better prompt (v3: conventions + domain vocabulary).
+- Upstream: speech-to-text keyword biasing (Scribe key terms: unit names, drugs, IV/IO) if OpenRouter passes it.
+- Verifier, cheapest useful form: a second cheap model runs independently; code compares field by field; only
+  disagreements (about 0.5 fields per card) go to a small referee call, and anything still unsure is left blank
+  and flagged for the medic. Worth it for safety flags, not for the headline number.
