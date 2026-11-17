@@ -106,9 +106,11 @@ python3 -m uvicorn tccc.app:app --port 8000          # web app: upload, review c
 python3 -m tccc.run google/gemini-3.8-flash --split heldout --pdf   # re-run the honest evaluation (cached, free)
 ```
 
-The web app shows the headline scores, every card with its flags, each card's review sheet beside its PDF (and
-its field-by-field score when ground truth exists), and the history of every benchmark run. Upload a new
-recording and its card appears in about 10 seconds.
+The web app has three pages. **Casualties** lists everyone, urgent first, with what stands between each card and
+the casualty: "Ready to attach", "Get from sender" (naming the missing items, like a tourniquet time) or "Confirm
+values". It filters by status and evac category, and each card opens in MIST order beside the filled PDF. **How
+accurate is it** explains the scores in plain words. **How to use it** is the guide for the medic at the casualty
+collection point, including what to do when no name was given.
 
 A hard spending cap protects the key: before any paid call the code checks real usage on the key and stops at $7.
 The whole project, including every experiment, used $3.90.
