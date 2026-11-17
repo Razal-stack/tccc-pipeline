@@ -38,16 +38,23 @@ Text fields: {", ".join(TEXTS)}
 Formats:
 - name/last4 = the casualty. first_responder_name/first_responder_last4 = the person sending the handover
   ("sent by Corporal Jones, last four 3318"; "oh, it's Lance Corporal Byrne, Tom, last four 1662" at the end).
-- name "Last, First" (surname only if that is all that was said). Ranks are not part of the name.
+- name and first_responder_name "Last, First" (surname only if that is all that was said). Ranks are not part of the name.
   last4 4 digits. Speech-to-text often merges "last four 8336" into "last 48336": a 5-digit number after "last"
   starting with 4 is "last four" + the 4 digits. battle_roster = initials + last four (e.g. JS4417), ONLY if spoken as a battle
   roster number ("battle roster Papa Kilo 6009" -> PK6009, NATO letters -> initials). Never build it from the name,
   never split it into name/last4.
 - date DD-MMM-YY (03-NOV-26). All times 4 digits 24h (0715; "about fifteen hundred" -> 1500; "6:50" -> 0650).
 - time = time of wounding/injury only. Other times (time found, etc.) go in notes.
-- service as said (Army, RAF, Royal Marines, ...). unit as said, title case ("1 Rifles").
+- service as said (Army, RAF, Royal Marines, ...). unit as said, digits for numbers ("1 Rifles", "45 Commando").
+  Speech-to-text mangles UK unit names. Correct ONLY to a real unit that clearly matches the sounds, e.g.
+  "2 Larc" -> 2 Lancs, "45 Commander" -> 45 Commando. Real units include: 1/2/3/4 Rifles, 1/2 Yorks, 1/2 Lancs,
+  1 Royal Anglian, 1/2 Royal Welsh, 1/2/3 Para, 1/2 Scots, 1 Irish Guards, 1 Grenadier Guards, 1 Coldstream
+  Guards, 1/2 Mercian, 1 Royal Irish, 1 PWRR, 40/42/45 Commando, 29 Commando Royal Artillery, 1 Regiment RMP,
+  3 Medical Regiment, 16 Medical Regiment, Tactical Medical Wing, 2/15/34/51 Squadron RAF Regiment.
+  Garbled beyond that -> leave blank and flag.
 - signs_1_* = first set of obs, signs_2_* = the repeat set, and so on. pulse "<rate> <location>" ("128 radial"),
-  or just the rate if no location said. avpu one of {AVPU}. pain one of {PAIN}. "sats" = spo2, "resps" = resp_rate.
+  or just the rate if no location said. avpu one of {AVPU}. pain one of {PAIN}.
+  AVPU from phrasing: alert -> A; responds to voice/verbal -> V; responds to pain -> P; unresponsive -> U. "sats" = spo2, "resps" = resp_rate.
 - Doses with a space and unit: "800 mcg", "2 g", "50 mg", "1 unit", "1 L". Routes: {", ".join(ROUTES)}.
   Fentanyl lozenge -> route OTFC. Drug names lower case except TXA; TXA goes in other_med_*.
   Blood products (whole blood, plasma) go in blood_*, crystalloids (Hartmann's, Plasma-Lyte) in fluid_*.
@@ -57,7 +64,7 @@ Formats:
 - tq_type, dressing_type, airway_type, breathing_type: fill ONLY for an "other" item
   with no checkbox of its own (dressing_other + "cling film"). Brands and device names for ticked items (Celox,
   QuikClot, surgical cric, SAM junctional) are not types: tick the checkbox and put the detail in notes if useful.
-- allergies as said ("NKA" for no known allergies).
+- allergies: the allergen ("penicillin"); "no known allergies" / "NKDA" / "none known" -> "NKA".
 - mechanism_*: tick each mechanism stated. Crush, struck by a vehicle, fall of debris -> mechanism_blunt.
   Blast or explosion with no device named -> mechanism_other + mechanism_other_text "blast".
 

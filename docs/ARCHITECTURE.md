@@ -101,3 +101,33 @@ Decision:
 - Verifier, cheapest useful form: a second cheap model runs independently; code compares field by field; only
   disagreements (about 0.5 fields per card) go to a small referee call, and anything still unsure is left blank
   and flagged for the medic. Worth it for safety flags, not for the headline number.
+
+## Getting the most out of the audio (measured, free)
+
+- Ceiling across 7 speech-to-text models on the 21 test files: Scribe alone catches 78% of literal values on hard
+  audio, any of the 7 models 84%. Clean audio: 93% vs 96%. The losses concentrate in a few recordings (kdb: 36 s
+  of audio, about 5 s transcribed by every model; vdi radio).
+- Audio clean-up before speech-to-text, tested locally on 9 hard files with the offline model (free):
+  raw 77/108 numbers, loudness-normalised 78, spectral denoise 69, voice band-pass 46. Clean-up hurts: modern
+  models are trained on noise and classic filters remove cues they use. Decision: send raw audio, no DSP layer.
+- Voice-activity chopping was already ruled out (drops radio speech).
+
+## Prompt v3 (written, not yet run)
+
+Adds: UK unit names for correcting known mis-hearings, first responder name order, AVPU phrasing, NKA wording,
+hypothermia kit names. Caveat for honesty: the unit list is general domain knowledge, but it was written after
+seeing ground-truth units, so the held-out score on the `unit` field is slightly optimistic.
+
+## How this would be used (beyond the benchmark)
+
+Who: a medic or team leader at a casualty collection point, many casualties, little time, gloves on.
+Flow:
+1. Record the handover on a phone or radio log (already happening in the scenario).
+2. Card is ready in about 10 s: filled PDF plus a one-page review sheet.
+3. The review sheet lists only what needs a human: flagged fields (garbled, corrected, unsupported), with the
+   transcript words beside each. Everything else is pre-filled. The medic checks the flags, not the whole card.
+4. Medic signs; the card travels with the casualty.
+Design choices that follow: blanks over guesses; every value traceable to spoken words; flags short and plain;
+works per casualty, so 50 cards are 50 independent jobs (parallel, about a minute in total).
+Later, not now: offline fallback (the local model gets 74% of values, no network), a simple review screen,
+linking cards to casualty IDs, and voice prompts to the sender for missing critical fields ("say again TQ time").
