@@ -1,7 +1,7 @@
 """Compare speech-to-text models on the hardest recordings, through OpenRouter.
 
     python -m tccc.stt_bakeoff --list                       # show transcription models your key can use
-    python -m tccc.stt_bakeoff                              # run the default shortlist on the 10 hard files
+    python -m tccc.stt_bakeoff                              # run the default shortlist on 21 test files
     python -m tccc.stt_bakeoff --models a/b c/d --all       # chosen models, all 50 recordings
 
 Needs OPENROUTER_API_KEY (environment, or a .env file in the repo or the task folder)
@@ -20,7 +20,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from .score import TRUTH
-from .textnorm import recall
+from .textnorm import categorized_recall, recall
 
 ROOT = Path(__file__).resolve().parent.parent
 API = "https://openrouter.ai/api/v1"
@@ -28,21 +28,22 @@ API = "https://openrouter.ai/api/v1"
 # Hardest 10 by local-transcription number recall: radio links, heavy noise, two voices.
 HARD = ["handover-oqx.wav", "handover-vdi.wav", "handover-kdb.wav", "handover-pbj.wav", "handover-ihg.wav",
         "handover-xqu.wav", "handover-xts.wav", "handover-dgf.wav", "handover-fox.wav", "handover-inj.wav"]
+# Correction and retraction traps (see CLAUDE.md) plus two clean files, as a control group.
+OTHER = ["handover-aim.wav", "handover-isa.wav", "handover-sfw.wav", "handover-xbf.wav", "handover-ynt.wav",
+         "handover-zjl.wav", "handover-jge.wav", "handover-cpx.wav", "handover-lml.wav", "handover-roo.wav",
+         "handover-qof.wav"]
 
 # One slot per vendor; each slot lists alternatives (all terms must appear in the model id), best first.
+# Best current model per vendor that OpenRouter serves; everything else was dropped to save money.
 SHORTLIST = [
-    [("gpt-transcribe",)],                # OpenAI, newest
-    [("gpt-4o-transcribe",)],             # OpenAI, previous
-    [("gpt-4o-mini-transcribe",)],        # OpenAI, cheap
+    [("scribe-v2-medical",)],             # ElevenLabs, medical vocabulary
+    [("scribe-v2",)],                     # ElevenLabs, general
+    [("universal-3-6-pro",)],             # AssemblyAI
+    [("transcribe-1-pro",)],              # Fish Audio
     [("gemini", "transcribe")],           # Google
-    [("mai-transcribe-2",)],              # Microsoft, newest
-    [("mai-transcribe",)],                # Microsoft, previous
-    [("nova-3",)],                        # Deepgram, telephony-strong
-    [("voxtral-small",)],                 # Mistral, flagship
-    [("voxtral-mini",)],                  # Mistral, cheap
-    [("elevenlabs",)],                    # ElevenLabs Scribe, if listed
-    [("whisper-large-v3",)],              # baseline
+    [("gpt-transcribe",)],                # OpenAI
 ]
+MAX_PRICE_PER_SEC = 0.001  # skip anything listed above $3.60 per audio hour (MAI lists 0.1/s; unit unclear)
 
 VOCAB = ("Expected vocabulary: NATO alphabet (Alpha, Bravo, Charlie ... Juliet, Sierra, Zulu), MIST, TCCC, battle roster, "
          "last four, CAT tourniquet, SOFTT-W, NPA, cric, needle decompression, chest seal, TXA, ketamine, fentanyl, "
@@ -124,6 +125,11 @@ def main():
         return
     ids = [m for m, _ in available]
     models = a.models or pick_shortlist(ids)
+    prices = dict(available)
+    pricey = [m for m in models if float(prices.get(m, {}).get("prompt") or 0) > MAX_PRICE_PER_SEC and not a.models]
+    if pricey:
+        print("skipped, listed price too high to benchmark blind:", pricey)
+    models = [m for m in models if m not in pricey]
     missing = [m for m in models if m not in ids]
     if missing:
         print("not available on this key:", missing)
@@ -135,7 +141,7 @@ def main():
         (p for p in (ROOT / "recordings", ROOT.parent / "recordings", ROOT.parent / "challenge" / "recordings") if p.exists()), None)
     if rec_dir is None:
         sys.exit("recordings folder not found; pass --recordings")
-    files = sorted(TRUTH) if a.all else HARD
+    files = sorted(TRUTH) if a.all else HARD + OTHER
     print(f"models: {models}\nrecordings: {len(files)} from {rec_dir}\n")
 
     jobs = []
@@ -152,47 +158,88 @@ def main():
 
     def run(job):
         m, wav, dst = job
+        t0 = time.time()
         text, (c, secs) = transcribe(key, m, wav)
+        wall = time.time() - t0
+        dst.parent.mkdir(parents=True, exist_ok=True)
         dst.write_text(text)
         print(f"  {m:40s} {wav.name:22s} {'ERROR' if text.startswith('__ERROR__') else 'ok'}", flush=True)
-        return m, wav.name, c, secs
+        return m, wav.name, c, secs, wall
 
-    with ThreadPoolExecutor(4) as pool:
-        for m, name, c, secs in pool.map(run, jobs):
-            ledger.setdefault(m, {})[name] = [c, secs]
-    ledger_path.write_text(json.dumps(ledger, indent=1))
-    cost = sum(c for per in ledger.values() for c, _ in per.values())
+    with ThreadPoolExecutor(6) as pool:
+        for m, name, c, secs, wall in pool.map(run, jobs):
+            ledger.setdefault(m, {})[name] = [c, secs, wall]
+            ledger_path.write_text(json.dumps(ledger, indent=1))
+    cost = sum(v[0] for per in ledger.values() for v in per.values())
 
+    groups = {"hard": [f for f in files if f in HARD], "other": [f for f in files if f not in HARD]}
+    cats = ["vitals", "times", "doses", "ids", "names", "drugs_kit"]
     rows = []
     for m in models + ["local__parakeet"]:
         d = ROOT / "transcripts" / m.replace("/", "__")
         if not d.exists():
             continue
-        tot = dict(nums=0, nums_hit=0, terms=0, terms_hit=0, errors=0)
-        for f in files:
-            t = d / f.replace(".wav", ".txt")
-            if not t.exists():
-                continue
-            text = t.read_text()
-            if text.startswith("__ERROR__"):
-                tot["errors"] += 1
-                continue
-            for k, v in recall(text, TRUTH[f]).items():
-                tot[k] += v
-        rows.append((m, tot))
+        nums = {g: [0, 0] for g in groups}
+        by_cat = {c: [0, 0] for c in cats}
+        errors = 0
+        for g, fs in groups.items():
+            for f in fs:
+                t = d / f.replace(".wav", ".txt")
+                text = t.read_text() if t.exists() else "__ERROR__ missing"
+                if text.startswith("__ERROR__"):
+                    errors += 1
+                    text = ""  # a failed transcript counts as nothing found
+                r = recall(text, TRUTH[f])
+                nums[g][0] += r["nums_hit"]; nums[g][1] += r["nums"]
+                for c, (hit, tot) in categorized_recall(text, TRUTH[f]).items():
+                    if c in by_cat:
+                        by_cat[c][0] += hit; by_cat[c][1] += tot
+        rows.append((m, nums, by_cat, errors))
 
     def per_hour(m):
         per = ledger.get(m, {})
         c, secs = sum(v[0] for v in per.values()), sum(v[1] for v in per.values())
-        return f"${c / secs * 3600:.2f}" if secs and c else ("free (local)" if m.startswith("local") else "n/a")
+        if m.startswith("local"):
+            return "free (local)"
+        if secs and c:
+            return f"${c / secs * 3600:.2f}"
+        price = prices.get(m, {})
+        if float(price.get("completion") or 0):
+            return "per token (see ledger)"
+        listed = float(price.get("prompt") or 0)
+        return f"${listed * 3600:.2f} (list price)" if listed else "n/a"
 
-    print(f"\nCritical-value recall on {len(files)} recordings (total spent so far ${cost:.4f})\n")
-    print("| Model | Numbers found | Drug/kit terms found | Cost per audio hour | Errors |")
-    print("|---|---|---|---|---|")
-    for m, t in sorted(rows, key=lambda r: -r[1]["nums_hit"] / max(1, r[1]["nums"])):
-        print(f"| {m} | {t['nums_hit']}/{t['nums']} ({t['nums_hit']/max(1,t['nums']):.0%}) | "
-              f"{t['terms_hit']}/{t['terms']} ({t['terms_hit']/max(1,t['terms']):.0%}) | {per_hour(m)} | {t['errors']} |")
+    def median_wall(m):
+        walls = sorted(v[2] for v in ledger.get(m, {}).values() if len(v) > 2)
+        return f"{walls[len(walls) // 2]:.1f}" if walls else "-"
 
+    def pct(hit, tot):
+        return f"{hit}/{tot} ({hit / max(1, tot):.0%})"
+
+    rows.sort(key=lambda r: -(r[1]["hard"][0] / max(1, r[1]["hard"][1])))
+    csv_path = ROOT / "transcripts" / "_bakeoff.csv"
+    with csv_path.open("w") as fh:
+        fh.write("model,hard_files_numbers,other_files_numbers,all_numbers," + ",".join(cats)
+                 + ",cost_per_audio_hour,median_s_per_file,errors\n")
+        for m, nums, by_cat, errors in rows:
+            allh, allt = nums["hard"][0] + nums["other"][0], nums["hard"][1] + nums["other"][1]
+            vals = [nums["hard"][0] / max(1, nums["hard"][1]), nums["other"][0] / max(1, nums["other"][1]),
+                    allh / max(1, allt)] + [h / max(1, t) for h, t in (by_cat[c] for c in cats)]
+            fh.write(f"{m}," + ",".join(f"{v:.3f}" for v in vals) + f",{per_hour(m)},{median_wall(m)},{errors}\n")
+    print(f"\nwrote {csv_path.relative_to(ROOT)}")
+    print(f"\nTable 1. Numbers found in the transcript (total spent so far ${cost:.4f})")
+    print(f"hard = {len(groups['hard'])} radio / heavy noise / two-speaker files; other = {len(groups['other'])} correction-trap and clean files\n")
+    print("| Model | Hard files | Other files | All | Cost per audio hour | Median s per file | Errors |")
+    print("|---|---|---|---|---|---|---|")
+    for m, nums, _, errors in rows:
+        allh, allt = nums["hard"][0] + nums["other"][0], nums["hard"][1] + nums["other"][1]
+        print(f"| {m} | {pct(*nums['hard'])} | {pct(*nums['other'])} | {pct(allh, allt)} | {per_hour(m)} | "
+              f"{median_wall(m)} | {errors} |")
+    print(f"\nTable 2. Ground-truth values found, by category, all {len(files)} files\n")
+    print("| Model | " + " | ".join(cats) + " |")
+    print("|---|" + "---|" * len(cats))
+    for m, _, by_cat, _ in rows:
+        print(f"| {m} | " + " | ".join(f"{h / max(1, t):.0%}" for h, t in (by_cat[c] for c in cats)) + " |")
 
 if __name__ == "__main__":
     main()
