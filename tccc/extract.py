@@ -12,7 +12,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from .score import FIELDS, TRUTH
-from .stt_bakeoff import call, guard_budget, load_key
+from .openrouter import call, guard_budget, load_key
 
 ROOT = Path(__file__).resolve().parent.parent
 TRANSCRIPTS = ROOT / "transcripts" / "elevenlabs__scribe-v2-medical+keyterms"  # speech-to-text with domain key terms

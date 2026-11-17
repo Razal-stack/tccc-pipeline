@@ -1,4 +1,4 @@
-# handover-xts
+# handover-xts.wav
 
 ## Ask the sender
 - nothing missing
@@ -29,6 +29,7 @@
 - analgesic_1_route: IN
 - analgesic_1_time: 1600
 - notes: Injuries: right forearm: suspected broken; over right eye: cut
+- injury_boxes: Ant_Right_Middle_Lateral_Forearm, Ant_Right_Middle_Medial_Forearm, Right_Eye
 
 ## Transcript
 Casualty female Lance Corporal Webb Laura last four 4199 Army 16 Signal Regiment MVC Coyote rollover at 1545 suspected broken right forearm and a cut over the right eye ketamine 30 mg in at 1600. Copy ketamine 13 mg in. Negative 30 30 mg OBS at 1555 pulse 90 radial BP 132 over 84 RR SPS 18 sats 99 alert pain 7 SAM splint on the forearm routine.

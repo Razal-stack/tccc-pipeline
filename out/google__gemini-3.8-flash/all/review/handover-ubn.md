@@ -1,4 +1,4 @@
-# handover-ubn
+# handover-ubn.wav
 
 ## Ask the sender
 - nothing missing
@@ -29,6 +29,7 @@
 - first_responder_name: Fox, Jamie
 - first_responder_last4: 8177
 - notes: Injuries: left collarbone: obvious deformity; left side: grazes; left arm in sling; combat pill pack taken at 1955
+- injury_boxes: none
 
 ## Transcript
 OBS first taken at 2005. Radial pulse 88, BP 118 over 74, RR SBS 20, sats 97, alert, pain 5 out of 10. Left arm is in a sling and splint, and she's taken her combat pill pack at 1955. She's got an obvious deformity of the left collarbone and grazes down her left side. Mechanism: vehicle rollover, she was driving. Time of injury: 1945, 30 October 2026. Name is Private Ahmed, Sara, last four six one three zero, Army, Nine Regiment RLC. Evac routine sent by Corporal Fox Jamie last four eight one seven seven.

@@ -1,4 +1,4 @@
-# handover-inj
+# handover-inj.wav
 
 ## Ask the sender
 - nothing missing
@@ -37,6 +37,7 @@
 - first_responder_name: Quinn, Joe
 - first_responder_last4: 5713
 - notes: Injuries: left lower abdomen: GSW entry wound; no exit wound found; no bowel evisceration
+- injury_boxes: LLQ, LUQ
 
 ## Transcript
 Yeah, so MIST report, 29 October 2026. Lance Corporal Khan, Imran, male, Army, 1 Yorks, last four 0847. He took a round to his stomach, GSW, about 2050. Entry's left lower abdomen. I can't find an exit. Bowel's not out, which is good. Obs at 2020. Pulse is about 124, radial. BP's ER 96 over 60. He's breathing about 24. Sats 96. He's alert and talking. Pain's 8 he says. Dressing on, just a pressure dressing. I've given him ertapenem 1 gram IV at 2030 and a fentanyl lozenge 800 at 2025. He says he's allergic to... what was it? Codeine. Evac urgent. This is Corporal Quinn, Joe, last four 5713.

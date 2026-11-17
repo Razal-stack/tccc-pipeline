@@ -1,4 +1,4 @@
-# handover-jso
+# handover-jso.wav
 
 ## Ask the sender
 - nothing missing
@@ -28,6 +28,7 @@
 - first_responder_name: Dunn
 - first_responder_last4: 3855
 - notes: Injuries: left upper arm: GSW; combat pill pack given at 1715
+- injury_boxes: Ant_Left_Lateral_Bicep, Ant_Left_Medial_Bicep
 
 ## Transcript
 Casualties Private Walker male 1 Scots GSW left upper arm tourniquet a CAT went on it time of wounding was 1705 tourniquet at 1707 left arm Walker's last four is 4 numerical 6 2 OBS at 1712 radial pulse 112 BP 124 over 78 he's alert arms warm and pink resps 20 sats 98 pain about 6 gave him the combat pill at 1715 EVAC priority first name Liam from Corporal Dunn 1 Ross last four 3855

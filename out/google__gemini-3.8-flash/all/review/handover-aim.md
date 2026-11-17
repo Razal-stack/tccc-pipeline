@@ -1,4 +1,4 @@
-# handover-aim
+# handover-aim.wav
 
 ## Ask the sender
 - nothing missing
@@ -26,6 +26,7 @@
 - signs_1_avpu: A - Alert
 - signs_1_pain: 5 Very Distress
 - notes: Injuries: left forearm: fragment wound
+- injury_boxes: Ant_Left_Middle_Lateral_Forearm, Ant_Left_Middle_Medial_Forearm
 
 ## Transcript
 Casualty is Private Carr, Jas, female, last four eight three three six, RAF Tactical Medical Wing. Grenade at 2040, 3 November 2026, fragment wound to the left forearm. Tourniquet on... No, sorry, ignore that. That's the other casualty. Pressure dressing only on her. OBS at 2050, pulse 98 radial, BP 122 over 80. Resps 18, sats 98, alert, pain 5. Evac routine

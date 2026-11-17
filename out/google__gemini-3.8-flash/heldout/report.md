@@ -24,6 +24,14 @@ Naive field accuracy:     98.4%  (an empty card scores 85.7%)
 - extraction: 26
 - invented: 2
 
+## Kinds of problem
+
+- left blank: 36
+- wrong value: 7
+- name/unit spelling: 6
+- digit off: 4
+- made up: 2
+
 ## Errors by group and stage
 
 - identity / transcription: 17
@@ -39,60 +47,60 @@ Naive field accuracy:     98.4%  (an empty card scores 85.7%)
 
 ## Every error
 
-| file | field | stage | predicted | truth |
-|---|---|---|---|---|
-| ato | tq_right_leg_time | transcription |  | 1012 |
-| ato | breathing_chest_seal | extraction | False | True |
-| cjp | battle_roster | transcription | VA62119 | VA6119 |
-| dgf | signs_2_avpu | extraction |  | A - Alert |
-| fox | battle_roster | transcription | RE88206 | RE8826 |
-| inj | time | transcription | 2050 | 2015 |
-| inj | first_responder_name | extraction | Quinn, Joe | Quinn, Jo |
-| jso | last4 | transcription |  | 4062 |
-| jso | splint | extraction | False | True |
-| jso | first_responder_name | extraction | Dunn | Dunn, Ross |
-| kdb | evac_priority | extraction | False | True |
-| kdb | name | transcription |  | Reid, Fiona |
-| kdb | last4 | transcription |  | 6363 |
-| kdb | gender_f | extraction | False | True |
-| kdb | time | extraction |  | 0405 |
-| kdb | service | transcription |  | Army |
-| kdb | unit | transcription |  | 29 Commando Royal Artillery |
-| kdb | mechanism_artillery | extraction | False | True |
-| kdb | signs_1_time | transcription |  | 0420 |
-| kdb | signs_1_pulse | transcription |  | 108 radial |
-| kdb | signs_1_bp_systolic | transcription |  | 112 |
-| kdb | signs_1_bp_diastolic | transcription |  | 70 |
-| kdb | signs_1_resp_rate | extraction |  | 22 |
-| kdb | signs_1_avpu | transcription |  | A - Alert |
-| kdb | signs_1_pain | extraction |  | 6 Intense |
-| kdb | dressing_hemostatic | extraction | False | True |
-| kdb | dressing_pressure | extraction | False | True |
-| lrh | date | transcription |  | 01-NOV-26 |
-| nwd | time | transcription |  | 1500 |
-| oeu | time | transcription |  | 1910 |
-| oeu | unit | extraction |  | Signals det |
-| oeu | mechanism_burn | invented | True | False |
-| oeu | signs_1_avpu | transcription | A - Alert | V - Verbal |
-| oeu | dressing_type | transcription | clingfilm | cling film |
-| onh | unit | extraction | Royal Army detachment | REME detachment |
-| onh | signs_1_avpu | extraction |  | A - Alert |
-| pma | time | transcription | 1305 | 1306 |
-| riq | last4 | transcription |  | 5290 |
-| riq | gender_m | extraction | False | True |
-| riq | time | transcription |  | 2100 |
-| riq | signs_1_spo2 | transcription | 94 | 95 |
-| riq | signs_1_avpu | extraction |  | A - Alert |
-| riq | first_responder_name | extraction | Weed, Cal | Reid, Cal |
-| rtw | signs_1_time | transcription |  | 1500 |
-| vbf | gender_m | extraction | False | True |
-| xbf | last4 | transcription |  | 3620 |
-| xbf | date | transcription | 31-OCT-26 | 30-OCT-26 |
-| xqu | signs_1_pulse | extraction | 104 | 104 radial |
-| xqu | combat_pill_pack | extraction | False | True |
-| xqu | first_responder_name | extraction | Guru, Raj | Gurung, Raj |
-| xqu | first_responder_last4 | transcription |  | 9501 |
-| xts | signs_1_resp_rate | extraction | 18 | 16 |
-| ynt | battle_roster | extraction | SP22214 | SP2214 |
-| ynt | mechanism_burn | invented | True | False |
-| ynt | first_responder_name | extraction | Day | Day, Finn |
+| file | field | stage | kind | predicted | truth |
+|---|---|---|---|---|---|
+| ato | tq_right_leg_time | transcription | left blank |  | 1012 |
+| ato | breathing_chest_seal | extraction | left blank | False | True |
+| cjp | battle_roster | transcription | wrong value | VA62119 | VA6119 |
+| dgf | signs_2_avpu | extraction | left blank |  | A - Alert |
+| fox | battle_roster | transcription | wrong value | RE88206 | RE8826 |
+| inj | time | transcription | digit off | 2050 | 2015 |
+| inj | first_responder_name | extraction | name/unit spelling | Quinn, Joe | Quinn, Jo |
+| jso | last4 | transcription | left blank |  | 4062 |
+| jso | splint | extraction | left blank | False | True |
+| jso | first_responder_name | extraction | name/unit spelling | Dunn | Dunn, Ross |
+| kdb | evac_priority | extraction | left blank | False | True |
+| kdb | name | transcription | left blank |  | Reid, Fiona |
+| kdb | last4 | transcription | left blank |  | 6363 |
+| kdb | gender_f | extraction | left blank | False | True |
+| kdb | time | extraction | left blank |  | 0405 |
+| kdb | service | transcription | left blank |  | Army |
+| kdb | unit | transcription | left blank |  | 29 Commando Royal Artillery |
+| kdb | mechanism_artillery | extraction | left blank | False | True |
+| kdb | signs_1_time | transcription | left blank |  | 0420 |
+| kdb | signs_1_pulse | transcription | left blank |  | 108 radial |
+| kdb | signs_1_bp_systolic | transcription | left blank |  | 112 |
+| kdb | signs_1_bp_diastolic | transcription | left blank |  | 70 |
+| kdb | signs_1_resp_rate | extraction | left blank |  | 22 |
+| kdb | signs_1_avpu | transcription | left blank |  | A - Alert |
+| kdb | signs_1_pain | extraction | left blank |  | 6 Intense |
+| kdb | dressing_hemostatic | extraction | left blank | False | True |
+| kdb | dressing_pressure | extraction | left blank | False | True |
+| lrh | date | transcription | left blank |  | 01-NOV-26 |
+| nwd | time | transcription | left blank |  | 1500 |
+| oeu | time | transcription | left blank |  | 1910 |
+| oeu | unit | extraction | left blank |  | Signals det |
+| oeu | mechanism_burn | invented | made up | True | False |
+| oeu | signs_1_avpu | transcription | wrong value | A - Alert | V - Verbal |
+| oeu | dressing_type | transcription | wrong value | clingfilm | cling film |
+| onh | unit | extraction | name/unit spelling | Royal Army detachment | REME detachment |
+| onh | signs_1_avpu | extraction | left blank |  | A - Alert |
+| pma | time | transcription | digit off | 1305 | 1306 |
+| riq | last4 | transcription | left blank |  | 5290 |
+| riq | gender_m | extraction | left blank | False | True |
+| riq | time | transcription | left blank |  | 2100 |
+| riq | signs_1_spo2 | transcription | digit off | 94 | 95 |
+| riq | signs_1_avpu | extraction | left blank |  | A - Alert |
+| riq | first_responder_name | extraction | name/unit spelling | Weed, Cal | Reid, Cal |
+| rtw | signs_1_time | transcription | left blank |  | 1500 |
+| vbf | gender_m | extraction | left blank | False | True |
+| xbf | last4 | transcription | left blank |  | 3620 |
+| xbf | date | transcription | wrong value | 31-OCT-26 | 30-OCT-26 |
+| xqu | signs_1_pulse | extraction | wrong value | 104 | 104 radial |
+| xqu | combat_pill_pack | extraction | left blank | False | True |
+| xqu | first_responder_name | extraction | name/unit spelling | Guru, Raj | Gurung, Raj |
+| xqu | first_responder_last4 | transcription | left blank |  | 9501 |
+| xts | signs_1_resp_rate | extraction | digit off | 18 | 16 |
+| ynt | battle_roster | extraction | wrong value | SP22214 | SP2214 |
+| ynt | mechanism_burn | invented | made up | True | False |
+| ynt | first_responder_name | extraction | name/unit spelling | Day | Day, Finn |

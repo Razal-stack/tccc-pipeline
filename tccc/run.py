@@ -16,9 +16,10 @@ from collections import Counter
 from pathlib import Path
 
 from . import extract
-from .score import TRUTH, group_of, norm, report, score
+from .score import group_of, norm, report, score
 from .textnorm import squash, spoken_to_digits
-from .validate import check_card, clean, missing_critical, to_card
+from .pipeline import finish
+from .validate import clean
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -69,31 +70,13 @@ def main():
     names = extract.SPLITS[a.split]
     raw_dir = extract.run(a.model, names)
     out = ROOT / "out" / a.model.replace("/", "__") / a.split
-    for sub in ("predictions", "review", "cards"):
-        (out / sub).mkdir(parents=True, exist_ok=True)
-
     preds, raws, texts = {}, {}, {}
     for f in names:
         stem = f.replace(".wav", "")
         texts[f] = (extract.TRANSCRIPTS / f"{stem}.txt").read_text()
         p = raw_dir / f"{stem}.json"
         raws[f] = json.loads(p.read_text()) if p.exists() else {}
-        card, flags = to_card(f, raws[f], texts[f])
-        flags += [f"SCHEMA: {p}" for p in check_card(card)]
-        preds[f] = card
-        (out / "predictions" / f"{stem}.json").write_text(json.dumps(card, indent=1))
-        if a.pdf:  # write the card, then read it back and check every field landed as intended
-            from .fill_pdf import fill, read_back
-            pdf = fill(card, out / "cards" / f"{stem}.pdf")
-            back = read_back(pdf)
-            flags += [f"PDF: {k} reads back as '{back.get(k)}', expected '{card[k]}'"
-                      for k in list(back) if k != "file" and norm(back.get(k)) != norm(card.get(k))]
-        filled = {k: v for k, v in card.items() if v and k not in ("file", "injury_boxes")}
-        (out / "review" / f"{stem}.md").write_text(
-            f"# {stem}\n\n## Ask the sender\n" + "".join(f"- {x}\n" for x in missing_critical(card) or ["nothing missing"])
-            + "\n## Check these\n" + "".join(f"- {x}\n" for x in flags or ["nothing flagged"])
-            + "\n## Card\n" + "".join(f"- {k}: {v}\n" for k, v in filled.items())
-            + f"\n## Transcript\n{texts[f]}\n")
+        preds[f], _ = finish(f, raws[f], texts[f], out, pdf=a.pdf)  # same code path as live recordings
 
     s = score({f: preds[f] for f in names}, files=names)
     stages, by_group_stage = Counter(), Counter()

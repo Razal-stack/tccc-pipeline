@@ -11,8 +11,9 @@ from pathlib import Path
 
 from .extract import ask
 from .fill_pdf import fill, read_back
+from .openrouter import guard_budget, load_key
 from .score import norm
-from .stt_bakeoff import guard_budget, load_key, transcribe
+from .stt import transcribe
 from .validate import check_card, missing_critical, to_card
 
 STT_MODEL = "elevenlabs/scribe-v2-medical"  # chosen by benchmark: best on radio, noise and two speakers
@@ -27,24 +28,31 @@ def review_sheet(card, flags, transcript):
             + f"- injury_boxes: {', '.join(card['injury_boxes']) or 'none'}\n\n## Transcript\n{transcript}\n")
 
 
-def process(wav: Path, out: Path, key=None):
-    """Run one recording through every step; each step's output is saved next to the card."""
-    key = key or load_key()
-    stem = wav.stem
-    for sub in ("transcripts", "cards", "predictions", "review"):
+def finish(file, reply, transcript, out: Path, pdf=True):
+    """Model reply -> checked card -> PDF (read back to verify) -> card JSON + review sheet. Shared with tccc.run."""
+    stem = Path(file).stem
+    for sub in ("cards", "predictions", "review"):
         (out / sub).mkdir(parents=True, exist_ok=True)
-    text, _ = transcribe(key, STT_MODEL, wav, keyterms=True)
-    (out / "transcripts" / f"{stem}.txt").write_text(text)
-    reply, _ = ask(LLM_MODEL, text, key)
-    card, flags = to_card(wav.name, reply, text)
+    card, flags = to_card(file, reply, transcript)
     flags += [f"SCHEMA: {p}" for p in check_card(card)]
-    pdf = fill(card, out / "cards" / f"{stem}.pdf")
-    back = read_back(pdf)
-    flags += [f"PDF: {k} reads back wrong" for k in back if k != "file" and norm(back[k]) != norm(card.get(k))]
+    if pdf:
+        back = read_back(fill(card, out / "cards" / f"{stem}.pdf"))
+        flags += [f"PDF: {k} reads back as '{back[k]}', expected '{card.get(k)}'"
+                  for k in back if k != "file" and norm(back[k]) != norm(card.get(k))]
     (out / "predictions" / f"{stem}.json").write_text(json.dumps(card, indent=1))
-    (out / "review" / f"{stem}.md").write_text(review_sheet(card, flags, text))
-    return dict(file=wav.name, card=card, flags=flags, ask=missing_critical(card), transcript=text,
-                pdf=str(pdf), review=str(out / "review" / f"{stem}.md"))
+    (out / "review" / f"{stem}.md").write_text(review_sheet(card, flags, transcript))
+    return card, flags
+
+
+def process(wav: Path, out: Path, key=None):
+    """One new recording through every step; each step's output is saved next to the card."""
+    key = key or load_key()
+    (out / "transcripts").mkdir(parents=True, exist_ok=True)
+    text, _ = transcribe(key, STT_MODEL, wav, keyterms=True)
+    (out / "transcripts" / f"{wav.stem}.txt").write_text(text)
+    reply, _ = ask(LLM_MODEL, text, key)
+    card, flags = finish(wav.name, reply, text, out)
+    return dict(file=wav.name, card=card, flags=flags, ask=missing_critical(card), pdf=str(out / "cards" / f"{wav.stem}.pdf"))
 
 
 def main():

@@ -1,4 +1,7 @@
-# handover-oeu
+# handover-oeu.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
 - Casualty last4 stated with uncertainty (5822 I think)
@@ -25,6 +28,7 @@
 - first_responder_name: Lane, Becky
 - first_responder_last4: 4088
 - notes: Injuries: right arm: superficial burns; ears: ringing, probably burst eardrums; time of injury approx 20 minutes prior to 1930; unit suspected Signals Det
+- injury_boxes: Ant_Right_Elbow, Ant_Right_Lateral_Bicep, Ant_Right_Medial_Bicep, Ant_Right_Middle_Lateral_Forearm, Ant_Right_Middle_Medial_Forearm, Left_Ear, Right_Ear
 
 ## Transcript
 Female casualty. I think she's from the Signals Det. Army Private Hart, Ellie. Blast from a vehicle IED maybe 20 minutes ago. Time now's 19:30. Burns to her right arm, superficial, and she's got ringing ears, probably burst eardrums. Obs at 19:25, pulse about 100, radial. Last four... 5822 I think. BP 128 over 80. Resps 20. Sats 98. Alert. Pain 4. Clingfilm on the arm. Evac routine. I'm Corporal Lane, Becky, last four 4088. [gunfire]

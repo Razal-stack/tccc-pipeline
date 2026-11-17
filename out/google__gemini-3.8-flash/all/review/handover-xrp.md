@@ -1,4 +1,4 @@
-# handover-xrp
+# handover-xrp.wav
 
 ## Ask the sender
 - nothing missing
@@ -32,6 +32,7 @@
 - first_responder_name: Hall, Chris
 - first_responder_last4: 4409
 - notes: Injuries: face: massive facial injuries; both legs: fragment wounds; surgical cric at 0828; pressure dressing to left leg only; resps assisted
+- injury_boxes: Ant_Left_Knee, Ant_Left_Middle_Lateral_Lower_Leg, Ant_Left_Middle_Lateral_Thigh, Ant_Left_Middle_Medial_Lower_Leg, Ant_Left_Middle_Medial_Thigh, Ant_Right_Knee, Ant_Right_Middle_Lateral_Lower_Leg, Ant_Right_Middle_Lateral_Thigh, Ant_Right_Middle_Medial_Lower_Leg, Ant_Right_Middle_Medial_Thigh, Chin, Left_Cheek, Mouth, Nose, Right_Cheek
 
 ## Transcript
 urgent IED 0820 1 November 2026 casualties Corporal Evans male One Royal Welsh massive facial injuries couldn't keep the airway open so surgical cric at 0828 also fragment wounds to both legs pressure dressings on both scrap that dressing on the left leg only the right's not bleeding Evans last four 1-1-7-6 oxygen on through the cric obs at 0838 radial pulse 124 sats 92 after the cric resps 24 assisted ketamine 50 mg IV at 0835 BP 100/64 responds to pain sent by Lance Corporal Hall Chris medic last four 4409

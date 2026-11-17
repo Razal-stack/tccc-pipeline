@@ -1,4 +1,4 @@
-# handover-pbj
+# handover-pbj.wav
 
 ## Ask the sender
 - casualty identity (name / last four / battle roster)
@@ -27,6 +27,7 @@
 - other_med_1_time: 0900
 - other_med_2_name: TXA
 - other_med_2_time: 0920
+- injury_boxes: none
 
 ## Transcript
 Drugs given: TXA a gram at 0900 and a second gram at 0920, fentanyl lollipop at 0855, moxy 400 by mouth same time. Nothing else to add.

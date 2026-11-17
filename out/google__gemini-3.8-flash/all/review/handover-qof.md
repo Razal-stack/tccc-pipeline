@@ -1,4 +1,4 @@
-# handover-qof
+# handover-qof.wav
 
 ## Ask the sender
 - nothing missing
@@ -33,6 +33,7 @@
 - first_responder_name: Hogan
 - first_responder_last4: 4772
 - notes: Injuries: both legs: crushed; left leg: badly deformed; suspected mortar round (unconfirmed); trapped under rubble for about 20 minutes; no big bleeding
+- injury_boxes: Ant_Left_Knee, Ant_Left_Middle_Lateral_Lower_Leg, Ant_Left_Middle_Lateral_Thigh, Ant_Left_Middle_Medial_Lower_Leg, Ant_Left_Middle_Medial_Thigh, Ant_Right_Knee, Ant_Right_Middle_Lateral_Lower_Leg, Ant_Right_Middle_Lateral_Thigh, Ant_Right_Middle_Medial_Lower_Leg, Ant_Right_Middle_Medial_Thigh
 
 ## Transcript
 [war sounds] Okay, so, uh, the building came down. We think a mortar round hit it, not confirmed, about, uh, 0530. Casualty was trapped under rubble for about 20 minutes. Corporal Wright, male, One Royal Irish, last four six six zero four. Date's 5 November 2026. Both legs crushed. The left one's badly deformed. No big bleeding though. OBS at 0550, pulse 116 radial, BP 108 over 70, resps 22, sats 95. He responds to voice. Pain, uh, nine. Splinted both legs. Morphine 10 mg IM at 0558, and he's in the HPMK to keep warm. Evac urgent. Care by Lance Corporal Hogan, CRA, last four four seven seven two.

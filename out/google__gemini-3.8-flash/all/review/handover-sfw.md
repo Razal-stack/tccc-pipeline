@@ -1,4 +1,4 @@
-# handover-sfw
+# handover-sfw.wav
 
 ## Ask the sender
 - nothing missing
@@ -32,6 +32,7 @@
 - first_responder_name: Wade, Sam
 - first_responder_last4: 8841
 - notes: Injuries: right thigh: through and through GSW; left thigh mentioned before correction to right thigh
+- injury_boxes: Ant_Right_Middle_Lateral_Thigh, Ant_Right_Middle_Medial_Thigh
 
 ## Transcript
 MIST Private, uh, Private Collins, Dan, male, last four two seven seven one two Para GSW at 0505 no 0515 left thigh right thigh right thigh through and through CAT right leg at 0518 OBs at 0522 pulse 112 BP 118 over uh over 76 resp is 22 sats 97 alert pain 8 morphine 10 IM sorry not morphine it was ketamine 50 mg IM at 0525 priority From Lance Corporal Wade, Sam, last four eight eight four one

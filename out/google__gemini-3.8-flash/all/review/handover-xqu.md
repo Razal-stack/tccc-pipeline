@@ -1,4 +1,4 @@
-# handover-xqu
+# handover-xqu.wav
 
 ## Ask the sender
 - nothing missing
@@ -33,6 +33,7 @@
 - analgesic_1_time: 1350
 - first_responder_name: Guru, Raj
 - notes: Injuries: left forearm: entry and exit GSW
+- injury_boxes: Ant_Left_Middle_Lateral_Forearm, Ant_Left_Middle_Medial_Forearm
 
 ## Transcript
 Right, so casualty is Private Fortune Ben Army 1 Royal Gurkha Rifles last four 4242. He's male shot through the left forearm two, two wounds entry and exit at about 1340. CAT on left arm at 1342. He's had the combat hilpan and fentanyl 400 micrograms no 800 the whole lozenge at 1350. Obs at 1355 pulse 104 for now regular BP 124 over 80 resps 20 sats 98 alert pain 5 priority sent by Lance Corporal Guru Raj last four 180501.

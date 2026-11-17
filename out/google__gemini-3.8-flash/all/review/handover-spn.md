@@ -1,4 +1,4 @@
-# handover-spn
+# handover-spn.wav
 
 ## Ask the sender
 - nothing missing
@@ -24,6 +24,7 @@
 - signs_1_spo2: 91
 - signs_1_avpu: V - Verbal
 - notes: Injuries: left shoulder blade: entry GSW, no exit seen
+- injury_boxes: Ant_Left_Shoulder
 
 ## Transcript
 Right. T-treatment first. NPA in. She's, she's snoring so NPA in and a chest seal on the, on the back left side. Oxygen's on. Um, she was shot GSW at 22:40, entry left shoulder blade. I can't see an exit. OBS at 22:48. Pulse is 124 radial. RR SPS 28. Sats, sats 91. She's responding to voice. Name's Lance Corporal Fraser Kirsty, last four three zero three zero, Royal Marines 40 Commando. No BP yet. Evac urgent

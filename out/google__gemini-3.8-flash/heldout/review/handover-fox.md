@@ -1,4 +1,7 @@
-# handover-fox
+# handover-fox.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
 - Battle roster number has 5 digits (RE88206)
@@ -40,6 +43,7 @@
 - first_responder_name: Shaw, Leah
 - first_responder_last4: 2660
 - notes: Injuries: right leg below knee: traumatic amputation; left leg below knee: traumatic amputation; dismounted
+- injury_boxes: Ant_Left_Proximal_Lateral_Lower_Leg, Ant_Left_Proximal_Medial_Lower_Leg, Ant_Right_Proximal_Lateral_Lower_Leg, Ant_Right_Proximal_Medial_Lower_Leg
 
 ## Transcript
 Urgent urgent two tourniquets both legs CATs left at 09:31 right at 09:33 IED 09:30 dismounted both legs gone below the knee first set of obs at 09:40 pulse 120 radial BP 100/60 resps 24 sats 95 responds to voice second set at 09:50 pulse is up to 138 and the radial's weak BP 82/50 resps 30 sats 93 and he's now only responding to pain 2 g of TXA IO at 09:45 1 unit of whole blood IO at 09:52 battle roster Romeo Echo 88206 date 31 October 2026 sent by Corporal Shaw Leah last four 2660

@@ -1,4 +1,7 @@
-# handover-oqx
+# handover-oqx.wav
+
+## Ask the sender
+- time of first observations
 
 ## Check these
 - nothing flagged
@@ -27,6 +30,7 @@
 - analgesic_1_route: OTFC
 - analgesic_1_time: 1625
 - notes: Injuries: right forearm: GSW
+- injury_boxes: Ant_Right_Middle_Lateral_Forearm, Ant_Right_Middle_Medial_Forearm
 
 ## Transcript
 Tourniquet right arm CAT at 1620. Roger. TQ right arm 1602. Negative 1620. Casualty's Private Doyle, Sean, male, last four 7712, Army 1 Irish Guards. Mechanism GSW to the right forearm wounded at 1615 pulse 118 radial BP 116 over 74, resp is 22, sats 97 alert pain 7 fentanyl lozenge 800 mics 1625. Copy fentanyl 800 at 1625. EVAC category? Priority.

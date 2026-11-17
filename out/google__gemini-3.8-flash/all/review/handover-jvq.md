@@ -1,4 +1,4 @@
-# handover-jvq
+# handover-jvq.wav
 
 ## Ask the sender
 - nothing missing
@@ -32,6 +32,7 @@
 - other_med_1_route: IV
 - other_med_1_time: 1330
 - notes: Injuries: both thighs: fragment wounds; groin: fragment wounds; Celox applied to groin
+- injury_boxes: Ant_Left_Middle_Lateral_Thigh, Ant_Left_Middle_Medial_Thigh, Ant_Right_Middle_Lateral_Thigh, Ant_Right_Middle_Medial_Thigh, Left_Groin, Right_Groin
 
 ## Transcript
 MIST report battle roster Delta Kilo 4091 male Army 2 Lancs Date 05 November 2026 Time of wounding 1315 Mechanism IED Injuries fragment wounds to both thighs and the groin Signs at 1322 pulse 126 radial BP 94 over 56 Resps 28 Sats 93 responds to voice Pain 8 Treatment CAT on the right thigh at 1317 Celox to the groin 1 gram of TXA-4 at 1330 Evac urgent

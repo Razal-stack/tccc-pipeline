@@ -1,4 +1,4 @@
-# handover-ynt
+# handover-ynt.wav
 
 ## Ask the sender
 - nothing missing
@@ -26,6 +26,7 @@
 - first_responder_name: Day
 - first_responder_last4: 3370
 - notes: Injuries: left chest: penetrating fragment wound; left hand: burns; needle decompression left at 0452
+- injury_boxes: Left_Lower_Chest, Left_Palm, Left_Upper_Chest
 
 ## Transcript
 battle roster Sierra Papa 22241 correction 22214 male Royal Marines 43 Commando IED time of wounding 4:40 penetrating fragment wound to the left chest plus burns to the left hand vented chest seal on the left chest needle decompression on the left at 0452 oxygen on OBS at 0455 radial pulse 128 resps 32 sats 89 responds to voice evac priority no upgrade that evac urgent sent by Corporal Day PIN last four 3370

@@ -1,4 +1,4 @@
-# handover-bwt
+# handover-bwt.wav
 
 ## Ask the sender
 - time of first observations
@@ -26,6 +26,7 @@
 - first_responder_name: Byrne, Tom
 - first_responder_last4: 1662
 - notes: Injuries: right leg above knee: traumatic amputation; initial right leg CAT applied at ~1230
+- injury_boxes: Ant_Right_Distal_Lateral_Thigh, Ant_Right_Distal_Medial_Thigh
 
 ## Transcript
 Right, okay. So this is a MIST. One casualty. He's male, Private Taylor, 2 Yorks. Last four is 59033. We got hit by an IED pressure plate. That was at about 12:20. He's lost his right leg above the knee. It's a mess. Tourniquet CAT went on about 10 minutes ago. Time now is 12:40. Second one's on as well. Also right leg, put that on at 12:35. Pulse, I'm getting a carotid of about 140. Can't find a radial. Breathing's fast, about 30. He's responding to pain. Given him 2 grams of TXA through the IO at 12:38. EVAC urgent please. We need the MERT. Oh, it's Lance Corporal Byrne, Tom, last four 1662. Sending

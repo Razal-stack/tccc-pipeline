@@ -99,7 +99,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "1012",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-ato.wav",
@@ -107,7 +108,8 @@
    "outcome": "missed",
    "pred": false,
    "truth": true,
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-cjp.wav",
@@ -115,7 +117,8 @@
    "outcome": "wrong",
    "pred": "VA62119",
    "truth": "VA6119",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "wrong value"
   },
   {
    "file": "handover-dgf.wav",
@@ -123,7 +126,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "A - Alert",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-fox.wav",
@@ -131,7 +135,8 @@
    "outcome": "wrong",
    "pred": "RE88206",
    "truth": "RE8826",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "wrong value"
   },
   {
    "file": "handover-inj.wav",
@@ -139,7 +144,8 @@
    "outcome": "wrong",
    "pred": "2050",
    "truth": "2015",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "digit off"
   },
   {
    "file": "handover-inj.wav",
@@ -147,7 +153,8 @@
    "outcome": "wrong",
    "pred": "Quinn, Joe",
    "truth": "Quinn, Jo",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "name/unit spelling"
   },
   {
    "file": "handover-jso.wav",
@@ -155,7 +162,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "4062",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-jso.wav",
@@ -163,7 +171,8 @@
    "outcome": "missed",
    "pred": false,
    "truth": true,
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-jso.wav",
@@ -171,7 +180,8 @@
    "outcome": "wrong",
    "pred": "Dunn",
    "truth": "Dunn, Ross",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "name/unit spelling"
   },
   {
    "file": "handover-kdb.wav",
@@ -179,7 +189,8 @@
    "outcome": "missed",
    "pred": false,
    "truth": true,
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -187,7 +198,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "Reid, Fiona",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -195,7 +207,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "6363",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -203,7 +216,8 @@
    "outcome": "missed",
    "pred": false,
    "truth": true,
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -211,7 +225,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "0405",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -219,7 +234,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "Army",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -227,7 +243,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "29 Commando Royal Artillery",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -235,7 +252,8 @@
    "outcome": "missed",
    "pred": false,
    "truth": true,
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -243,7 +261,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "0420",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -251,7 +270,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "108 radial",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -259,7 +279,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "112",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -267,7 +288,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "70",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -275,7 +297,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "22",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -283,7 +306,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "A - Alert",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -291,7 +315,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "6 Intense",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -299,7 +324,8 @@
    "outcome": "missed",
    "pred": false,
    "truth": true,
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -307,7 +333,8 @@
    "outcome": "missed",
    "pred": false,
    "truth": true,
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-lrh.wav",
@@ -315,7 +342,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "01-NOV-26",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-nwd.wav",
@@ -323,7 +351,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "1500",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-oeu.wav",
@@ -331,7 +360,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "1910",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-oeu.wav",
@@ -339,7 +369,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "Signals det",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-oeu.wav",
@@ -347,7 +378,8 @@
    "outcome": "invented",
    "pred": true,
    "truth": false,
-   "stage": "invented"
+   "stage": "invented",
+   "kind": "made up"
   },
   {
    "file": "handover-oeu.wav",
@@ -355,7 +387,8 @@
    "outcome": "wrong",
    "pred": "A - Alert",
    "truth": "V - Verbal",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "wrong value"
   },
   {
    "file": "handover-oeu.wav",
@@ -363,7 +396,8 @@
    "outcome": "wrong",
    "pred": "clingfilm",
    "truth": "cling film",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "wrong value"
   },
   {
    "file": "handover-onh.wav",
@@ -371,7 +405,8 @@
    "outcome": "wrong",
    "pred": "Royal Army detachment",
    "truth": "REME detachment",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "name/unit spelling"
   },
   {
    "file": "handover-onh.wav",
@@ -379,7 +414,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "A - Alert",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-pma.wav",
@@ -387,7 +423,8 @@
    "outcome": "wrong",
    "pred": "1305",
    "truth": "1306",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "digit off"
   },
   {
    "file": "handover-riq.wav",
@@ -395,7 +432,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "5290",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-riq.wav",
@@ -403,7 +441,8 @@
    "outcome": "missed",
    "pred": false,
    "truth": true,
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-riq.wav",
@@ -411,7 +450,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "2100",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-riq.wav",
@@ -419,7 +459,8 @@
    "outcome": "wrong",
    "pred": "94",
    "truth": "95",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "digit off"
   },
   {
    "file": "handover-riq.wav",
@@ -427,7 +468,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "A - Alert",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-riq.wav",
@@ -435,7 +477,8 @@
    "outcome": "wrong",
    "pred": "Weed, Cal",
    "truth": "Reid, Cal",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "name/unit spelling"
   },
   {
    "file": "handover-rtw.wav",
@@ -443,7 +486,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "1500",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-vbf.wav",
@@ -451,7 +495,8 @@
    "outcome": "missed",
    "pred": false,
    "truth": true,
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-xbf.wav",
@@ -459,7 +504,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "3620",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-xbf.wav",
@@ -467,7 +513,8 @@
    "outcome": "wrong",
    "pred": "31-OCT-26",
    "truth": "30-OCT-26",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "wrong value"
   },
   {
    "file": "handover-xqu.wav",
@@ -475,7 +522,8 @@
    "outcome": "wrong",
    "pred": "104",
    "truth": "104 radial",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "wrong value"
   },
   {
    "file": "handover-xqu.wav",
@@ -483,7 +531,8 @@
    "outcome": "missed",
    "pred": false,
    "truth": true,
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-xqu.wav",
@@ -491,7 +540,8 @@
    "outcome": "wrong",
    "pred": "Guru, Raj",
    "truth": "Gurung, Raj",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "name/unit spelling"
   },
   {
    "file": "handover-xqu.wav",
@@ -499,7 +549,8 @@
    "outcome": "missed",
    "pred": "",
    "truth": "9501",
-   "stage": "transcription"
+   "stage": "transcription",
+   "kind": "left blank"
   },
   {
    "file": "handover-xts.wav",
@@ -507,7 +558,8 @@
    "outcome": "wrong",
    "pred": "18",
    "truth": "16",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "digit off"
   },
   {
    "file": "handover-ynt.wav",
@@ -515,7 +567,8 @@
    "outcome": "wrong",
    "pred": "SP22214",
    "truth": "SP2214",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "wrong value"
   },
   {
    "file": "handover-ynt.wav",
@@ -523,7 +576,8 @@
    "outcome": "invented",
    "pred": true,
    "truth": false,
-   "stage": "invented"
+   "stage": "invented",
+   "kind": "made up"
   },
   {
    "file": "handover-ynt.wav",
@@ -531,7 +585,8 @@
    "outcome": "wrong",
    "pred": "Day",
    "truth": "Day, Finn",
-   "stage": "extraction"
+   "stage": "extraction",
+   "kind": "name/unit spelling"
   }
  ]
 }

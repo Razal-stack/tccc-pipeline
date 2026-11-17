@@ -9,21 +9,16 @@ and the recordings folder (--recordings, default ./recordings or ../challenge/re
 Transcripts are saved to transcripts/<model>/<recording>.txt, so re-runs only fetch what's missing.
 """
 import argparse
-import base64
 import json
-import os
 import sys
 import time
-import urllib.error
-import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+from .openrouter import ROOT, call, guard_budget, load_key
 from .score import TRUTH
+from .stt import transcribe
 from .textnorm import categorized_recall, recall
-
-ROOT = Path(__file__).resolve().parent.parent
-API = "https://openrouter.ai/api/v1"
 
 # Hardest 10 by local-transcription number recall: radio links, heavy noise, two voices.
 HARD = ["handover-oqx.wav", "handover-vdi.wav", "handover-kdb.wav", "handover-pbj.wav", "handover-ihg.wav",
@@ -45,41 +40,6 @@ SHORTLIST = [
 ]
 MAX_PRICE_PER_SEC = 0.001  # skip anything listed above $3.60 per audio hour (MAI lists 0.1/s; unit unclear)
 
-VOCAB = ("Expected vocabulary: NATO alphabet (Alpha, Bravo, Charlie ... Juliet, Sierra, Zulu), MIST, TCCC, battle roster, "
-         "last four, CAT tourniquet, SOFTT-W, NPA, cric, needle decompression, chest seal, TXA, ketamine, fentanyl, "
-         "lozenge, OTFC, morphine, ertapenem, moxifloxacin, Hartmann's, Plasma-Lyte, whole blood, IO, IV, IM, "
-         "Cat A, T1, urgent, priority, routine, AVPU, sats, resps, obs, GSW, IED, RPG.")
-
-
-def load_key():
-    if os.environ.get("OPENROUTER_API_KEY"):
-        return os.environ["OPENROUTER_API_KEY"]
-    for env in (ROOT / ".env", ROOT.parent / ".env", ROOT.parent / "challenge" / ".env", Path.cwd() / ".env"):
-        if env.exists():
-            for line in env.read_text().splitlines():
-                if line.startswith("OPENROUTER_API_KEY="):
-                    return line.split("=", 1)[1].strip().strip('"').strip("'")
-    sys.exit("OPENROUTER_API_KEY not found: set it or put it in .env")
-
-
-def call(path, key, body=None, timeout=180):
-    req = urllib.request.Request(API + path, data=json.dumps(body).encode() if body else None,
-                                 headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.load(r)
-
-
-BUDGET = float(os.environ.get("TCCC_BUDGET_USD", "7"))  # hard cap on total spend for this key (key limit is $10)
-
-
-def guard_budget(key):
-    """Refuse to start paid calls once the key's real usage reaches the cap."""
-    used = call("/key", key)["data"]["usage"]
-    if used >= BUDGET:
-        sys.exit(f"budget cap reached: ${used:.2f} used of ${BUDGET:.2f} (set TCCC_BUDGET_USD to change)")
-    print(f"spend so far ${used:.2f} of ${BUDGET:.2f} cap")
-
-
 def list_models(key):
     data = call("/models?output_modalities=transcription", key)["data"]
     return [(m["id"], m.get("pricing", {})) for m in data]
@@ -95,38 +55,6 @@ def pick_shortlist(ids):
                 chosen.append(hits[0])
                 break
     return chosen
-
-
-KEYTERMS = ["TXA", "IV", "IO", "IM", "CAT", "SOFTT-W", "tourniquet", "fentanyl", "lozenge", "ketamine", "morphine",
-            "ertapenem", "moxifloxacin", "Hartmann's", "Plasma-Lyte", "whole blood", "NPA", "cric", "chest seal",
-            "needle decompression", "hypothermia prevention kit", "HPMK", "blizzard blanket", "battle roster",
-            "last four", "MIST", "Cat A", "T1", "urgent", "priority", "routine", "AVPU", "Yorks", "Lancs", "Rifles",
-            "Para", "Commando", "Royal Anglian", "Royal Welsh", "RMP", "RAF Regiment", "Irish Guards"]
-
-
-def transcribe(key, model, wav: Path, keyterms=False):
-    body = {"model": model, "input_audio": {"data": base64.b64encode(wav.read_bytes()).decode(), "format": "wav"},
-            "language": "en", "temperature": 0}
-    if keyterms:
-        body["keyterms"] = KEYTERMS
-    if "whisper" in model:
-        body["provider"] = {"options": {"groq": {"prompt": VOCAB}}}
-    for attempt in range(3):
-        try:
-            r = call("/audio/transcriptions", key, body)
-            u = r.get("usage") or {}
-            return r.get("text", ""), (u.get("cost") or 0.0, u.get("seconds") or 0.0)
-        except urllib.error.HTTPError as e:
-            msg = e.read().decode(errors="replace")[:300]
-            if e.code in (429, 502, 503) and attempt < 2:
-                time.sleep(5 * (attempt + 1))
-                continue
-            return f"__ERROR__ {e.code} {msg}", (0.0, 0.0)
-        except Exception as e:  # noqa: BLE001
-            if attempt < 2:
-                time.sleep(3)
-                continue
-            return f"__ERROR__ {e}", (0.0, 0.0)
 
 
 def main():

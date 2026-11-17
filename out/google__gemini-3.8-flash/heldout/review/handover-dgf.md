@@ -1,4 +1,7 @@
-# handover-dgf
+# handover-dgf.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
 - Verify second AVPU status ('a lip now' likely alert)
@@ -28,6 +31,7 @@
 - signs_2_resp_rate: 16
 - signs_2_spo2: 97
 - notes: Injuries: left forehead: laceration; low back: pain; NPA placed 1040; brief loss of consciousness; cervical collar and scoop stretcher applied for spine
+- injury_boxes: AnteriorHead, Left_Lower_Back, Left_Middle_Back, Left_Upper_Back, Right_Lower_Back, Right_Middle_Back, Right_Upper_Back
 
 ## Transcript
 IED strike on the Foxhound front left wheel time 1030 casualties the driver battle roster Golf Romeo 5180 Army Household Cavalry he was um knocked out briefly now responds to voice complaining of low back pain 7 out of 10 NPA in at 1040 OBES at 1042 radial pulse 92 he's also got a laceration to the left forehead pressure dressing on that BP 142 over 90 RSP is 18 sats 96 on air call her in scoop for the spine second OBES 1055 pulse 88 radial BP 138 over 86 RSP is 16 sats 97 and he's a lip now EVAC priority male casualty

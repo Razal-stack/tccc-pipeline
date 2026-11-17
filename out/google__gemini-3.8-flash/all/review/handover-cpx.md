@@ -1,4 +1,4 @@
-# handover-cpx
+# handover-cpx.wav
 
 ## Ask the sender
 - nothing missing
@@ -30,6 +30,7 @@
 - analgesic_1_route: IM
 - analgesic_1_time: 1810
 - notes: Injuries: right hip: painful, unable to weight bear; fentanyl withheld due to morphine allergy
+- injury_boxes: Left_Hip
 
 ## Transcript
 Fentanyl's not been given. I'm allergic to morphine and that. Yeah, he's saying he's allergic to morphine, so I've held the fentanyl. Given ketamine 25 mg IM at 18:10 instead. Mechanism: fell off the vehicle into a wadi about 3 meters about 17:50. Painful right hip, can't weight bear. Lance Corporal Ellis Jack male last four nine one zero four Army I Mercian. OBS at 1805 pulse 96 radial BP 138 over 88 RR 18 sats 98 alert pain 8 EVAC priority. Today's fourth of November 2026.
