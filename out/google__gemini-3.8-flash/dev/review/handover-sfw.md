@@ -1,8 +1,7 @@
 # handover-sfw
 
 ## Check these
-- last4: '2771' not backed by the transcript ('last 42771'), left blank
-- unit: '2 Para' not backed by the transcript ('2 Para'), left blank
+- nothing flagged
 
 ## Card
 - evac_priority: True
@@ -10,7 +9,9 @@
 - mechanism_gsw: True
 - tq_extremity: True
 - name: Collins, Dan
+- last4: 2771
 - time: 0515
+- unit: 2 Para
 - tq_right_leg_type: CAT
 - tq_right_leg_time: 0518
 - signs_1_time: 0522

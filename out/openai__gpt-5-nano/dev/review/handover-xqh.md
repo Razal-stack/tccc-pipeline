@@ -14,7 +14,7 @@
 - date: 31-OCT-26
 - time: 2310
 - service: Army
-- unit: One Regiment RMP
+- unit: 1 Regiment RMP
 - signs_1_time: 2320
 - signs_1_pulse: 108
 - signs_1_bp_systolic: 122

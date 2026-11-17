@@ -110,5 +110,8 @@ only via provider options (e.g. `provider.options.groq.prompt`).
 - Simple beats clever: fixed pipeline, no agent loops, no frameworks, no UI until the core is scored.
 - Safety first: a blank field + flag beats a confident wrong value.
 - Never print or commit the API key. Repo stays private.
+- **Spend:** The provided OpenRouter key is only for pipeline inference (speech-to-text, extraction), run at the
+  end on the cheapest model that holds accuracy (`openai/gpt-5.6-luna` preferred). No Opus or premium models on
+  it. Development uses our own Claude Code. Tune offline against cached replies in `out/raw/`.
 - Docs and README: plain, warm, human tone; no em dashes.
 - Commit after each working step with a clear message.

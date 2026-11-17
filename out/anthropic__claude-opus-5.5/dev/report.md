@@ -2,8 +2,8 @@
 
 Cards scored: 25 (25 with predictions)
 
-F1 on filled fields:      92.9%  (precision 95.6%, recall 90.4%)
-Safety-critical fields:   94.0%  (precision 95.9%, recall 92.1%)
+F1 on filled fields:      93.0%  (precision 95.6%, recall 90.6%)
+Safety-critical fields:   94.1%  (precision 95.9%, recall 92.4%)
 Invented values:          4 total, 0.16 per card
 Injury boxes F1:          87.8%
 Naive field accuracy:     98.3%  (an empty card scores 83.3%)
@@ -16,19 +16,19 @@ Naive field accuracy:     98.3%  (an empty card scores 83.3%)
 | medications | 91.7% | 94.3% | 89.2% | 83 | 1 | 4 | 9 |
 | mechanism | 94.1% | 100.0% | 88.9% | 24 | 0 | 0 | 3 |
 | evac | 95.7% | 100.0% | 91.7% | 22 | 0 | 0 | 2 |
-| vital_signs | 96.5% | 97.5% | 95.6% | 195 | 5 | 0 | 4 |
+| vital_signs | 96.8% | 97.5% | 96.1% | 196 | 5 | 0 | 3 |
 
 ## Where the errors come from
 
 - extraction: 31
-- transcription: 24
+- transcription: 23
 - invented: 4
 
 ## Errors by group and stage
 
 - identity / extraction: 10
 - identity / transcription: 9
-- vital_signs / transcription: 6
+- vital_signs / transcription: 5
 - medications / extraction: 5
 - medications / transcription: 5
 - tourniquets / extraction: 4
@@ -100,6 +100,5 @@ Naive field accuracy:     98.3%  (an empty card scores 83.3%)
 | xqh | name | extraction | Murphy, Aoi | Murphy, Aoife |
 | xqh | signs_1_bp_diastolic | transcription | 74 | 76 |
 | xqh | first_responder_name | extraction | Zayn, Ahmed | Ahmed, Zain |
-| xrp | signs_1_bp_systolic | transcription |  | 100 |
 | xvw | last4 | transcription |  | 7007 |
 | zas | other_med_1_time | transcription | 0750 | 0755 |

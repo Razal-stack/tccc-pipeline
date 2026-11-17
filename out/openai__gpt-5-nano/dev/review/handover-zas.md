@@ -7,7 +7,6 @@
 - indirect-fire artillery injury
 - shrapnel wound
 - plasma and TXA administered
-- other_med_1_dose: '2 g' not backed by the transcript ('2 g.'), left blank
 
 ## Card
 - evac_urgent: True
@@ -18,7 +17,7 @@
 - battle_roster: CD1975
 - time: 0740
 - service: RAF
-- unit: Two Squadron RAF Regiment
+- unit: 2 Squadron RAF Regiment
 - mechanism_other_text: shrapnel wound
 - signs_1_time: 0750
 - signs_1_pulse: 132 radial
@@ -41,6 +40,7 @@
 - blood_1_route: IV
 - blood_1_time: 0800
 - other_med_1_name: TXA
+- other_med_1_dose: 2 g
 - other_med_1_route: IV
 - other_med_1_time: 0750
 - notes: Injuries: right groin shrapnel wound (high). SAM junctional tourniquet on the right groin in place (0748). Wound packed with Celox. Indirect-fire artillery injury to FOB at 0740. OBS 0750: pulse 132 radial (weak), BP 84/50, resps 28, SpO2 95, responds to voice, pain 8. TXA 2 g IV at 0750. Freeze-dried plasma 1 unit IV at 0800. Repeat OBS 0810: pulse 118 radial, BP 96/60, resp 24, SpO2 96, responds to voice. Battle roster CD1975. Female, RAF, Two Squadron RAF Regiment.

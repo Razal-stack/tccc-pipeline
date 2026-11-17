@@ -2,45 +2,43 @@
 
 Cards scored: 25 (25 with predictions)
 
-F1 on filled fields:      84.2%  (precision 86.6%, recall 82.0%)
-Safety-critical fields:   86.4%  (precision 88.0%, recall 84.8%)
+F1 on filled fields:      85.4%  (precision 87.5%, recall 83.4%)
+Safety-critical fields:   86.9%  (precision 88.1%, recall 85.6%)
 Invented values:          15 total, 0.60 per card
 Injury boxes F1:          75.3%
-Naive field accuracy:     96.6%  (an empty card scores 83.3%)
+Naive field accuracy:     96.8%  (an empty card scores 83.3%)
 
 | Group | F1 | Precision | Recall | Correct | Wrong | Invented | Missed |
 |---|---|---|---|---|---|---|---|
 | tourniquets | 78.7% | 82.8% | 75.0% | 24 | 4 | 1 | 4 |
-| identity | 80.3% | 82.1% | 78.5% | 124 | 27 | 0 | 7 |
-| medications | 81.3% | 83.1% | 79.6% | 74 | 7 | 8 | 12 |
 | treatments | 82.0% | 96.2% | 71.4% | 25 | 0 | 1 | 10 |
+| medications | 82.6% | 83.5% | 81.7% | 76 | 7 | 8 | 10 |
 | mechanism | 83.0% | 84.6% | 81.5% | 22 | 0 | 4 | 5 |
-| vital_signs | 88.6% | 89.5% | 87.7% | 179 | 20 | 1 | 5 |
+| identity | 83.5% | 85.4% | 81.6% | 129 | 22 | 0 | 7 |
+| vital_signs | 88.9% | 89.6% | 88.2% | 180 | 20 | 1 | 4 |
 | evac | 95.7% | 100.0% | 91.7% | 22 | 0 | 0 | 2 |
 
 ## Where the errors come from
 
-- extraction: 74
-- transcription: 27
+- extraction: 69
+- transcription: 26
 - invented: 15
-- validation: 2
 
 ## Errors by group and stage
 
-- identity / extraction: 25
+- identity / extraction: 20
 - vital_signs / extraction: 19
 - identity / transcription: 9
 - medications / extraction: 9
 - treatments / extraction: 9
 - medications / transcription: 8
 - medications / invented: 8
-- vital_signs / transcription: 6
 - mechanism / extraction: 5
+- vital_signs / transcription: 5
 - tourniquets / extraction: 5
 - mechanism / invented: 4
 - tourniquets / transcription: 3
 - evac / extraction: 2
-- medications / validation: 2
 - vital_signs / invented: 1
 - treatments / transcription: 1
 - treatments / invented: 1
@@ -57,11 +55,10 @@ Naive field accuracy:     96.6%  (an empty card scores 83.3%)
 | bwt | signs_1_pulse | transcription | 130 | 140 carotid |
 | bwt | signs_1_avpu | extraction |  | P - Pain |
 | cpx | name | extraction | Ellis Jack | Ellis, Jack |
-| cpx | unit | extraction | One Mercian | 1 Mercian |
 | drm | signs_1_pulse | extraction | 110 | 110 radial |
 | ihg | evac_urgent | extraction | False | True |
 | ihg | gender_m | extraction | False | True |
-| ihg | unit | extraction | one unit | 1 Yorks |
+| ihg | unit | extraction | 1 unit | 1 Yorks |
 | ihg | tq_right_leg_type | extraction |  | CAT |
 | ihg | tq_right_leg_time | transcription | 1425 | 1424 |
 | ihg | tq_left_leg_type | extraction |  | CAT |
@@ -76,7 +73,6 @@ Naive field accuracy:     96.6%  (an empty card scores 83.3%)
 | ihg | first_responder_name | extraction | Corporal Jones | Jones, Sam |
 | ihg | first_responder_last4 | transcription | 1090 | 3318 |
 | isa | gender_m | extraction | False | True |
-| isa | unit | extraction | One Rifles | 1 Rifles |
 | isa | signs_1_pulse | extraction | 120 | 120 radial |
 | isa | signs_2_pulse | extraction | 108 | 108 radial |
 | isa | other_med_1_route | extraction |  | IV |
@@ -90,7 +86,7 @@ Naive field accuracy:     96.6%  (an empty card scores 83.3%)
 | jql | hypothermia_prevention_type | extraction |  | blizzard blanket |
 | jql | first_responder_name | extraction | Lance Corporal Kelly Dan | Kelly, Dan |
 | jql | first_responder_last4 | transcription |  | 2285 |
-| jvq | unit | extraction | Two Larc. | 2 Lancs |
+| jvq | unit | extraction | 2 Larc. | 2 Lancs |
 | jvq | signs_1_pulse | extraction | 126 | 126 radial |
 | liq | time | transcription | 1110 | 1100 |
 | liq | tq_right_leg_type | extraction | CAT high; CAT below | CAT |
@@ -150,21 +146,15 @@ Naive field accuracy:     96.6%  (an empty card scores 83.3%)
 | vdi | signs_1_pulse | transcription |  | 130 |
 | xqh | name | extraction | Murphy, Aoi | Murphy, Aoife |
 | xqh | gender_f | extraction | False | True |
-| xqh | unit | extraction | One Regiment RMP | 1 Regiment RMP |
 | xqh | signs_1_pulse | extraction | 108 | 108 radial |
 | xqh | signs_1_bp_diastolic | transcription | 74 | 76 |
 | xqh | first_responder_name | extraction | Ahmed Zayn | Ahmed, Zain |
-| xrp | unit | extraction | One Royal Welsh | 1 Royal Welsh |
 | xrp | mechanism_ied | extraction | False | True |
-| xrp | signs_1_bp_systolic | transcription |  | 100 |
 | xrp | signs_1_avpu | extraction |  | P - Pain |
 | xrp | first_responder_name | extraction | Hall Chris | Hall, Chris |
 | xvw | last4 | transcription |  | 7007 |
-| xvw | other_med_1_dose | validation |  | 2 g |
-| zas | unit | extraction | Two Squadron RAF Regiment | 2 Squadron RAF Regiment |
 | zas | mechanism_other | invented | True | False |
 | zas | mechanism_other_text | invented | shrapnel wound |  |
 | zas | tq_junctional | extraction | False | True |
 | zas | tq_type | invented | SAM junctional |  |
-| zas | other_med_1_dose | validation |  | 2 g |
 | zas | other_med_1_time | transcription | 0750 | 0755 |

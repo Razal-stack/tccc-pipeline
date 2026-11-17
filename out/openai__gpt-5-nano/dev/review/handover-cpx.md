@@ -15,7 +15,7 @@
 - date: 04-NOV-26
 - time: 1750
 - service: Army
-- unit: One Mercian
+- unit: 1 Mercian
 - allergies: morphine
 - signs_1_time: 1805
 - signs_1_pulse: 96 radial

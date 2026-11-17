@@ -13,7 +13,7 @@
 - battle_roster: PK6009
 - time: 0650
 - service: Army
-- unit: One Rifles
+- unit: 1 Rifles
 - tq_left_leg_type: CAT
 - tq_left_leg_time: 0655
 - signs_1_time: 0700

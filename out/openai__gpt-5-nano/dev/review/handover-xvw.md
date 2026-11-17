@@ -3,7 +3,6 @@
 ## Check these
 - last4 unknown/garbled
 - verify CAT tourniquet timing on right leg (1012)
-- other_med_1_dose: '2 g' not backed by the transcript ('2 g'), left blank
 
 ## Card
 - evac_urgent: True
@@ -25,6 +24,7 @@
 - signs_1_avpu: A - Alert
 - signs_1_pain: 10 Unimaginable
 - other_med_1_name: TXA
+- other_med_1_dose: 2 g
 - other_med_1_route: IV
 - other_med_1_time: 1025
 - notes: Injuries: right foot: severely damaged with heavy bleeding; right leg: CAT tourniquet applied at 1012; time of wounding 1010. Observations at 1020: pulse 116 radial; BP 108/70; SpO2 96%; resp 24; AVPU A; pain 10/10. TXA 2 g IV given at 1025. Patient alert. Six of us left on the patrol. Time of wounding 1010. Evacuation: urgent.

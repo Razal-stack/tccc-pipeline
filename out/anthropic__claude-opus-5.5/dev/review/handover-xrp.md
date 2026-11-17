@@ -4,7 +4,6 @@
 - Dressing correction was ambiguous ('scrap that dressing on the left leg only'). Confirm the pressure dressing is on the left leg only and the right leg is undressed.
 - BP 100/64 and 'responds to pain' were given separately from the 0838 obs. Confirm they belong to the same set.
 - Service not stated (unit given as 1 Royal Welsh).
-- signs_1_bp_systolic: '100' not backed by the transcript ('BP 100/64'), left blank
 
 ## Card
 - evac_urgent: True
@@ -20,6 +19,7 @@
 - unit: 1 Royal Welsh
 - signs_1_time: 0838
 - signs_1_pulse: 124 radial
+- signs_1_bp_systolic: 100
 - signs_1_bp_diastolic: 64
 - signs_1_resp_rate: 24
 - signs_1_spo2: 92

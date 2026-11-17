@@ -1,8 +1,7 @@
 # handover-xrp
 
 ## Check these
-- signs_1_bp_systolic: '100' not backed by the transcript ('BP 100'), left blank
-- signs_1_bp_diastolic: '64' not backed by the transcript ('64'), left blank
+- nothing flagged
 
 ## Card
 - evac_urgent: True
@@ -15,9 +14,11 @@
 - last4: 1176
 - date: 01-NOV-26
 - time: 0820
-- unit: One Royal Welsh
+- unit: 1 Royal Welsh
 - signs_1_time: 0838
 - signs_1_pulse: 124 radial
+- signs_1_bp_systolic: 100
+- signs_1_bp_diastolic: 64
 - signs_1_resp_rate: 24
 - signs_1_spo2: 92
 - signs_1_avpu: P - Pain

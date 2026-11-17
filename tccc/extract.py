@@ -53,7 +53,8 @@ Formats:
   Blood products (whole blood, plasma) go in blood_*, crystalloids (Hartmann's, Plasma-Lyte) in fluid_*.
 - Tourniquets: tq_<limb>_type (CAT, SOFTT-W) and tq_<limb>_time; also tick tq_extremity for any limb tourniquet.
 - Evac: Cat A / T1 / urgent -> evac_urgent; priority -> evac_priority; routine -> evac_routine.
-- tq_type, dressing_type, airway_type, breathing_type, hypothermia_prevention_type: fill ONLY for an "other" item
+- hypothermia_prevention_type: the kit as said ("blizzard blanket", "HPMK").
+- tq_type, dressing_type, airway_type, breathing_type: fill ONLY for an "other" item
   with no checkbox of its own (dressing_other + "cling film"). Brands and device names for ticked items (Celox,
   QuikClot, surgical cric, SAM junctional) are not types: tick the checkbox and put the detail in notes if useful.
 - allergies as said ("NKA" for no known allergies).

@@ -8,7 +8,7 @@ TENS = {"twenty": 20, "thirty": 30, "forty": 40, "fifty": 50, "sixty": 60, "seve
 
 
 def spoken_to_digits(text: str) -> str:
-    toks = re.findall(r"[a-z]+|\d+", text.lower().replace("-", " "))
+    toks = re.findall(r"[a-z]+|\d+", text.lower().replace("-", " ").replace("/", " over "))  # 100/64 is not 164
     out, i = [], 0
     while i < len(toks):
         w = toks[i]

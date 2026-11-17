@@ -14,7 +14,7 @@
 - date: 05-NOV-26
 - time: 1315
 - service: Army
-- unit: Two Larc.
+- unit: 2 Larc.
 - tq_right_leg_type: CAT
 - tq_right_leg_time: 1317
 - signs_1_time: 1322

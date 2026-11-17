@@ -12,7 +12,7 @@
 - battle_roster: CD1975
 - time: 0740
 - service: RAF
-- unit: Two Squadron RAF Regiment
+- unit: 2 Squadron RAF Regiment
 - signs_1_time: 0750
 - signs_1_pulse: 132 radial
 - signs_1_bp_systolic: 84

@@ -22,9 +22,9 @@ def supported(value, evidence, transcript):
     """Evidence words mostly present in the transcript, and every number in the value said somewhere."""
     have = set(_words(transcript))
     ev = _words(evidence or "")
-    if not ev or sum(w in have for w in ev) / len(ev) < 0.7:
-        return False
     sq = squash(transcript)
+    if not ev or (sum(w in have for w in ev) / len(ev) < 0.7 and squash(evidence) not in sq):
+        return False
     return all(n in sq or n.lstrip("0") in sq for n in re.findall(r"\d+", value))
 
 
@@ -50,6 +50,10 @@ def clean(field, v):
         if not n or not lo <= int(n.group()) <= hi:
             return None
         return v.lower() if m.group(1) == "pulse" else n.group()
+    if field == "unit":  # "One Royal Welsh" -> "1 Royal Welsh"
+        first, _, rest = v.partition(" ")
+        n = spoken_to_digits(first)
+        return f"{n} {rest}" if n.isdigit() and rest else v
     return v
 
 

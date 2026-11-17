@@ -2,34 +2,34 @@
  "cards": 25,
  "predicted": 25,
  "overall": {
-  "precision": 0.941923774954628,
-  "recall": 0.9057591623036649,
-  "f1": 0.9234875444839857,
+  "precision": 0.9477477477477477,
+  "recall": 0.9179755671902269,
+  "f1": 0.9326241134751773,
   "blank_ok": 2847,
-  "correct": 519,
-  "wrong": 27,
-  "missed": 27,
+  "correct": 526,
+  "wrong": 24,
+  "missed": 23,
   "invented": 5
  },
  "critical": {
-  "precision": 0.9566473988439307,
-  "recall": 0.9323943661971831,
-  "f1": 0.9443651925820257,
+  "precision": 0.9568965517241379,
+  "recall": 0.9380281690140845,
+  "f1": 0.9473684210526315,
   "blank_ok": 1941,
-  "correct": 331,
-  "missed": 13,
+  "correct": 333,
+  "missed": 11,
   "wrong": 11,
   "invented": 4
  },
  "groups": {
   "identity": {
-   "precision": 0.8933333333333333,
-   "recall": 0.8481012658227848,
-   "f1": 0.8701298701298702,
+   "precision": 0.9144736842105263,
+   "recall": 0.879746835443038,
+   "f1": 0.896774193548387,
    "blank_ok": 142,
-   "wrong": 16,
-   "correct": 134,
-   "missed": 8
+   "wrong": 13,
+   "correct": 139,
+   "missed": 6
   },
   "evac": {
    "precision": 1.0,
@@ -58,13 +58,13 @@
    "wrong": 4
   },
   "vital_signs": {
-   "precision": 0.975,
-   "recall": 0.9558823529411765,
-   "f1": 0.9653465346534653,
-   "correct": 195,
+   "precision": 0.9752475247524752,
+   "recall": 0.9656862745098039,
+   "f1": 0.9704433497536946,
+   "correct": 197,
    "blank_ok": 596,
    "wrong": 5,
-   "missed": 4
+   "missed": 2
   },
   "treatments": {
    "precision": 0.96875,
@@ -94,7 +94,7 @@
   "fp": 17,
   "fn": 12
  },
- "naive_accuracy": 0.9827737226277372,
+ "naive_accuracy": 0.9848175182481752,
  "empty_card_baseline": 0.8327007299270073,
  "invented_per_card": 0.2,
  "errors": [
@@ -142,7 +142,7 @@
    "file": "handover-ihg.wav",
    "field": "unit",
    "outcome": "wrong",
-   "pred": "One Unit",
+   "pred": "1 Unit",
    "truth": "1 Yorks",
    "stage": "extraction"
   },
@@ -254,7 +254,7 @@
    "file": "handover-jvq.wav",
    "field": "unit",
    "outcome": "wrong",
-   "pred": "Two Larc",
+   "pred": "2 Larc",
    "truth": "2 Lancs",
    "stage": "extraction"
   },
@@ -427,22 +427,6 @@
    "stage": "invented"
   },
   {
-   "file": "handover-sfw.wav",
-   "field": "last4",
-   "outcome": "missed",
-   "pred": "",
-   "truth": "2771",
-   "stage": "validation"
-  },
-  {
-   "file": "handover-sfw.wav",
-   "field": "unit",
-   "outcome": "missed",
-   "pred": "",
-   "truth": "2 Para",
-   "stage": "validation"
-  },
-  {
    "file": "handover-uij.wav",
    "field": "mechanism_mvc",
    "outcome": "missed",
@@ -500,14 +484,6 @@
   },
   {
    "file": "handover-xqh.wav",
-   "field": "unit",
-   "outcome": "wrong",
-   "pred": "One Regiment RMP",
-   "truth": "1 Regiment RMP",
-   "stage": "extraction"
-  },
-  {
-   "file": "handover-xqh.wav",
    "field": "signs_1_bp_diastolic",
    "outcome": "wrong",
    "pred": "74",
@@ -523,44 +499,12 @@
    "stage": "extraction"
   },
   {
-   "file": "handover-xrp.wav",
-   "field": "unit",
-   "outcome": "wrong",
-   "pred": "One Royal Welsh",
-   "truth": "1 Royal Welsh",
-   "stage": "extraction"
-  },
-  {
-   "file": "handover-xrp.wav",
-   "field": "signs_1_bp_systolic",
-   "outcome": "missed",
-   "pred": "",
-   "truth": "100",
-   "stage": "transcription"
-  },
-  {
-   "file": "handover-xrp.wav",
-   "field": "signs_1_bp_diastolic",
-   "outcome": "missed",
-   "pred": "",
-   "truth": "64",
-   "stage": "validation"
-  },
-  {
    "file": "handover-xvw.wav",
    "field": "last4",
    "outcome": "missed",
    "pred": "",
    "truth": "7007",
    "stage": "transcription"
-  },
-  {
-   "file": "handover-zas.wav",
-   "field": "unit",
-   "outcome": "wrong",
-   "pred": "Two Squadron RAF Regiment",
-   "truth": "2 Squadron RAF Regiment",
-   "stage": "extraction"
   },
   {
    "file": "handover-zas.wav",
