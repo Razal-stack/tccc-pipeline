@@ -7,7 +7,8 @@ import sys
 from pathlib import Path
 
 from pypdf import PdfReader, PdfWriter
-from pypdf.generic import NameObject, TextStringObject, BooleanObject
+from pypdf.generic import (ArrayObject, BooleanObject, DecodedStreamObject, DictionaryObject, FloatObject,
+                           NameObject, TextStringObject)
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 BLANK = DATA / "tccc-card-blank.pdf"
@@ -39,6 +40,23 @@ def _field_values(card: dict) -> dict:
     return out
 
 
+def _appearance(writer, annot, text):
+    """Draw the text into the field (11pt Helvetica, like the golden cards) so every viewer shows it."""
+    x1, y1, x2, y2 = (float(v) for v in annot["/Rect"])
+    w, h = x2 - x1, y2 - y1
+    size = min(11.0, h - 2)
+    safe = text.replace("\\", "\\\\").replace("(", "\\(").replace(")", "\\)")
+    stream = DecodedStreamObject()
+    stream.set_data(f"/Tx BMC q BT /Helv {size:.1f} Tf 0 g 2 {(h - size) / 2 + 1:.2f} Td ({safe}) Tj ET Q EMC".encode("latin-1", "replace"))
+    font = DictionaryObject({NameObject("/Type"): NameObject("/Font"), NameObject("/Subtype"): NameObject("/Type1"),
+                             NameObject("/BaseFont"): NameObject("/Helvetica"),
+                             NameObject("/Encoding"): NameObject("/WinAnsiEncoding")})
+    stream.update({NameObject("/Type"): NameObject("/XObject"), NameObject("/Subtype"): NameObject("/Form"),
+                   NameObject("/BBox"): ArrayObject([FloatObject(0), FloatObject(0), FloatObject(w), FloatObject(h)]),
+                   NameObject("/Resources"): DictionaryObject({NameObject("/Font"): DictionaryObject({NameObject("/Helv"): font})})})
+    annot[NameObject("/AP")] = DictionaryObject({NameObject("/N"): writer._add_object(stream)})
+
+
 def fill(card: dict, out_path, blank=BLANK):
     values = _field_values(card)
     writer = PdfWriter(clone_from=PdfReader(str(blank)))
@@ -58,8 +76,7 @@ def fill(card: dict, out_path, blank=BLANK):
                 annot[NameObject("/AS")] = state
             else:
                 target[NameObject("/V")] = TextStringObject(str(value or ""))
-                if "/AP" in annot:  # stale appearance would hide the new value
-                    del annot["/AP"]
+                _appearance(writer, annot, str(value or ""))  # Preview and phones ignore NeedAppearances
     acro = writer._root_object.get("/AcroForm")
     if acro is not None:
         acro = acro.get_object()
