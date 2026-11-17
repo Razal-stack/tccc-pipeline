@@ -1,0 +1,106 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Urgent"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED"
+  ],
+  "time": [
+   "0820",
+   "0820"
+  ],
+  "date": [
+   "01-NOV-26",
+   "1 November 2026"
+  ],
+  "name": [
+   "Evans",
+   "Corporal Evans"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "unit": [
+   "1 Royal Welsh",
+   "One Royal Welsh"
+  ],
+  "last4": [
+   "1176",
+   "Evans last four 1-1-7-6"
+  ],
+  "airway_cric": [
+   true,
+   "surgical cric at 0828"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressings on both. Scrap that dressing on the left leg only the right's not bleeding"
+  ],
+  "breathing_o2": [
+   true,
+   "Oxygen on through the cric"
+  ],
+  "signs_1_time": [
+   "0838",
+   "obs at 0838"
+  ],
+  "signs_1_pulse": [
+   "124 radial",
+   "radial pulse 124"
+  ],
+  "signs_1_spo2": [
+   "92",
+   "sats 92 after the cric"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resps 24 assisted"
+  ],
+  "signs_1_bp_systolic": [
+   "100",
+   "BP 100/64"
+  ],
+  "signs_1_bp_diastolic": [
+   "64",
+   "BP 100/64"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responds to pain"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "Ketamine 50 mg IV at 0835"
+  ],
+  "analgesic_1_dose": [
+   "50 mg",
+   "Ketamine 50 mg IV at 0835"
+  ],
+  "analgesic_1_route": [
+   "IV",
+   "Ketamine 50 mg IV at 0835"
+  ],
+  "analgesic_1_time": [
+   "0835",
+   "Ketamine 50 mg IV at 0835"
+  ],
+  "first_responder_name": [
+   "Hall, Chris",
+   "Sent by Lance Corporal Hall Chris medic"
+  ],
+  "first_responder_last4": [
+   "4409",
+   "last four 4409"
+  ]
+ },
+ "notes": "Injuries: face: massive facial injuries; left leg: fragment wound; right leg: fragment wound; surgical cric at 0828 as the airway could not be kept open; oxygen given through the cric; pressure dressing on the left leg only (corrected from both legs, the right leg is not bleeding); resps 24 assisted; BP and AVPU were said after the ketamine and are recorded with the 0838 obs.",
+ "flags": [
+  "Dressing correction was ambiguous ('scrap that dressing on the left leg only'). Confirm the pressure dressing is on the left leg only and the right leg is undressed.",
+  "BP 100/64 and 'responds to pain' were given separately from the 0838 obs. Confirm they belong to the same set.",
+  "Service not stated (unit given as 1 Royal Welsh)."
+ ]
+}

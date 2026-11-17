@@ -1,0 +1,117 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Urgent"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED"
+  ],
+  "date": [
+   "01-NOV-26",
+   "1 November 2026"
+  ],
+  "time": [
+   "0820",
+   "0820"
+  ],
+  "name": [
+   "Evans",
+   "Corporal Evans"
+  ],
+  "last4": [
+   "1176",
+   "1-1-7-6"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "unit": [
+   "1 Royal Welsh",
+   "One Royal Welsh"
+  ],
+  "airway_cric": [
+   true,
+   "surgical cric at 0828"
+  ],
+  "airway_type": [
+   "surgical cric",
+   "surgical cric at 0828"
+  ],
+  "breathing_o2": [
+   true,
+   "Oxygen on through the cric"
+  ],
+  "breathing_type": [
+   "through the cric",
+   "Oxygen on through the cric"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressings on both"
+  ],
+  "dressing_type": [
+   "left leg only",
+   "dressing on the left leg only the right's not bleeding"
+  ],
+  "signs_1_time": [
+   "0838",
+   "obs at 0838"
+  ],
+  "signs_1_pulse": [
+   "124 radial",
+   "radial pulse 124"
+  ],
+  "signs_1_bp_systolic": [
+   "100",
+   "BP 100/64"
+  ],
+  "signs_1_bp_diastolic": [
+   "64",
+   "BP 100/64"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resps 24"
+  ],
+  "signs_1_spo2": [
+   "92",
+   "sats 92"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responds to pain"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "Ketamine"
+  ],
+  "analgesic_1_dose": [
+   "50 mg",
+   "50 mg"
+  ],
+  "analgesic_1_route": [
+   "IV",
+   "IV"
+  ],
+  "analgesic_1_time": [
+   "0835",
+   "at 0835"
+  ],
+  "first_responder_name": [
+   "Hall, Chris",
+   "Lance Corporal Hall Chris"
+  ],
+  "first_responder_last4": [
+   "4409",
+   "last four 4409"
+  ]
+ },
+ "notes": "Injuries: face: massive facial injuries, airway could not be maintained, surgical cric 0828, oxygen via cric; left leg: fragment wound, pressure dressing; right leg: fragment wound, not bleeding, no dressing; resps assisted; obs taken after cric; rank Corporal",
+ "flags": [
+  "First name not given",
+  "Verify dressing correction: pressure dressing on left leg only, right leg undressed"
+ ]
+}

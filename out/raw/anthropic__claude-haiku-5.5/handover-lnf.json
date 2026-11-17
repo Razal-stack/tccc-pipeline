@@ -1,0 +1,98 @@
+{
+ "fields": {
+  "name": [
+   "Lowe, Megan",
+   "Female Private Lowe, Megan"
+  ],
+  "gender_f": [
+   true,
+   "Female Private Lowe, Megan"
+  ],
+  "service": [
+   "Army",
+   "Army, 21 Engineer Regiment"
+  ],
+  "unit": [
+   "21 Engineer Regiment",
+   "21 Engineer Regiment"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED at 11:10 mounted"
+  ],
+  "time": [
+   "1110",
+   "IED at 11:10 mounted"
+  ],
+  "tq_right_arm_type": [
+   "CAT",
+   "CAT on the right arm at 11:14"
+  ],
+  "tq_right_arm_time": [
+   "1114",
+   "CAT on the right arm at 11:14"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT on the right arm at 11:14"
+  ],
+  "tq_type": [
+   "CAT",
+   "CAT on the right arm at 11:14"
+  ],
+  "dressing_pressure": [
+   true,
+   "Pressure dressing to the face"
+  ],
+  "signs_1_time": [
+   "1120",
+   "Obs at 11:20"
+  ],
+  "signs_1_bp_systolic": [
+   "90",
+   "Obs at 11:20 BP 90 over 60... It's 90 over 50"
+  ],
+  "signs_1_bp_diastolic": [
+   "50",
+   "It's 90 over 50"
+  ],
+  "signs_1_pulse": [
+   "120 radial",
+   "Pulse 120 radial"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "Resps 24"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "Sats 96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "Sats 96 alert"
+  ],
+  "signs_1_pain": [
+   "7 Very Intense",
+   "Pain 7"
+  ],
+  "evac_priority": [
+   true,
+   "Evac priority"
+  ],
+  "first_responder_name": [
+   "Moss, Harry",
+   "Sent by Lance Corporal Moss, Harry"
+  ]
+ },
+ "notes": "Injuries: right upper arm: fragment wound; right side of face: fragment wound; mounted casualty, top cover at time of IED. Blood pressure corrected from 90/60 to 90/50 in handover. Last4 for casualty and first responder were spoken as five digits (44480, 45593); not entered. Date and allergies not stated.",
+ "flags": [
+  "Casualty last4 spoken as '44480' (five digits), left blank; confirm the last four digits",
+  "First responder last4 spoken as '45593' (five digits), left blank; confirm",
+  "BP corrected in handover: 90/50 used, not 90/60",
+  "Date of injury not stated",
+  "Allergies not stated",
+  "Pain scored 7; mapped to '7 Very Intense' per pain scale",
+  "Mounted casualty noted in notes only; mechanism is IED"
+ ]
+}

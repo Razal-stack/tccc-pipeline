@@ -1,0 +1,105 @@
+{
+ "fields": {
+  "name": [
+   "Brown, Tom",
+   "Corporal Brown, Tom"
+  ],
+  "last4": [
+   "8021",
+   "last four 8021"
+  ],
+  "date": [
+   "02-NOV-26",
+   "Date 2nd November 2026."
+  ],
+  "time": [
+   "1330",
+   "Time of wounding 13:30"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "3 Para",
+   "Army 3 Para."
+  ],
+  "evac_priority": [
+   true,
+   "EVAC priority."
+  ],
+  "mechanism_grenade": [
+   true,
+   "grenade"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressings on the left forearm and left flank"
+  ],
+  "eye_shield": [
+   true,
+   "eye shield on the left eye"
+  ],
+  "eye_shield_left": [
+   true,
+   "eye shield on the left eye"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "fentanyl lozenge"
+  ],
+  "analgesic_1_dose": [
+   "800 mcg",
+   "fentanyl lozenge 800 mcg at 13:40"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "fentanyl lozenge 800 mcg at 13:40"
+  ],
+  "analgesic_1_time": [
+   "1340",
+   "at 13:40"
+  ],
+  "signs_1_time": [
+   "1345",
+   "OBS at 13:45:"
+  ],
+  "signs_1_pulse": [
+   "110",
+   "radial pulse 110"
+  ],
+  "signs_1_bp_systolic": [
+   "120",
+   "BP 120/70"
+  ],
+  "signs_1_bp_diastolic": [
+   "70",
+   "BP 120/70"
+  ],
+  "signs_1_resp_rate": [
+   "22",
+   "RR 22"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "sats 96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "7",
+   "pain 7"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ]
+ },
+ "notes": "Injuries: left forearm: fragmentation wound; left flank: fragmentation wound; left side of face: fragmentation wound. Time of wounding: 1330; Observations at 1345: radial pulse 110, BP 120/70, RR 22, sats 96, AVPU A, pain 7. Treatments so far: pressure dressings on the left forearm and left flank, eye shield on the left eye; fentanyl lozenge 800 mcg at 1340. Evac: priority. Date 02-NOV-26. This is Corporal Brown, Tom, male, last four 8021, Army 3 Para.",
+ "flags": [
+  "verify injury locations: left forearm, left flank, left side of face",
+  "confirm exact analgesia time and route (13:40 OTFC)"
+ ]
+}

@@ -1,0 +1,76 @@
+{
+ "fields": {
+  "battle_roster": [
+   "TB2251",
+   "Tango Bravo 2251"
+  ],
+  "date": [
+   "02-NOV-26",
+   "2 November 2026"
+  ],
+  "time": [
+   "1400",
+   "at 1400"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_gsw": [
+   true,
+   "Gunshot wound left calf at 1400"
+  ],
+  "tq_extremity": [
+   true,
+   "It's a soft TW left leg."
+  ],
+  "tq_left_leg_type": [
+   "SOFTT-W",
+   "soft TW left leg"
+  ],
+  "tq_left_leg_time": [
+   "1405",
+   "1405"
+  ],
+  "signs_1_time": [
+   "1410",
+   "Obs at 1410."
+  ],
+  "signs_1_pulse": [
+   "110 radial",
+   "Pulse 110 radial."
+  ],
+  "signs_1_bp_systolic": [
+   "120",
+   "BP 120 over 75."
+  ],
+  "signs_1_bp_diastolic": [
+   "75",
+   "BP 120 over 75."
+  ],
+  "signs_1_resp_rate": [
+   "20",
+   "Resps 20."
+  ],
+  "signs_1_spo2": [
+   "97",
+   "Sats 97."
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "He's alert."
+  ],
+  "signs_1_pain": [
+   "5",
+   "Pain 5."
+  ],
+  "evac_priority": [
+   true,
+   "priority"
+  ]
+ },
+ "notes": "Injuries: left calf: gunshot wound; left leg: soft TW with tourniquet applied at 1405; time of wounding 1400; obs 1410; vitals: pulse 110 radial; BP 120/75; resps 20; sats 97; AVPU A - Alert; pain 5; priority evac.",
+ "flags": [
+  "name_missing"
+ ]
+}

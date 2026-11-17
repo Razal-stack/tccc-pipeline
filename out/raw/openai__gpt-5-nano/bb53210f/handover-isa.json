@@ -1,0 +1,126 @@
+{
+ "fields": {
+  "battle_roster": [
+   "PK6009",
+   "Papa Kilo 6009"
+  ],
+  "time": [
+   "0650",
+   "Wait correction 6:50."
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "One Rifles",
+   "One rifles"
+  ],
+  "mechanism_artillery": [
+   true,
+   "Mechanism artillery incoming rounds."
+  ],
+  "tq_extremity": [
+   true,
+   "CAT on the left thigh at 6:55."
+  ],
+  "tq_left_leg_type": [
+   "CAT",
+   "CAT on the left thigh at 6:55."
+  ],
+  "tq_left_leg_time": [
+   "0655",
+   "CAT on the left thigh at 6:55."
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Wound packed with hemostatic gauze."
+  ],
+  "signs_1_time": [
+   "0700",
+   "OB's at 0700."
+  ],
+  "signs_1_pulse": [
+   "120",
+   "Radial pulse 120."
+  ],
+  "signs_1_bp_systolic": [
+   "104",
+   "BP 104 over 66."
+  ],
+  "signs_1_bp_diastolic": [
+   "66",
+   "BP 104 over 66."
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "Resps 24."
+  ],
+  "signs_1_spo2": [
+   "95",
+   "Sats 95."
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "Alert."
+  ],
+  "signs_1_pain": [
+   "8",
+   "Pain 8."
+  ],
+  "signs_2_time": [
+   "0715",
+   "OB's at 0715."
+  ],
+  "signs_2_pulse": [
+   "108",
+   "Radial pulse 108."
+  ],
+  "signs_2_bp_systolic": [
+   "112",
+   "BP 112 over 70."
+  ],
+  "signs_2_bp_diastolic": [
+   "70",
+   "BP 112 over 70."
+  ],
+  "signs_2_resp_rate": [
+   "20",
+   "Resps 20."
+  ],
+  "signs_2_spo2": [
+   "97",
+   "Sats 97."
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "Alert."
+  ],
+  "signs_2_pain": [
+   "6",
+   "Pain 6."
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent."
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "2 grams of TXA at 0705."
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams of TXA at 0705."
+  ],
+  "other_med_1_time": [
+   "0705",
+   "2 grams of TXA at 0705."
+  ]
+ },
+ "notes": "Injuries: left buttock: fragmentation wound; left thigh: fragmentation wound. Time of wounding corrected from 6:15 to 06:50. CAT tourniquet placed on left thigh at 06:55. Wound packed with hemostatic gauze. TXA 2 g given at 07:05. On-scene vitals: at 07:00 radial 120, BP 104/66, resp 24, SpO2 95, alert, pain 8. At 07:15 radial 108, BP 112/70, resp 20, SpO2 97, alert, pain 6. Evacuation urgent. OBs located at 0700 and 0715.",
+ "flags": [
+  "Date of casualty not provided; confirm date for record.",
+  "Battle roster PK6009 identified; verify correctness with unit records.",
+  "Airway status not stated; confirm airway management plan."
+ ]
+}

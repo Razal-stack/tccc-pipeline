@@ -1,0 +1,75 @@
+{
+ "fields": {
+  "gender_m": [
+   true,
+   "He's, he's male"
+  ],
+  "name": [
+   "Byrne, Tom",
+   "it's Lance Corporal Byrne, Tom"
+  ],
+  "last4": [
+   "1662",
+   "Last four 1662"
+  ],
+  "unit": [
+   "2 Yorks",
+   "2 Yorks"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED pressure plate"
+  ],
+  "time": [
+   "1220",
+   "at about, uh, 12:20"
+  ],
+  "tq_extremity": [
+   true,
+   "Tourniquet cat went on"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "Tourniquet cat went on"
+  ],
+  "signs_1_pulse": [
+   "130 carotid",
+   "I'm getting a carotid of about 130"
+  ],
+  "signs_1_resp_rate": [
+   "30",
+   "Breathing's fast, about 30"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "he's responding to pain"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "2 grams of TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams of TXA"
+  ],
+  "other_med_1_route": [
+   "IO",
+   "through the IO"
+  ],
+  "other_med_1_time": [
+   "1238",
+   "at 12:38"
+  ],
+  "evac_urgent": [
+   true,
+   "EVAC urgent please"
+  ]
+ },
+ "notes": "Injuries: right leg: traumatic amputation above the knee; first CAT tourniquet applied about 10 minutes before 1240 (about 1230); second tourniquet also on right leg at 1235 (type not stated); MERT requested; casualty first named as Private Taylor, then corrected to Lance Corporal Byrne, Tom",
+ "flags": [
+  "Casualty identity was corrected from Private Taylor to Lance Corporal Byrne; the first last four ('5 Neo 33') was discarded. Confirm identity, and confirm 2 Yorks is Byrne's unit.",
+  "Two tourniquets on the right leg: the first is a CAT at about 1230 (estimated), the second at 1235 with no type stated. The card has one right-leg slot, so the time was left blank. Check type and time for each.",
+  "The time of the vital signs was not stated, so signs_1_time was left blank.",
+  "Service and date not stated."
+ ]
+}

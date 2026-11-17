@@ -1,0 +1,83 @@
+{
+ "fields": {
+  "gender_m": [
+   true,
+   "He's, he's male"
+  ],
+  "name": [
+   "Taylor",
+   "Private Taylor"
+  ],
+  "unit": [
+   "2 Yorks",
+   "2 Yorks"
+  ],
+  "mechanism_ied": [
+   true,
+   "We got hit by an IED pressure plate"
+  ],
+  "time": [
+   "1220",
+   "That was at about, uh, 12:20"
+  ],
+  "tq_extremity": [
+   true,
+   "Tourniquet cat went on"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "Tourniquet cat went on"
+  ],
+  "tq_right_leg_time": [
+   "1230",
+   "about 10 minutes ago. Time now is 12:40"
+  ],
+  "signs_1_pulse": [
+   "130 carotid",
+   "I'm getting a carotid of about 130"
+  ],
+  "signs_1_resp_rate": [
+   "30",
+   "Breathing's fast, about 30"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "He's, he's responding to pain"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams of TXA"
+  ],
+  "other_med_1_route": [
+   "IO",
+   "through the IO"
+  ],
+  "other_med_1_time": [
+   "1238",
+   "at 12:38"
+  ],
+  "evac_urgent": [
+   true,
+   "EVAC urgent please"
+  ],
+  "first_responder_name": [
+   "Byrne, Tom",
+   "Lance Corporal Byrne, Tom"
+  ],
+  "first_responder_last4": [
+   "1662",
+   "Last four 1662"
+  ]
+ },
+ "notes": "Injuries: right leg: traumatic amputation above the knee, IED pressure plate. First right leg TQ (CAT) applied about 10 min before 1240, approx 1230 (worked out from 'about 10 minutes ago', not stated directly). Second TQ also on right leg, applied 1235, type not stated. No radial pulse palpable. Casualty last four garbled ('5 Neo 33'), left blank. MERT requested. Obs time not stated (handover time 1240).",
+ "flags": [
+  "Casualty last four garbled ('5 Neo 33'): confirm",
+  "First right leg TQ time 1230 is worked out from 'about 10 minutes ago' at 1240: confirm",
+  "Second right leg TQ at 1235: type not stated, no second card field for it, recorded in notes only",
+  "No radial pulse, carotid only"
+ ]
+}

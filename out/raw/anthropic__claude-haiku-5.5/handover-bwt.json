@@ -1,0 +1,91 @@
+{
+ "fields": {
+  "name": [
+   "Byrne, Tom",
+   "Oh, it's Lance Corporal Byrne, Tom."
+  ],
+  "last4": [
+   "1662",
+   "Last four 1662."
+  ],
+  "unit": [
+   "2 Yorks",
+   "Private Taylor, 2 Yorks."
+  ],
+  "gender_m": [
+   true,
+   "He's, he's male."
+  ],
+  "time": [
+   "1220",
+   "That was at about, uh, 12:20."
+  ],
+  "mechanism_ied": [
+   true,
+   "We got hit by an IED pressure plate."
+  ],
+  "tq_extremity": [
+   true,
+   "Tourniquet cat went on, um, about 10 minutes ago."
+  ],
+  "tq_type": [
+   "CAT",
+   "Tourniquet cat went on"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "Tourniquet cat went on, um, about 10 minutes ago."
+  ],
+  "tq_right_leg_time": [
+   "1230",
+   "Tourniquet cat went on, um, about 10 minutes ago. Time now is 12:40."
+  ],
+  "signs_1_time": [
+   "1240",
+   "Time now is 12:40."
+  ],
+  "signs_1_pulse": [
+   "130 carotid",
+   "I'm getting a carotid of about 130. Can't find a radial."
+  ],
+  "signs_1_resp_rate": [
+   "30",
+   "Breathing's fast, about 30."
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "He's, he's responding to pain."
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "Given him 2 grams of TXA through the IO at 12:38."
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "Given him 2 grams of TXA through the IO at 12:38."
+  ],
+  "other_med_1_route": [
+   "IO",
+   "Given him 2 grams of TXA through the IO at 12:38."
+  ],
+  "other_med_1_time": [
+   "1238",
+   "Given him 2 grams of TXA through the IO at 12:38."
+  ],
+  "evac_urgent": [
+   true,
+   "EVAC urgent please."
+  ]
+ },
+ "notes": "Injuries: right thigh: traumatic amputation above the knee, described as a mess; time of wounding 1220; tourniquet time approximate (about 10 minutes before 1240); second tourniquet applied to right leg at 1235 (type not stated); MERT requested. Identity changed mid-handover from Private Taylor (2 Yorks, last four given as '5 Neo 33') to Lance Corporal Byrne, Tom, last four 1662. Taylor details not carded. No BP, radial pulse not found, no pain score given.",
+ "flags": [
+  "Casualty identity changed mid-handover (Private Taylor, '5 Neo 33' to Lance Corporal Byrne, Tom, 1662). Confirm correct identity and whether unit 2 Yorks belongs to Byrne.",
+  "Second tourniquet on right leg at 1235 has no type stated and only one right leg tourniquet slot is available; check and record both.",
+  "First tourniquet time 1230 is derived from 'about 10 minutes ago'; confirm exact time.",
+  "No BP recorded; radial pulse not palpable, carotid 130 used.",
+  "No pain score given for AVPU P.",
+  "Date not stated.",
+  "Service not stated.",
+  "Mechanism stated as pressure plate IED; confirm whether landmine or IED."
+ ]
+}

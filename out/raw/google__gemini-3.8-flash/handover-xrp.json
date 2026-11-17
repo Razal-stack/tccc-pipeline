@@ -1,0 +1,102 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Urgent"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED"
+  ],
+  "time": [
+   "0820",
+   "0820"
+  ],
+  "date": [
+   "01-NOV-26",
+   "1 November 2026"
+  ],
+  "name": [
+   "Evans",
+   "Evans"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "unit": [
+   "One Royal Welsh",
+   "One Royal Welsh"
+  ],
+  "airway_cric": [
+   true,
+   "surgical cric"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressings"
+  ],
+  "last4": [
+   "1176",
+   "1-1-7-6"
+  ],
+  "breathing_o2": [
+   true,
+   "Oxygen"
+  ],
+  "signs_1_time": [
+   "0838",
+   "0838"
+  ],
+  "signs_1_pulse": [
+   "124 radial",
+   "radial pulse 124"
+  ],
+  "signs_1_spo2": [
+   "92",
+   "sats 92"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resps 24"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "Ketamine"
+  ],
+  "analgesic_1_dose": [
+   "50 mg",
+   "50 mg"
+  ],
+  "analgesic_1_route": [
+   "IV",
+   "IV"
+  ],
+  "analgesic_1_time": [
+   "0835",
+   "0835"
+  ],
+  "signs_1_bp_systolic": [
+   "100",
+   "100/64"
+  ],
+  "signs_1_bp_diastolic": [
+   "64",
+   "100/64"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responds to pain"
+  ],
+  "first_responder_name": [
+   "Hall, Chris",
+   "Hall Chris"
+  ],
+  "first_responder_last4": [
+   "4409",
+   "4409"
+  ]
+ },
+ "notes": "Injuries: face: massive injuries; left leg: fragment wound; right leg: fragment wound; surgical cric at 0828; pressure dressing on left leg only (right leg not bleeding); assisted resps",
+ "flags": []
+}

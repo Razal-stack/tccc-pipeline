@@ -1,0 +1,120 @@
+{
+ "fields": {
+  "name": [
+   "Evans",
+   "Corporal Evans male"
+  ],
+  "last4": [
+   "1176",
+   "Evans last four 1-1-7-6"
+  ],
+  "date": [
+   "01-NOV-26",
+   "1 November 2026"
+  ],
+  "time": [
+   "0820",
+   "Urgent IED 0820"
+  ],
+  "unit": [
+   "1 Royal Welsh",
+   "One Royal Welsh"
+  ],
+  "gender_m": [
+   true,
+   "Corporal Evans male"
+  ],
+  "mechanism_ied": [
+   true,
+   "Urgent IED 0820"
+  ],
+  "evac_urgent": [
+   true,
+   "Urgent IED"
+  ],
+  "airway_cric": [
+   true,
+   "surgical cric at 0828"
+  ],
+  "airway_type": [
+   "surgical cric",
+   "surgical cric at 0828"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressings on both"
+  ],
+  "dressing_type": [
+   "pressure",
+   "pressure dressings on both"
+  ],
+  "breathing_o2": [
+   true,
+   "Oxygen on through the cric"
+  ],
+  "breathing_type": [
+   "oxygen",
+   "Oxygen on through the cric"
+  ],
+  "signs_1_time": [
+   "0838",
+   "obs at 0838"
+  ],
+  "signs_1_pulse": [
+   "124 radial",
+   "radial pulse 124"
+  ],
+  "signs_1_bp_systolic": [
+   "100",
+   "BP 100/64"
+  ],
+  "signs_1_bp_diastolic": [
+   "64",
+   "BP 100/64"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resps 24 assisted"
+  ],
+  "signs_1_spo2": [
+   "92",
+   "sats 92"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responds to pain"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "Ketamine 50 mg IV at 0835"
+  ],
+  "analgesic_1_dose": [
+   "50 mg",
+   "Ketamine 50 mg IV at 0835"
+  ],
+  "analgesic_1_route": [
+   "IV",
+   "Ketamine 50 mg IV at 0835"
+  ],
+  "analgesic_1_time": [
+   "0835",
+   "Ketamine 50 mg IV at 0835"
+  ],
+  "first_responder_name": [
+   "Hall, Chris",
+   "Lance Corporal Hall Chris medic"
+  ],
+  "first_responder_last4": [
+   "4409",
+   "last four 4409"
+  ]
+ },
+ "notes": "Injuries: face: massive facial injuries; left leg: fragment wound; right leg: fragment wound; airway could not be kept open, surgical cric at 0828; left leg dressing removed, right leg not bleeding. Sent by Lance Corporal Hall, medic. Oxygen on through cric. Resps assisted.",
+ "flags": [
+  "First name of Corporal Evans not stated; name entered as surname only",
+  "Service not stated",
+  "Left leg pressure dressing removed on verbal instruction; right leg pressure dressing retained. Confirm dressing status on both legs",
+  "Pain score not stated (AVPU P only)",
+  "Airway time 0828 recorded in notes, no airway time field on card"
+ ]
+}

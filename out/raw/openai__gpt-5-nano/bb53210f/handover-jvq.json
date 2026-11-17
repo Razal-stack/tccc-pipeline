@@ -1,0 +1,90 @@
+{
+ "fields": {
+  "battle_roster": [
+   "DK4091",
+   "Battle roster Delta. Kilo 4091."
+  ],
+  "date": [
+   "05-NOV-26",
+   "Date 05 November 2026."
+  ],
+  "time": [
+   "1315",
+   "Time of wounding 13:15."
+  ],
+  "service": [
+   "Army",
+   "Army."
+  ],
+  "unit": [
+   "Two Larc.",
+   "Two Larc."
+  ],
+  "gender_m": true,
+  "mechanism_ied": true,
+  "tq_extremity": true,
+  "tq_right_leg_type": [
+   "CAT",
+   "CAT on the right thigh at 13:17."
+  ],
+  "tq_right_leg_time": [
+   "1317",
+   "CAT on the right thigh at 13:17."
+  ],
+  "dressing_hemostatic": true,
+  "other_med_1_name": [
+   "TXA",
+   "One gram of TXA4 at 13:30."
+  ],
+  "other_med_1_dose": [
+   "1 g",
+   "One gram of TXA4 at 13:30."
+  ],
+  "other_med_1_route": [
+   "IV",
+   "One gram of TXA4 at 13:30."
+  ],
+  "other_med_1_time": [
+   "1330",
+   "One gram of TXA4 at 13:30."
+  ],
+  "evac_urgent": true,
+  "signs_1_time": [
+   "1322",
+   "Signs at 13:22 pulse 126 radial, BP 94/56, Resps 28, Sats 93."
+  ],
+  "signs_1_pulse": [
+   "126",
+   "Signs at 13:22 pulse 126 radial, BP 94/56, Resps 28, Sats 93."
+  ],
+  "signs_1_bp_systolic": [
+   "94",
+   "Signs at 13:22 pulse 126 radial, BP 94/56, Resps 28, Sats 93."
+  ],
+  "signs_1_bp_diastolic": [
+   "56",
+   "Signs at 13:22 pulse 126 radial, BP 94/56, Resps 28, Sats 93."
+  ],
+  "signs_1_resp_rate": [
+   "28",
+   "Signs at 13:22 pulse 126 radial, BP 94/56, Resps 28, Sats 93."
+  ],
+  "signs_1_spo2": [
+   "93",
+   "Signs at 13:22 pulse 126 radial, BP 94/56, Resps 28, Sats 93."
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "Responds to voice."
+  ],
+  "signs_1_pain": [
+   "8",
+   "Pain 8."
+  ],
+  "notes": "Injuries: both thighs: fragment wounds; groin: fragment wound; time of wounding 1315; mechanism: IED; CAT on right thigh 1317; Celox to groin; TXA IV 1330; Evac urgent; Signs at 1322: pulse 126; BP 94/56; Resps 28; Sats 93; Responds to voice; Pain 8."
+ },
+ "notes": "Injuries: both thighs: fragment wounds; groin: fragment wound; time of wounding 1315; mechanism: IED; CAT on right thigh 1317; Celox to groin; TXA IV 1330; Evac urgent; Signs at 1322: pulse 126; BP 94/56; Resps 28; Sats 93; Responds to voice; Pain 8.",
+ "flags": [
+  "TXA dose transcription uncertain - TXA4 -> TXA IV; verify TXA administration details"
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "fields": {
+  "time": [
+   1115,
+   "1115 post."
+  ],
+  "tq_extremity": [
+   true,
+   "Left leg tourniquet"
+  ],
+  "tq_left_leg_time": [
+   1115,
+   "1115 post."
+  ]
+ },
+ "notes": "Injuries: left leg: tourniquet applied; time of tourniquet 1115. Also heard 'Mist 1 tablet IV arm air pocket of tube' which is unclear\u2014possible medication given IV or an IV line with air. Verify meds and IV line integrity. Evac category not explicitly stated; please confirm urgent/prioritary/routine.",
+ "flags": [
+  "evac category not explicitly stated; please confirm",
+  "possible air in IV line; medication order unclear"
+ ]
+}

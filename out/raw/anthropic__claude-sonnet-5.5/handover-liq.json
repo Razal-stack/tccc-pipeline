@@ -1,0 +1,97 @@
+{
+ "fields": {
+  "battle_roster": [
+   "LH3088",
+   "battle roster Lima Hotel 3088"
+  ],
+  "name": [
+   "Hughes",
+   "Casualty is Corporal Hughes"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "time": [
+   "1110",
+   "time of wounding 1110"
+  ],
+  "mechanism_landmine": [
+   true,
+   "He stood on a landmine"
+  ],
+  "tq_extremity": [
+   true,
+   "Two tourniquets on the right leg"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "a CAT high and tight at 1102"
+  ],
+  "tq_right_leg_time": [
+   "1102",
+   "a CAT high and tight at 1102"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Wound packed with Celox"
+  ],
+  "dressing_type": [
+   "Celox",
+   "Wound packed with Celox"
+  ],
+  "blood_1_name": [
+   "whole blood",
+   "One unit of whole blood through the IO at 1120"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "One unit of whole blood"
+  ],
+  "blood_1_route": [
+   "IO",
+   "through the IO"
+  ],
+  "blood_1_time": [
+   "1120",
+   "at 1120"
+  ],
+  "signs_1_time": [
+   "1115",
+   "That's at 1115"
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "Pulse 140 carotid"
+  ],
+  "signs_1_resp_rate": [
+   "32",
+   "resps 32"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responds to pain only"
+  ],
+  "evac_urgent": [
+   true,
+   "Category urgent"
+  ],
+  "first_responder_name": [
+   "Owen, Rhys",
+   "Lance Corporal Rhys Owen"
+  ],
+  "first_responder_last4": [
+   "9044",
+   "last four 9044"
+  ]
+ },
+ "notes": "Injuries: right foot: traumatic amputation (foot gone); right lower leg: mangled up to mid-shin; second CAT tourniquet applied just below the first at 1106 (only one right-leg TQ slot on the card); no radial pulse; BP not recordable; rank Corporal",
+ "flags": [
+  "Two CAT tourniquets on the right leg (1102 high and tight, 1106 just below) but the card has one slot; only the first (1102) is entered, so add the second",
+  "Tourniquet times (1102, 1106) are earlier than the stated time of wounding (1110); check the times",
+  "Casualty's first name not given; name entered as surname only",
+  "BP not recordable; no value entered and no radial pulse noted",
+  "Handover speaker assumed to be the first responder (Lance Corporal Rhys Owen); confirm",
+  "Service and unit not stated"
+ ]
+}

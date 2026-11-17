@@ -1,0 +1,105 @@
+{
+ "fields": {
+  "battle_roster": [
+   "LH3088",
+   "Lima Hotel 3088"
+  ],
+  "name": [
+   "Hughes",
+   "Casualty is Corporal Hughes"
+  ],
+  "last4": [
+   "3088",
+   "battle roster Lima Hotel 3088"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "time": [
+   "1110",
+   "time of wounding 1110"
+  ],
+  "mechanism_landmine": [
+   true,
+   "He stood on a landmine"
+  ],
+  "evac_urgent": [
+   true,
+   "Category urgent"
+  ],
+  "tq_extremity": [
+   true,
+   "Two tourniquets on the right leg"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "a CAT high and tight at 1102"
+  ],
+  "tq_right_leg_time": [
+   "1102",
+   "a CAT high and tight at 1102"
+  ],
+  "tq_type": [
+   "CAT",
+   "a CAT high and tight at 1102"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Wound packed with Celox"
+  ],
+  "dressing_type": [
+   "Celox",
+   "Wound packed with Celox"
+  ],
+  "blood_1_name": [
+   "whole blood",
+   "One unit of whole blood through the IO at 1120"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "One unit of whole blood through the IO at 1120"
+  ],
+  "blood_1_route": [
+   "IO",
+   "One unit of whole blood through the IO at 1120"
+  ],
+  "blood_1_time": [
+   "1120",
+   "One unit of whole blood through the IO at 1120"
+  ],
+  "signs_1_time": [
+   "1115",
+   "That's at 1115"
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "Pulse 140 carotid, no radial"
+  ],
+  "signs_1_resp_rate": [
+   "32",
+   "resps 32"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responds to pain only"
+  ],
+  "first_responder_name": [
+   "Owen, Rhys",
+   "Lance Corporal Rhys Owen, last four 9044"
+  ],
+  "first_responder_last4": [
+   "9044",
+   "Lance Corporal Rhys Owen, last four 9044"
+  ]
+ },
+ "notes": "Injuries: right foot: foot gone, mangled up to mid-shin; right leg: second CAT applied just below the first at 1106; wound packed with Celox; no radial pulse; BP not recordable",
+ "flags": [
+  "Second CAT tourniquet on right leg at 1106 has no separate slot; recorded first CAT at 1102 only, check the second on the card",
+  "Casualty first name not given, only Hughes",
+  "Last four 9044 assigned to first responder Lance Corporal Rhys Owen; confirm it is not the casualty's last four",
+  "BP not recordable at 1115, signs_1_bp fields left blank",
+  "No pain score stated at 1115",
+  "Mechanism stated only as landmine; confirm no other mechanism"
+ ]
+}

@@ -1,0 +1,117 @@
+{
+ "fields": {
+  "battle_roster": [
+   "MT7703",
+   "Mike Tango 7703"
+  ],
+  "time": [
+   "1640",
+   "Time of injury 16:40"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "Queen's Royal Hussars",
+   "Army Queen's Royal Hussars"
+  ],
+  "gender_m": [
+   true,
+   "Male"
+  ],
+  "evac_priority": [
+   true,
+   "evac priority"
+  ],
+  "mechanism_rpg": [
+   true,
+   "RPG strike on the vehicle with fire"
+  ],
+  "eye_shield": [
+   true,
+   "rigid eye shield over the right eye"
+  ],
+  "eye_shield_right": [
+   true,
+   "right eye"
+  ],
+  "hypothermia_prevention": [
+   true,
+   "blizzard blanket on"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "ketamine 20 mg IV at 16:58"
+  ],
+  "analgesic_1_dose": [
+   "20 mg",
+   "ketamine 20 mg IV at 16:58"
+  ],
+  "analgesic_1_route": [
+   "IV",
+   "ketamine 20 mg IV at 16:58"
+  ],
+  "analgesic_1_time": [
+   "1658",
+   "ketamine 20 mg IV at 16:58"
+  ],
+  "fluid_1_name": [
+   "Hartman\u0011s",
+   "Hartman's IV"
+  ],
+  "fluid_1_volume": [
+   "1 liter",
+   "1 liter Hartman's IV at 16:55"
+  ],
+  "fluid_1_route": [
+   "IV",
+   "Hartman's IV"
+  ],
+  "fluid_1_time": [
+   "1655",
+   "Hartman's IV at 16:55"
+  ],
+  "first_responder_name": [
+   "Lance Corporal Kelly Dan",
+   "Evac by Lance Corporal Kelly Dan"
+  ],
+  "signs_1_time": [
+   "1650",
+   "Signs at 16:50"
+  ],
+  "signs_1_pulse": [
+   "104",
+   "radial pulse 104"
+  ],
+  "signs_1_bp_systolic": [
+   "128",
+   "BP 128 over 80"
+  ],
+  "signs_1_bp_diastolic": [
+   "80",
+   "BP 128 over 80"
+  ],
+  "signs_1_resp_rate": [
+   "22",
+   "resp 22"
+  ],
+  "signs_1_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "6",
+   "pain 6"
+  ]
+ },
+ "notes": "Injuries: face: burns; hands: burns (~18%); right eye: penetrating injury. Time of injury 1640. Signs at 1650: radial pulse 104, BP 128/80, resp 22, sats 97, AVPU A, pain 6. Treatments: rigid eye shield over the right eye; burns dressings to the hands; combat pill pack given; 1 liter Hartmann's IV at 1655; ketamine 20 mg IV at 1658; Blizzard blanket applied. Evac priority. Treated by Lance Corporal Kelly Dan.",
+ "flags": [
+  "Ambiguous evac last4; verify last4 digits with sending party",
+  "Identity cross-check MT7703 with battle roster"
+ ]
+}

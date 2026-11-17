@@ -1,0 +1,128 @@
+{
+ "fields": {
+  "name": [
+   "Patel, Nisha",
+   "Corporal Patel Nisha"
+  ],
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "1 Royal Anglian",
+   "1 Royal Anglian"
+  ],
+  "time": [
+   "1045",
+   "Time of wounding 10:45"
+  ],
+  "mechanism_gsw": [
+   true,
+   "Mechanism gunshot wound"
+  ],
+  "signs_1_time": [
+   "1052",
+   "Signs at 10:52"
+  ],
+  "signs_1_pulse": [
+   "116 radial",
+   "radial pulse 116"
+  ],
+  "signs_1_bp_systolic": [
+   "104",
+   "BP 104 over 68"
+  ],
+  "signs_1_bp_diastolic": [
+   "68",
+   "BP 104 over 68"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resps 24"
+  ],
+  "signs_1_spo2": [
+   "95",
+   "sats 95"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "6 Intense",
+   "pain 6 out of 10"
+  ],
+  "signs_2_time": [
+   "1105",
+   "Repeat obs at 11:05"
+  ],
+  "signs_2_pulse": [
+   "104 radial",
+   "Radial pulse 104"
+  ],
+  "signs_2_bp_systolic": [
+   "112",
+   "BP 112 over 72"
+  ],
+  "signs_2_bp_diastolic": [
+   "72",
+   "BP 112 over 72"
+  ],
+  "signs_2_resp_rate": [
+   "20",
+   "resps 20"
+  ],
+  "signs_2_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "wound packed with hemostatic gauze"
+  ],
+  "breathing_o2": [
+   true,
+   "Oxygen on"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "2 grams of TXA I4 at 10:58"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams of TXA"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "TXA I4"
+  ],
+  "other_med_1_time": [
+   "1058",
+   "at 10:58"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "first_responder_name": [
+   "Doyle, Mia",
+   "Corporal Doyle Mia"
+  ]
+ },
+ "notes": "Injuries: left neck: GSW, no exit wound; pressure held on wound after hemostatic gauze packing; no pain score given for second obs set",
+ "flags": [
+  "Casualty last4 was spoken as five digits (42468); left blank, please verify",
+  "First responder last4 was spoken as five digits (43915); left blank, please verify",
+  "TXA route heard as 'I4', read as IV; please confirm",
+  "Manual pressure was held; no pressure dressing was stated, so it is not ticked",
+  "GSW to the neck: airway status was not stated"
+ ]
+}

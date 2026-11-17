@@ -1,0 +1,57 @@
+{
+ "fields": {
+  "gender_m": [
+   true,
+   "Male"
+  ],
+  "evac_routine": [
+   true,
+   "evac routine"
+  ],
+  "time": [
+   1205,
+   "12:05"
+  ],
+  "mechanism_fall": [
+   true,
+   "fell off the back of a truck"
+  ],
+  "signs_1_time": [
+   1215,
+   "12:15"
+  ],
+  "signs_1_pulse": [
+   84,
+   "radial pulse 84"
+  ],
+  "signs_1_bp_systolic": [
+   126,
+   "BP 126 over 82"
+  ],
+  "signs_1_bp_diastolic": [
+   82,
+   "BP 126 over 82"
+  ],
+  "signs_1_resp_rate": [
+   16,
+   "RR 16"
+  ],
+  "signs_1_spo2": [
+   99,
+   "sats 99"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   4,
+   "pain 4"
+  ]
+ },
+ "notes": "Time wounded: 1205; observed vitals at 1215: pulse 84; BP 126/82; RR 16; SpO2 99%; mental status: alert; pain: 4. Evacuation: routine.",
+ "flags": [
+  "head injury risk after fall; monitor for LOC",
+  "vital signs stable; continue observation; recheck vitals"
+ ]
+}

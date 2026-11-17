@@ -92,13 +92,14 @@ def score_card(pred, truth):
     return per_field, boxes
 
 
-def score(preds: dict):
-    """preds: {file: card_dict}. Files with no prediction count as an empty card."""
+def score(preds: dict, files=None):
+    """preds: {file: card_dict}. Files with no prediction count as an empty card. files: subset to score."""
+    truths = {f: TRUTH[f] for f in (files or TRUTH)}
     total, critical = Counter(), Counter()
     by_group, by_file = defaultdict(Counter), {}
     errors = []
     boxes = Counter()
-    for file, truth in sorted(TRUTH.items()):
+    for file, truth in sorted(truths.items()):
         pred = preds.get(file, {})
         per_field, b = score_card(pred, truth)
         boxes.update(b)
@@ -113,17 +114,17 @@ def score(preds: dict):
                 errors.append(dict(file=file, field=f, outcome=o, pred=pred.get(f), truth=truth.get(f)))
     n_cells = sum(total.values())
     naive = (total["correct"] + total["blank_ok"]) / n_cells
-    empty_baseline = sum(1 for t in TRUTH.values() for f in FIELDS if norm(t.get(f)) is None) / n_cells
+    empty_baseline = sum(1 for t in truths.values() for f in FIELDS if norm(t.get(f)) is None) / n_cells
     bp = boxes["tp"] / (boxes["tp"] + boxes["fp"]) if boxes["tp"] + boxes["fp"] else 1.0
     br = boxes["tp"] / (boxes["tp"] + boxes["fn"]) if boxes["tp"] + boxes["fn"] else 1.0
     return dict(
-        cards=len(TRUTH), predicted=len([f for f in TRUTH if f in preds]),
+        cards=len(truths), predicted=len([f for f in truths if f in preds]),
         overall=dict(zip(("precision", "recall", "f1"), prf(total)), **total),
         critical=dict(zip(("precision", "recall", "f1"), prf(critical)), **critical),
         groups={g: dict(zip(("precision", "recall", "f1"), prf(c)), **c) for g, c in by_group.items()},
         injury_boxes=dict(precision=bp, recall=br, f1=2 * bp * br / (bp + br) if bp + br else 0.0, **boxes),
         naive_accuracy=naive, empty_card_baseline=empty_baseline,
-        invented_per_card=total["invented"] / len(TRUTH),
+        invented_per_card=total["invented"] / len(truths),
         errors=errors,
     )
 

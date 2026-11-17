@@ -1,0 +1,97 @@
+{
+ "fields": {
+  "name": [
+   "Young, Chloe",
+   "Young, Chloe"
+  ],
+  "time": [
+   "1010",
+   "at 10:10"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "B Company, 1 Rifles",
+   "B Company, 1 Rifles"
+  ],
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "evac_urgent": [
+   true,
+   "Urgent"
+  ],
+  "mechanism_landmine": [
+   true,
+   "pressure plate landmine"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT on the right leg 10:12"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "CAT"
+  ],
+  "tq_right_leg_time": [
+   "1012",
+   "10:12"
+  ],
+  "signs_1_time": [
+   "1020",
+   "OBS at 10:20"
+  ],
+  "signs_1_pulse": [
+   "116 radial",
+   "pulse 116 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "108",
+   "BP 108 over 70"
+  ],
+  "signs_1_bp_diastolic": [
+   "70",
+   "BP 108 over 70"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resp 24"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "Sats 96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "She's alert."
+  ],
+  "signs_1_pain": [
+   "10 Unimaginable",
+   "Pain 10 out of 10."
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 g"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "IV"
+  ],
+  "other_med_1_time": [
+   "1025",
+   "at 10:25"
+  ]
+ },
+ "notes": "Injuries: right foot: severely damaged with heavy bleeding; right leg: CAT tourniquet applied at 1012; time of wounding 1010. Observations at 1020: pulse 116 radial; BP 108/70; SpO2 96%; resp 24; AVPU A; pain 10/10. TXA 2 g IV given at 1025. Patient alert. Six of us left on the patrol. Time of wounding 1010. Evacuation: urgent.",
+ "flags": [
+  "last4 unknown/garbled",
+  "verify CAT tourniquet timing on right leg (1012)"
+ ]
+}

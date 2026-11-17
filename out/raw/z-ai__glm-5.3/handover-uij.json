@@ -1,0 +1,41 @@
+{
+ "fields": {
+  "name": [
+   "Singh, Priya",
+   "Private Singh Priya"
+  ],
+  "last4": [
+   "41212",
+   "41212"
+  ],
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "2 Medical Regiment",
+   "2 Medical Regiment"
+  ],
+  "mechanism_fall": [
+   true,
+   "fell down the stairs in the accommodation block"
+  ],
+  "date": [
+   "28-OCT-26",
+   "28th October 2026"
+  ],
+  "evac_routine": [
+   true,
+   "routine"
+  ]
+ },
+ "notes": "Injuries: left ankle: twisted; fell down stairs in accommodation block; walking wounded; no time of wounding given",
+ "flags": [
+  "last four given as 41212 (five digits) - verify",
+  "no time of injury stated"
+ ]
+}

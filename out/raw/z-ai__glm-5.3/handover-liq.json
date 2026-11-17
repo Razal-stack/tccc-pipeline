@@ -1,0 +1,96 @@
+{
+ "fields": {
+  "tq_extremity": [
+   true,
+   "Two tourniquets on the right leg"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "a CAT high and tight at 1102"
+  ],
+  "tq_right_leg_time": [
+   "1102",
+   "a CAT high and tight at 1102"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Wound packed with Celox"
+  ],
+  "dressing_type": [
+   "Celox",
+   "Wound packed with Celox"
+  ],
+  "blood_1_name": [
+   "whole blood",
+   "One unit of whole blood through the IO at 1120"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "One unit of whole blood through the IO at 1120"
+  ],
+  "blood_1_route": [
+   "IO",
+   "One unit of whole blood through the IO at 1120"
+  ],
+  "blood_1_time": [
+   "1120",
+   "One unit of whole blood through the IO at 1120"
+  ],
+  "mechanism_landmine": [
+   true,
+   "He stood on a landmine"
+  ],
+  "time": [
+   "1110",
+   "time of wounding 1110"
+  ],
+  "name": [
+   "Hughes",
+   "Casualty is Corporal Hughes"
+  ],
+  "battle_roster": [
+   "LH3088",
+   "battle roster Lima Hotel 3088"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "signs_1_time": [
+   "1115",
+   "That's at 1115"
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "Pulse 140 carotid"
+  ],
+  "signs_1_resp_rate": [
+   "32",
+   "resps 32"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responds to pain only"
+  ],
+  "evac_urgent": [
+   true,
+   "Category urgent"
+  ],
+  "first_responder_name": [
+   "Owen, Rhys",
+   "Lance Corporal Rhys Owen"
+  ],
+  "first_responder_last4": [
+   "9044",
+   "last four 9044"
+  ]
+ },
+ "notes": "Injuries: right foot: amputated, mangled up to mid-shin; second CAT tourniquet on right leg just below the first, applied 1106, first CAT placed high and tight; no radial pulse palpable; BP not recordable at 1115",
+ "flags": [
+  "TQ times 1102 and 1106 precede stated wounding time 1110 - verify times",
+  "Two tourniquets on right leg but card holds one per limb - second CAT 1106 recorded in notes only",
+  "Confirm LCpl Owen 9044 is the first responder, not a second casualty",
+  "First name not given for Cpl Hughes",
+  "No numeric BP - recorded as not recordable"
+ ]
+}

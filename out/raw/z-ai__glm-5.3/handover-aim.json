@@ -1,0 +1,80 @@
+{
+ "fields": {
+  "name": [
+   "Carr, Jazz",
+   "Private Carr Jazz"
+  ],
+  "last4": [
+   "8336",
+   "last 48336"
+  ],
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "service": [
+   "RAF",
+   "RAF"
+  ],
+  "unit": [
+   "Tactical Medical Wing",
+   "Tactical Medical Wing"
+  ],
+  "mechanism_grenade": [
+   true,
+   "Grenade at 2040 3 November 2026"
+  ],
+  "date": [
+   "03-NOV-26",
+   "3 November 2026"
+  ],
+  "time": [
+   "2040",
+   "Grenade at 2040"
+  ],
+  "dressing_pressure": [
+   true,
+   "Pressure dressing only"
+  ],
+  "signs_1_time": [
+   "2050",
+   "obs at 2050"
+  ],
+  "signs_1_pulse": [
+   "98 radial",
+   "pulse 98 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "122",
+   "BP 122/80"
+  ],
+  "signs_1_bp_diastolic": [
+   "80",
+   "BP 122/80"
+  ],
+  "signs_1_resp_rate": [
+   "18",
+   "resps 18"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "sats 98"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "5 Very Distress",
+   "pain 5"
+  ],
+  "evac_routine": [
+   true,
+   "evac routine"
+  ]
+ },
+ "notes": "Injuries: left forearm: fragment wound; tourniquet mentioned but retracted (\"that's the other casualty\") \u2014 pressure dressing only, no tourniquet on this casualty",
+ "flags": [
+  "Confirm no tourniquet on this casualty \u2014 tourniquet statement retracted"
+ ]
+}

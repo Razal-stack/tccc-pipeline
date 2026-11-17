@@ -1,0 +1,96 @@
+{
+ "fields": {
+  "name": [
+   "Jack, Ellis",
+   "Lance Corporal Ellis Jack"
+  ],
+  "last4": [
+   "9104",
+   "last four nine one zero four"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "date": [
+   "04-NOV-26",
+   "Today's fourth of November 2026"
+  ],
+  "time": [
+   "1750",
+   "about 17:50"
+  ],
+  "service": [
+   "Army",
+   "Army One Mercian"
+  ],
+  "unit": [
+   "1 Mercian",
+   "Army One Mercian"
+  ],
+  "allergies": [
+   "morphine",
+   "I'm allergic to morphine"
+  ],
+  "mechanism_fall": [
+   true,
+   "fell off the vehicle into a wadi about three meters"
+  ],
+  "signs_1_time": [
+   "1805",
+   "Obs at 1805"
+  ],
+  "signs_1_pulse": [
+   "96 radial",
+   "pulse 96 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "138",
+   "BP 138 over 88"
+  ],
+  "signs_1_bp_diastolic": [
+   "88",
+   "BP 138 over 88"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "sats 98"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "pain eight"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "Given ketamine 25 mg IM at 18:10"
+  ],
+  "analgesic_1_dose": [
+   "25 mg",
+   "Given ketamine 25 mg IM at 18:10"
+  ],
+  "analgesic_1_route": [
+   "IM",
+   "Given ketamine 25 mg IM at 18:10"
+  ],
+  "analgesic_1_time": [
+   "1810",
+   "Given ketamine 25 mg IM at 18:10"
+  ],
+  "evac_priority": [
+   true,
+   "Evac priority"
+  ]
+ },
+ "notes": "Injuries: right hip: painful, unable to weight bear; fall from vehicle into wadi, about 3 m. Fentanyl not given (patient reports morphine allergy); ketamine given instead. Time of wounding approximate (about 1750). RR not recorded clearly at 1805 (\"RR SPS 18\").",
+ "flags": [
+  "Time of wounding given as approximate ('about 17:50'); confirm.",
+  "Resp rate at 1805 garbled ('RR SPS 18'); left blank, confirm value.",
+  "Allergy to morphine reported by casualty; confirm and check allergy status.",
+  "Fentanyl withheld because of reported morphine allergy; no dose recorded.",
+  "Unit read as 'One Mercian'; entered as '1 Mercian', confirm."
+ ]
+}

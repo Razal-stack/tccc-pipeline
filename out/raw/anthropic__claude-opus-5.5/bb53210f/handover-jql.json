@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "battle_roster": [
+   "MT7703",
+   "Battle roster Mike Tango 7703"
+  ],
+  "gender_m": [
+   true,
+   "Male"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "Queen's Royal Hussars",
+   "Queen's Royal Hussars"
+  ],
+  "time": [
+   "1640",
+   "Time of injury 16:40"
+  ],
+  "mechanism_rpg": [
+   true,
+   "RPG strike on the vehicle"
+  ],
+  "mechanism_burn": [
+   true,
+   "with fire"
+  ],
+  "signs_1_time": [
+   "1650",
+   "Signs at 16:50"
+  ],
+  "signs_1_pulse": [
+   "104 radial",
+   "radial pulse 104"
+  ],
+  "signs_1_bp_systolic": [
+   "128",
+   "BP 128 over 80"
+  ],
+  "signs_1_bp_diastolic": [
+   "80",
+   "BP 128 over 80"
+  ],
+  "signs_1_resp_rate": [
+   "22",
+   "resp 22"
+  ],
+  "signs_1_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "6 Intense",
+   "pain 6"
+  ],
+  "eye_shield": [
+   true,
+   "rigid eye shield over the right eye"
+  ],
+  "eye_shield_right": [
+   true,
+   "rigid eye shield over the right eye"
+  ],
+  "dressing_other": [
+   true,
+   "burns dressings to the hands"
+  ],
+  "dressing_type": [
+   "burns dressing",
+   "burns dressings to the hands"
+  ],
+  "combat_pill_pack": [
+   true,
+   "combat pill pack given"
+  ],
+  "fluid_1_name": [
+   "Hartmann's",
+   "Hartman's"
+  ],
+  "fluid_1_volume": [
+   "1 L",
+   "1 liter of Hartman's"
+  ],
+  "fluid_1_route": [
+   "IV",
+   "Hartman's IV"
+  ],
+  "fluid_1_time": [
+   "1655",
+   "at 16:55"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "ketamine 20 mg IV"
+  ],
+  "analgesic_1_dose": [
+   "20 mg",
+   "ketamine 20 mg"
+  ],
+  "analgesic_1_route": [
+   "IV",
+   "20 mg IV"
+  ],
+  "analgesic_1_time": [
+   "1658",
+   "at 16:58"
+  ],
+  "hypothermia_prevention": [
+   true,
+   "blizzard blanket on"
+  ],
+  "evac_priority": [
+   true,
+   "Evac priority"
+  ],
+  "first_responder_name": [
+   "Kelly, Dan",
+   "Lance Corporal Kelly Dan"
+  ]
+ },
+ "notes": "Injuries: face: burns; both hands: burns (approx 18% total with face); right eye: penetrating injury; casualty is vehicle commander; RPG strike on vehicle with fire; blizzard blanket used for hypothermia prevention; first responder last four heard as '222' followed by 'end static 5' and left blank.",
+ "flags": [
+  "First responder last four unclear: heard '222 end static 5', which may be 2225 or garbled. Left blank, please confirm.",
+  "First responder name order unclear ('Kelly Dan'). Recorded as Kelly, Dan; confirm surname.",
+  "Casualty name and last four not given; only battle roster MT7703 recorded."
+ ]
+}

@@ -1,0 +1,132 @@
+{
+ "fields": {
+  "name": [
+   "Davis, Rhys",
+   "Lance Corporal Davis, Rhys"
+  ],
+  "last4": [
+   "2906",
+   "last 4: 2906"
+  ],
+  "time": [
+   "0905",
+   "Time of wounding 0905"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "2 Platoon, B Company",
+   "2 Platoon, B Company"
+  ],
+  "allergies": [
+   "NKA",
+   "No known allergies."
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_gsw": [
+   true,
+   "gunshot wound"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "airway_npa": [
+   true,
+   "NPA in"
+  ],
+  "breathing_o2": [
+   true,
+   "oxygen on"
+  ],
+  "antibiotic_1_name": [
+   "ertapenem",
+   "ertapenem"
+  ],
+  "antibiotic_1_dose": [
+   "1 gram",
+   "1 gram"
+  ],
+  "antibiotic_1_route": [
+   "IV",
+   "IV"
+  ],
+  "antibiotic_1_time": [
+   "0925",
+   "0925"
+  ],
+  "first_responder_name": [
+   "Nash, Kieran",
+   "Care given by Corporal Nash, Kieran"
+  ],
+  "first_responder_last4": [
+   "5019",
+   "last 4: 5019"
+  ],
+  "signs_1_time": [
+   "0910",
+   "Signs at 0910"
+  ],
+  "signs_1_pulse": [
+   "118 radial",
+   "radial pulse 118"
+  ],
+  "signs_1_resp_rate": [
+   "30",
+   "resp is 30 and labored"
+  ],
+  "signs_1_spo2": [
+   "88",
+   "sats 88 on air"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "7 out of 10",
+   "pain 7 out of 10"
+  ],
+  "signs_2_time": [
+   "1015",
+   "Repeat obs at 1015"
+  ],
+  "signs_2_pulse": [
+   "106",
+   "radial pulse 106"
+  ],
+  "signs_2_bp_systolic": [
+   "110",
+   "BP 110/70"
+  ],
+  "signs_2_bp_diastolic": [
+   "70",
+   "BP 110/70"
+  ],
+  "signs_2_resp_rate": [
+   "24",
+   "respS 24"
+  ],
+  "signs_2_spo2": [
+   "95",
+   "sats 95"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "dressing_other": [
+   true,
+   "vented chest seals on entry and exit"
+  ]
+ },
+ "notes": "Injuries: right upper chest GSW with exit wound in right upper back; Time of wounding 0905. Signs at 0910: radial pulse 118, resp 30 and labored, sats 88 on air, AVPU A - Alert, pain 7/10. Treatments: vented chest seals on entry and exit; needle decompression right chest at 0912; NPA in; oxygen on; ertapenem 1 g IV at 0925. Repeat obs at 1015: radial pulse 106, BP 110/70, resp 24, sats 95, AVPU A - Alert. Evac urgent. Care given by Corporal Nash, Kieran, last 4: 5019.",
+ "flags": [
+  "Initial vitals at 0910 did not record BP; verify initial BP value and document vitals consistently."
+ ]
+}

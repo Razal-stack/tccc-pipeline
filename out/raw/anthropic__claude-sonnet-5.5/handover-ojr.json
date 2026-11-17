@@ -1,0 +1,77 @@
+{
+ "fields": {
+  "date": [
+   "02-NOV-26",
+   "date 2 November 2026"
+  ],
+  "gender_m": [
+   true,
+   "Casualty is male"
+  ],
+  "battle_roster": [
+   "TB2251",
+   "battle roster Tango Bravo 2251"
+  ],
+  "mechanism_gsw": [
+   true,
+   "Gunshot wound left calf"
+  ],
+  "time": [
+   "1400",
+   "at 1400"
+  ],
+  "tq_extremity": [
+   true,
+   "Tourniquet on at 1405"
+  ],
+  "tq_left_leg_type": [
+   "SOFTT-W",
+   "soft TW left leg"
+  ],
+  "tq_left_leg_time": [
+   "1405",
+   "Tourniquet on at 1405"
+  ],
+  "signs_1_time": [
+   "1410",
+   "Obs at 1410"
+  ],
+  "signs_1_pulse": [
+   "110 radial",
+   "Pulse 110 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "120",
+   "BP 120 over 75"
+  ],
+  "signs_1_bp_diastolic": [
+   "75",
+   "BP 120 over 75"
+  ],
+  "signs_1_resp_rate": [
+   "20",
+   "Resps 20"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "He's alert"
+  ],
+  "signs_1_spo2": [
+   "97",
+   "Sats 97"
+  ],
+  "signs_1_pain": [
+   "5 Very Distress",
+   "Pain 5"
+  ],
+  "evac_priority": [
+   true,
+   "32 Bravo priority"
+  ]
+ },
+ "notes": "Injuries: left calf: GSW; grid 947312; call sign 32 Bravo",
+ "flags": [
+  "Pulse 110 radial was stated before the 'obs at 1410' time, so it is assumed to belong to the 1410 set. Please confirm.",
+  "Tourniquet 'soft TW' was read as SOFTT-W. Please confirm."
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "fields": {
+  "other_med_1_name": [
+   "TXA",
+   "TXL a gram at 0900"
+  ],
+  "other_med_1_dose": [
+   "1 g",
+   "TXL a gram at 0900"
+  ],
+  "other_med_1_time": [
+   "0900",
+   "TXL a gram at 0900"
+  ],
+  "other_med_2_name": [
+   "TXA",
+   "a second gram at 0920"
+  ],
+  "other_med_2_dose": [
+   "1 g",
+   "a second gram at 0920"
+  ],
+  "other_med_2_time": [
+   "0920",
+   "a second gram at 0920"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "Fentanyl lollipop at 0855"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "Fentanyl lollipop at 0855"
+  ],
+  "analgesic_1_time": [
+   "0855",
+   "Fentanyl lollipop at 0855"
+  ]
+ },
+ "notes": "Medications: fentanyl lollipop at 0855, no dose stated. Moxie 400 by mouth at 0855 (same time as fentanyl): drug name unclear and no unit given, not entered. Tranexamic acid given as two 1 g doses at 0900 and 0920; route not stated.",
+ "flags": [
+  "TXL recorded as TXA (tranexamic acid); confirm drug name and route",
+  "Fentanyl lollipop: dose not stated, confirm dose",
+  "'Moxie 400' PO at 0855 not entered: unclear drug name, dose unit missing. Confirm drug, dose and unit",
+  "TXA route not stated"
+ ]
+}

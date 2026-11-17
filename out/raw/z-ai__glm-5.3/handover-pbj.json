@@ -1,0 +1,63 @@
+{
+ "fields": {
+  "other_med_1_name": [
+   "TXA",
+   "TXL a gram at 0900"
+  ],
+  "other_med_1_dose": [
+   "1 g",
+   "TXL a gram at 0900"
+  ],
+  "other_med_1_time": [
+   "0900",
+   "TXL a gram at 0900"
+  ],
+  "other_med_2_name": [
+   "TXA",
+   "a second gram at 0920"
+  ],
+  "other_med_2_dose": [
+   "1 g",
+   "a second gram at 0920"
+  ],
+  "other_med_2_time": [
+   "0920",
+   "a second gram at 0920"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "Fentanyl lollipop at 0855"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "Fentanyl lollipop at 0855"
+  ],
+  "analgesic_1_time": [
+   "0855",
+   "Fentanyl lollipop at 0855"
+  ],
+  "antibiotic_1_name": [
+   "moxifloxacin",
+   "Moxie 400 by mouth same time"
+  ],
+  "antibiotic_1_dose": [
+   "400 mg",
+   "Moxie 400 by mouth same time"
+  ],
+  "antibiotic_1_route": [
+   "PO",
+   "Moxie 400 by mouth same time"
+  ],
+  "antibiotic_1_time": [
+   "0855",
+   "Moxie 400 by mouth same time"
+  ]
+ },
+ "notes": "Medication handover only; no injuries, patient identity, mechanism or vitals stated. 'TXL' interpreted as TXA; no route stated for either TXA dose. Fentanyl lozenge dose not stated. 'Moxie' interpreted as moxifloxacin; 'same time' refers to 0855.",
+ "flags": [
+  "Verify 'TXL' = TXA (tranexamic acid)",
+  "TXA route not stated for either dose",
+  "Fentanyl lozenge dose not stated",
+  "Verify 'Moxie' = moxifloxacin 400 mg"
+ ]
+}

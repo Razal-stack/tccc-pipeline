@@ -1,0 +1,91 @@
+{
+ "fields": {
+  "gender_f": [
+   true,
+   "Female"
+  ],
+  "name": [
+   "Lowe, Megan",
+   "Private Lowe, Megan"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "21 Engineer Regiment",
+   "21 Engineer Regiment"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED"
+  ],
+  "time": [
+   "1110",
+   "IED at 11:10"
+  ],
+  "signs_1_time": [
+   "1120",
+   "Obs at 11:20"
+  ],
+  "signs_1_bp_systolic": [
+   "90",
+   "It's 90 over 50"
+  ],
+  "signs_1_bp_diastolic": [
+   "50",
+   "It's 90 over 50"
+  ],
+  "signs_1_pulse": [
+   "120 radial",
+   "Pulse 120 radial"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "Resps 24"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "Sats 96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "7 Very Intense",
+   "Pain 7"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT on the right arm"
+  ],
+  "tq_right_arm_type": [
+   "CAT",
+   "CAT on the right arm"
+  ],
+  "tq_right_arm_time": [
+   "1114",
+   "at 11:14"
+  ],
+  "dressing_pressure": [
+   true,
+   "Pressure dressing to the face"
+  ],
+  "evac_priority": [
+   true,
+   "Evac priority"
+  ],
+  "first_responder_name": [
+   "Moss, Harry",
+   "Lance Corporal Moss, Harry"
+  ]
+ },
+ "notes": "Injuries: right upper arm: fragment wound; right side of face: fragment wound; mounted in vehicle, was top cover; CAT applied to right arm at 1114; pressure dressing to face; BP corrected from 90/60 to 90/50",
+ "flags": [
+  "Casualty last 4 was heard as 44480, which is 5 digits, so left blank. Please confirm.",
+  "First responder last 4 was heard as 45593, which is 5 digits, so left blank. Please confirm.",
+  "Rank was spoken for the casualty (Private) and the first responder (Lance Corporal), but the card has no rank field.",
+  "BP was corrected from 90/60 to 90/50, and the card uses 90/50."
+ ]
+}

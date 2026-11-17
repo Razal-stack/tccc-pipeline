@@ -1,0 +1,92 @@
+{
+ "fields": {
+  "name": [
+   "Bell, Adam",
+   "Corporal Bell, Adam, Royal Marines"
+  ],
+  "service": [
+   "Royal Marines",
+   "Royal Marines"
+  ],
+  "last4": [
+   "0061",
+   "Bell's last four is 0061"
+  ],
+  "gender_m": [
+   true,
+   "He's male obviously"
+  ],
+  "time": [
+   "0620",
+   "GSW right chest 0620"
+  ],
+  "mechanism_gsw": [
+   true,
+   "GSW right chest"
+  ],
+  "dressing_pressure": [
+   true,
+   "It's a pressure dressing over the wound"
+  ],
+  "breathing_needle_d": [
+   true,
+   "Needle decompression right side at 0630"
+  ],
+  "breathing_type": [
+   "needle decompression",
+   "Needle decompression right side at 0630"
+  ],
+  "signs_1_time": [
+   "0625",
+   "Obs at 0625 pulse 128 radial"
+  ],
+  "signs_1_pulse": [
+   "128 radial",
+   "pulse 128 radial"
+  ],
+  "signs_1_resp_rate": [
+   "34",
+   "Resps 34"
+  ],
+  "signs_1_spo2": [
+   "86",
+   "sats 86"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "responds to voice"
+  ],
+  "signs_2_time": [
+   "0640",
+   "Obs again at 0640 pulse 118 radial"
+  ],
+  "signs_2_pulse": [
+   "118 radial",
+   "pulse 118 radial"
+  ],
+  "signs_2_resp_rate": [
+   "26",
+   "Resps 26"
+  ],
+  "signs_2_spo2": [
+   "92",
+   "sats 92"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert now"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ]
+ },
+ "notes": "Injuries: right chest: GSW; Needle decompression right side at 0630; BP not taken. Chest seal retracted, ran out of seals, pressure dressing applied instead. Unit spoken as '45 commander', unclear.",
+ "flags": [
+  "Unit unclear: '45 commander' was said. Left blank; confirm (possibly 45 Commando).",
+  "Chest seal mentioned then retracted; pressure dressing used. breathing_chest_seal not ticked.",
+  "No BP recorded for either obs set.",
+  "No battle roster, date, allergies, or first responder stated.",
+  "Pain score not stated for either obs set."
+ ]
+}

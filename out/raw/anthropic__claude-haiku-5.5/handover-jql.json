@@ -1,0 +1,139 @@
+{
+ "fields": {
+  "battle_roster": [
+   "MT7703",
+   "Battle roster Mike Tango 7703"
+  ],
+  "gender_m": [
+   true,
+   "Male vehicle commander"
+  ],
+  "service": [
+   "Army",
+   "Army, Queen's Royal Hussars"
+  ],
+  "unit": [
+   "Queen's Royal Hussars",
+   "Army Queen's Royal Hussars"
+  ],
+  "time": [
+   "1640",
+   "Time of injury 16:40"
+  ],
+  "mechanism_rpg": [
+   true,
+   "Mechanism RPG strike on the vehicle with fire"
+  ],
+  "signs_1_time": [
+   "1650",
+   "Signs at 16:50"
+  ],
+  "signs_1_pulse": [
+   "104 radial",
+   "radial pulse 104"
+  ],
+  "signs_1_bp_systolic": [
+   "128",
+   "BP 128 over 80"
+  ],
+  "signs_1_bp_diastolic": [
+   "80",
+   "BP 128 over 80"
+  ],
+  "signs_1_resp_rate": [
+   "22",
+   "resp 22"
+  ],
+  "signs_1_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "6 Intense",
+   "pain 6"
+  ],
+  "eye_shield": [
+   true,
+   "rigid eye shield over the right eye"
+  ],
+  "eye_shield_right": [
+   true,
+   "rigid eye shield over the right eye"
+  ],
+  "dressing_other": [
+   true,
+   "burns dressings to the hands"
+  ],
+  "dressing_type": [
+   "burns dressing",
+   "burns dressings to the hands"
+  ],
+  "combat_pill_pack": [
+   true,
+   "combat pill pack given"
+  ],
+  "fluid_1_name": [
+   "Hartmann's",
+   "1 liter of Hartman's IV at 16:55"
+  ],
+  "fluid_1_volume": [
+   "1 L",
+   "1 liter of Hartman's IV at 16:55"
+  ],
+  "fluid_1_route": [
+   "IV",
+   "1 liter of Hartman's IV at 16:55"
+  ],
+  "fluid_1_time": [
+   "1655",
+   "1 liter of Hartman's IV at 16:55"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "ketamine 20 mg IV at 16:58"
+  ],
+  "analgesic_1_dose": [
+   "20 mg",
+   "ketamine 20 mg IV at 16:58"
+  ],
+  "analgesic_1_route": [
+   "IV",
+   "ketamine 20 mg IV at 16:58"
+  ],
+  "analgesic_1_time": [
+   "1658",
+   "ketamine 20 mg IV at 16:58"
+  ],
+  "hypothermia_prevention": [
+   true,
+   "blizzard blanket on"
+  ],
+  "hypothermia_prevention_type": [
+   "Blizzard blanket",
+   "blizzard blanket on"
+  ],
+  "evac_priority": [
+   true,
+   "Evac priority"
+  ],
+  "first_responder_name": [
+   "Dan, Kelly",
+   "Lance Corporal Kelly Dan"
+  ]
+ },
+ "notes": "Injuries: face: burns; both hands: burns, roughly 18%; right eye: penetrating injury; time of injury 1640; mechanism RPG strike on vehicle with fire.",
+ "flags": [
+  "Casualty name and last4 not stated; only battle roster given.",
+  "Date of injury not stated.",
+  "First responder last4 unclear: 'last 4 222 end static 5' is garbled, left blank.",
+  "First responder name 'Lance Corporal Kelly Dan' entered as 'Dan, Kelly'; confirm surname vs first name.",
+  "Burn percentage given as 'roughly 18%'; confirm.",
+  "'with fire' after RPG strike is unclear; not recorded as a separate mechanism.",
+  "Ketamine given as 20 mg IV; confirm dose and route.",
+  "Only one set of signs recorded; no repeat obs."
+ ]
+}

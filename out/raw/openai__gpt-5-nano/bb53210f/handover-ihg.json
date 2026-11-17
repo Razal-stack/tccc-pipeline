@@ -1,0 +1,112 @@
+{
+ "fields": {
+  "battle_roster": [
+   "JS4417",
+   "Battle roster Juliet Sierra 4417"
+  ],
+  "date": [
+   "03-NOV-26",
+   "3 November 2026"
+  ],
+  "time": [
+   "1420",
+   "Time of wounding: 1420"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "one unit",
+   "one unit"
+  ],
+  "mechanism_ied": [
+   true,
+   "Mechanism: IED strike on a dismounted foot patrol."
+  ],
+  "tq_extremity": [
+   true,
+   "tourniquet left leg at 1420"
+  ],
+  "tq_left_leg_time": [
+   "1420",
+   "tourniquet left leg at 1420"
+  ],
+  "tq_right_leg_time": [
+   "1425",
+   "second tourniquet right thigh at 1425"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "right thigh wound packed with QuikClot at 1430"
+  ],
+  "signs_1_time": [
+   "1428",
+   "Signs at 1428: radio pulse 128, BP 92/58, respS 26, sats 94."
+  ],
+  "signs_1_pulse": [
+   "128",
+   "radio pulse 128"
+  ],
+  "signs_1_bp_systolic": [
+   "92",
+   "BP 92/58"
+  ],
+  "signs_1_bp_diastolic": [
+   "58",
+   "/58"
+  ],
+  "signs_1_resp_rate": [
+   "26",
+   "respS 26"
+  ],
+  "signs_1_spo2": [
+   "94",
+   "sats 94"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "Response to voice, pain, and non-verbal stimuli"
+  ],
+  "analgesic_1_name": [
+   "fentanyl lozenge",
+   "fentanyl lozenge 800 mcg at 1430"
+  ],
+  "analgesic_1_dose": [
+   "800 mcg",
+   "800 mcg"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "OTFC"
+  ],
+  "analgesic_1_time": [
+   "1430",
+   "at 1430"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "2 grams of TXA administered at 1435 wrapped in a hydrofoam event packet"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams of TXA administered at 1435 wrapped in a hydrofoam event packet"
+  ],
+  "other_med_1_time": [
+   "1435",
+   "1435"
+  ],
+  "first_responder_name": [
+   "Corporal Jones",
+   "sent by corporal Jones"
+  ],
+  "first_responder_last4": [
+   "1090",
+   "with SAM at 1090"
+  ]
+ },
+ "notes": "Injuries: left leg below knee: traumatic amputation; right thigh: heavy bleeding; time of wounding 1420; signs at 1428: pulse 128, BP 92/58, resp 26, sats 94; response to voice, pain, and non-verbal stimuli; tourniquets: left leg 1420, right thigh 1425; right thigh wound packed with QuikClot at 1430; fentanyl lozenge 800 mcg at 1430; TXA 2 g at 1435 wrapped in a hydrofoam event packet.",
+ "flags": [
+  "evac_category_unclear_from_handhandover"
+ ]
+}

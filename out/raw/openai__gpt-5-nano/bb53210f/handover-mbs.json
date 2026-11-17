@@ -1,0 +1,154 @@
+{
+ "fields": {
+  "name": [
+   "Shaw, Ben",
+   "Casualty is gunner Shaw, Ben"
+  ],
+  "last4": [
+   "1505",
+   "last 4 1505"
+  ],
+  "date": [
+   "30-OCT-26",
+   "Mist report 30 October 2026."
+  ],
+  "time": [
+   "0324",
+   "Time of injury 03240."
+  ],
+  "service": [
+   "Army",
+   "Army, 4th Regiment Royal Artillery."
+  ],
+  "unit": [
+   "4th Regiment Royal Artillery",
+   "Army, 4th Regiment Royal Artillery."
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_blunt": [
+   true,
+   "hit by a reversing Mastiff on the gun line."
+  ],
+  "mechanism_mvc": [
+   true,
+   "hit by a reversing Mastiff on the gun line."
+  ],
+  "injuries": [
+   "pelvis: crushed; unstable when gently pressed",
+   "Injuries, crushed pelvis unstable when gently pressed."
+  ],
+  "signs_1_time": [
+   "0348",
+   "Signs at 0348"
+  ],
+  "signs_1_pulse": [
+   "130",
+   "radial pulse 130"
+  ],
+  "signs_1_bp_systolic": [
+   "88",
+   "BP 88 over 54"
+  ],
+  "signs_1_bp_diastolic": [
+   "54",
+   "BP 88 over 54"
+  ],
+  "signs_1_resp_rate": [
+   "26",
+   "resp 26"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "sats 96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "0 None",
+   "pain none"
+  ],
+  "signs_2_time": [
+   "0450",
+   "Repeat at 0450"
+  ],
+  "signs_2_pulse": [
+   "116",
+   "radial pulse 116"
+  ],
+  "signs_2_bp_systolic": [
+   "98",
+   "BP 98 over 62"
+  ],
+  "signs_2_bp_diastolic": [
+   "62",
+   "BP 98 over 62"
+  ],
+  "signs_2_resp_rate": [
+   "22",
+   "resp 22"
+  ],
+  "signs_2_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_2_pain": [
+   "6",
+   "pain 6"
+  ],
+  "evac_urgent": [
+   true,
+   "Cat A"
+  ],
+  "first_responder_name": [
+   "Lyle, Owen",
+   "From Bombardier Lyle, Owen"
+  ],
+  "first_responder_last4": [
+   "6052",
+   "last 4 6052"
+  ],
+  "blood_1_name": [
+   "whole blood",
+   "one unit of whole blood"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "one unit of whole blood"
+  ],
+  "blood_1_time": [
+   "0405",
+   "at 0405"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "fentanyl 800 mcg lozenge at 03.50"
+  ],
+  "analgesic_1_dose": [
+   "800 mcg",
+   "fentanyl 800 mcg lozenge at 03.50"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "fentanyl 800 mcg lozenge at 03.50"
+  ],
+  "analgesic_1_time": [
+   "0350",
+   "at 03.50"
+  ]
+ },
+ "notes": "Injuries: pelvis: crushed; unstable when gently pressed; Time of injury 0324 (transcription 03240); Mechanism: hit by reversing Mastiff on the gun line. Treatments: pelvic binder on; fentanyl 800 mcg lozenge at 03:50; whole blood 1 unit IV at 04:05; vitals updated at 04:50. Sender: Bombardier Owen Lyle, last 4 6052. Casualty: Shaw, Ben, male, last 4 1505.",
+ "flags": [
+  "Verify exact time of injury (0324 vs 03240).",
+  "Repeat at 0450 likely indicates a second intervention; confirm blood product administration and update fields if applicable.",
+  "Route for blood transfusion (IV) inferred from context; confirm IV vs IO."
+ ]
+}

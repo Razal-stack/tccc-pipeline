@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "name": [
+   "Patel Nisha",
+   "Corporal Patel Nisha"
+  ],
+  "last4": [
+   2468,
+   "last 42468"
+  ],
+  "time": [
+   1045,
+   "Time of wounding 10:45"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "1 Royal Anglian",
+   "1 Royal Anglian"
+  ],
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "mechanism_gsw": [
+   true,
+   "gunshot wound"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "hemostatic gauze"
+  ],
+  "breathing_o2": [
+   true,
+   "Oxygen on"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "signs_1_time": [
+   1052,
+   "Signs at 10:52"
+  ],
+  "signs_1_pulse": [
+   116,
+   "radial pulse 116"
+  ],
+  "signs_1_bp_systolic": [
+   104,
+   "BP 104 over 68"
+  ],
+  "signs_1_bp_diastolic": [
+   68,
+   "BP 104 over 68"
+  ],
+  "signs_1_resp_rate": [
+   24,
+   "resps 24"
+  ],
+  "signs_1_spo2": [
+   95,
+   "sats 95"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   6,
+   "pain 6 out of 10"
+  ],
+  "signs_2_time": [
+   1105,
+   "11:05 repeat obs"
+  ],
+  "signs_2_pulse": [
+   104,
+   "Radial pulse 104"
+  ],
+  "signs_2_bp_systolic": [
+   112,
+   "BP 112 over 72"
+  ],
+  "signs_2_bp_diastolic": [
+   72,
+   "BP 112 over 72"
+  ],
+  "signs_2_resp_rate": [
+   20,
+   "resps 20"
+  ],
+  "signs_2_spo2": [
+   97,
+   "sats 97"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "first_responder_name": [
+   "Doyle Mia",
+   "Sent by Corporal Doyle Mia, last 43915."
+  ],
+  "first_responder_last4": [
+   3915,
+   "last 43915"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "2 grams of TXA IV at 10:58"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams of TXA IV at 10:58"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "2 grams of TXA IV at 10:58"
+  ],
+  "other_med_1_time": [
+   1058,
+   "2 grams of TXA IV at 10:58"
+  ]
+ },
+ "notes": "Injuries: left side of the neck: GSW; no exit wound. Time of wounding: 10:45. 10:52 vitals: radial 116, BP 104/68, resps 24, SpO2 95, AVPU A, pain 6/10. Wound packed with hemostatic gauze; pressure held. Oxygen on. TXA 2 g IV given at 10:58. 11:05 repeat obs: radial 104, BP 112/72, resps 20, SpO2 97, AVPU A. Evac urgent. Sent by Corporal Doyle Mia, last 43915.",
+ "flags": [
+  "neck GSW near airway \u2013 monitor for airway compromise",
+  "TXA 2 g IV given at 10:58 \u2013 confirm contraindications",
+  "evac urgent \u2013 prepare helicopter transport"
+ ]
+}

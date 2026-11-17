@@ -1,0 +1,60 @@
+{
+ "fields": {
+  "other_med_1_name": [
+   "TXL",
+   "TXL a gram at 0900"
+  ],
+  "other_med_1_dose": [
+   "1 g",
+   "TXL a gram at 0900"
+  ],
+  "other_med_1_time": [
+   "0900",
+   "TXL a gram at 0900"
+  ],
+  "other_med_2_name": [
+   "TXL",
+   "TXL a gram at 0920"
+  ],
+  "other_med_2_dose": [
+   "1 g",
+   "TXL a gram at 0920"
+  ],
+  "other_med_2_time": [
+   "0920",
+   "TXL a gram at 0920"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "Fentanyl lollipop at 0855"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "Fentanyl lollipop at 0855"
+  ],
+  "analgesic_1_time": [
+   "0855",
+   "Fentanyl lollipop at 0855"
+  ],
+  "analgesic_2_name": [
+   "moxie",
+   "Moxie 400 by mouth same time"
+  ],
+  "analgesic_2_dose": [
+   "400 mg",
+   "Moxie 400 by mouth same time"
+  ],
+  "analgesic_2_route": [
+   "PO",
+   "Moxie 400 by mouth same time"
+  ],
+  "analgesic_2_time": [
+   "0855",
+   "Moxie 400 by mouth same time"
+  ]
+ },
+ "notes": "Drugs given: TXL 1 g at 0900; TXL 1 g at 0920; fentanyl lollipop (OTFC) at 0855; moxie 400 mg PO at 0855.",
+ "flags": [
+  "Verify TXL may be TXA; confirm drug identity and route/dose; verify 'Moxie' product name and dose."
+ ]
+}

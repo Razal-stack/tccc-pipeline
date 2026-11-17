@@ -1,0 +1,77 @@
+{
+ "fields": {
+  "name": [
+   "Carr, Jazz",
+   "Private Carr Jazz female"
+  ],
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "service": [
+   "RAF",
+   "RAF Tactical Medical Wing"
+  ],
+  "unit": [
+   "Tactical Medical Wing",
+   "RAF Tactical Medical Wing"
+  ],
+  "date": [
+   "03-NOV-26",
+   "3 November 2026"
+  ],
+  "time": [
+   "2040",
+   "Grenade at 2040"
+  ],
+  "mechanism_grenade": [
+   true,
+   "Grenade at 2040"
+  ],
+  "dressing_pressure": [
+   true,
+   "Pressure dressing only"
+  ],
+  "signs_1_time": [
+   "2050",
+   "her obs at 2050"
+  ],
+  "signs_1_pulse": [
+   "98 radial",
+   "pulse 98 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "122",
+   "BP 122/80"
+  ],
+  "signs_1_bp_diastolic": [
+   "80",
+   "BP 122/80"
+  ],
+  "signs_1_resp_rate": [
+   "18",
+   "resps 18"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "sats 98"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "5 Very Distress",
+   "pain 5"
+  ],
+  "evac_routine": [
+   true,
+   "evac routine"
+  ]
+ },
+ "notes": "Injuries: left forearm: fragment wound; grenade mechanism",
+ "flags": [
+  "Last four: spoken 'last 48336' is five digits, so last4 left blank; please confirm the last four digits.",
+  "Casualty's sign set is a single observation set at 2050."
+ ]
+}

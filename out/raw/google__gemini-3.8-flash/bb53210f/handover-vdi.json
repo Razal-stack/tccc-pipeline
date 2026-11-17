@@ -1,0 +1,17 @@
+{
+ "fields": {
+  "tq_extremity": [
+   true,
+   "Left leg tourniquet"
+  ],
+  "tq_left_leg_time": [
+   "1115",
+   "1115"
+  ]
+ },
+ "notes": "Left leg tourniquet applied; garbled transmission: 'tablet IV arm air pocket of tube'; evac category requested but not provided",
+ "flags": [
+  "Garbled audio at start of transmission ('tablet IV arm air pocket of tube')",
+  "Evac category unstated"
+ ]
+}

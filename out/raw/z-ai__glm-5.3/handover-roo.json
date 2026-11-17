@@ -1,0 +1,137 @@
+{
+ "fields": {
+  "name": [
+   "Patel, Nisha",
+   "Corporal Patel Nisha"
+  ],
+  "last4": [
+   "42468",
+   "last 42468"
+  ],
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "1 Royal Anglian",
+   "1 Royal Anglian"
+  ],
+  "time": [
+   "1045",
+   "Time of wounding 10:45"
+  ],
+  "mechanism_gsw": [
+   true,
+   "Mechanism gunshot wound"
+  ],
+  "signs_1_time": [
+   "1052",
+   "Signs at 10:52"
+  ],
+  "signs_1_pulse": [
+   "116 radial",
+   "radial pulse 116"
+  ],
+  "signs_1_bp_systolic": [
+   "104",
+   "BP 104 over 68"
+  ],
+  "signs_1_bp_diastolic": [
+   "68",
+   "BP 104 over 68"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resps 24"
+  ],
+  "signs_1_spo2": [
+   "95",
+   "sats 95"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "6 Intense",
+   "pain 6 out of 10"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "wound packed with hemostatic gauze"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure held"
+  ],
+  "breathing_o2": [
+   true,
+   "Oxygen on"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams of TXA"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "I4 at 10:58"
+  ],
+  "other_med_1_time": [
+   "1058",
+   "I4 at 10:58"
+  ],
+  "signs_2_time": [
+   "1105",
+   "Repeat obs at 11:05"
+  ],
+  "signs_2_pulse": [
+   "104 radial",
+   "Radial pulse 104"
+  ],
+  "signs_2_bp_systolic": [
+   "112",
+   "BP 112 over 72"
+  ],
+  "signs_2_bp_diastolic": [
+   "72",
+   "BP 112 over 72"
+  ],
+  "signs_2_resp_rate": [
+   "20",
+   "resps 20"
+  ],
+  "signs_2_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "first_responder_name": [
+   "Doyle, Mia",
+   "Corporal Doyle Mia"
+  ],
+  "first_responder_last4": [
+   "43915",
+   "last 43915"
+  ]
+ },
+ "notes": "Injuries: left neck: GSW, no exit wound; wound packed with hemostatic gauze and pressure held",
+ "flags": [
+  "'I4' interpreted as IV route for TXA - confirm",
+  "No date given"
+ ]
+}
