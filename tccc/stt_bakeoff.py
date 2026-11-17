@@ -123,12 +123,13 @@ def main():
             ledger_path.write_text(json.dumps(ledger, indent=1))
     cost = sum(v[0] for per in ledger.values() for v in per.values())
 
-    groups = {"hard": [f for f in files if f in HARD], "other": [f for f in files if f not in HARD]}
+    # report on the fixed 21-file benchmark for every model with transcripts on disk, so numbers stay comparable
+    groups = {"hard": HARD, "other": OTHER}
     cats = ["vitals", "times", "doses", "ids", "names", "drugs_kit"]
     rows = []
-    if a.keyterms:
-        models = [m + "+keyterms" for m in models] + models
-    for m in models + ["local__parakeet"]:
+    models = sorted(d.name.replace("__", "/", 1) for d in (ROOT / "transcripts").iterdir()
+                    if d.is_dir() and all((d / f.replace(".wav", ".txt")).exists() for f in HARD + OTHER))
+    for m in models:
         d = ROOT / "transcripts" / m.replace("/", "__")
         if not d.exists():
             continue
@@ -188,7 +189,7 @@ def main():
         allh, allt = nums["hard"][0] + nums["other"][0], nums["hard"][1] + nums["other"][1]
         print(f"| {m} | {pct(*nums['hard'])} | {pct(*nums['other'])} | {pct(allh, allt)} | {per_hour(m)} | "
               f"{median_wall(m)} | {errors} |")
-    print(f"\nTable 2. Ground-truth values found, by category, all {len(files)} files\n")
+    print(f"\nTable 2. Ground-truth values found, by category, all {len(HARD + OTHER)} benchmark files\n")
     print("| Model | " + " | ".join(cats) + " |")
     print("|---|" + "---|" * len(cats))
     for m, _, by_cat, _ in rows:
