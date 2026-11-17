@@ -58,3 +58,29 @@ Error stages in every report:
 | openai/gpt-5-nano | v2 | 85.4% | 0.60 | $0.10 |
 
 Speech-to-text (21 test files): Scribe v2 Medical found 85% of numbers on hard audio, 92% overall, $0.22/hour.
+
+## Road to 95% (plan, nothing run yet)
+
+Where dev F1 stands (Gemini 3.8 Flash, 93.3%): 25 extraction errors, 22 transcription errors, 5 invented.
+Ceiling with today's transcripts and perfect extraction: about 97-98%. So the gap is mostly extraction.
+
+Checked for free against cached transcripts: a second speech-to-text model recovers only 2 of 10 values Scribe
+missed (Fish Audio, AssemblyAI on ihg). The rest are lost by every model (vdi radio, "Kaur" heard as "Carr").
+Speech-to-text stays Scribe v2 Medical. Deepgram nova-3 failed on 11 of 21 files through OpenRouter, and Deepgram
+Flux is not offered there.
+
+Experiments, cheapest first:
+1. Free: fix the remaining extraction patterns in code or prompt (e.g. "no known allergies" -> NKA).
+2. Text-model bake-off on dev, one run each, about $0.35 total: openai/gpt-5.6-luna, qwen/qwen3.5-flash,
+   deepseek/deepseek-v4-flash, z-ai/glm-5.3, google/gemini-3.8-flash as the baseline. No Anthropic models.
+3. Free after step 2: field-level vote across the best 2-3 cheap models, using cached replies. Agree -> fill;
+   disagree -> blank + flag. Raises precision (fewer invented values) at no extra cost.
+4. Optional, about $0.20: add a second transcript (Fish Audio) to the prompt for hard-audio files only.
+5. Final: chosen setup once on held-out (reported first), then all 50 with PDFs.
+
+Not doing:
+- A vision model for the PDF. Filling the PDF is plain code writing to named form fields, already verified on
+  all 50 golden cards with zero errors. Accuracy is decided before the PDF, so a vision model would add cost and
+  nothing else.
+- An audio-native LLM instead of speech-to-text (e.g. gemini-omni-1.2-flash). No strict JSON output on
+  OpenRouter, higher price, and the missing values are ones no listener recovered.
