@@ -56,14 +56,24 @@ excludes zero.
    checking** (anything garbled, corrected or in dispute).
 6. **Score.** Against the answer key, with every mistake tagged by the step that caused it.
 
-**Time it saves (estimates, not timed medics).** By hand: 5 to 8 minutes a card. With the system the medic still
-reviews every card (1 to 1.5 minutes each) plus 0.5 to 1 minute for each of the 118 things the 50 cards ask them to ask
-or check. The system itself takes about 20 seconds a card, all 50 in parallel in about a minute.
+**Time it saves (planning assumptions, not measured).** Nobody has timed medics doing this, so treat these as a
+starting point. Each range runs from a calm best case to a busy collection point.
+
+- By hand: 5 to 12 minutes a card. The low end is a quiet desk (listen once, write about 22 boxes, mark the body
+  diagram). The high end adds finding the right recording, re-listening through static and corrections, stopping to
+  treat, and printing, signing and attaching the card.
+- With the system: the medic still reviews every card (1 to 2 minutes each), plus 0.5 to 1.5 minutes for each of the
+  118 things the 50 cards ask them to ask or check. The app counts these live from the cards.
+- Not included: treating, triage decisions, and waiting for answers that never come (a sender who has left). Those
+  stay flagged on the card. Two medics assumes a perfectly even split.
 
 | All 50 cards | 1 medic | 2 medics |
 |---|---|---|
-| By hand | 4.2 to 6.7 hours (past the 3 to 4 hour evacuation window) | 2.1 to 3.3 hours |
-| With the system, medic reviews every card | 1.8 to 3.2 hours | 0.9 to 1.6 hours |
+| By hand | 4.2 to 10.0 hours (the 3 to 4 hour evacuation window is missed even in the best case) | 2.1 to 5.0 hours |
+| With the system, medic reviews every card | 1.8 to 4.6 hours | 0.9 to 2.3 hours |
+
+How to replace the assumptions with numbers: a short tabletop exercise where two or three medics each write 5 cards by
+hand and review 5 system cards, timed, with a few planned interruptions.
 
 **Human in the loop.** The system only drafts. It gives the medic what they need to judge each card quickly (the to-do
 list, a confidence mark per value, both transcripts, the words behind each value); the medic decides and signs.

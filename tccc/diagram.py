@@ -71,7 +71,7 @@ def draw():
 {box(620, 610, 320, 90, "Medic's to-do list", ["what to ask the sender, what to check,", "confidence for each value"], "io")}
 {arrow(390, 700, 520, 750)}{arrow(780, 700, 650, 750)}
 {box(305, 750, 560, 110, "Human in the loop: the medic decides", ["reviews every card; asks the sender for anything missing;", "confirms flagged values against the recording;", "signs and attaches it. The system only drafts."], "person")}
-{note(758, 865, 805, "About 1 to 1.5 minutes a card to review", ["plus about a minute per item to ask or", "check, instead of 5 to 8 minutes to write", "each card by hand."])}
+{note(758, 865, 805, "Review time (planning estimate)", ["1 to 2 minutes a card, plus 0.5 to 1.5", "per item to ask or check; by hand, 5 to", "12 minutes a card. Not yet timed."])}
 </svg>'''
 
 

@@ -469,6 +469,18 @@ $0.47. About <b>$0.65 for all 50</b>, 1.3 cents a card, about 20 seconds each, a
 call is cached, so re-scoring or changing the checks costs nothing.</p></div>""")
 
 
+# Planning assumptions, not measured (minutes): (calm best case, busy collection point). See the /how footnote.
+TIME = {"hand": (5, 12), "review": (1, 2), "item": (.5, 1.5)}
+
+
+def time_rows(cards, items):
+    """Hours to finish every card, by hand and with the system, for 1 and 2 medics (2 = a perfectly even split)."""
+    hand = [cards * m / 60 for m in TIME["hand"]]
+    sys_ = [(cards * r + items * i) / 60 for r, i in zip(TIME["review"], TIME["item"])]
+    return (("By hand, 1 medic", *hand), ("By hand, 2 medics", *(h / 2 for h in hand)),
+            ("With the system, 1 medic", *sys_), ("With the system, 2 medics", *(s / 2 for s in sys_)))
+
+
 LAYERS = (
     ("The recording comes in", "The whole handover, exactly as recorded: radio crackle, gunfire, two people talking. We do not cut it or try to clean up the background noise.", "audio file"),
     ("Two listeners write it down", "Two different speech-to-text tools each turn the recording into written words, at the same time. Like two people taking down the same radio message.", "ElevenLabs Scribe (medical) + Qwen Omni"),
@@ -481,7 +493,7 @@ LAYERS = (
 TRIED = (
     ("Which tool should turn speech into text?", "We compared 19 speech-to-text tools from ElevenLabs, OpenAI, Google, Deepgram, AssemblyAI and others, on all 50 recordings.",
      "ElevenLabs Scribe (its medical version) caught the most: 93% of the details, and 86% on the hardest radio and noisy recordings."),
-    ("Should we clean up the noise first?", "We tried four tools that remove background noise before the speech-to-text step.",
+    ("Should we clean up the noise first?", "We tried four tools that remove background noise before the speech-to-text step: spectral gating, radio band-pass, DeepFilterNet3 and Meta Denoiser (Demucs).",
      "It made things worse on noisy recordings (86% fell to about 80%). The cleaning also removes bits of words. So we send the original recording."),
     ("Does it help to say which words to expect?", "We gave the speech-to-text tool a list of words it will hear: TXA, IV, tourniquet, unit names.",
      "Yes. Drug and equipment words went from 90% to 97% correct. Kept."),
@@ -502,17 +514,17 @@ TRIED = (
 def how():
     flow = "".join(f"<div class='layer{' code' if i in (4, 5) else ''}'><span class=n>{i:02d}</span><b>{t}</b><p>{esc(d)}</p>"
                    f"<span class=tool>{esc(tool)}</span></div>" for i, (t, d, tool) in enumerate(LAYERS, 1))
+    cards = casualties()
     items = sum(len(rv.get("Ask the sender", [])) + len(rv.get("Check these", [])) + len(confidence(c, rv.get("Transcript", ""))[1])
-                for _, _, c, rv in casualties())
-    rows = (("By hand, 1 medic", 50 * 5 / 60, 50 * 8 / 60), ("By hand, 2 medics", 50 * 5 / 120, 50 * 8 / 120),
-            ("With the system, 1 medic", (50 * 1 + .5 * items) / 60, (50 * 1.5 + items) / 60),
-            ("With the system, 2 medics", (50 * 1 + .5 * items) / 120, (50 * 1.5 + items) / 120))
-    scale = 8.0  # hours across the full width
+                for _, _, c, rv in cards)
+    rows = time_rows(len(cards), items)
+    scale = 11.0  # hours across the full width
     chart = ("<div class=tchart><div class=band style='left:calc(190px + (100% - 190px) * " + f"{3 / scale:.4f});"
              f"width:calc((100% - 190px) * {1 / scale:.4f})'><span>vehicle arrives</span></div>") + "".join(
         f"<div class=trow><span class=tl>{lbl}</span><div class=ttrack><i class='{'sys' if 'system' in lbl else 'hand'}' style='left:{lo / scale:.1%};width:{(hi - lo) / scale:.1%}'></i>"
         f"<b style='left:{hi / scale:.1%}'>{lo:.1f} to {hi:.1f} h</b></div></div>" for lbl, lo, hi in rows) + "".join(
-        f"<span class=tick style='left:calc(190px + (100% - 190px) * {h / scale:.3f})'>{h} h</span>" for h in range(0, 9)) + "</div>"
+        f"<span class=tick style='left:calc(190px + (100% - 190px) * {h / scale:.3f})'>{h} h</span>" for h in range(0, int(scale) + 1)) + "</div>"
+    (h_lo, h_hi), (r_lo, r_hi), (i_lo, i_hi) = TIME["hand"], TIME["review"], TIME["item"]
     tried = "".join(f"<div class=try><span class=n>{i}</span><div><b>{esc(q)}</b><p>{esc(what)}</p><p class=res>{esc(res)}</p></div></div>"
                     for i, (q, what, res) in enumerate(TRIED, 1))
     return page("how", f"""<div class=head><div class=grow><h1>How it works</h1><p class=lede>A recorded handover becomes a draft TCCC card in about 20
@@ -536,11 +548,22 @@ recording to draft; all 50 run at the same time.</p>
 <div style='max-width:1000px;margin:0 auto'>{DIAGRAM}</div></div>
 <div class=flow>{flow}</div>
 <div class=panel style='padding:24px 28px;margin-bottom:16px'><h2>Time it saves</h2>
-<p class=sub style='margin:0 0 16px'>Estimated hours for the medic team to finish all 50 cards. The band marks when the evacuation vehicle arrives (3 to 4 hours).</p>
+<p class=sub style='margin:0 0 16px'>Planning estimate of the hours a medic team needs to finish all {len(cards)} cards. These are assumptions,
+not measurements: nobody has timed medics doing this. Each bar runs from a calm best case to a realistic busy night. The band marks when
+the evacuation vehicle arrives (3 to 4 hours).</p>
 {chart}
-<p class=sub style='margin:16px 0 0'>Estimates, not timed medics. By hand: 5 to 8 minutes a card (listen back, write about 19 boxes, mark the body
-diagram). With the system: 1 to 1.5 minutes to review every card, because the medic still checks all 50, plus 0.5 to 1 minute for each of
-the {items} things the 50 cards ask the medic to ask or check. The system's own processing (about a minute for all 50) runs before the review.</p></div>
+<div class=legend style='margin-top:18px'>
+<b>By hand</b><span>{h_lo} to {h_hi} minutes a card. The low end is a quiet desk: recording at hand, listen once, write about 22 boxes, mark the
+body diagram. The high end is a busy collection point: finding the right recording, re-listening through static and corrections,
+stopping to treat, then printing, signing and attaching the card.</span>
+<b>With the system</b><span>{r_lo} to {r_hi} minutes to review every card (the medic still reads and signs all of them), plus {i_lo} to {i_hi}
+minutes for each of the <b>{items}</b> things the cards ask the medic to ask or check. That count comes from the cards themselves and
+updates with them. The high end allows for re-listening and for chasing a sender who has moved on.</span>
+<b>Not included</b><span>Treating casualties, triage decisions, and waiting for an answer that never comes (a sender who has left, a casualty
+who cannot say). Those items stay open on the card, flagged. The system's own processing, about a minute for all 50, happens before the review.</span>
+<b>Two medics</b><span>Assumes the work splits perfectly evenly, with no handoffs. Real teams lose some time to coordination.</span>
+<b>How to measure it</b><span>A short tabletop exercise: two or three medics each write 5 cards by hand from recordings and review 5 system
+cards, timed, with a few planned interruptions. Twenty minutes each would replace these assumptions with real numbers.</span></div></div>
 <div class=panel style='padding:24px 28px;margin-bottom:16px'><h2>Why two listeners?</h2><p class=lede style='max-width:none'>Noisy radio
 messages get misheard. One listener might write 1420 where the other hears 1422. When they agree, we can be more confident. When they
 disagree, the system does not pick one: it leaves the box empty and tells the medic exactly what to check ("Listener 1 heard 1420,
