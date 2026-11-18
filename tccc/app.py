@@ -17,6 +17,8 @@ from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
 
 from .pipeline import LLM_MODEL, SECOND_MODEL, STT_MODEL, process
 from .score import TRUTH, prf, score_card
+from .textnorm import spoken_to_digits, squash
+from .validate import BOOLS, label
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "out"
@@ -108,6 +110,11 @@ tr.row{cursor:pointer}tr.row:hover td{background:#fcfbfa}td.go{color:var(--mute)
 .try{display:grid;grid-template-columns:28px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--hair)}
 .try .n{font:500 13px var(--mono);color:#fff;background:var(--navy);border-radius:50%;width:26px;height:26px;display:grid;place-items:center}
 .try b{font-weight:600}.try p{margin:4px 0 0;color:var(--soft)}.try p.res{color:var(--ink)}.try p.res:before{content:"Result: ";font-weight:600}
+.grid{table-layout:fixed}.grid td{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:middle;padding:13px 14px;height:52px}
+.grid th{white-space:nowrap}.grid .num{text-align:right}.grid td.next{color:var(--soft);font-size:13px}
+.grid .unk{color:var(--soft)}.grid .rid{color:var(--mute);margin-left:6px;font-size:12px}
+.grid .al{margin-left:6px;font-size:11px;font-weight:600;color:var(--u);background:var(--ub);border-radius:4px;padding:1px 5px;text-transform:uppercase;letter-spacing:.03em}
+.stats div{flex:1}
 .empty{padding:36px;text-align:center;color:var(--soft);display:none}
 .cols{display:grid;grid-template-columns:minmax(380px,.85fr) minmax(0,1.25fr);gap:24px;align-items:start}.stick{position:sticky;top:16px}
 .box{padding:18px 20px;margin-bottom:14px}.box.warn{background:#fffaf2;border-color:#f0dcbc}.box.bad{background:#fff8f6;border-color:#f2d3cc}.box.good{background:#f6fbf8;border-color:#cfe6d7}
@@ -189,6 +196,25 @@ def vitals(card):
     return " · ".join(x for x in parts if x), (f"at {g('time')}" if g("time") else "time not given") + (f", set {i}" if i > 1 else "")
 
 
+def heard_by(value, text):
+    """Did this listener hear the value? Same digits (however spelled: "one twenty" = 120) and same key words."""
+    sq, words = squash(text), spoken_to_digits(text)
+    nums = re.findall(r"\d+", value)
+    keys = [w for w in re.findall(r"[a-z]{3,}", value.lower()) if w not in ("not", "and", "the")]
+    return all(n in sq or n.lstrip("0") in sq for n in nums) and all(w in words for w in keys)
+
+
+def confidence(card, transcript):
+    """Share of filled values both listeners heard, and the values only one heard. Measured on all 50: values both heard
+    are 97.9% correct, values only one heard 81.1% (about nine times the error rate)."""
+    if "TRANSCRIPT B" not in transcript:
+        return None, []
+    a, b = transcript.split("TRANSCRIPT B (second listen):")
+    vals = [(k, v) for k, v in card.items() if v and k not in BOOLS and k not in ("file", "notes", "injury_boxes")]
+    one = [(k, v) for k, v in vals if heard_by(v, a) != heard_by(v, b)]
+    return (1 - len(one) / len(vals) if vals else 1.0), one
+
+
 def has_tq(card):
     return any(card.get(f"tq_{l}_type") or card.get(f"tq_{l}_time") for l, _ in LIMBS)
 
@@ -235,34 +261,32 @@ def board():
         st, why = status(rv)
         counts[st] += 1
         counts[ec] += 1
-        f1, cmp = answer_key(card)
-        counts["tq"] += has_tq(card)
-        line = " · ".join(x for x in (", ".join(mechanism(card)), ", ".join(injuries(card)[:2])) if x)
+        f1, _ = answer_key(card)
+        conf, one = confidence(card, rv.get("Transcript", ""))
+        conf_cell = "" if conf is None else (f"<span class='dot {'ok' if not one else 'get'}'></span> {conf:.0%}")
+        conf_tip = "Heard by only one listener: " + ", ".join(f"{label(k)} {v}" for k, v in one) if one else "Both listeners agree on every value"
+        injury = " · ".join(x for x in (", ".join(mechanism(card)), ", ".join(injuries(card)[:2])) if x)
+        treat = ", ".join(care(card))
         v, vt = vitals(card)
         allergy = card.get("allergies") if (card.get("allergies") or "").upper() not in ("", "NKA") else ""
-        oc = Counter(o for _, o, _, _ in cmp)
-        keycell = "" if f1 is None else (f"<div class=key><s><i style=width:{f1:.0%}></i></s><span>{f1:.0%}</span></div>"
-                                         f"<div class=sub style=margin-top:4px>{oc['correct']} match · {oc['wrong'] + oc['invented']} off · {oc['missed']} missed</div>")
         rid = stem.replace("handover-", "")
-        find = " ".join((person, rid, line, " ".join(care(card)))).lower()
+        al = f" <span class=al title='Allergy: {esc(allergy)}'>allergy</span>" if allergy else ""
+        find = " ".join((person, rid, injury, treat)).lower()
         rows += (f"<tr class=row data-st={st} data-ev={ec} data-q='{esc(find)}' onclick=\"location='/card/{name}/{stem}'\">"
                  f"<td><span class='tag {ec}'><span class='dot {ec}'></span>{ev}</span></td>"
-                 f"<td><div class=who>{esc(person) if known else '<span style=color:var(--soft)>Name not given</span>'}</div>"
-                 f"<div class='sub mono'>{rid}{' · just added' if name == 'live' else ''}</div>"
-                 f"<div class=sub>{'wounded ' + card['time'] if card.get('time') else 'wound time not given'}</div>"
-                 f"{f'<div class=allergy>Allergy: {esc(allergy)}</div>' if allergy else ''}</td>"
-                 f"<td>{esc(line) or '<span class=sub>not stated</span>'}<div class=sub>{esc(', '.join(care(card)[:3]))}</div></td>"
-                 f"<td>{esc(v) or '<span class=sub>no observations</span>'}<div class=sub>{esc(vt)}</div></td>"
-                 f"<td><span class='tag {st}'><span class='dot {st}'></span>{STATUS[st][0]}</span><span class=why>{esc(why)}</span></td>"
-                 f"<td>{keycell}</td><td class=go>›</td></tr>")
+                 f"<td title='{esc(person)}'><span class={'who' if known else 'unk'}>{esc(person) if known else 'Name not given'}</span>"
+                 f" <span class='rid mono'>{rid}</span>{al}</td>"
+                 f"<td title='{esc(injury)}{(' | ' + esc(treat)) if treat else ''}'>{esc(injury) or '<span class=sub>not stated</span>'}</td>"
+                 f"<td title='{esc(vt)}'>{esc(v) or '<span class=sub>none given</span>'}</td>"
+                 f"<td><span class='tag {st}'><span class='dot {st}'></span>{STATUS[st][0]}</span></td>"
+                 f"<td class=next title='{esc(why)}'>{esc(why)}</td>"
+                 f"<td class=num title='{esc(conf_tip)}'>{conf_cell}</td>"
+                 f"<td class='mono num'>{'' if f1 is None else f'{f1:.0%}'}</td><td class=go>›</td></tr>")
     n = sum(counts[k] for k in STATUS)
     h = next((r for r in reversed(runs()) if r["model"] == LLM_MODEL and r["split"] == "heldout"), None)
-    stats = (f"<div><span>Casualties</span><b>{n}</b></div>"
-             f"<div><span>For the evacuation request</span><b class=evb><em class=u>{counts['u']}</em> urgent <em class=p>{counts['p']}</em> priority "
-             f"<em class=r>{counts['r']}</em> routine <em class=n>{counts['n']}</em> not stated</b></div>"
-             f"<div><span>Ready to attach</span><b>{counts['ok']}<small>of {n}</small></b></div>"
-             f"<div><span>Tourniquets on</span><b>{counts['tq']}<small>casualties</small></b></div>"
-             + (f"<div><span>Accuracy on unseen recordings</span><b>{h['f1']:.1%}<small>of filled fields right</small></b></div>" if h else ""))
+    stats = (f"<div><span>Casualties</span><b>{n}</b></div><div><span>Urgent</span><b>{counts['u']}</b></div>"
+             f"<div><span>Ready to attach</span><b>{counts['ok']} <small>of {n}</small></b></div>"
+             + (f"<div><span>Accuracy, unseen recordings</span><b>{h['f1']:.1%}</b></div>" if h else ""))
     tabs = f"<button class='tab on' data-st='' data-hint='Every recorded handover, most urgent first.'>All<i>{n}</i></button>" + "".join(
         f"<button class=tab data-st={k} data-hint='{esc(d)}'><span class='dot {k}'></span>{t}<i>{counts[k]}</i></button>" for k, (t, d) in STATUS.items())
     chips = "<button class='chip on' data-ev=''>Any</button>" + "".join(
@@ -279,8 +303,10 @@ def board():
 <div class=tabs>{tabs}</div><p class=hint>Every recorded handover, most urgent first.</p>
 <div class=panel><div class=bar2><input class=search placeholder="Search by name, roster number, recording, injury or treatment">
 <span class=lbl>Evacuation</span>{chips}</div>
-<table><thead><tr><th>Evacuation</th><th>Casualty</th><th>What happened · what was done</th><th>Latest vitals</th><th>Card</th>
-<th title="Testing only: agreement with the official answer for that recording">Answer key</th><th></th></tr></thead>
+<table class=grid><colgroup><col style=width:112px><col style=width:16%><col style=width:17%><col style=width:18%><col style=width:186px><col><col style=width:96px><col style=width:64px><col style=width:28px></colgroup>
+<thead><tr><th>Evacuation</th><th>Casualty</th><th>Injury</th><th>Latest vitals</th><th>Status</th><th>Next step</th>
+<th class=num title="Share of the card's values both listeners heard. Values heard by only one are about nine times more likely to be wrong">Confidence</th>
+<th class=num title="Testing only: agreement with the official answer for that recording">Match</th><th></th></tr></thead>
 <tbody>{rows}</tbody></table><div class=empty>No casualties match these filters.</div></div>
 <script>
 let f={{st:'',ev:'',q:''}},rows=[...document.querySelectorAll('tr.row')];
@@ -309,6 +335,11 @@ def card_page(name: str, stem: str):
         todo += f"<div class='panel box warn'><h3><span class='dot get'></span>Missing information: ask the person who handed over</h3><ul>{''.join(f'<li>{esc(x)}</li>' for x in get)}</ul></div>"
     if conf:
         todo += f"<div class='panel box bad'><h3><span class='dot conf'></span>Needs checking: compare with the recording</h3><ul>{''.join(f'<li>{esc(x)}</li>' for x in conf)}</ul></div>"
+    conf, one = confidence(card, rv.get("Transcript", ""))
+    if one:
+        todo += (f"<div class='panel box warn'><h3><span class='dot get'></span>Heard by only one listener ({conf:.0%} of values agreed)</h3>"
+                 f"<p class=sub style=margin:0>Values only one listener heard are about nine times more likely to be wrong. Check them first.</p><ul>"
+                 + "".join(f"<li>{esc(label(k))}: {esc(str(v))}</li>" for k, v in one) + "</ul></div>")
     if not todo:
         todo = "<div class='panel box good'><h3><span class='dot ok'></span>Complete</h3>Everything important was said. Print, sign and attach.</div>"
     ident = [({"last4": "Last four"}.get(k, k.replace("_", " ").capitalize()), card[k])

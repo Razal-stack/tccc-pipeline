@@ -193,3 +193,7 @@ precision 95.8% -> 97.6%, identity 85% -> 89.5%. All 50: 94.0% -> 94.7%. Live pa
 **Ideas taken from a production voice-AI architecture we reviewed:** confidence intervals before declaring a
 winner (adopted); a second, more careful transcription pass (adopted, as the second listen); rules in code rather
 than the model (already our design); a fallback model on error (adopted); synthetic test generation (next step).
+
+**Confidence score (calibrated on all 50):** a value is "agreed" when both listeners' transcripts contain it (same
+digits however spelled, same key words). Agreed values: 753, 97.9% correct. Single-listener values: 37, 81.1%
+correct. Lowest-confidence cards are the known problem recordings (vdi 0%, ato, ihg). Shown per card in the app.

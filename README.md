@@ -60,6 +60,10 @@ recording ─┬─ 1a. Scribe v2 Medical (with expected words) ─┐
    checking** (anything garbled, corrected or in dispute).
 6. **Score.** Against the answer key, with every mistake tagged by the step that caused it.
 
+**Confidence.** Each value is marked by whether both listeners heard it. Across all 50 cards, values both heard are
+97.9% correct; values only one heard are 81.1% correct, about nine times the error rate. The app shows each card's
+share of agreed values and names the single-listener values, so the medic knows where to look first.
+
 About 20 seconds and 1 to 2 US cents per card; all 50 run in parallel in about a minute.
 
 ## What I tested, and what I decided
