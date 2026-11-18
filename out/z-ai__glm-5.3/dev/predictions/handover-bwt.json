@@ -38,8 +38,8 @@
  "splint": false,
  "hypothermia_prevention": false,
  "battle_roster": "",
- "name": "Byrne, Tom",
- "last4": "1662",
+ "name": "Taylor",
+ "last4": "5903",
  "date": "",
  "time": "1220",
  "service": "",
@@ -51,11 +51,11 @@
  "tq_left_arm_type": "",
  "tq_left_arm_time": "",
  "tq_right_leg_type": "CAT",
- "tq_right_leg_time": "",
+ "tq_right_leg_time": "1235",
  "tq_left_leg_type": "",
  "tq_left_leg_time": "",
  "signs_1_time": "",
- "signs_1_pulse": "130 carotid",
+ "signs_1_pulse": "140 carotid",
  "signs_1_bp_systolic": "",
  "signs_1_bp_diastolic": "",
  "signs_1_resp_rate": "30",
@@ -137,12 +137,11 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Injuries: right leg: traumatic amputation above the knee; second tourniquet also right leg applied 1235; radial pulse not palpable, carotid palpable; MERT requested; MIST handover was for Lance Corporal Byrne, Tom (initially stated as Private Taylor - disregarded); first-stated last four garbled/misheard as 'Neo 33' and superseded by 1662",
+ "notes": "Injuries: right leg above knee: traumatic amputation; two tourniquets on right leg - first CAT placed ~1230 (~10 min before handover), second CAT placed 1235 (recorded); no radial pulse palpable; time of handover 12:40",
  "injury_boxes": [
-  "Ant_Right_Knee",
-  "Ant_Right_Middle_Lateral_Lower_Leg",
-  "Ant_Right_Middle_Lateral_Thigh",
-  "Ant_Right_Middle_Medial_Lower_Leg",
-  "Ant_Right_Middle_Medial_Thigh"
+  "Ant_Right_Distal_Lateral_Thigh",
+  "Ant_Right_Distal_Medial_Thigh",
+  "Left_Palm",
+  "Right_Palm"
  ]
 }

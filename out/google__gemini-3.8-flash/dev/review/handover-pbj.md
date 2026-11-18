@@ -1,10 +1,17 @@
-# handover-pbj
+# handover-pbj.wav
+
+## Ask the sender
+- casualty identity (name / last four / battle roster)
+- evac category
+- fentanyl: dose
+- TXA: dose
+- TXA: route
+- TXA: dose
+- TXA: route
 
 ## Check these
-- Fentanyl dose not specified
-- TXA route not specified
-- other_med_1_dose: '1 g' not backed by the transcript ('a gram'), left blank
-- other_med_2_dose: '1 g' not backed by the transcript ('second gram'), left blank
+- Drug 1 dose: heard '1 g' but could not match it to the recording, so it was left blank
+- Drug 2 dose: heard '1 g' but could not match it to the recording, so it was left blank
 
 ## Card
 - analgesic_1_name: fentanyl
@@ -18,6 +25,13 @@
 - other_med_1_time: 0900
 - other_med_2_name: TXA
 - other_med_2_time: 0920
+- injury_boxes: none
 
 ## Transcript
+You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
+
+TRANSCRIPT A (medical speech model):
 Drugs given: TXA a gram at 0900 and a second gram at 0920, fentanyl lollipop at 0855, moxy 400 by mouth same time. Nothing else to add.
+
+TRANSCRIPT B (second listen):
+Drugs given: TXA, a gram at 0900 and a second gram at 0920. Fentanyl lollipop at 0855. Moxy 400 by mouth same time. Nothing else given.

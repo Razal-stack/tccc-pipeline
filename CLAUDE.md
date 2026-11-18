@@ -29,7 +29,7 @@ web UI. No frameworks or scaffolds until the core pipeline is done and scored.
 
 ## Status (2026-11-17): complete, scored, documented
 
-Held-out F1 92.5% (safety-critical 96.4%, 0.08 invented/card); all 50 F1 94.0%. 50 PDFs in
+Held-out F1 93.8% (precision 97.6%, safety-critical 96.8%, 0.08 invented/card); all 50 F1 94.7%. 50 PDFs in
 `out/google__gemini-3.8-flash/all/cards/`, all pass schema and read-back checks. Spend $3.90 of $7 cap.
 Read `README.md` (founder view), `docs/ARCHITECTURE.md` (steps, evals, every experiment), `AI_LOG.md`.
 
@@ -46,7 +46,9 @@ Read `README.md` (founder view), `docs/ARCHITECTURE.md` (steps, evals, every exp
 | `tccc/app.py` | FastAPI: dashboard, card review beside PDF, upload |
 | `tccc/stt_bakeoff.py`, `tccc/score.py`, `tccc/textnorm.py` | Speech benchmark, scorer, number normalising |
 
-Chosen: speech `elevenlabs/scribe-v2-medical` + keyterms; extraction `google/gemini-3.8-flash`.
+Chosen: speech `elevenlabs/scribe-v2-medical` + keyterms, plus a second listen `qwen/qwen3.8-omni-flash`
+(`TCCC_SECOND`); extraction `google/gemini-3.8-flash` reading both; fallback `openai/gpt-6.1-terra`. Raw audio, no
+denoiser (tested 4). See docs/ARCHITECTURE.md "Final round of benchmarks".
 
 ## What the data showed (drives every decision)
 

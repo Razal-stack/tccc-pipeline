@@ -1,8 +1,11 @@
-# handover-xvw
+# handover-xvw.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
-- Last four garbled in transcript ('7 Neuro 07') - confirm casualty's last 4 with escort
-- No date of injury stated
+- Last four garbled ('last four 7 NURO 07') — could not extract; confirm casualty's last 4 digits
+- Confirm TXA is tranexamic acid and dose/route
 
 ## Card
 - evac_urgent: True
@@ -27,7 +30,8 @@
 - other_med_1_dose: 2 g
 - other_med_1_route: IV
 - other_med_1_time: 1025
-- notes: Injuries: right foot: badly damaged, lots of bleeding; second tourniquet not required; last four partly garbled ('7 Neuro 07') - not recorded
+- notes: Injuries: right foot: badly damaged by landmine, heavy bleeding; second tourniquet considered but not applied; patrol about 3 hours out
+- injury_boxes: Ant_Right_Foot
 
 ## Transcript
-Uh, yeah. So this is from Patrol Base 4. We're at grid... doesn't matter. Casualty's Private Young, Chloe, female, B Company, 1 Rifles, Army. She, uh, she stood on a, a pressure plate landmine at 10:10. We'd been out about 3 hours. Right foot's badly damaged, lots of bleeding. We've got a CAT on the right leg 10:12 and, um, a second tourniquet? No, we didn't need a second one. OBS at 10:20, pulse 116 radial. BP 108 over 70. 2 grams TXA IV at 10:25. She's alert. Pain 10 out of 10. Sats 96, resp 24. Last four: 7 Neuro 07. There's six of us left on the patrol. We're fine. Urgent
+Uh, yeah. So this is from Patrol Base 4. We're at grid... doesn't matter. Casualties Private Young, Chloe, female, B Company, 1 Rifles, Army. She, uh, she stood on a, a pressure plate landmine at 10:10. We'd been out about 3 hours. Right foot's badly damaged, lots of bleeding. We've got a CAT on the right leg, 10:12, and, um, a second tourniquet. No, we didn't need a second one. OBS at 10:20, pulse 116 radial. BP 108 over 70. 2 grams TXA IV at 10:25. She's alert. Pain 10 out of 10. Sats 96, resp 24, last four 7 NURO 07. There's 6 of us left on the patrol. We're fine. Urgent.

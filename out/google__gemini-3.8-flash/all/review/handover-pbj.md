@@ -10,8 +10,6 @@
 - TXA: route
 
 ## Check these
-- Fentanyl dose not specified
-- TXA route not specified
 - Drug 1 dose: heard '1 g' but could not match it to the recording, so it was left blank
 - Drug 2 dose: heard '1 g' but could not match it to the recording, so it was left blank
 
@@ -30,4 +28,8 @@
 - injury_boxes: none
 
 ## Transcript
+TRANSCRIPT A (medical speech model):
 Drugs given: TXA a gram at 0900 and a second gram at 0920, fentanyl lollipop at 0855, moxy 400 by mouth same time. Nothing else to add.
+
+TRANSCRIPT B (second listen):
+Drugs given: TXA, a gram at 0900 and a second gram at 0920. Fentanyl lollipop at 0855. Moxy 400 by mouth same time. Nothing else given.

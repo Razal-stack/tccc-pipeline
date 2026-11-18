@@ -43,7 +43,7 @@
  "date": "",
  "time": "0740",
  "service": "RAF",
- "unit": "Two Squadron RAF Regiment",
+ "unit": "2 Squadron RAF Regiment",
  "allergies": "",
  "mechanism_other_text": "",
  "tq_right_arm_type": "",
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Injuries: right groin (high): shrapnel wound; junctional tourniquet (SAM) placed 0748; wound packed with Celox; pulse weak at first obs",
+ "notes": "Injuries: right groin high: shrapnel wound; SAM junctional TQ right groin at 0748; wound packed with Celox; first pulse weak",
  "injury_boxes": [
   "Right_Groin"
  ]

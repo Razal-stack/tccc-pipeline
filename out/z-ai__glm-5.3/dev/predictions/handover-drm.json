@@ -32,7 +32,7 @@
  "breathing_chest_tube": false,
  "breathing_chest_seal": false,
  "combat_pill_pack": false,
- "eye_shield": true,
+ "eye_shield": false,
  "eye_shield_right": false,
  "eye_shield_left": true,
  "splint": false,
@@ -137,15 +137,11 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Injuries: left forearm: fragmentation wound; left flank: fragmentation wound; left face: fragmentation wound; rank Corporal; pressure dressings applied to left forearm and left flank; eye shield on left eye",
+ "notes": "Injuries: left forearm: fragmentation wound; left flank: fragmentation wound; left side of face: fragmentation wound; pressure dressings applied to left forearm and left flank",
  "injury_boxes": [
   "Ant_Left_Middle_Lateral_Forearm",
   "Ant_Left_Middle_Medial_Forearm",
-  "Chin",
   "Left_Cheek",
-  "Left_Flank",
-  "Mouth",
-  "Nose",
-  "Right_Cheek"
+  "Left_Flank"
  ]
 }

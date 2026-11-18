@@ -1,9 +1,12 @@
-# handover-jql
+# handover-jql.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
-- first_responder_last4 garbled ('last 4 222 end static 5') — possibly 2225, unconfirmed
-- no date given
-- burns dressing type not specified
+- First responder last four unclear: '222 and static 5' — transcribed as 2225, verify
+- No tourniquet or airway/breathing interventions mentioned; burns dressings recorded under 'other' dressing type
+- First responder last4: heard '2225' but could not match it to the recording, so it was left blank
 
 ## Card
 - evac_priority: True
@@ -26,7 +29,8 @@
 - signs_1_spo2: 97
 - signs_1_avpu: A - Alert
 - signs_1_pain: 6 Intense
-- fluid_1_name: Hartmann's
+- dressing_type: burns dressings to hands
+- fluid_1_name: hartmann's
 - fluid_1_volume: 1 L
 - fluid_1_route: IV
 - fluid_1_time: 1655
@@ -34,9 +38,10 @@
 - analgesic_1_dose: 20 mg
 - analgesic_1_route: IV
 - analgesic_1_time: 1658
-- hypothermia_prevention_type: Blizzard blanket
+- hypothermia_prevention_type: blizzard blanket
 - first_responder_name: Kelly, Dan
-- notes: Injuries: face: burns; both hands: burns, ~18% total burn coverage; right eye: penetrating injury. Treated by Lance Corporal.
+- notes: Injuries: face: burns; both hands: burns; right eye: penetrating injury; burns roughly 18%; RPG strike on vehicle with fire
+- injury_boxes: Chin, Left_Cheek, Left_Palm, Mouth, Nose, Right_Cheek, Right_Eye, Right_Palm
 
 ## Transcript
-Mist report. Battle roster Mike Tango 7703. Male vehicle commander, Army Queen's Royal Hussars. Time of injury 16:40. Mechanism RPG strike on the vehicle with fire. Injuries burns to the face and both hands roughly 18% and a penetrating injury to the right eye. Signs at 16:50 radial pulse 104, BP 128 over 80, resp 22, sats 97, alert pain 6. Treatment rigid eye shield over the right eye, burns dressings to the hands, combat pill pack given, 1 liter of Hartman's IV at 16:55, ketamine 20 mg IV at 16:58, blizzard blanket on. Evac priority treated by Lance Corporal Kelly Dan last 4 222 end static 5.
+MIST report battle roster Mike Tango 7703 male vehicle commander Army Queen's Royal Hussars time of injury 1640 mechanism RPG strike on the vehicle with fire injuries burns to the face and both hands roughly 18% and a penetrating injury to the right eye signs at 1650 radial pulse 104 BP 128 over 80 resp 22 sats 97 alert pain 6 treatment rigid eye shield over the right eye burns dressings to the hands combat pill pack given 1 liter Hartmann's IV at 1655 ketamine 20 mg IV at 1658 blizzard blanket on EVAC priority treated by Lance Corporal Kelly Dan last four 222 and static 5

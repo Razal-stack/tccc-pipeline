@@ -19,8 +19,12 @@
 - signs_1_spo2: 99
 - signs_1_avpu: A - Alert
 - signs_1_pain: 4 Distressing
-- notes: Fell off the back of a truck about 2 meters
+- notes: Fell approximately 2 meters from back of truck
 - injury_boxes: none
 
 ## Transcript
+TRANSCRIPT A (medical speech model):
 Male casualty fell off the back of a truck at 1205 about 2 meters. OBS at 1215 radial pulse 84, BP 126/82, RR 16, sats 99 alert pain 4 evac routine
+
+TRANSCRIPT B (second listen):
+Male casualty fell off the back of a truck at 1205, about two meters. OBS at 1215, radial pulse 84, BP 126 over 82, respire 16, sats 99, alert, pain four. Evac routine.

@@ -1,0 +1,35 @@
+{
+ "fields": {
+  "evac_urgent": true,
+  "gender_m": true,
+  "mechanism_blunt": true,
+  "name": "Wright",
+  "last4": "6604",
+  "date": "05-NOV-26",
+  "service": "Army",
+  "unit": "1 Royal Irish",
+  "signs_1_time": "0550",
+  "signs_1_pulse": "116 radial",
+  "signs_1_bp_systolic": "108",
+  "signs_1_bp_diastolic": "70",
+  "signs_1_resp_rate": "22",
+  "signs_1_spo2": "95",
+  "signs_1_avpu": "V - Verbal",
+  "signs_1_pain": "9 Excruciating",
+  "splint": true,
+  "analgesic_1_name": "morphine",
+  "analgesic_1_dose": "10 mg",
+  "analgesic_1_route": "IM",
+  "analgesic_1_time": "0558",
+  "hypothermia_prevention": true,
+  "hypothermia_prevention_type": "HPMK",
+  "first_responder_name": "Hogan",
+  "first_responder_last4": "4772"
+ },
+ "notes": "Injuries: both legs: crushed; left leg: badly deformed; time found 0550; casualty trapped under rubble for about 20 minutes; no big bleeding; we think a mortar round hit the building, not confirmed",
+ "flags": [
+  "Mechanism suspected mortar, not confirmed - not ticked",
+  "First responder last four 'four seven seven two' is 4 digits, check",
+  "Time of wounding 0530 vs time found 0550 - verify"
+ ]
+}

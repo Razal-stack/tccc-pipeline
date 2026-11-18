@@ -1,0 +1,29 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "EVAC urgent"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_gsw": [
+   true,
+   "GSW"
+  ],
+  "time": [
+   "1305",
+   "at 1305"
+  ],
+  "signs_1_pulse": [
+   "132",
+   "Pulse 132"
+  ]
+ },
+ "notes": "Injuries: abdomen: GSW; BP unobtainable; going gray; ertapenem drawn up but not yet given",
+ "flags": [
+  "BP unobtainable",
+  "Ertapenem drawn up, not yet administered"
+ ]
+}

@@ -3,16 +3,19 @@
 ## Ask the sender
 - casualty identity (name / last four / battle roster)
 - evac category
-- time of first observations
 
 ## Check these
-- Unclear whether 0405 refers to time of wounding or vital signs
-- Garbled transmission '36 for 22' unassigned
+- transcripts disagree: A says Sachs 95, B says sat 25
+- unclear vitals: 36 for 22
 
 ## Card
-- signs_1_spo2: 95
-- notes: Spoken time 0405 (unclear if time of injury or observations); '36 for 22' garbled
+- time: 0405
+- notes: unclear vitals: 36 for 22
 - injury_boxes: none
 
 ## Transcript
+TRANSCRIPT A (medical speech model):
 [heavy rain] It was 0405 actually. 36 for 22, Sachs 95
+
+TRANSCRIPT B (second listen):
+It was 0405, actually. 36 for 22, sat 25.

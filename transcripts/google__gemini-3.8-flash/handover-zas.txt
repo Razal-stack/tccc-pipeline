@@ -1,0 +1,5 @@
+weak"
+"BP 84 over 50"
+"resps 28, sats 95, responds to voice, pain 8"
+
+"Repeat obs at 0810, pulse 118 radial, BP 96 over 60, resps 24, sats 96, still

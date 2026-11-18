@@ -4,8 +4,8 @@
 - nothing missing
 
 ## Check these
-- Casualty last4 stated with uncertainty (5822 I think)
-- Unit stated with uncertainty (I think she's from the Signals Det)
+- Unit stated with uncertainty ('I think she's from the Signals Det')
+- Last four stated with uncertainty ('5822 I think')
 
 ## Card
 - evac_routine: True
@@ -16,6 +16,7 @@
 - name: Hart, Ellie
 - last4: 5822
 - service: Army
+- unit: Signals Det
 - signs_1_time: 1925
 - signs_1_pulse: 100 radial
 - signs_1_bp_systolic: 128
@@ -27,8 +28,14 @@
 - dressing_type: clingfilm
 - first_responder_name: Lane, Becky
 - first_responder_last4: 4088
-- notes: Injuries: right arm: superficial burns; ears: ringing, probably burst eardrums; time of injury approx 20 minutes prior to 1930; unit suspected Signals Det
+- notes: Injuries: right arm: superficial burns; ears: ringing, suspected burst eardrums; injury occurred approx 20 mins prior to 1930 handover
 - injury_boxes: Ant_Right_Elbow, Ant_Right_Lateral_Bicep, Ant_Right_Medial_Bicep, Ant_Right_Middle_Lateral_Forearm, Ant_Right_Middle_Medial_Forearm, Left_Ear, Right_Ear
 
 ## Transcript
+You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
+
+TRANSCRIPT A (medical speech model):
 Female casualty. I think she's from the Signals Det. Army Private Hart, Ellie. Blast from a vehicle IED maybe 20 minutes ago. Time now's 19:30. Burns to her right arm, superficial, and she's got ringing ears, probably burst eardrums. Obs at 19:25, pulse about 100, radial. Last four... 5822 I think. BP 128 over 80. Resps 20. Sats 98. Alert. Pain 4. Clingfilm on the arm. Evac routine. I'm Corporal Lane, Becky, last four 4088. [gunfire]
+
+TRANSCRIPT B (second listen):
+Female casualty, I think she's from the signals det. Army private Hart, Ellie. Blast from a vehicle IED, maybe twenty minutes ago. Time now's nineteen thirty. Burns to her right arm, superficial, and she's got ringing ears, probably burst eardrums. Obs at nineteen twenty-five, pulse about one hundred radial. Last four... five eight two two, I think. BP one hundred and twenty-eight over eighty. Resp's twenty, sats ninety-eight. Alert, pain four. Cling film on the arm. Evac routine. I'm Corporal Lane, Becky, last four four zero eight eight.

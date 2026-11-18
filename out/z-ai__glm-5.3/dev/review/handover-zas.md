@@ -1,9 +1,11 @@
-# handover-zas
+# handover-zas.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
-- Junctional TQ type/time (SAM, 0748) has no dedicated field - noted; verify TQ placement
-- No name given - battle roster only
-- Allergies not stated
+- No name or last 4 given - battle roster only
+- Junctional TQ time 0748 has no card slot - write on card manually
 
 ## Card
 - evac_urgent: True
@@ -14,7 +16,7 @@
 - battle_roster: CD1975
 - time: 0740
 - service: RAF
-- unit: Two Squadron RAF Regiment
+- unit: 2 Squadron RAF Regiment
 - signs_1_time: 0750
 - signs_1_pulse: 132 radial
 - signs_1_bp_systolic: 84
@@ -38,7 +40,8 @@
 - other_med_1_dose: 2 g
 - other_med_1_route: IV
 - other_med_1_time: 0750
-- notes: Injuries: right groin (high): shrapnel wound; junctional tourniquet (SAM) placed 0748; wound packed with Celox; pulse weak at first obs
+- notes: Injuries: right groin high: shrapnel wound; SAM junctional TQ right groin at 0748; wound packed with Celox; first pulse weak
+- injury_boxes: Right_Groin
 
 ## Transcript
-Evac urgent. SAM junctional tourniquet on the right groin at 0748. Wound packed with Celox first. She was hit by indirect fire artillery into the FOB at 0740. Shrapnel wound high in the right groin. OBS at 0750. Pulse 132 radial and weak. BP 84/50. Resps 28. Sats 95. Responds to voice. Pain 8. Two grams of TXA IV at 0750 and one unit of freeze-dried plasma IV at 0800. Repeat OBS at 0810. Pulse 118 radial. BP 96/60. Resps 24. Sats 96. Still responds to voice. Battle roster Charlie Delta 1975. Female. RAF. Two Squadron RAF Regiment.
+Evac urgent. Sam junctional tourniquet on the right groin at 0748. Wound packed with Celox first. She was hit by indirect fire artillery into the FOB at 0740. Shrapnel wound high in the right groin. Obs at 0750. Pulse 132 radial and weak. BP 84/50. Resps 28. Sats 95. Responds to voice. Pain 8. Two grams of TXA IV at 0750 and one unit of freeze-dried plasma IV at 0800. Repeat obs at 0810. Pulse 118 radial. BP 96/60. Resps 24. Sats 96. Still responds to voice. Battle roster Charlie Delta 1975. Female. RAF. Two Squadron RAF Regiment.

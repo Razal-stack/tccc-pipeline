@@ -24,8 +24,12 @@
 - signs_1_spo2: 97
 - signs_1_avpu: A - Alert
 - signs_1_pain: 5 Very Distress
-- notes: Injuries: left calf: GSW; grid 947312; call sign 32 Bravo
+- notes: Injuries: left calf: gunshot wound
 - injury_boxes: Post_Left_Middle_Lateral_Lower_Leg, Post_Left_Middle_Medial_Lower_Leg
 
 ## Transcript
+TRANSCRIPT A (medical speech model):
 Grid 947312, date 2 November 2026. Casualty is male, battle roster Tango Bravo 2251. Gunshot wound left calf at 1400. Pulse 110 radial. Tourniquet on at 1405. It's a SOFTT-W left leg obs at 1410. BP 120 over 75, resps 20. He's alert. Sats 97, pain 5. Call sign 32 Bravo priority
+
+TRANSCRIPT B (second listen):
+Tread 947312, date 2 November 2026. Casualty is male, battle roster Tango Bravo 2251. Gunshot wound left calf at 1400, pulse 110 radial. Tourniquet on at 1405, it's a soft TW left leg. Obs at 1410. BP 120 over 75, resps 20. He's alert. Sats 97, pain 5. Callsign 32 Bravo, priority.

@@ -12,6 +12,7 @@ import argparse
 import json
 import sys
 import time
+import wave
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -41,8 +42,15 @@ SHORTLIST = [
 MAX_PRICE_PER_SEC = 0.001  # skip anything listed above $3.60 per audio hour (MAI lists 0.1/s; unit unclear)
 
 def list_models(key):
-    data = call("/models?output_modalities=transcription", key)["data"]
-    return [(m["id"], m.get("pricing", {})) for m in data]
+    """Speech-to-text models, plus chat models that accept audio (benchmarked as transcribers)."""
+    stt = [(m["id"], m.get("pricing", {})) for m in call("/models?output_modalities=transcription", key)["data"]]
+    chat = [(m["id"], m.get("pricing", {})) for m in call("/models", key)["data"]
+            if "audio" in (m.get("architecture", {}).get("input_modalities") or [])]
+    CHAT.update(i for i, _ in chat)
+    return stt + chat
+
+
+CHAT = set()  # filled by list_models: models reached through the chat endpoint
 
 
 def pick_shortlist(ids):
@@ -64,6 +72,7 @@ def main():
     ap.add_argument("--all", action="store_true", help="all 50 recordings instead of the 10 hard ones")
     ap.add_argument("--recordings")
     ap.add_argument("--keyterms", action="store_true", help="bias recognition toward domain terms")
+    ap.add_argument("--tag", default="", help="label for a preprocessed variant, e.g. deepfilternet")
     a = ap.parse_args()
 
     key = load_key()
@@ -95,7 +104,8 @@ def main():
 
     jobs = []
     for m in models:
-        out = ROOT / "transcripts" / (m.replace("/", "__") + ("+keyterms" if a.keyterms else ""))
+        variant = ("+keyterms" if a.keyterms else "") + (f"+{a.tag}" if a.tag else "")
+        out = ROOT / "transcripts" / (m.replace("/", "__") + variant)
         out.mkdir(parents=True, exist_ok=True)
         for f in files:
             dst = out / f.replace(".wav", ".txt")
@@ -108,7 +118,9 @@ def main():
     def run(job):
         m, wav, dst = job
         t0 = time.time()
-        text, (c, secs) = transcribe(key, m, wav, a.keyterms)
+        text, (c, secs) = transcribe(key, m, wav, a.keyterms, chat=m in CHAT)
+        with wave.open(str(wav)) as w:
+            secs = secs or w.getnframes() / w.getframerate()  # chat models do not report audio length
         wall = time.time() - t0
         dst.parent.mkdir(parents=True, exist_ok=True)
         dst.write_text(text)
@@ -119,16 +131,16 @@ def main():
         guard_budget(key)
     with ThreadPoolExecutor(6) as pool:
         for m, name, c, secs, wall in pool.map(run, jobs):
-            ledger.setdefault(m + ("+keyterms" if a.keyterms else ""), {})[name] = [c, secs, wall]
+            ledger.setdefault(m + ("+keyterms" if a.keyterms else "") + (f"+{a.tag}" if a.tag else ""), {})[name] = [c, secs, wall]
             ledger_path.write_text(json.dumps(ledger, indent=1))
     cost = sum(v[0] for per in ledger.values() for v in per.values())
 
-    # report on the fixed 21-file benchmark for every model with transcripts on disk, so numbers stay comparable
-    groups = {"hard": HARD, "other": OTHER}
+    # report every model with transcripts for all of these files, so numbers stay comparable
+    groups = {"hard": [f for f in files if f in HARD], "other": [f for f in files if f not in HARD]}
     cats = ["vitals", "times", "doses", "ids", "names", "drugs_kit"]
     rows = []
     models = sorted(d.name.replace("__", "/", 1) for d in (ROOT / "transcripts").iterdir()
-                    if d.is_dir() and all((d / f.replace(".wav", ".txt")).exists() for f in HARD + OTHER))
+                    if d.is_dir() and all((d / f.replace(".wav", ".txt")).exists() for f in files))
     for m in models:
         d = ROOT / "transcripts" / m.replace("/", "__")
         if not d.exists():
@@ -189,7 +201,7 @@ def main():
         allh, allt = nums["hard"][0] + nums["other"][0], nums["hard"][1] + nums["other"][1]
         print(f"| {m} | {pct(*nums['hard'])} | {pct(*nums['other'])} | {pct(allh, allt)} | {per_hour(m)} | "
               f"{median_wall(m)} | {errors} |")
-    print(f"\nTable 2. Ground-truth values found, by category, all {len(HARD + OTHER)} benchmark files\n")
+    print(f"\nTable 2. Ground-truth values found, by category, all {len(files)} files\n")
     print("| Model | " + " | ".join(cats) + " |")
     print("|---|" + "---|" * len(cats))
     for m, _, by_cat, _ in rows:

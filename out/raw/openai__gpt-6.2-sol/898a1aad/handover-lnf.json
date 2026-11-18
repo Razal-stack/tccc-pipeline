@@ -1,0 +1,94 @@
+{
+ "fields": {
+  "gender_f": [
+   true,
+   "Female"
+  ],
+  "name": [
+   "Lowe, Megan",
+   "Private Lowe, Megan"
+  ],
+  "last4": [
+   "4480",
+   "last four four four eight zero"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "21 Engineer Regiment",
+   "21 Engineer Regiment"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED"
+  ],
+  "time": [
+   "1110",
+   "IED at 1110"
+  ],
+  "signs_1_time": [
+   "1120",
+   "obs at 1120"
+  ],
+  "signs_1_bp_systolic": [
+   "90",
+   "it's 90 over 50"
+  ],
+  "signs_1_bp_diastolic": [
+   "50",
+   "it's 90 over 50"
+  ],
+  "signs_1_pulse": [
+   "120 radial",
+   "pulse 120 radial"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resps 24"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "sats 96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "7 Very Intense",
+   "pain 7"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT on the right arm at 1114"
+  ],
+  "tq_right_arm_type": [
+   "CAT",
+   "CAT on the right arm"
+  ],
+  "tq_right_arm_time": [
+   "1114",
+   "CAT on the right arm at 1114"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressing to the face"
+  ],
+  "evac_priority": [
+   true,
+   "EVAC priority"
+  ],
+  "first_responder_name": [
+   "Moss, Harry",
+   "Lance Corporal Moss Harry"
+  ],
+  "first_responder_last4": [
+   "5593",
+   "last four five five nine three"
+  ]
+ },
+ "notes": "Injuries: right upper arm: fragment wound; right side of face: fragment wound; mounted, providing top cover; pressure dressing to face",
+ "flags": []
+}

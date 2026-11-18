@@ -1,0 +1,22 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Cat A EVAC. EVAC category? A"
+  ],
+  "tq_extremity": [
+   true,
+   "left leg tourniquet"
+  ],
+  "tq_left_leg_time": [
+   "1715",
+   "Say again time of tourniquet, over. 1715"
+  ]
+ },
+ "notes": "Injuries: left leg: tourniquet applied; Garbled speech: 'IV IM IO priority 2' after initial 'Cat A' (EVAC confirmed as Cat A).",
+ "flags": [
+  "Garbled transmission ('IV IM IO priority 2') - confirm if any IV/IM/IO access or medications were given",
+  "Confirm EVAC category (both Cat A and 'priority 2' heard; Cat A confirmed on read-back)",
+  "No mechanism of injury, vital signs, or specific left leg injury description heard"
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "urgent"
+  ],
+  "mechanism_gsw": [
+   true,
+   "GSW"
+  ],
+  "signs_1_pulse": [
+   "120",
+   "Pulse 120"
+  ],
+  "tq_extremity": [
+   true,
+   "Cat"
+  ],
+  "tq_right_leg_time": [
+   "1012",
+   "10/12"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "Cat"
+  ]
+ },
+ "flags": [],
+ "notes": "Injuries: right thigh: GSW"
+}

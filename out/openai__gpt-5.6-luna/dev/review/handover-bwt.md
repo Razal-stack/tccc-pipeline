@@ -1,10 +1,11 @@
-# handover-bwt
+# handover-bwt.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
-- Casualty last four is unclear: '5 Neo 33'; verify before entry.
-- Two right-leg tourniquets reported; first CAT time approximately 1230, second applied at 1235 but type not stated.
-- No radial pulse found; verify circulation and vital signs.
-- tq_right_leg_time: '1230' not backed by the transcript ('about 10 minutes ago'), left blank
+- Casualty last four was stated as 59033, which is five digits; verify.
+- Two tourniquets are reported on the right leg; current card entry records the later CAT at 1235. Verify the earlier tourniquet time, approximately 1230.
 
 ## Card
 - evac_urgent: True
@@ -15,8 +16,9 @@
 - time: 1220
 - unit: 2 Yorks
 - tq_right_leg_type: CAT
+- tq_right_leg_time: 1235
 - signs_1_time: 1240
-- signs_1_pulse: 130 carotid
+- signs_1_pulse: 140 carotid
 - signs_1_resp_rate: 30
 - signs_1_avpu: P - Pain
 - other_med_1_name: TXA
@@ -25,7 +27,8 @@
 - other_med_1_time: 1238
 - first_responder_name: Byrne, Tom
 - first_responder_last4: 1662
-- notes: Injuries: right leg: traumatic amputation above the knee; second right-leg tourniquet applied at 1235, type not stated; MERT requested.
+- notes: Injuries: right leg above knee: traumatic amputation; time now 1240; second tourniquet on right leg applied at about 1230; no radial found; MERT requested.
+- injury_boxes: Ant_Right_Distal_Lateral_Thigh, Ant_Right_Distal_Medial_Thigh
 
 ## Transcript
-Right, okay. So, uh, this is a missed. One casualty. He's, he's male. Private Taylor, 2 Yorks. Last four is, um, 5 Neo 33. We got hit by an IED pressure plate. That was at about, uh, 12:20. He's lost his right leg above the knee. It's a mess. Tourniquet cat went on, um, about 10 minutes ago. Time now is 12:40. Second one's on as well. Also right leg. Put that on at 12:35. Pulse, I'm getting a carotid of about 130. Can't find a radial. Breathing's fast, about 30. He's, he's responding to pain. Given him 2 grams of TXA through the IO at 12:38. EVAC urgent please. We need the MERT. Oh, it's Lance Corporal Byrne, Tom. Last four 1662. Sending
+Right, okay. So this is a MIST. One casualty. He's male, Private Taylor, 2 Yorks. Last four is 59033. We got hit by an IED pressure plate. That was at about 12:20. He's lost his right leg above the knee. It's a mess. Tourniquet CAT went on about 10 minutes ago. Time now is 12:40. Second one's on as well. Also right leg, put that on at 12:35. Pulse, I'm getting a carotid of about 140. Can't find a radial. Breathing's fast, about 30. He's responding to pain. Given him 2 grams of TXA through the IO at 12:38. EVAC urgent please. We need the MERT. Oh, it's Lance Corporal Byrne, Tom, last four 1662. Sending

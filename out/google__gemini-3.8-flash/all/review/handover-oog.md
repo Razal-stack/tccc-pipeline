@@ -4,7 +4,8 @@
 - nothing missing
 
 ## Check these
-- Date incomplete (November 2026 stated without day)
+- transcripts disagree: A says Davies, Rhys, B says Davis, Rhys
+- transcripts disagree: A says 0915, B says 0940
 
 ## Card
 - evac_urgent: True
@@ -14,7 +15,6 @@
 - breathing_o2: True
 - breathing_needle_d: True
 - breathing_chest_seal: True
-- name: Davies, Rhys
 - last4: 2906
 - time: 0905
 - service: Army
@@ -26,7 +26,6 @@
 - signs_1_spo2: 88
 - signs_1_avpu: A - Alert
 - signs_1_pain: 7 Very Intense
-- signs_2_time: 0915
 - signs_2_pulse: 106 radial
 - signs_2_bp_systolic: 110
 - signs_2_bp_diastolic: 70
@@ -43,4 +42,8 @@
 - injury_boxes: Left_Upper_Back, Right_Upper_Chest
 
 ## Transcript
+TRANSCRIPT A (medical speech model):
 MIST report for November 2026. Casualty is Lance Corporal Davies, Rhys, male, last four 2906, Army, 2 Platoon, B Company. No known allergies. Time of wounding 0905. Mechanism: gunshot wound. Injuries: single GSW to the right upper chest with an exit wound in the right upper back. Signs at 0910: radial pulse 118, resp is 30 and labored, sats 88 on air, alert, pain 7 out of 10. Treatment: vented chest seals on entry and exit, needle decompression right chest at 0912, NPA in, oxygen on, ertapenem 1 gram IV at 0925. Repeat obs at 0915: radial pulse 106, BP 110/70, resp is 24, sats 95, alert. EVAC urgent. Care given by Corporal Nash, Kieran, last four 5019
+
+TRANSCRIPT B (second listen):
+MIST report for November 2026. Casualty is Lance Corporal Davis, Rhys, male, last four 2906, Army, 2 Platoon, B Company. No known allergies. Time of wounding 0905. Mechanism: gunshot wound. Injuries: single GSW to the right upper chest with an exit wound in the right upper back. Signs at 0910: radial pulse 118, respies 30 and labored, sats 88 on air, alert, pain 7 out of 10. Treatment: vented chest seals on entry and exit, needle decompression right chest at 0912, NPA in, oxygen on, ertapenem 1 gram IV at 0925. Repeat obs at 0940: radial pulse 106, BP 110 over 70, respies 24, sats 95, alert. Evac urgent. Care given by Corporal Nash, Kieran, last four 5019.

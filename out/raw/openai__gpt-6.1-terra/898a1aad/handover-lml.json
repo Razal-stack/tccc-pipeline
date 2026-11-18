@@ -1,0 +1,24 @@
+{
+ "fields": {
+  "signs_1_pulse": [
+   "48 carotid",
+   "Pulse 48 carotid"
+  ],
+  "signs_1_resp_rate": [
+   "6",
+   "Breathing 6 snoring"
+  ],
+  "signs_1_avpu": [
+   "U - Unresp",
+   "Doesn't respond to anything"
+  ],
+  "airway_npa": [
+   true,
+   "an NPA"
+  ]
+ },
+ "notes": "Found unconscious in rubble at 0215; snoring breathing; jaw thrust; no obvious bleeding; identity and affiliation unknown.",
+ "flags": [
+  "Identity and affiliation unknown"
+ ]
+}

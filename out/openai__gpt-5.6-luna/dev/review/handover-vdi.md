@@ -1,15 +1,14 @@
-# handover-vdi
+# handover-vdi.wav
+
+## Ask the sender
+- casualty identity (name / last four / battle roster)
+- evac category
 
 ## Check these
-- Confirm left-leg tourniquet time and type
-- Clarify medication name, dose, and route
-- Clarify airway/breathing information
-- Confirm evacuation category
+- nothing flagged
 
 ## Card
-- tq_extremity: True
-- tq_left_leg_time: 1115
-- notes: TQ type not stated; medication and airway information garbled: "mist 1 tablet IV arm air pocket of tube"; evacuation category incomplete.
+- injury_boxes: none
 
 ## Transcript
-Send mist, over. Mist 1 tablet IV arm air pocket of tube. Left leg tourniquet [loud beep]. Say again time of tourniquet, over. 1115 post. Roger, send sign. Evac category evac. Evac category? Evac category
+Send MIST, over. MIST 1 Cat A IV IM IO priority 2 left leg tourniquet [screaming]. Say again time of tourniquet, over. 1715. Roger, send SIGN. Cat A EVAC. EVAC category? A.

@@ -38,7 +38,7 @@
  "splint": false,
  "hypothermia_prevention": false,
  "battle_roster": "",
- "name": "Davis, Rhys",
+ "name": "Davies, Rhys",
  "last4": "2906",
  "date": "",
  "time": "0905",
@@ -62,7 +62,7 @@
  "signs_1_spo2": "88",
  "signs_1_avpu": "A - Alert",
  "signs_1_pain": "7 Very Intense",
- "signs_2_time": "1015",
+ "signs_2_time": "0915",
  "signs_2_pulse": "106 radial",
  "signs_2_bp_systolic": "110",
  "signs_2_bp_diastolic": "70",
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "Nash, Kieran",
  "first_responder_last4": "5019",
- "notes": "Injuries: right upper chest: GSW entry wound; right upper back: exit wound; needle decompression right chest at 0912; vented chest seals on entry and exit; sats 88 on air and resps labored at first set; report dated November 2026 only, day not stated",
+ "notes": "Injuries: right upper chest: GSW entry wound; right upper back: GSW exit wound; vented chest seals on entry and exit; needle decompression right chest at 0912; initial resps labored, sats 88 on air",
  "injury_boxes": [
   "Left_Upper_Back",
   "Right_Upper_Chest"

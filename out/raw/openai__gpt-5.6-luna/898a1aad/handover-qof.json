@@ -1,0 +1,108 @@
+{
+ "fields": {
+  "name": [
+   "Wright",
+   "Corporal Wright"
+  ],
+  "last4": [
+   "6604",
+   "last four six six zero four"
+  ],
+  "date": [
+   "05-NOV-26",
+   "5 November 2026"
+  ],
+  "unit": [
+   "1 Royal Irish",
+   "One Royal Irish"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "time": [
+   "0530",
+   "about, uh, 0530"
+  ],
+  "mechanism_blunt": [
+   true,
+   "the building came down"
+  ],
+  "signs_1_time": [
+   "0550",
+   "OBS at 0550"
+  ],
+  "signs_1_pulse": [
+   "116 radial",
+   "pulse 116 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "108",
+   "BP 108 over 70"
+  ],
+  "signs_1_bp_diastolic": [
+   "70",
+   "BP 108 over 70"
+  ],
+  "signs_1_resp_rate": [
+   "22",
+   "resps 22"
+  ],
+  "signs_1_spo2": [
+   "95",
+   "sats 95"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "He responds to voice"
+  ],
+  "signs_1_pain": [
+   "9 Excruciating",
+   "Pain, uh, nine"
+  ],
+  "splint": [
+   true,
+   "Splinted both legs"
+  ],
+  "analgesic_1_name": [
+   "morphine",
+   "Morphine 10 mg IM at 0558"
+  ],
+  "analgesic_1_dose": [
+   "10 mg",
+   "Morphine 10 mg IM at 0558"
+  ],
+  "analgesic_1_route": [
+   "IM",
+   "Morphine 10 mg IM at 0558"
+  ],
+  "analgesic_1_time": [
+   "0558",
+   "Morphine 10 mg IM at 0558"
+  ],
+  "hypothermia_prevention": [
+   true,
+   "he's in the HPMK to keep warm"
+  ],
+  "hypothermia_prevention_type": [
+   "HPMK",
+   "HPMK"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "first_responder_name": [
+   "Hogan",
+   "Lance Corporal Hogan"
+  ],
+  "first_responder_last4": [
+   "4772",
+   "last four four seven seven two"
+  ]
+ },
+ "notes": "Injuries: both legs: crushed; left leg: badly deformed; trapped under rubble for about 20 minutes; no big bleeding; suspected mortar round not confirmed.",
+ "flags": [
+  "Mortar mechanism was suspected and not confirmed; verify mechanism."
+ ]
+}

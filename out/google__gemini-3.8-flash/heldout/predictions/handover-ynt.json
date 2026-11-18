@@ -37,7 +37,7 @@
  "eye_shield_left": false,
  "splint": false,
  "hypothermia_prevention": false,
- "battle_roster": "SP22214",
+ "battle_roster": "SP2214",
  "name": "",
  "last4": "",
  "date": "",
@@ -135,7 +135,7 @@
  "other_med_2_route": "",
  "other_med_2_time": "",
  "hypothermia_prevention_type": "",
- "first_responder_name": "Day",
+ "first_responder_name": "Day, Finn",
  "first_responder_last4": "3370",
  "notes": "Injuries: left chest: penetrating fragment wound; left hand: burns; needle decompression left at 0452",
  "injury_boxes": [

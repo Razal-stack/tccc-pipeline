@@ -1,0 +1,70 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "name": [
+   "Fraser, Kirsty",
+   "Lance Corporal Fraser Kirsty"
+  ],
+  "last4": [
+   "3030",
+   "last four three zero three zero"
+  ],
+  "gender_f": [
+   true,
+   "She's, she's snoring"
+  ],
+  "service": [
+   "Royal Marines",
+   "Royal Marines"
+  ],
+  "unit": [
+   "40 Commando",
+   "40 Commando"
+  ],
+  "time": [
+   "2240",
+   "at 22:40"
+  ],
+  "mechanism_gsw": [
+   true,
+   "she was shot GSW"
+  ],
+  "airway_npa": [
+   true,
+   "NPA in"
+  ],
+  "breathing_chest_seal": [
+   true,
+   "chest seal on the, on the back left side"
+  ],
+  "breathing_o2": [
+   true,
+   "Oxygen's on"
+  ],
+  "signs_1_time": [
+   "2248",
+   "OBS at 22:48"
+  ],
+  "signs_1_pulse": [
+   "124 radial",
+   "Pulse is 124 radial"
+  ],
+  "signs_1_resp_rate": [
+   "28",
+   "RR SPS 28"
+  ],
+  "signs_1_spo2": [
+   "91",
+   "sats 91"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "She's responding to voice"
+  ]
+ },
+ "notes": "Injuries: left shoulder blade: GSW entry, no visible exit; snoring respirations; chest seal on back left side; no BP taken yet",
+ "flags": []
+}

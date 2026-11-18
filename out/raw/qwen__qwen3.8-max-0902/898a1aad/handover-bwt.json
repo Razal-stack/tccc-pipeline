@@ -1,0 +1,82 @@
+{
+ "fields": {
+  "gender_m": [
+   true,
+   "He's male"
+  ],
+  "name": [
+   "Taylor",
+   "Private Taylor"
+  ],
+  "unit": [
+   "2 Yorks",
+   "Private Taylor, 2 Yorks."
+  ],
+  "time": [
+   "1220",
+   "That was at about 12:20."
+  ],
+  "mechanism_ied": [
+   true,
+   "We got hit by an IED pressure plate."
+  ],
+  "tq_extremity": [
+   true,
+   "Tourniquet CAT went on about 10 minutes ago. Time now is 12:40. Second one's on as well. Also right leg, put that on at 12:35."
+  ],
+  "tq_right_leg_time": [
+   "1235",
+   "Also right leg, put that on at 12:35."
+  ],
+  "signs_1_time": [
+   "1240",
+   "Time now is 12:40."
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "Pulse, I'm getting a carotid of about 140."
+  ],
+  "signs_1_resp_rate": [
+   "30",
+   "Breathing's fast, about 30."
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "He's responding to pain."
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "Given him 2 grams of TXA through the IO at 12:38."
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "Given him 2 grams of TXA through the IO at 12:38."
+  ],
+  "other_med_1_route": [
+   "IO",
+   "Given him 2 grams of TXA through the IO at 12:38."
+  ],
+  "other_med_1_time": [
+   "1238",
+   "Given him 2 grams of TXA through the IO at 12:38."
+  ],
+  "evac_urgent": [
+   true,
+   "EVAC urgent please."
+  ],
+  "first_responder_name": [
+   "Byrne, Tom",
+   "Oh, it's Lance Corporal Byrne, Tom"
+  ],
+  "first_responder_last4": [
+   "1662",
+   "last four 1662"
+  ]
+ },
+ "notes": "Injuries: right leg above knee: amputation; first right-leg CAT tourniquet applied about 1230; second right-leg tourniquet applied 1235 type not stated; casualty last four heard as 59033, needs confirmation; MERT requested",
+ "flags": [
+  "Casualty last four unclear: heard 59033",
+  "Second right-leg tourniquet type not stated",
+  "First right-leg CAT tourniquet time approximate"
+ ]
+}

@@ -2,33 +2,33 @@
  "cards": 25,
  "predicted": 25,
  "overall": {
-  "precision": 0.9583333333333334,
-  "recall": 0.8936605316973415,
-  "f1": 0.924867724867725,
+  "precision": 0.9757174392935982,
+  "recall": 0.9038854805725971,
+  "f1": 0.9384288747346071,
   "blank_ok": 2934,
-  "correct": 437,
-  "missed": 35,
-  "wrong": 17,
+  "correct": 442,
+  "missed": 38,
+  "wrong": 9,
   "invented": 2
  },
  "critical": {
-  "precision": 0.9854014598540146,
-  "recall": 0.9440559440559441,
-  "f1": 0.9642857142857144,
-  "correct": 270,
+  "precision": 0.9855072463768116,
+  "recall": 0.951048951048951,
+  "f1": 0.9679715302491103,
+  "correct": 272,
   "blank_ok": 2014,
-  "missed": 12,
+  "missed": 10,
   "wrong": 4
  },
  "groups": {
   "identity": {
-   "precision": 0.9090909090909091,
-   "recall": 0.8053691275167785,
-   "f1": 0.8540925266903915,
+   "precision": 0.96875,
+   "recall": 0.8322147651006712,
+   "f1": 0.8953068592057762,
    "blank_ok": 151,
-   "wrong": 12,
-   "correct": 120,
-   "missed": 17
+   "missed": 21,
+   "correct": 124,
+   "wrong": 4
   },
   "evac": {
    "precision": 1.0,
@@ -55,21 +55,21 @@
    "correct": 27
   },
   "vital_signs": {
-   "precision": 0.975,
-   "recall": 0.9122807017543859,
-   "f1": 0.9425981873111782,
+   "precision": 0.9753086419753086,
+   "recall": 0.9239766081871345,
+   "f1": 0.9489489489489489,
    "blank_ok": 629,
-   "correct": 156,
-   "missed": 11,
+   "correct": 158,
+   "missed": 9,
    "wrong": 4
   },
   "treatments": {
-   "precision": 0.9655172413793104,
-   "recall": 0.8235294117647058,
-   "f1": 0.888888888888889,
+   "precision": 0.9642857142857143,
+   "recall": 0.7941176470588235,
+   "f1": 0.8709677419354839,
    "blank_ok": 516,
-   "missed": 5,
-   "correct": 28,
+   "missed": 6,
+   "correct": 27,
    "wrong": 1
   },
   "medications": {
@@ -88,8 +88,140 @@
   "fp": 7,
   "fn": 23
  },
- "naive_accuracy": 0.9842335766423358,
+ "naive_accuracy": 0.9856934306569343,
  "empty_card_baseline": 0.8572262773722628,
+ "f1_interval": [
+  0.8886283704572099,
+  0.968609865470852
+ ],
+ "by_file": {
+  "handover-ato.wav": {
+   "blank_ok": 130,
+   "correct": 6,
+   "missed": 1
+  },
+  "handover-cjp.wav": {
+   "missed": 1,
+   "blank_ok": 115,
+   "correct": 21
+  },
+  "handover-dgf.wav": {
+   "correct": 24,
+   "blank_ok": 113
+  },
+  "handover-fox.wav": {
+   "missed": 1,
+   "correct": 34,
+   "blank_ok": 102
+  },
+  "handover-inj.wav": {
+   "blank_ok": 108,
+   "correct": 26,
+   "missed": 2,
+   "wrong": 1
+  },
+  "handover-jge.wav": {
+   "blank_ok": 128,
+   "correct": 9
+  },
+  "handover-jso.wav": {
+   "blank_ok": 115,
+   "correct": 18,
+   "wrong": 1,
+   "missed": 3
+  },
+  "handover-kdb.wav": {
+   "blank_ok": 119,
+   "missed": 17,
+   "correct": 1
+  },
+  "handover-lml.wav": {
+   "blank_ok": 133,
+   "correct": 4
+  },
+  "handover-lrh.wav": {
+   "blank_ok": 107,
+   "correct": 30
+  },
+  "handover-nwd.wav": {
+   "blank_ok": 132,
+   "correct": 4,
+   "missed": 1
+  },
+  "handover-oeu.wav": {
+   "blank_ok": 116,
+   "correct": 17,
+   "missed": 1,
+   "invented": 1,
+   "wrong": 2
+  },
+  "handover-onh.wav": {
+   "blank_ok": 105,
+   "correct": 31,
+   "missed": 1
+  },
+  "handover-oqx.wav": {
+   "blank_ok": 115,
+   "correct": 21,
+   "missed": 1
+  },
+  "handover-pma.wav": {
+   "blank_ok": 132,
+   "correct": 4,
+   "wrong": 1
+  },
+  "handover-riq.wav": {
+   "blank_ok": 121,
+   "correct": 13,
+   "missed": 2,
+   "wrong": 1
+  },
+  "handover-rtw.wav": {
+   "blank_ok": 118,
+   "correct": 18,
+   "missed": 1
+  },
+  "handover-spn.wav": {
+   "blank_ok": 121,
+   "correct": 16
+  },
+  "handover-ubn.wav": {
+   "blank_ok": 116,
+   "correct": 20,
+   "missed": 1
+  },
+  "handover-vbf.wav": {
+   "blank_ok": 126,
+   "correct": 10,
+   "missed": 1
+  },
+  "handover-xbf.wav": {
+   "blank_ok": 111,
+   "correct": 24,
+   "missed": 1,
+   "wrong": 1
+  },
+  "handover-xqu.wav": {
+   "blank_ok": 111,
+   "correct": 22,
+   "wrong": 1,
+   "missed": 3
+  },
+  "handover-xts.wav": {
+   "blank_ok": 116,
+   "correct": 20,
+   "wrong": 1
+  },
+  "handover-ynt.wav": {
+   "correct": 17,
+   "blank_ok": 119,
+   "invented": 1
+  },
+  "handover-zjl.wav": {
+   "blank_ok": 105,
+   "correct": 32
+  }
+ },
  "invented_per_card": 0.08,
  "errors": [
   {
@@ -104,38 +236,38 @@
   {
    "file": "handover-cjp.wav",
    "field": "battle_roster",
-   "outcome": "wrong",
-   "pred": "VA62119",
-   "truth": "VA6119",
-   "stage": "transcription",
-   "kind": "wrong value"
-  },
-  {
-   "file": "handover-dgf.wav",
-   "field": "signs_2_avpu",
    "outcome": "missed",
    "pred": "",
-   "truth": "A - Alert",
+   "truth": "VA6119",
    "stage": "extraction",
    "kind": "left blank"
   },
   {
    "file": "handover-fox.wav",
    "field": "battle_roster",
-   "outcome": "wrong",
-   "pred": "RE88206",
+   "outcome": "missed",
+   "pred": "",
    "truth": "RE8826",
-   "stage": "transcription",
-   "kind": "wrong value"
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-inj.wav",
+   "field": "name",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "Khan, Imran",
+   "stage": "extraction",
+   "kind": "left blank"
   },
   {
    "file": "handover-inj.wav",
    "field": "time",
-   "outcome": "wrong",
-   "pred": "2050",
+   "outcome": "missed",
+   "pred": "",
    "truth": "2015",
    "stage": "transcription",
-   "kind": "digit off"
+   "kind": "left blank"
   },
   {
    "file": "handover-inj.wav",
@@ -149,10 +281,19 @@
   {
    "file": "handover-jso.wav",
    "field": "last4",
-   "outcome": "missed",
-   "pred": "",
+   "outcome": "wrong",
+   "pred": "4962",
    "truth": "4062",
    "stage": "transcription",
+   "kind": "digit off"
+  },
+  {
+   "file": "handover-jso.wav",
+   "field": "combat_pill_pack",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
    "kind": "left blank"
   },
   {
@@ -166,12 +307,12 @@
   },
   {
    "file": "handover-jso.wav",
-   "field": "first_responder_name",
-   "outcome": "wrong",
-   "pred": "Dunn",
-   "truth": "Dunn, Ross",
+   "field": "first_responder_last4",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "3855",
    "stage": "extraction",
-   "kind": "name/unit spelling"
+   "kind": "left blank"
   },
   {
    "file": "handover-kdb.wav",
@@ -206,15 +347,6 @@
    "outcome": "missed",
    "pred": false,
    "truth": true,
-   "stage": "extraction",
-   "kind": "left blank"
-  },
-  {
-   "file": "handover-kdb.wav",
-   "field": "time",
-   "outcome": "missed",
-   "pred": "",
-   "truth": "0405",
    "stage": "extraction",
    "kind": "left blank"
   },
@@ -292,11 +424,20 @@
   },
   {
    "file": "handover-kdb.wav",
+   "field": "signs_1_spo2",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "95",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-kdb.wav",
    "field": "signs_1_avpu",
    "outcome": "missed",
    "pred": "",
    "truth": "A - Alert",
-   "stage": "transcription",
+   "stage": "extraction",
    "kind": "left blank"
   },
   {
@@ -327,15 +468,6 @@
    "kind": "left blank"
   },
   {
-   "file": "handover-lrh.wav",
-   "field": "date",
-   "outcome": "missed",
-   "pred": "",
-   "truth": "01-NOV-26",
-   "stage": "transcription",
-   "kind": "left blank"
-  },
-  {
    "file": "handover-nwd.wav",
    "field": "time",
    "outcome": "missed",
@@ -351,15 +483,6 @@
    "pred": "",
    "truth": "1910",
    "stage": "transcription",
-   "kind": "left blank"
-  },
-  {
-   "file": "handover-oeu.wav",
-   "field": "unit",
-   "outcome": "missed",
-   "pred": "",
-   "truth": "Signals det",
-   "stage": "extraction",
    "kind": "left blank"
   },
   {
@@ -386,24 +509,24 @@
    "outcome": "wrong",
    "pred": "clingfilm",
    "truth": "cling film",
-   "stage": "transcription",
+   "stage": "extraction",
    "kind": "wrong value"
   },
   {
    "file": "handover-onh.wav",
    "field": "unit",
-   "outcome": "wrong",
-   "pred": "Royal Army detachment",
-   "truth": "REME detachment",
-   "stage": "extraction",
-   "kind": "name/unit spelling"
-  },
-  {
-   "file": "handover-onh.wav",
-   "field": "signs_1_avpu",
    "outcome": "missed",
    "pred": "",
-   "truth": "A - Alert",
+   "truth": "REME detachment",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-oqx.wav",
+   "field": "time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1615",
    "stage": "extraction",
    "kind": "left blank"
   },
@@ -415,24 +538,6 @@
    "truth": "1306",
    "stage": "transcription",
    "kind": "digit off"
-  },
-  {
-   "file": "handover-riq.wav",
-   "field": "last4",
-   "outcome": "missed",
-   "pred": "",
-   "truth": "5290",
-   "stage": "transcription",
-   "kind": "left blank"
-  },
-  {
-   "file": "handover-riq.wav",
-   "field": "gender_m",
-   "outcome": "missed",
-   "pred": false,
-   "truth": true,
-   "stage": "extraction",
-   "kind": "left blank"
   },
   {
    "file": "handover-riq.wav",
@@ -454,21 +559,12 @@
   },
   {
    "file": "handover-riq.wav",
-   "field": "signs_1_avpu",
+   "field": "first_responder_name",
    "outcome": "missed",
    "pred": "",
-   "truth": "A - Alert",
-   "stage": "extraction",
-   "kind": "left blank"
-  },
-  {
-   "file": "handover-riq.wav",
-   "field": "first_responder_name",
-   "outcome": "wrong",
-   "pred": "Weed, Cal",
    "truth": "Reid, Cal",
    "stage": "extraction",
-   "kind": "name/unit spelling"
+   "kind": "left blank"
   },
   {
    "file": "handover-rtw.wav",
@@ -477,6 +573,15 @@
    "pred": "",
    "truth": "1500",
    "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ubn.wav",
+   "field": "name",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "Ahmed, Sara",
+   "stage": "extraction",
    "kind": "left blank"
   },
   {
@@ -494,7 +599,7 @@
    "outcome": "missed",
    "pred": "",
    "truth": "3620",
-   "stage": "transcription",
+   "stage": "extraction",
    "kind": "left blank"
   },
   {
@@ -503,7 +608,7 @@
    "outcome": "wrong",
    "pred": "31-OCT-26",
    "truth": "30-OCT-26",
-   "stage": "transcription",
+   "stage": "extraction",
    "kind": "wrong value"
   },
   {
@@ -527,11 +632,11 @@
   {
    "file": "handover-xqu.wav",
    "field": "first_responder_name",
-   "outcome": "wrong",
-   "pred": "Guru, Raj",
+   "outcome": "missed",
+   "pred": "",
    "truth": "Gurung, Raj",
    "stage": "extraction",
-   "kind": "name/unit spelling"
+   "kind": "left blank"
   },
   {
    "file": "handover-xqu.wav",
@@ -553,30 +658,12 @@
   },
   {
    "file": "handover-ynt.wav",
-   "field": "battle_roster",
-   "outcome": "wrong",
-   "pred": "SP22214",
-   "truth": "SP2214",
-   "stage": "extraction",
-   "kind": "wrong value"
-  },
-  {
-   "file": "handover-ynt.wav",
    "field": "mechanism_burn",
    "outcome": "invented",
    "pred": true,
    "truth": false,
    "stage": "invented",
    "kind": "made up"
-  },
-  {
-   "file": "handover-ynt.wav",
-   "field": "first_responder_name",
-   "outcome": "wrong",
-   "pred": "Day",
-   "truth": "Day, Finn",
-   "stage": "extraction",
-   "kind": "name/unit spelling"
   }
  ]
 }

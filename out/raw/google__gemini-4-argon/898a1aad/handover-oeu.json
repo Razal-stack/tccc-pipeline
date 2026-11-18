@@ -1,0 +1,82 @@
+{
+ "fields": {
+  "evac_routine": [
+   true,
+   "Evac routine"
+  ],
+  "gender_f": [
+   true,
+   "Female casualty"
+  ],
+  "name": [
+   "Hart, Ellie",
+   "Private Hart, Ellie"
+  ],
+  "service": [
+   "Army",
+   "Army Private Hart, Ellie"
+  ],
+  "mechanism_burn": [
+   true,
+   "Burns to her right arm"
+  ],
+  "mechanism_ied": [
+   true,
+   "Blast from a vehicle IED"
+  ],
+  "dressing_other": [
+   true,
+   "Clingfilm on the arm"
+  ],
+  "dressing_type": [
+   "clingfilm",
+   "Clingfilm on the arm"
+  ],
+  "signs_1_time": [
+   "1925",
+   "Obs at 19:25"
+  ],
+  "signs_1_pulse": [
+   "100 radial",
+   "pulse about 100, radial"
+  ],
+  "signs_1_bp_systolic": [
+   "128",
+   "BP 128 over 80"
+  ],
+  "signs_1_bp_diastolic": [
+   "80",
+   "BP 128 over 80"
+  ],
+  "signs_1_resp_rate": [
+   "20",
+   "Resps 20"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "Sats 98"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "Alert"
+  ],
+  "signs_1_pain": [
+   "4 Distressing",
+   "Pain 4"
+  ],
+  "first_responder_name": [
+   "Lane, Becky",
+   "I'm Corporal Lane, Becky"
+  ],
+  "first_responder_last4": [
+   "4088",
+   "last four 4088"
+  ]
+ },
+ "notes": "Injuries: right arm: superficial burns; ears: ringing, probable burst eardrums; unit possibly Signals Det (unconfirmed); last4 possibly 5822 (unconfirmed); injury time ~20 min before 1930 (~1910, approximate)",
+ "flags": [
+  "Unit unconfirmed ('I think she's from the Signals Det') - left blank",
+  "Casualty last4 unconfirmed ('5822 I think') - left blank",
+  "Time of injury approximate ('maybe 20 minutes ago' at 1930) - left blank"
+ ]
+}

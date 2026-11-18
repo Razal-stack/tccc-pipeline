@@ -41,7 +41,7 @@
  "name": "",
  "last4": "",
  "date": "",
- "time": "",
+ "time": "0405",
  "service": "",
  "unit": "",
  "allergies": "",
@@ -59,7 +59,7 @@
  "signs_1_bp_systolic": "",
  "signs_1_bp_diastolic": "",
  "signs_1_resp_rate": "",
- "signs_1_spo2": "95",
+ "signs_1_spo2": "",
  "signs_1_avpu": "",
  "signs_1_pain": "",
  "signs_2_time": "",
@@ -137,6 +137,6 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Spoken time 0405 (unclear if time of injury or observations); '36 for 22' garbled",
+ "notes": "unclear vitals: 36 for 22",
  "injury_boxes": []
 }

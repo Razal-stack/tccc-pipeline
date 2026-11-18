@@ -135,9 +135,9 @@
  "other_med_2_route": "",
  "other_med_2_time": "",
  "hypothermia_prevention_type": "",
- "first_responder_name": "Rhys, Owen",
+ "first_responder_name": "",
  "first_responder_last4": "9044",
- "notes": "Injuries: right foot to mid-shin: traumatic amputation and mangled; first right leg CAT applied high and tight at 1102; BP not recordable at 1115; no radial pulse",
+ "notes": "Injuries: right foot to mid-shin: traumatic amputation, mangled; initial right leg CAT applied high and tight at 1102; no radial pulse, BP not recordable",
  "injury_boxes": [
   "Ant_Right_Distal_Lateral_Lower_Leg",
   "Ant_Right_Distal_Medial_Lower_Leg",

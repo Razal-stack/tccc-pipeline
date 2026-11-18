@@ -1,0 +1,98 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Urgent"
+  ],
+  "name": [
+   "Young, Chloe",
+   "Private Young, Chloe"
+  ],
+  "last4": [
+   "7007",
+   "Last 4 7007"
+  ],
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "B Company, 1 Rifles",
+   "B Company, 1 Rifles"
+  ],
+  "time": [
+   "1010",
+   "10:10"
+  ],
+  "mechanism_landmine": [
+   true,
+   "pressure plate landmine"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT on the right leg"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "CAT"
+  ],
+  "tq_right_leg_time": [
+   "1012",
+   "10:12"
+  ],
+  "signs_1_time": [
+   "1020",
+   "10:20"
+  ],
+  "signs_1_pulse": [
+   "116 radial",
+   "pulse 116 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "108",
+   "108 over 70"
+  ],
+  "signs_1_bp_diastolic": [
+   "70",
+   "108 over 70"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resp 24"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "Sats 96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "10 Unimaginable",
+   "Pain 10 out of 10"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "IV"
+  ],
+  "other_med_1_time": [
+   "1025",
+   "10:25"
+  ]
+ },
+ "notes": "Injuries: right foot: badly damaged, lots of bleeding",
+ "flags": []
+}

@@ -1,0 +1,57 @@
+{
+ "fields": {
+  "other_med_1_name": [
+   "TXA",
+   "TXA a gram at 0900"
+  ],
+  "other_med_1_dose": [
+   "1 g",
+   "TXA a gram at 0900"
+  ],
+  "other_med_1_time": [
+   "0900",
+   "at 0900"
+  ],
+  "other_med_2_name": [
+   "TXA",
+   "TXA a gram at 0900 and a second gram at 0920"
+  ],
+  "other_med_2_dose": [
+   "1 g",
+   "a second gram at 0920"
+  ],
+  "other_med_2_time": [
+   "0920",
+   "at 0920"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "fentanyl lollipop at 0855"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "fentanyl lollipop"
+  ],
+  "analgesic_1_time": [
+   "0855",
+   "fentanyl lollipop at 0855"
+  ],
+  "antibiotic_1_name": [
+   "moxifloxacin",
+   "moxy 400 by mouth"
+  ],
+  "antibiotic_1_route": [
+   "PO",
+   "by mouth"
+  ],
+  "antibiotic_1_time": [
+   "0855",
+   "fentanyl lollipop at 0855, moxy 400 by mouth same time"
+  ]
+ },
+ "notes": "Moxy dose stated as 400; unit not stated.",
+ "flags": [
+  "Check moxy dose unit",
+  "Fentanyl dose not stated"
+ ]
+}

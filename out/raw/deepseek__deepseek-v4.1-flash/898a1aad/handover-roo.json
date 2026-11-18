@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "name": [
+   "Patel, Nisha",
+   "Corporal Patel Nisha"
+  ],
+  "last4": [
+   "2468",
+   "last four 2468"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "1 Royal Anglian",
+   "1 Royal Anglian"
+  ],
+  "time": [
+   "1045",
+   "Time of wounding 10:45"
+  ],
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "mechanism_gsw": [
+   true,
+   "gunshot wound"
+  ],
+  "signs_1_time": [
+   "1052",
+   "Signs at 10:52"
+  ],
+  "signs_1_pulse": [
+   "116 radial",
+   "radial pulse 116"
+  ],
+  "signs_1_bp_systolic": [
+   "104",
+   "BP 104 over 68"
+  ],
+  "signs_1_bp_diastolic": [
+   "68",
+   "BP 104 over 68"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resps 24"
+  ],
+  "signs_1_spo2": [
+   "95",
+   "sats 95"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "6 Intense",
+   "pain 6 out of 10"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "hemostatic gauze"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure held"
+  ],
+  "breathing_o2": [
+   true,
+   "Oxygen on"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA I4"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "Two grams"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "TXA I4"
+  ],
+  "other_med_1_time": [
+   "1058",
+   "10:58"
+  ],
+  "signs_2_time": [
+   "1105",
+   "Repeat OBS at 11:05"
+  ],
+  "signs_2_pulse": [
+   "104 radial",
+   "Radial pulse 104"
+  ],
+  "signs_2_bp_systolic": [
+   "112",
+   "BP 112 over 72"
+  ],
+  "signs_2_bp_diastolic": [
+   "72",
+   "BP 112 over 72"
+  ],
+  "signs_2_resp_rate": [
+   "20",
+   "resps 20"
+  ],
+  "signs_2_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "evac_urgent": [
+   true,
+   "EVAC urgent"
+  ],
+  "first_responder_name": [
+   "Doyle, Mia",
+   "Corporal Doyle Mia"
+  ],
+  "first_responder_last4": [
+   "3915",
+   "last four 3915"
+  ]
+ },
+ "notes": "Injuries: left side of neck: GSW, no exit wound; wound packed with hemostatic gauze and pressure held; oxygen on; TXA 2 g IV at 1058; repeat obs at 1105",
+ "flags": []
+}

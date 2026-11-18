@@ -1,0 +1,24 @@
+{
+ "fields": {
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_other": [
+   true,
+   "blast"
+  ],
+  "mechanism_other_text": [
+   "blast",
+   "blast"
+  ],
+  "dressing_pressure": [
+   true,
+   "Pressure dressings"
+  ]
+ },
+ "notes": "Injuries: both legs: multiple fragment wounds; local national adult",
+ "flags": [
+  "time of injury garbled (15U / 15 you)"
+ ]
+}

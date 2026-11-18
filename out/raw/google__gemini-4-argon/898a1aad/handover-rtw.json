@@ -1,0 +1,80 @@
+{
+ "fields": {
+  "evac_routine": [
+   true,
+   "evac routine"
+  ],
+  "gender_f": [
+   true,
+   "Female"
+  ],
+  "name": [
+   "Green, Hannah",
+   "Private Green Hannah"
+  ],
+  "last4": [
+   "3990",
+   "last four three nine nine zero"
+  ],
+  "time": [
+   "1450",
+   "Time um 1450"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "27 Regiment RLC",
+   "27 Regiment RLC"
+  ],
+  "mechanism_mvc": [
+   true,
+   "vehicle crash. The Man truck went into the ditch"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressing on the head"
+  ],
+  "combat_pill_pack": [
+   true,
+   "She's taken her combat pill pack"
+  ],
+  "splint": [
+   true,
+   "SAM splint on the wrist"
+  ],
+  "signs_1_pulse": [
+   "92 radial",
+   "pulse 92 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "130",
+   "BP 130 over 84"
+  ],
+  "signs_1_bp_diastolic": [
+   "84",
+   "BP 130 over 84"
+  ],
+  "signs_1_resp_rate": [
+   "18",
+   "resps 18"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "sats 98"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "5 Very Distress",
+   "pain about five"
+  ]
+ },
+ "notes": "Injuries: forehead: head wound; left wrist: suspected fracture; obs time garbled ('15 while'); SAM splint on left wrist",
+ "flags": [
+  "Observations time garbled ('Obs at 15 while') - left blank"
+ ]
+}

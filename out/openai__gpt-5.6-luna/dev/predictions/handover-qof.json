@@ -5,7 +5,7 @@
  "evac_routine": false,
  "gender_m": true,
  "gender_f": false,
- "mechanism_artillery": true,
+ "mechanism_artillery": false,
  "mechanism_blunt": true,
  "mechanism_burn": false,
  "mechanism_fall": false,
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "HPMK",
  "first_responder_name": "Hogan",
  "first_responder_last4": "4772",
- "notes": "Injuries: both legs: crushed; left leg: badly deformed; trapped under rubble for about 20 minutes; suspected mortar impact on building, not confirmed.",
+ "notes": "Injuries: both legs: crushed; left leg: badly deformed; trapped under rubble for about 20 minutes; no big bleeding; suspected mortar round not confirmed.",
  "injury_boxes": [
   "Ant_Left_Knee",
   "Ant_Left_Middle_Lateral_Lower_Leg",

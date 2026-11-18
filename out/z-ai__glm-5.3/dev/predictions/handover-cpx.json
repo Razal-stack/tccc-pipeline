@@ -43,7 +43,7 @@
  "date": "04-NOV-26",
  "time": "1750",
  "service": "Army",
- "unit": "1 Mercian",
+ "unit": "I Mercian",
  "allergies": "morphine",
  "mechanism_other_text": "",
  "tq_right_arm_type": "",
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Injuries: right hip: painful, can't weight bear; fell about three meters off a vehicle into a wadi; fentanyl withheld due to morphine allergy; rank Lance Corporal",
+ "notes": "Injuries: right hip: painful, unable to weight bear; fell from vehicle into a wadi, approx 3 m; fentanyl withheld due to morphine allergy; responder noted own allergy to morphine",
  "injury_boxes": [
   "Left_Hip"
  ]

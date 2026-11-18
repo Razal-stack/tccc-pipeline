@@ -1,0 +1,94 @@
+{
+ "fields": {
+  "tq_extremity": [
+   true,
+   "Tourniquet right arm CAT at 1620"
+  ],
+  "tq_right_arm_type": [
+   "CAT",
+   "Tourniquet right arm CAT at 1620"
+  ],
+  "tq_right_arm_time": [
+   "1602",
+   "TQ right arm 1602. Negative 1620"
+  ],
+  "name": [
+   "Doyle, Sean",
+   "Private Doyle, Sean"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "last4": [
+   "7712",
+   "last four 7712"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "1 Irish Guards",
+   "1 Irish Guards"
+  ],
+  "mechanism_gsw": [
+   true,
+   "Mechanism GSW to the right forearm"
+  ],
+  "time": [
+   "1615",
+   "wounded at 1615"
+  ],
+  "signs_1_pulse": [
+   "118 radial",
+   "pulse 118 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "116",
+   "BP 116 over 74"
+  ],
+  "signs_1_bp_diastolic": [
+   "74",
+   "BP 116 over 74"
+  ],
+  "signs_1_resp_rate": [
+   "22",
+   "resp is 22"
+  ],
+  "signs_1_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "7 Very Intense",
+   "pain 7"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "fentanyl lozenge"
+  ],
+  "analgesic_1_dose": [
+   "800 mcg",
+   "fentanyl lozenge 800 mics"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "fentanyl lozenge"
+  ],
+  "analgesic_1_time": [
+   "1625",
+   "fentanyl lozenge 800 mics 1625"
+  ],
+  "evac_priority": [
+   true,
+   "EVAC category? Priority"
+  ]
+ },
+ "notes": "Injuries: right forearm: GSW",
+ "flags": []
+}

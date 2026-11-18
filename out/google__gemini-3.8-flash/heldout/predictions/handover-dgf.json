@@ -68,7 +68,7 @@
  "signs_2_bp_diastolic": "86",
  "signs_2_resp_rate": "16",
  "signs_2_spo2": "97",
- "signs_2_avpu": "",
+ "signs_2_avpu": "A - Alert",
  "signs_2_pain": "",
  "signs_3_time": "",
  "signs_3_pulse": "",
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Injuries: left forehead: laceration; low back: pain; NPA placed 1040; brief loss of consciousness; cervical collar and scoop stretcher applied for spine",
+ "notes": "Injuries: left forehead: laceration; low back: pain; knocked out briefly; collar and scoop applied for spine",
  "injury_boxes": [
   "AnteriorHead",
   "Left_Lower_Back",

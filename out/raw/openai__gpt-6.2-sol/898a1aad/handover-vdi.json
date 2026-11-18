@@ -1,0 +1,20 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Cat A EVAC"
+  ],
+  "tq_extremity": [
+   true,
+   "left leg tourniquet"
+  ],
+  "tq_left_leg_time": [
+   "1715",
+   "1715"
+  ]
+ },
+ "notes": "Initial transmission included \u201cIV IM IO priority 2\u201d; no treatment was clearly linked to those route terms. Final evacuation category confirmed as A.",
+ "flags": [
+  "Verify whether \u201cIV IM IO\u201d refers to any treatment given."
+ ]
+}

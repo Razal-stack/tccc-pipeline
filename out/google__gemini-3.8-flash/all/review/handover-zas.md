@@ -1,10 +1,10 @@
 # handover-zas.wav
 
 ## Ask the sender
-- nothing missing
+- TXA: time
 
 ## Check these
-- nothing flagged
+- transcripts disagree: A says 0750, B says 0755
 
 ## Card
 - evac_urgent: True
@@ -38,9 +38,12 @@
 - other_med_1_name: TXA
 - other_med_1_dose: 2 g
 - other_med_1_route: IV
-- other_med_1_time: 0750
-- notes: Injuries: right groin: shrapnel wound; SAM junctional tourniquet applied to right groin at 0748
+- notes: Injuries: high in the right groin: shrapnel wound; SAM junctional tourniquet applied right groin at 0748
 - injury_boxes: Right_Groin
 
 ## Transcript
+TRANSCRIPT A (medical speech model):
 Evac urgent. Sam junctional tourniquet on the right groin at 0748. Wound packed with Celox first. She was hit by indirect fire artillery into the FOB at 0740. Shrapnel wound high in the right groin. Obs at 0750. Pulse 132 radial and weak. BP 84/50. Resps 28. Sats 95. Responds to voice. Pain 8. Two grams of TXA IV at 0750 and one unit of freeze-dried plasma IV at 0800. Repeat obs at 0810. Pulse 118 radial. BP 96/60. Resps 24. Sats 96. Still responds to voice. Battle roster Charlie Delta 1975. Female. RAF. Two Squadron RAF Regiment.
+
+TRANSCRIPT B (second listen):
+Evac urgent. SAM junctional tourniquet on the right groin at 0748. Wound packed with Celox first. She was hit by indirect fire, artillery into the FOB at 0740. Shrapnel wound high in the right groin. OBs at 0750: pulse 132 radial and weak, BP 84 over 50, resp 28, sats 95, responds to voice, pain 8. 2 grams of TXA IV at 0755 and one unit of freeze-dried plasma IV at 0800. Repeat OBs at 0810: pulse 118 radial, BP 96 over 60, resp 24, sats 96, still responds to voice. Battle roster Charlie Delta 1975, female, RAF, 2 Squadron RAF Regiment.

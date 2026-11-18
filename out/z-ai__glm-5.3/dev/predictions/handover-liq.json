@@ -51,7 +51,7 @@
  "tq_left_arm_type": "",
  "tq_left_arm_time": "",
  "tq_right_leg_type": "CAT",
- "tq_right_leg_time": "1102",
+ "tq_right_leg_time": "1106",
  "tq_left_leg_type": "",
  "tq_left_leg_time": "",
  "signs_1_time": "1115",
@@ -87,7 +87,7 @@
  "signs_4_avpu": "",
  "signs_4_pain": "",
  "tq_type": "",
- "dressing_type": "Celox",
+ "dressing_type": "",
  "airway_type": "",
  "breathing_type": "",
  "fluid_1_name": "",
@@ -135,10 +135,14 @@
  "other_med_2_route": "",
  "other_med_2_time": "",
  "hypothermia_prevention_type": "",
- "first_responder_name": "Owen, Rhys",
+ "first_responder_name": "Rhys, Owen",
  "first_responder_last4": "9044",
- "notes": "Injuries: right foot: amputated, mangled up to mid-shin; second CAT tourniquet on right leg just below the first, applied 1106, first CAT placed high and tight; no radial pulse palpable; BP not recordable at 1115",
+ "notes": "Injuries: right foot to mid-shin: traumatic amputation, mangled; wound packed with Celox; first CAT right leg high and tight at 1102 (second CAT at 1106 recorded on card); no radial pulse; BP not recordable",
  "injury_boxes": [
-  "Ant_Right_Foot"
+  "Ant_Right_Distal_Lateral_Lower_Leg",
+  "Ant_Right_Distal_Medial_Lower_Leg",
+  "Ant_Right_Foot",
+  "Ant_Right_Middle_Lateral_Lower_Leg",
+  "Ant_Right_Middle_Medial_Lower_Leg"
  ]
 }

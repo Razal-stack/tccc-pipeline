@@ -1,0 +1,2 @@
+verbatim, in English. Include every word, number, correction and repetition exactly as spoken. Output only the transcript."
+Usually digits (1620, 1602, 1 6 2 0 or 1620, 7712, 1 Irish Guards, 1615, 118, 116

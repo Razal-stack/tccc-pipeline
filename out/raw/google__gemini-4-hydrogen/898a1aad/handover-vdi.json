@@ -1,0 +1,22 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Cat A"
+  ],
+  "tq_extremity": [
+   true,
+   "left leg tourniquet"
+  ],
+  "tq_left_leg_time": [
+   "1715",
+   "1715"
+  ]
+ },
+ "notes": "Left leg TQ type unknown; garbled phrase 'IV IM IO priority 2'",
+ "flags": [
+  "Garbled transmission: 'IV IM IO priority 2' (clarify vascular access/meds and priority vs Cat A)",
+  "Left leg tourniquet type not stated",
+  "No mechanism, injury details, or vital signs received"
+ ]
+}

@@ -1,0 +1,85 @@
+{
+ "fields": {
+  "name": [
+   "Ellis, Jack",
+   "Lance Corporal Ellis Jack"
+  ],
+  "last4": [
+   "9104",
+   "last four nine one zero four"
+  ],
+  "date": [
+   "04-NOV-26",
+   "fourth of November 2026"
+  ],
+  "time": [
+   "1750",
+   "about 17:50"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "1 Mercian",
+   "I Mercian"
+  ],
+  "allergies": [
+   "morphine",
+   "allergic to morphine"
+  ],
+  "gender_m": true,
+  "mechanism_fall": true,
+  "evac_priority": true,
+  "signs_1_time": [
+   "1805",
+   "1805"
+  ],
+  "signs_1_pulse": [
+   "96 radial",
+   "pulse 96 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "138",
+   "138"
+  ],
+  "signs_1_bp_diastolic": [
+   "88",
+   "88"
+  ],
+  "signs_1_resp_rate": [
+   "18",
+   "RR 18"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "sats 98"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "pain 8"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "ketamine"
+  ],
+  "analgesic_1_dose": [
+   "25 mg",
+   "25 mg"
+  ],
+  "analgesic_1_route": [
+   "IM",
+   "IM"
+  ],
+  "analgesic_1_time": [
+   "1810",
+   "18:10"
+  ]
+ },
+ "notes": "Injuries: right hip: painful, cannot weight bear; fell from vehicle into wadi approx 3 m; fentanyl withheld due to morphine allergy",
+ "flags": []
+}

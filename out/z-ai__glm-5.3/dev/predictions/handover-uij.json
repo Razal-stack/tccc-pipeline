@@ -39,7 +39,7 @@
  "hypothermia_prevention": false,
  "battle_roster": "",
  "name": "Singh, Priya",
- "last4": "41212",
+ "last4": "1212",
  "date": "28-OCT-26",
  "time": "",
  "service": "Army",
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Injuries: left ankle: twisted; fell down stairs in accommodation block; walking wounded; no time of wounding given",
+ "notes": "Injuries: left ankle: twisted; fell down stairs in accommodation block; walking wounded; no time of injury given",
  "injury_boxes": [
   "Ant_Left_Ankle"
  ]

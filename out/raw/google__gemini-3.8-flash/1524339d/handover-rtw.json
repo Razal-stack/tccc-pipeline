@@ -1,0 +1,80 @@
+{
+ "fields": {
+  "mechanism_mvc": [
+   true,
+   "vehicle crash"
+  ],
+  "time": [
+   "1450",
+   "1450"
+  ],
+  "name": [
+   "Green, Hannah",
+   "Green Hannah"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "27 Regiment RLC",
+   "27 Regiment RLC"
+  ],
+  "gender_f": [
+   true,
+   "Female"
+  ],
+  "last4": [
+   "3990",
+   "three nine nine zero"
+  ],
+  "signs_1_pulse": [
+   "92 radial",
+   "pulse 92 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "130",
+   "130"
+  ],
+  "signs_1_bp_diastolic": [
+   "84",
+   "84"
+  ],
+  "signs_1_resp_rate": [
+   "18",
+   "18"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "98"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "5 Very Distress",
+   "pain about five"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressing"
+  ],
+  "splint": [
+   true,
+   "SAM splint"
+  ],
+  "combat_pill_pack": [
+   true,
+   "combat pill pack"
+  ],
+  "evac_routine": [
+   true,
+   "evac routine"
+  ]
+ },
+ "notes": "Injuries: forehead: head wound; left wrist: probably broken",
+ "flags": [
+  "transcripts disagree: A says '15 while', B says 'fifteen oh' for vital signs time"
+ ]
+}

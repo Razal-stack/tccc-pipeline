@@ -1,0 +1,94 @@
+{
+ "fields": {
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "name": [
+   "Ellis, Jack",
+   "Lance Corporal Ellis Jack"
+  ],
+  "last4": [
+   "9104",
+   "last four nine one zero four"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "1 Mercian",
+   "I Mercian"
+  ],
+  "allergies": [
+   "morphine",
+   "he's saying he's allergic to morphine"
+  ],
+  "mechanism_fall": [
+   true,
+   "fell off the vehicle into a wadi about 3 meters"
+  ],
+  "time": [
+   "1750",
+   "about 17:50"
+  ],
+  "date": [
+   "04-NOV-26",
+   "fourth of November 2026"
+  ],
+  "signs_1_time": [
+   "1805",
+   "OBS at 1805"
+  ],
+  "signs_1_pulse": [
+   "96 radial",
+   "pulse 96 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "138",
+   "BP 138 over 88"
+  ],
+  "signs_1_bp_diastolic": [
+   "88",
+   "BP 138 over 88"
+  ],
+  "signs_1_resp_rate": [
+   "18",
+   "RR 18"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "sats 98"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "pain 8"
+  ],
+  "evac_priority": [
+   true,
+   "EVAC priority"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "Given ketamine 25 mg IM at 18:10"
+  ],
+  "analgesic_1_dose": [
+   "25 mg",
+   "ketamine 25 mg"
+  ],
+  "analgesic_1_route": [
+   "IM",
+   "25 mg IM"
+  ],
+  "analgesic_1_time": [
+   "1810",
+   "at 18:10"
+  ]
+ },
+ "notes": "Injuries: right hip: painful, unable to weight bear; fall from vehicle into wadi approximately 3 meters; fentanyl withheld due to morphine allergy",
+ "flags": []
+}

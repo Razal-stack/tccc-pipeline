@@ -1,0 +1,106 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "urgent"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED"
+  ],
+  "time": [
+   "0820",
+   "0820"
+  ],
+  "date": [
+   "01-NOV-26",
+   "1 November 2026"
+  ],
+  "name": [
+   "Evans",
+   "Corporal Evans"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "unit": [
+   "1 Royal Welsh",
+   "One Royal Welsh"
+  ],
+  "last4": [
+   "1176",
+   "last four 1-1-7-6"
+  ],
+  "airway_cric": [
+   true,
+   "surgical cric at 0828"
+  ],
+  "breathing_o2": [
+   true,
+   "oxygen on through the cric"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressings on both scrap that dressing on the left leg only"
+  ],
+  "signs_1_time": [
+   "0838",
+   "obs at 0838"
+  ],
+  "signs_1_pulse": [
+   "124 radial",
+   "radial pulse 124"
+  ],
+  "signs_1_spo2": [
+   "92",
+   "sats 92"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resps 24"
+  ],
+  "signs_1_bp_systolic": [
+   "100",
+   "BP 100/64"
+  ],
+  "signs_1_bp_diastolic": [
+   "64",
+   "BP 100/64"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responds to pain"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "ketamine 50 mg IV at 0835"
+  ],
+  "analgesic_1_dose": [
+   "50 mg",
+   "ketamine 50 mg IV at 0835"
+  ],
+  "analgesic_1_route": [
+   "IV",
+   "ketamine 50 mg IV at 0835"
+  ],
+  "analgesic_1_time": [
+   "0835",
+   "at 0835"
+  ],
+  "first_responder_name": [
+   "Hall, Chris",
+   "Lance Corporal Hall Chris"
+  ],
+  "first_responder_last4": [
+   "4409",
+   "last four 4409"
+  ]
+ },
+ "notes": "Injuries: face: massive injuries; left leg: fragment wound; right leg: fragment wound; airway could not be maintained, surgical cric at 0828; oxygen running through the cric; resps 24 assisted; pressure dressing on left leg only, right leg reported not bleeding",
+ "flags": [
+  "Right leg fragment wound has no dressing (reported not bleeding) - verify on arrival",
+  "Only surname given for casualty, no first name",
+  "Responds to pain only with ketamine 50 mg on board at 0835 - reassess sedation and airway"
+ ]
+}

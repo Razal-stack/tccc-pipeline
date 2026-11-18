@@ -43,7 +43,7 @@
  "date": "",
  "time": "0515",
  "service": "",
- "unit": "",
+ "unit": "2 Para",
  "allergies": "",
  "mechanism_other_text": "",
  "tq_right_arm_type": "",
@@ -137,9 +137,10 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "Wade, Sam",
  "first_responder_last4": "8841",
- "notes": "Injuries: left knee: GSW; right thigh: GSW, through and through; TQ time 0518",
+ "notes": "Injuries: left thigh: GSW; right thigh: GSW through and through; time of wounding corrected from 0505 to 0515; analgesia initially stated as morphine, corrected to ketamine",
  "injury_boxes": [
-  "Ant_Left_Knee",
+  "Ant_Left_Middle_Lateral_Thigh",
+  "Ant_Left_Middle_Medial_Thigh",
   "Ant_Right_Middle_Lateral_Thigh",
   "Ant_Right_Middle_Medial_Thigh"
  ]

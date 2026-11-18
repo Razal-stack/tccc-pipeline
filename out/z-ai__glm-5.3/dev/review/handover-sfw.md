@@ -1,10 +1,10 @@
-# handover-sfw
+# handover-sfw.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
-- Verify 'last 427712 Para' - heard as last four 2771, unit 2 Para; confirm digits and unit
-- Time of wounding corrected from 0505 to 0515
-- Morphine retracted - ketamine given instead
-- unit: '2 Para' not backed by the transcript ('27712 Para'), left blank
+- nothing flagged
 
 ## Card
 - evac_priority: True
@@ -14,6 +14,7 @@
 - name: Collins, Dan
 - last4: 2771
 - time: 0515
+- unit: 2 Para
 - tq_right_leg_type: CAT
 - tq_right_leg_time: 0518
 - signs_1_time: 0522
@@ -30,7 +31,8 @@
 - analgesic_1_time: 0525
 - first_responder_name: Wade, Sam
 - first_responder_last4: 8841
-- notes: Injuries: left knee: GSW; right thigh: GSW, through and through; TQ time 0518
+- notes: Injuries: left thigh: GSW; right thigh: GSW through and through; time of wounding corrected from 0505 to 0515; analgesia initially stated as morphine, corrected to ketamine
+- injury_boxes: Ant_Left_Middle_Lateral_Thigh, Ant_Left_Middle_Medial_Thigh, Ant_Right_Middle_Lateral_Thigh, Ant_Right_Middle_Medial_Thigh
 
 ## Transcript
-Missed. Private, uh, Private Collins, Dan, male, last 427712 Para. GSW at 0505. No, 0515 left knee, right thigh, right thigh through and through. Cat right leg at 0518. OBs at 0522. Pulse 112. BP 118 over, uh, over 76. Resp is 22. Sats 97, alert, pain 8. Morphine 10 IM. Sorry, not morphine, it was ketamine 50 mg IM at 0525. Priority. From Lance Corporal Wade, Sam, last 48841
+MIST Private, uh, Private Collins, Dan, male, last four two seven seven one two Para GSW at 0505 no 0515 left thigh right thigh right thigh through and through CAT right leg at 0518 OBs at 0522 pulse 112 BP 118 over uh over 76 resp is 22 sats 97 alert pain 8 morphine 10 IM sorry not morphine it was ketamine 50 mg IM at 0525 priority From Lance Corporal Wade, Sam, last four eight eight four one

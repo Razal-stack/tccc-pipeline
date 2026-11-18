@@ -1,12 +1,15 @@
-# handover-jql
+# handover-jql.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
-- First responder last four is garbled/incomplete: '222 end static 5'.
+- First responder last four was stated as only 222, not four digits: "last four 222"
+- Confirm unclear phrase "static 5"
 
 ## Card
 - evac_priority: True
 - gender_m: True
-- mechanism_burn: True
 - mechanism_rpg: True
 - dressing_other: True
 - combat_pill_pack: True
@@ -35,8 +38,9 @@
 - analgesic_1_route: IV
 - analgesic_1_time: 1658
 - hypothermia_prevention_type: blizzard blanket
-- first_responder_name: Dan, Kelly
-- notes: Injuries: face: burns; both hands: burns, roughly 18%; right eye: penetrating injury.
+- first_responder_name: Kelly, Dan
+- notes: Injuries: face: burns; both hands: burns, roughly 18%; right eye: penetrating injury; vehicle commander; static 5.
+- injury_boxes: Chin, Left_Cheek, Left_Palm, Mouth, Nose, Right_Cheek, Right_Eye, Right_Palm
 
 ## Transcript
-Mist report. Battle roster Mike Tango 7703. Male vehicle commander, Army Queen's Royal Hussars. Time of injury 16:40. Mechanism RPG strike on the vehicle with fire. Injuries burns to the face and both hands roughly 18% and a penetrating injury to the right eye. Signs at 16:50 radial pulse 104, BP 128 over 80, resp 22, sats 97, alert pain 6. Treatment rigid eye shield over the right eye, burns dressings to the hands, combat pill pack given, 1 liter of Hartman's IV at 16:55, ketamine 20 mg IV at 16:58, blizzard blanket on. Evac priority treated by Lance Corporal Kelly Dan last 4 222 end static 5.
+MIST report battle roster Mike Tango 7703 male vehicle commander Army Queen's Royal Hussars time of injury 1640 mechanism RPG strike on the vehicle with fire injuries burns to the face and both hands roughly 18% and a penetrating injury to the right eye signs at 1650 radial pulse 104 BP 128 over 80 resp 22 sats 97 alert pain 6 treatment rigid eye shield over the right eye burns dressings to the hands combat pill pack given 1 liter Hartmann's IV at 1655 ketamine 20 mg IV at 1658 blizzard blanket on EVAC priority treated by Lance Corporal Kelly Dan last four 222 and static 5

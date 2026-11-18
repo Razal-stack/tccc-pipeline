@@ -1,0 +1,22 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Cat A EVAC. EVAC category? A."
+  ],
+  "tq_extremity": [
+   true,
+   "left leg tourniquet"
+  ],
+  "tq_left_leg_time": [
+   "1715",
+   "Say again time of tourniquet, over. 1715."
+  ]
+ },
+ "notes": "Left leg tourniquet time 1715. Evac category A. 'IV IM IO priority 2' mentioned but no medication, dose, route, or evac detail clear.",
+ "flags": [
+  "Tourniquet type not stated",
+  "No casualty identity or injury details",
+  "Unclear phrase: IV IM IO priority 2"
+ ]
+}

@@ -50,3 +50,22 @@ pipeline's own inference (speech-to-text and card extraction), under a hard spen
 - The unit-name list in the prompt is general knowledge, but I wrote it after seeing units in the answer key, so
   the held-out score on that one field is slightly flattered.
 - Every prompt rule was written from errors on the 25 tuning recordings; the held-out 25 were run once at the end.
+
+## Later rounds: broad benchmarks, and the bugs they exposed
+
+- **Benchmarks at scale.** 19 speech models, 4 denoisers and 14 card models, each scored against the answer key.
+  The data overturned two of my own assumptions: denoising (which seemed obviously useful) made noisy audio worse,
+  and GPT-6.1 Terra (best value on the tuning set) fell behind Gemini on the locked-away set. The held-out split is
+  what caught that.
+- **Statistics before claims.** I added 95% intervals by resampling cards. It showed the top six card models were
+  tied, so the choice became cost and safety, and it confirmed the second listen as a real gain (+0.2 to +2.8).
+- **Bugs found by checking real outputs:**
+  - Deepgram and Meta "failed" only because they reject 48 kHz or large files; resending at 16 kHz fixed it, and
+    Deepgram then got a fair (low) score.
+  - Credit was reserved for every request in flight; with jobs in parallel and no output limit on reasoning
+    models, requests were refused and showed up as blank cards (scores of 77% that were really 92%). Fixed with
+    output limits, one job at a time, and waiting before retries.
+  - The report crashed when a model made up zero values (a missing counter), hiding two models' scores.
+  - The evidence check dropped correct values when a model returned a value without its quote; it now checks the
+    value's own words and digits against the transcript.
+  - Times written "10/12" were rejected after an earlier fix taught the checker that "/" means blood pressure.

@@ -1,0 +1,138 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "mechanism_artillery": [
+   true,
+   "hit by indirect fire artillery into the FOB"
+  ],
+  "tq_junctional": [
+   true,
+   "Sam junctional tourniquet on the right groin"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Wound packed with Celox"
+  ],
+  "gender_f": [
+   true,
+   "Female"
+  ],
+  "battle_roster": [
+   "CD1975",
+   "Battle roster Charlie Delta 1975"
+  ],
+  "service": [
+   "RAF",
+   "RAF"
+  ],
+  "unit": [
+   "2 Squadron RAF Regiment",
+   "Two Squadron RAF Regiment"
+  ],
+  "time": [
+   "0740",
+   "at 0740"
+  ],
+  "signs_1_time": [
+   "0750",
+   "Obs at 0750"
+  ],
+  "signs_1_pulse": [
+   "132 radial",
+   "Pulse 132 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "84",
+   "BP 84/50"
+  ],
+  "signs_1_bp_diastolic": [
+   "50",
+   "BP 84/50"
+  ],
+  "signs_1_resp_rate": [
+   "28",
+   "Resps 28"
+  ],
+  "signs_1_spo2": [
+   "95",
+   "Sats 95"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "Responds to voice"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "Pain 8"
+  ],
+  "signs_2_time": [
+   "0810",
+   "Repeat obs at 0810"
+  ],
+  "signs_2_pulse": [
+   "118 radial",
+   "Pulse 118 radial"
+  ],
+  "signs_2_bp_systolic": [
+   "96",
+   "BP 96/60"
+  ],
+  "signs_2_bp_diastolic": [
+   "60",
+   "BP 96/60"
+  ],
+  "signs_2_resp_rate": [
+   "24",
+   "Resps 24"
+  ],
+  "signs_2_spo2": [
+   "96",
+   "Sats 96"
+  ],
+  "signs_2_avpu": [
+   "V - Verbal",
+   "Still responds to voice"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "Two grams of TXA IV"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "Two grams of TXA IV"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "TXA IV"
+  ],
+  "other_med_1_time": [
+   "0750",
+   "at 0750"
+  ],
+  "blood_1_name": [
+   "freeze-dried plasma",
+   "one unit of freeze-dried plasma IV"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "one unit of freeze-dried plasma"
+  ],
+  "blood_1_route": [
+   "IV",
+   "freeze-dried plasma IV"
+  ],
+  "blood_1_time": [
+   "0800",
+   "at 0800"
+  ]
+ },
+ "notes": "Injuries: right groin (high): shrapnel wound; SAM junctional tourniquet right groin 0748; wound packed with Celox first; indirect fire artillery into FOB; first-obs radial pulse described as weak; no casualty name or last four stated (battle roster CD1975 only)",
+ "flags": [
+  "Casualty name and last four not stated - confirm identity against battle roster CD1975",
+  "Junctional tourniquet time 0748 has no dedicated field - held in notes",
+  "Radial pulse weak on first obs - confirm perfusion/shock status"
+ ]
+}

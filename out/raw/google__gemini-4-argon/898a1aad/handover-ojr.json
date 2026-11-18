@@ -1,0 +1,74 @@
+{
+ "fields": {
+  "date": [
+   "02-NOV-26",
+   "date 2 November 2026"
+  ],
+  "gender_m": [
+   true,
+   "Casualty is male"
+  ],
+  "battle_roster": [
+   "TB2251",
+   "battle roster Tango Bravo 2251"
+  ],
+  "mechanism_gsw": [
+   true,
+   "Gunshot wound left calf"
+  ],
+  "time": [
+   "1400",
+   "Gunshot wound left calf at 1400"
+  ],
+  "signs_1_pulse": [
+   "110 radial",
+   "Pulse 110 radial"
+  ],
+  "tq_extremity": [
+   true,
+   "Tourniquet on at 1405. It's a SOFTT-W left leg"
+  ],
+  "tq_left_leg_time": [
+   "1405",
+   "Tourniquet on at 1405"
+  ],
+  "tq_left_leg_type": [
+   "SOFTT-W",
+   "It's a SOFTT-W left leg"
+  ],
+  "signs_1_time": [
+   "1410",
+   "obs at 1410"
+  ],
+  "signs_1_bp_systolic": [
+   "120",
+   "BP 120 over 75"
+  ],
+  "signs_1_bp_diastolic": [
+   "75",
+   "BP 120 over 75"
+  ],
+  "signs_1_resp_rate": [
+   "20",
+   "resps 20"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "He's alert"
+  ],
+  "signs_1_spo2": [
+   "97",
+   "Sats 97"
+  ],
+  "signs_1_pain": [
+   "5 Very Distress",
+   "pain 5"
+  ],
+  "evac_priority": [
+   true,
+   "priority"
+  ]
+ },
+ "notes": "Injuries: left calf: GSW; grid 947312; call sign 32 Bravo",
+ "flags": []
+}

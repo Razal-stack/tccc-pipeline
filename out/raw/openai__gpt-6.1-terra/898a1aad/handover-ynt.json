@@ -1,0 +1,73 @@
+{
+ "fields": {
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "service": [
+   "Royal Marines",
+   "Royal Marines"
+  ],
+  "unit": [
+   "43 Commando",
+   "43 Commando"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED"
+  ],
+  "time": [
+   "0440",
+   "time of wounding 4:40"
+  ],
+  "breathing_chest_seal": [
+   true,
+   "vented chest seal on the left chest"
+  ],
+  "breathing_needle_d": [
+   true,
+   "needle decompression on the left at 0452"
+  ],
+  "breathing_o2": [
+   true,
+   "oxygen on"
+  ],
+  "signs_1_time": [
+   "0455",
+   "OBS at 0455"
+  ],
+  "signs_1_pulse": [
+   "128 radial",
+   "radial pulse 128"
+  ],
+  "signs_1_resp_rate": [
+   "32",
+   "resps 32"
+  ],
+  "signs_1_spo2": [
+   "89",
+   "sats 89"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "responds to voice"
+  ],
+  "evac_urgent": [
+   true,
+   "no upgrade that evac urgent"
+  ],
+  "first_responder_name": [
+   "Day, Pin",
+   "Corporal Day PIN"
+  ],
+  "first_responder_last4": [
+   "3370",
+   "last four 3370"
+  ]
+ },
+ "notes": "Injuries: left chest: penetrating fragment wound; left hand: burns; vented chest seal on left chest; left needle decompression at 0452. Battle roster spoken as Sierra Papa 22241, corrected to 22214.",
+ "flags": [
+  "Corrected battle roster has five digits; confirm.",
+  "Confirm first responder's name: Day PIN."
+ ]
+}

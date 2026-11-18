@@ -1,0 +1,22 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Cat A EVAC. EVAC category? A."
+  ],
+  "tq_extremity": [
+   true,
+   "left leg tourniquet"
+  ],
+  "tq_left_leg_time": [
+   "1715",
+   "1715"
+  ]
+ },
+ "notes": "TQ left leg time 1715; priority 2 also stated; no injury location described.",
+ "flags": [
+  "TQ type not stated",
+  "Confirm priority 2 vs Cat A evac category",
+  "No injury location described"
+ ]
+}

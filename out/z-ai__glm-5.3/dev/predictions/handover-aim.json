@@ -38,7 +38,7 @@
  "splint": false,
  "hypothermia_prevention": false,
  "battle_roster": "",
- "name": "Carr, Jazz",
+ "name": "Carr, Jas",
  "last4": "8336",
  "date": "03-NOV-26",
  "time": "2040",
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Injuries: left forearm: fragment wound; tourniquet mentioned but retracted (\"that's the other casualty\") \u2014 pressure dressing only, no tourniquet on this casualty",
+ "notes": "Injuries: left forearm: fragment wound; pressure dressing only; tourniquet mention retracted (other casualty)",
  "injury_boxes": [
   "Ant_Left_Middle_Lateral_Forearm",
   "Ant_Left_Middle_Medial_Forearm"

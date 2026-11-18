@@ -1,0 +1,44 @@
+{
+ "fields": {
+  "name": [
+   "Morgan, Lewis",
+   "Name's Private Morgan, er, Lewis"
+  ],
+  "time": [
+   "1722",
+   "he's been hit IED just now. Er, it was, it was 17:22"
+  ],
+  "mechanism_ied": [
+   true,
+   "he's been hit IED"
+  ],
+  "evac_urgent": [
+   true,
+   "Urgent, urgent"
+  ],
+  "tq_extremity": [
+   true,
+   "left leg's gone above the knee. I've got a CAT on it high and tight"
+  ],
+  "tq_left_leg_type": [
+   "CAT",
+   "I've got a CAT on it high and tight"
+  ],
+  "tq_left_leg_time": [
+   "1724",
+   "I've got a CAT on it high and tight. 17:24"
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "Carotid about 140"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "He's only responding to pain"
+  ]
+ },
+ "notes": "Injuries: left leg above knee: traumatic amputation; pulse thready and approximately 140; breathing fast, described as '30 odds'; casualty's last four unknown.",
+ "flags": [
+  "Confirm respiratory rate; '30 odds' is imprecise"
+ ]
+}

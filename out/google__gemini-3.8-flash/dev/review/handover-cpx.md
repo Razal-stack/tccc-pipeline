@@ -1,4 +1,7 @@
-# handover-cpx
+# handover-cpx.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
 - nothing flagged
@@ -26,7 +29,14 @@
 - analgesic_1_dose: 25 mg
 - analgesic_1_route: IM
 - analgesic_1_time: 1810
-- notes: Injuries: right hip: painful, unable to weight bear; fentanyl withheld due to morphine allergy
+- notes: Injuries: right hip: painful, cannot weight bear; fell ~3m off vehicle into wadi; fentanyl withheld due to reported morphine allergy
+- injury_boxes: Left_Hip
 
 ## Transcript
+You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
+
+TRANSCRIPT A (medical speech model):
 Fentanyl's not been given. I'm allergic to morphine and that. Yeah, he's saying he's allergic to morphine, so I've held the fentanyl. Given ketamine 25 mg IM at 18:10 instead. Mechanism: fell off the vehicle into a wadi about 3 meters about 17:50. Painful right hip, can't weight bear. Lance Corporal Ellis Jack male last four nine one zero four Army I Mercian. OBS at 1805 pulse 96 radial BP 138 over 88 RR 18 sats 98 alert pain 8 EVAC priority. Today's fourth of November 2026.
+
+TRANSCRIPT B (second listen):
+Fentanyl's not been given. I'm allergic to morphine and that. Yeah, he's saying he's allergic to morphine, so I've held the fentanyl. Given ketamine, 25 milligrams IM at 1810 instead. Mechanism, fell off the vehicle into a wadi, about three meters, about 1750. Painful right hip, can't weight bear. Lance Corporal Ellis, Jack, male, last four nine one zero four, Army, one Mercian. OBS at 1805, pulse 96 radial, BP 138 over 88, resp is 18, sats 98, alert, pain eight. Evac priority. Today's fourth of November, 2026.

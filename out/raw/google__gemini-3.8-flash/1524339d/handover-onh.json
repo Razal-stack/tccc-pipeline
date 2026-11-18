@@ -1,0 +1,132 @@
+{
+ "fields": {
+  "date": [
+   "29-OCT-26",
+   "29 October 2026"
+  ],
+  "time": [
+   "2115",
+   "2115"
+  ],
+  "mechanism_burn": [
+   true,
+   "Fuel fire"
+  ],
+  "name": [
+   "Price, Owen",
+   "Price Owen"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "last4": [
+   "9931",
+   "9931"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "dressing_other": [
+   true,
+   "cling film"
+  ],
+  "dressing_type": [
+   "cling film",
+   "cling film"
+  ],
+  "signs_1_time": [
+   "2128",
+   "2128"
+  ],
+  "signs_1_pulse": [
+   "120 radial",
+   "Radial pulse 120"
+  ],
+  "signs_1_bp_systolic": [
+   130,
+   "130"
+  ],
+  "signs_1_bp_diastolic": [
+   85,
+   "85"
+  ],
+  "signs_1_resp_rate": [
+   24,
+   "24"
+  ],
+  "signs_1_spo2": [
+   96,
+   "96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "Pain 8 out of 10"
+  ],
+  "fluid_1_name": [
+   "Plasma-Lyte",
+   "Plasma-Lyte"
+  ],
+  "fluid_1_volume": [
+   "1 L",
+   "One liter"
+  ],
+  "fluid_1_route": [
+   "IV",
+   "Plasma-Lyte 4"
+  ],
+  "fluid_1_time": [
+   "2135",
+   "2135"
+  ],
+  "analgesic_1_name": [
+   "morphine",
+   "Morphine"
+  ],
+  "analgesic_1_dose": [
+   "5 mg",
+   "5 mg"
+  ],
+  "analgesic_1_route": [
+   "IV",
+   "IV"
+  ],
+  "analgesic_1_time": [
+   "2132",
+   "2132"
+  ],
+  "allergies": [
+   "NKA",
+   "No known allergies"
+  ],
+  "hypothermia_prevention": [
+   true,
+   "blizzard blanket"
+  ],
+  "hypothermia_prevention_type": [
+   "blizzard blanket",
+   "blizzard blanket"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "first_responder_name": [
+   "Grant, Ali",
+   "Grant Ali"
+  ],
+  "first_responder_last4": [
+   "7036",
+   "7036"
+  ]
+ },
+ "notes": "Injuries: both forearms: partial and full thickness burns; front of chest: partial and full thickness burns; approximately 20% TBSA burns from fuel fire",
+ "flags": [
+  "unrecognized unit: Royal Army detachment / RMA detachment"
+ ]
+}

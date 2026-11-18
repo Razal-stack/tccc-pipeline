@@ -1,0 +1,14 @@
+{
+ "fields": {
+  "signs_1_spo2": [
+   "95",
+   "Sachs 95"
+  ]
+ },
+ "notes": "Time 0405 stated, but its context is unclear; '36 for 22' unclear.",
+ "flags": [
+  "Confirm what 0405 refers to",
+  "Clarify '36 for 22'",
+  "Confirm 'Sachs 95' means oxygen saturation"
+ ]
+}

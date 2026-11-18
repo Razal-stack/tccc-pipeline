@@ -1,0 +1,130 @@
+{
+ "fields": {
+  "battle_roster": [
+   "PK6009",
+   "battle roster Papa Kilo 6009"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "service": [
+   "Army",
+   "army"
+  ],
+  "unit": [
+   "1 Rifles",
+   "1 Rifles"
+  ],
+  "time": [
+   "0650",
+   "6:15 wait correction 6:50"
+  ],
+  "mechanism_artillery": [
+   true,
+   "mechanism artillery"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT on the left thigh"
+  ],
+  "tq_left_leg_type": [
+   "CAT",
+   "CAT on the left thigh"
+  ],
+  "tq_left_leg_time": [
+   "0655",
+   "6:55"
+  ],
+  "signs_1_time": [
+   "0700",
+   "obs at 0700"
+  ],
+  "signs_1_pulse": [
+   "120 radial",
+   "radial pulse 120"
+  ],
+  "signs_1_bp_systolic": [
+   "104",
+   "BP 104 over 66"
+  ],
+  "signs_1_bp_diastolic": [
+   "66",
+   "BP 104 over 66"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resps 24"
+  ],
+  "signs_1_spo2": [
+   "95",
+   "sats 95"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "pain 8"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "hemostatic gauze"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA-IV"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "TXA-IV"
+  ],
+  "other_med_1_time": [
+   "0705",
+   "0705"
+  ],
+  "signs_2_time": [
+   "0715",
+   "obs at 0715"
+  ],
+  "signs_2_pulse": [
+   "108 radial",
+   "radial pulse 108"
+  ],
+  "signs_2_bp_systolic": [
+   "112",
+   "BP 112 over 70"
+  ],
+  "signs_2_bp_diastolic": [
+   "70",
+   "BP 112 over 70"
+  ],
+  "signs_2_resp_rate": [
+   "20",
+   "resps 20"
+  ],
+  "signs_2_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_2_pain": [
+   "6 Intense",
+   "pain 6"
+  ],
+  "evac_urgent": [
+   true,
+   "evac urgent"
+  ]
+ },
+ "notes": "Injuries: left buttock: fragmentation wounds; left thigh: fragmentation wounds",
+ "flags": []
+}

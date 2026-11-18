@@ -51,11 +51,11 @@
  "tq_left_arm_type": "",
  "tq_left_arm_time": "",
  "tq_right_leg_type": "CAT",
- "tq_right_leg_time": "",
+ "tq_right_leg_time": "1235",
  "tq_left_leg_type": "",
  "tq_left_leg_time": "",
  "signs_1_time": "1240",
- "signs_1_pulse": "130 carotid",
+ "signs_1_pulse": "140 carotid",
  "signs_1_bp_systolic": "",
  "signs_1_bp_diastolic": "",
  "signs_1_resp_rate": "30",
@@ -137,12 +137,9 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "Byrne, Tom",
  "first_responder_last4": "1662",
- "notes": "Injuries: right leg: traumatic amputation above the knee; second right-leg tourniquet applied at 1235, type not stated; MERT requested.",
+ "notes": "Injuries: right leg above knee: traumatic amputation; time now 1240; second tourniquet on right leg applied at about 1230; no radial found; MERT requested.",
  "injury_boxes": [
-  "Ant_Right_Knee",
-  "Ant_Right_Middle_Lateral_Lower_Leg",
-  "Ant_Right_Middle_Lateral_Thigh",
-  "Ant_Right_Middle_Medial_Lower_Leg",
-  "Ant_Right_Middle_Medial_Thigh"
+  "Ant_Right_Distal_Lateral_Thigh",
+  "Ant_Right_Distal_Medial_Thigh"
  ]
 }

@@ -137,6 +137,6 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Medication handover only; no injuries, patient identity, mechanism or vitals stated. 'TXL' interpreted as TXA; no route stated for either TXA dose. Fentanyl lozenge dose not stated. 'Moxie' interpreted as moxifloxacin; 'same time' refers to 0855.",
+ "notes": "Medication handover only; no injuries, vitals or casualty identification stated. 'Same time' for moxy refers to the fentanyl lozenge time 0855. No other medications reported.",
  "injury_boxes": []
 }

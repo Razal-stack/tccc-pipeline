@@ -2,66 +2,65 @@
 
 Cards scored: 25 (25 with predictions)
 
-F1 on filled fields:      92.5%  (precision 95.8%, recall 89.4%)
-Safety-critical fields:   96.4%  (precision 98.5%, recall 94.4%)
+F1 on filled fields:      93.8%  (precision 97.6%, recall 90.4%; 95% interval 88.9% to 96.9%)
+Safety-critical fields:   96.8%  (precision 98.6%, recall 95.1%)
 Invented values:          2 total, 0.08 per card
 Injury boxes F1:          80.5%
-Naive field accuracy:     98.4%  (an empty card scores 85.7%)
+Naive field accuracy:     98.6%  (an empty card scores 85.7%)
 
 | Group | F1 | Precision | Recall | Correct | Wrong | Invented | Missed |
 |---|---|---|---|---|---|---|---|
-| identity | 85.4% | 90.9% | 80.5% | 120 | 12 | 0 | 17 |
-| treatments | 88.9% | 96.6% | 82.4% | 28 | 1 | 0 | 5 |
+| treatments | 87.1% | 96.4% | 79.4% | 27 | 1 | 0 | 6 |
+| identity | 89.5% | 96.9% | 83.2% | 124 | 4 | 0 | 21 |
 | mechanism | 93.9% | 92.0% | 95.8% | 23 | 0 | 2 | 1 |
-| vital_signs | 94.3% | 97.5% | 91.2% | 156 | 4 | 0 | 11 |
+| vital_signs | 94.9% | 97.5% | 92.4% | 158 | 4 | 0 | 9 |
 | evac | 97.7% | 100.0% | 95.5% | 21 | 0 | 0 | 1 |
 | tourniquets | 100.0% | 100.0% | 100.0% | 27 | 0 | 0 | 0 |
 | medications | 100.0% | 100.0% | 100.0% | 62 | 0 | 0 | 0 |
 
 ## Where the errors come from
 
-- extraction: 26
-- transcription: 26
+- extraction: 29
+- transcription: 18
 - invented: 2
 
 ## Kinds of problem
 
-- left blank: 35
-- wrong value: 7
-- name/unit spelling: 6
+- left blank: 38
 - digit off: 4
+- wrong value: 4
 - made up: 2
+- name/unit spelling: 1
 
 ## Errors by group and stage
 
-- identity / transcription: 17
-- identity / extraction: 12
-- vital_signs / transcription: 8
-- vital_signs / extraction: 7
-- treatments / extraction: 5
+- identity / extraction: 14
+- identity / transcription: 11
+- treatments / extraction: 7
+- vital_signs / transcription: 7
+- vital_signs / extraction: 6
 - mechanism / invented: 2
 - evac / extraction: 1
 - mechanism / extraction: 1
-- treatments / transcription: 1
 
 ## Every error
 
 | file | field | stage | kind | predicted | truth |
 |---|---|---|---|---|---|
 | ato | breathing_chest_seal | extraction | left blank | False | True |
-| cjp | battle_roster | transcription | wrong value | VA62119 | VA6119 |
-| dgf | signs_2_avpu | extraction | left blank |  | A - Alert |
-| fox | battle_roster | transcription | wrong value | RE88206 | RE8826 |
-| inj | time | transcription | digit off | 2050 | 2015 |
+| cjp | battle_roster | extraction | left blank |  | VA6119 |
+| fox | battle_roster | extraction | left blank |  | RE8826 |
+| inj | name | extraction | left blank |  | Khan, Imran |
+| inj | time | transcription | left blank |  | 2015 |
 | inj | first_responder_name | extraction | name/unit spelling | Quinn, Joe | Quinn, Jo |
-| jso | last4 | transcription | left blank |  | 4062 |
+| jso | last4 | transcription | digit off | 4962 | 4062 |
+| jso | combat_pill_pack | extraction | left blank | False | True |
 | jso | splint | extraction | left blank | False | True |
-| jso | first_responder_name | extraction | name/unit spelling | Dunn | Dunn, Ross |
+| jso | first_responder_last4 | extraction | left blank |  | 3855 |
 | kdb | evac_priority | extraction | left blank | False | True |
 | kdb | name | transcription | left blank |  | Reid, Fiona |
 | kdb | last4 | transcription | left blank |  | 6363 |
 | kdb | gender_f | extraction | left blank | False | True |
-| kdb | time | extraction | left blank |  | 0405 |
 | kdb | service | transcription | left blank |  | Army |
 | kdb | unit | transcription | left blank |  | 29 Commando Royal Artillery |
 | kdb | mechanism_artillery | extraction | left blank | False | True |
@@ -70,35 +69,30 @@ Naive field accuracy:     98.4%  (an empty card scores 85.7%)
 | kdb | signs_1_bp_systolic | transcription | left blank |  | 112 |
 | kdb | signs_1_bp_diastolic | transcription | left blank |  | 70 |
 | kdb | signs_1_resp_rate | extraction | left blank |  | 22 |
-| kdb | signs_1_avpu | transcription | left blank |  | A - Alert |
+| kdb | signs_1_spo2 | extraction | left blank |  | 95 |
+| kdb | signs_1_avpu | extraction | left blank |  | A - Alert |
 | kdb | signs_1_pain | extraction | left blank |  | 6 Intense |
 | kdb | dressing_hemostatic | extraction | left blank | False | True |
 | kdb | dressing_pressure | extraction | left blank | False | True |
-| lrh | date | transcription | left blank |  | 01-NOV-26 |
 | nwd | time | transcription | left blank |  | 1500 |
 | oeu | time | transcription | left blank |  | 1910 |
-| oeu | unit | extraction | left blank |  | Signals det |
 | oeu | mechanism_burn | invented | made up | True | False |
 | oeu | signs_1_avpu | transcription | wrong value | A - Alert | V - Verbal |
-| oeu | dressing_type | transcription | wrong value | clingfilm | cling film |
-| onh | unit | extraction | name/unit spelling | Royal Army detachment | REME detachment |
-| onh | signs_1_avpu | extraction | left blank |  | A - Alert |
+| oeu | dressing_type | extraction | wrong value | clingfilm | cling film |
+| onh | unit | extraction | left blank |  | REME detachment |
+| oqx | time | extraction | left blank |  | 1615 |
 | pma | time | transcription | digit off | 1305 | 1306 |
-| riq | last4 | transcription | left blank |  | 5290 |
-| riq | gender_m | extraction | left blank | False | True |
 | riq | time | transcription | left blank |  | 2100 |
 | riq | signs_1_spo2 | transcription | digit off | 94 | 95 |
-| riq | signs_1_avpu | extraction | left blank |  | A - Alert |
-| riq | first_responder_name | extraction | name/unit spelling | Weed, Cal | Reid, Cal |
+| riq | first_responder_name | extraction | left blank |  | Reid, Cal |
 | rtw | signs_1_time | transcription | left blank |  | 1500 |
+| ubn | name | extraction | left blank |  | Ahmed, Sara |
 | vbf | gender_m | extraction | left blank | False | True |
-| xbf | last4 | transcription | left blank |  | 3620 |
-| xbf | date | transcription | wrong value | 31-OCT-26 | 30-OCT-26 |
+| xbf | last4 | extraction | left blank |  | 3620 |
+| xbf | date | extraction | wrong value | 31-OCT-26 | 30-OCT-26 |
 | xqu | signs_1_pulse | extraction | wrong value | 104 | 104 radial |
 | xqu | combat_pill_pack | extraction | left blank | False | True |
-| xqu | first_responder_name | extraction | name/unit spelling | Guru, Raj | Gurung, Raj |
+| xqu | first_responder_name | extraction | left blank |  | Gurung, Raj |
 | xqu | first_responder_last4 | transcription | left blank |  | 9501 |
 | xts | signs_1_resp_rate | extraction | digit off | 18 | 16 |
-| ynt | battle_roster | extraction | wrong value | SP22214 | SP2214 |
 | ynt | mechanism_burn | invented | made up | True | False |
-| ynt | first_responder_name | extraction | name/unit spelling | Day | Day, Finn |

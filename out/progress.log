@@ -1,0 +1,28 @@
+21:09:24 | spend $3.30 | START queue
+21:10:57 | spend $3.65 | voice done: meta/muse-voice-transcribe-1.0 (28 errors)
+21:10:58 | spend $3.67 | voice done: qwen/qwen3.8-omni-flash (0 errors)
+21:12:50 | spend $3.76 | voice done: google/gemini-3.8-flash (0 errors)
+21:15:08 | spend $3.98 | voice done: google/gemini-4-argon (2 errors)
+21:15:47 | spend $3.98 | voice done: openai/gpt-audio-mini (0 errors)
+21:17:28 | spend $3.98 | voice done: xiaomi/mimo-v2.6-flash (0 errors)
+21:18:42 | spend $4.09 | voice done: meta/muse-ember (0 errors)
+21:18:55 | spend $4.09 | denoise done: deepfilternet (0 errors)
+21:18:59 | spend $4.09 | denoise done: demucs (0 errors)
+21:24:36 | spend $4.45 | card model done: qwen/qwen3.8-max-0902 | F1 on filled fields:      87.7%  (precision 95.3%, recall 81
+21:32:07 | spend $4.62 | card model done: qwen/qwen3.8-flash | 
+21:34:53 | spend $4.90 | card model done: qwen/qwen3.8-27b | 
+21:36:29 | spend $5.16 | card model done: z-ai/glm-5.3 | F1 on filled fields:      94.6%  (precision 95.6%, recall 93
+21:37:31 | spend $5.39 | card model done: z-ai/glm-5.3-flash | F1 on filled fields:      93.5%  (precision 96.1%, recall 91
+21:37:46 | STOPPED to reorder: cheap models first
+21:38:00 | spend $5.41 | START queue (cheap card models first)
+21:39:09 | spend $5.59 | card model done: deepseek/deepseek-v4.1-flash | F1 on filled fields:      95.0%  (precision 95.6%, recall 94
+21:47:54 | spend $6.13 | card model done: mistralai/mistral-large-4-0 | F1 on filled fields:      76.9%  (precision 95.8%, recall 64
+21:47:54 | spend $6.13 | card model done: minimax/minimax-m3 | budget cap reached: $6.12 used of $6.00 (set TCCC_BUDGET_USD
+21:47:55 | spend $6.13 | STOPPED: budget cap reached
+21:47:55 | spend $6.13 | QUEUE FINISHED
+22:21:37 | spend $6.18 | START final steps
+22:22:02 | spend $6.21 | held-out done: openai/gpt-6.1-terra | F1 on filled fields:      77.4%  (precision 96.1%, recall 64.8%) Safety-critical fields:   79.7%  (precision 96.5%, recall 67.8%) 
+22:22:37 | spend $6.38 | held-out done: google/gemini-4-argon | F1 on filled fields:      78.1%  (precision 95.6%, recall 66.1%) Safety-critical fields:   80.9%  (precision 96.6%, recall 69.6%) 
+22:24:16 | spend $6.47 | voice retry done: meta/muse-voice-transcribe-1.0 (14 errors)
+22:24:24 | spend $6.48 | voice retry done: google/gemini-4-argon (0 errors)
+22:24:24 | spend $6.48 | FINAL STEPS FINISHED

@@ -15,8 +15,12 @@
 - date: 28-OCT-26
 - service: Army
 - unit: 2 Medical Regiment
-- notes: Injuries: left ankle: twisted; fell down stairs in accommodation block; walking wounded; time of injury unknown
+- notes: Injuries: left ankle: twisted; walking wounded
 - injury_boxes: Ant_Left_Ankle
 
 ## Transcript
+TRANSCRIPT A (medical speech model):
 This is Private Singh Priya female last four one two one two Army 2 Medical Regiment fell down the stairs in the accommodation block on 28th October 2026 no time given twisted left ankle walking wounded routine
+
+TRANSCRIPT B (second listen):
+This is Private Singh, Priya, female, last four one two one two, Army Two Medical Regiment. Fell down the stairs in the accommodation block on 28th of October, 2026. No time given. Twisted left ankle, walking wounded, routine.

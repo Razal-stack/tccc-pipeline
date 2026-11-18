@@ -1,0 +1,26 @@
+{
+ "fields": {
+  "airway_npa": [
+   true,
+   "an NPA"
+  ],
+  "signs_1_pulse": [
+   "48 carotid",
+   "Pulse 48 carotid"
+  ],
+  "signs_1_resp_rate": [
+   "6",
+   "Breathing 6 snoring"
+  ],
+  "signs_1_avpu": [
+   "U - Unresp",
+   "found unconscious in the rubble. Can't tell if it's one of ours. No ID tags. Doesn't respond to anything"
+  ]
+ },
+ "notes": "time found 0215; found unconscious in rubble; no ID tags; snoring respirations; jaw thrust; no obvious bleeding",
+ "flags": [
+  "Unknown casualty, no ID tags",
+  "Mechanism of injury unconfirmed (found in rubble)",
+  "Time of injury unknown (found at 0215)"
+ ]
+}

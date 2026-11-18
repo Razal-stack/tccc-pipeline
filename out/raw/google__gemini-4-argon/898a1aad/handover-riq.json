@@ -1,0 +1,78 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "priority maybe urgent I'd say urgent"
+  ],
+  "gender_m": [
+   true,
+   "So this lad"
+  ],
+  "name": [
+   "Scott, Ryan",
+   "Private Scott Ryan"
+  ],
+  "last4": [
+   "5290",
+   "last four five two nine nil"
+  ],
+  "unit": [
+   "3 Scots",
+   "three Scott"
+  ],
+  "allergies": [
+   "NKA",
+   "he's got no allergies"
+  ],
+  "mechanism_grenade": [
+   true,
+   "a frag to the chest from a grenade"
+  ],
+  "airway_intact": [
+   true,
+   "he's talking to me"
+  ],
+  "breathing_chest_seal": [
+   true,
+   "put a vented chest seal on it"
+  ],
+  "signs_1_spo2": [
+   "90",
+   "sats were 90"
+  ],
+  "signs_2_pulse": [
+   "110 radial",
+   "pulse 110 radial"
+  ],
+  "signs_2_resp_rate": [
+   "28",
+   "his breathing's it's about 28"
+  ],
+  "signs_2_spo2": [
+   "94",
+   "now they're 94 after the seal"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "he's talking to me so a lot"
+  ],
+  "signs_2_pain": [
+   "7 Very Intense",
+   "pain he says he's seven"
+  ],
+  "first_responder_name": [
+   "Weed, Cal",
+   "Corporal Weed Cal"
+  ],
+  "first_responder_last4": [
+   "7420",
+   "last four seven four two zero"
+  ]
+ },
+ "notes": "Injuries: left chest: sucking fragment wound; time of injury ~21:xx (garbled '21 Solon maybe a bit after'); vented chest seal applied; no BP cuff available; first responder surname possibly Reid (heard as 'Weed')",
+ "flags": [
+  "Time of injury garbled ('21 Solon maybe a bit after') - confirm exact time",
+  "No blood pressure recorded (no cuff available)",
+  "Confirm first responder surname ('Weed' vs Reid)"
+ ]
+}

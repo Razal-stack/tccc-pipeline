@@ -1,0 +1,12 @@
+{
+ "fields": {
+  "evac_urgent": true,
+  "tq_left_leg_time": "1715",
+  "tq_extremity": true
+ },
+ "notes": "Injuries: left leg: tourniquet applied; MIST handover: Cat A, priority 2, IV IM IO",
+ "flags": [
+  "Tourniquet type not stated",
+  "MIST handover fragmentary: injuries, vitals and treatments not stated"
+ ]
+}

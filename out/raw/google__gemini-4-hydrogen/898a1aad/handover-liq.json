@@ -1,0 +1,89 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Category urgent"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_landmine": [
+   true,
+   "stood on a landmine"
+  ],
+  "tq_extremity": [
+   true,
+   "Two tourniquets on the right leg"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Wound packed with Celox"
+  ],
+  "battle_roster": [
+   "LH3088",
+   "battle roster Lima Hotel 3088"
+  ],
+  "name": [
+   "Hughes",
+   "Corporal Hughes"
+  ],
+  "time": [
+   "1110",
+   "time of wounding 1110"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "a second CAT just below it at 1106"
+  ],
+  "tq_right_leg_time": [
+   "1106",
+   "at 1106"
+  ],
+  "signs_1_time": [
+   "1115",
+   "That's at 1115"
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "Pulse 140 carotid"
+  ],
+  "signs_1_resp_rate": [
+   "32",
+   "resps 32"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responds to pain only"
+  ],
+  "blood_1_name": [
+   "whole blood",
+   "whole blood"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "One unit"
+  ],
+  "blood_1_route": [
+   "IO",
+   "through the IO"
+  ],
+  "blood_1_time": [
+   "1120",
+   "at 1120"
+  ],
+  "first_responder_name": [
+   "Rhys, Owen",
+   "Lance Corporal Rhys Owen"
+  ],
+  "first_responder_last4": [
+   "9044",
+   "last four 9044"
+  ]
+ },
+ "notes": "Injuries: right foot to mid-shin: gone, mangled; first CAT TQ high and tight on right leg at 1102; wound packed with Celox; no radial pulse and BP not recordable at 1115",
+ "flags": [
+  "Tourniquet times (1102, 1106) precede stated time of wounding (1110)",
+  "Confirm first responder name order (Rhys, Owen vs Owen, Rhys)"
+ ]
+}

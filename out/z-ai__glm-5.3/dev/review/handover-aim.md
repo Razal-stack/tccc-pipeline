@@ -1,14 +1,17 @@
-# handover-aim
+# handover-aim.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
-- Confirm no tourniquet on this casualty — tourniquet statement retracted
+- Confirm no tourniquet on this casualty — initial tourniquet statement was retracted
 
 ## Card
 - evac_routine: True
 - gender_f: True
 - mechanism_grenade: True
 - dressing_pressure: True
-- name: Carr, Jazz
+- name: Carr, Jas
 - last4: 8336
 - date: 03-NOV-26
 - time: 2040
@@ -22,7 +25,8 @@
 - signs_1_spo2: 98
 - signs_1_avpu: A - Alert
 - signs_1_pain: 5 Very Distress
-- notes: Injuries: left forearm: fragment wound; tourniquet mentioned but retracted ("that's the other casualty") — pressure dressing only, no tourniquet on this casualty
+- notes: Injuries: left forearm: fragment wound; pressure dressing only; tourniquet mention retracted (other casualty)
+- injury_boxes: Ant_Left_Middle_Lateral_Forearm, Ant_Left_Middle_Medial_Forearm
 
 ## Transcript
-Casualty is Private Carr Jazz female last 48336 RAF Tactical Medical Wing. Grenade at 2040 3 November 2026 fragment wound to the left forearm. Tourniquet on... No sorry ignore that that's the other casualty. Pressure dressing only on her obs at 2050 pulse 98 radial BP 122/80 resps 18 sats 98 alert pain 5 evac routine
+Casualty is Private Carr, Jas, female, last four eight three three six, RAF Tactical Medical Wing. Grenade at 2040, 3 November 2026, fragment wound to the left forearm. Tourniquet on... No, sorry, ignore that. That's the other casualty. Pressure dressing only on her. OBS at 2050, pulse 98 radial, BP 122 over 80. Resps 18, sats 98, alert, pain 5. Evac routine

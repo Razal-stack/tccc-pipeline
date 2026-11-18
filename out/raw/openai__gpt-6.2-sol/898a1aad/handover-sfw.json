@@ -1,0 +1,104 @@
+{
+ "fields": {
+  "name": [
+   "Collins, Dan",
+   "Private Collins, Dan"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "last4": [
+   "2771",
+   "last four two seven seven one"
+  ],
+  "unit": [
+   "2 Para",
+   "two Para"
+  ],
+  "mechanism_gsw": [
+   true,
+   "GSW"
+  ],
+  "time": [
+   "0515",
+   "0505 no 0515"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT right leg at 0518"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "CAT right leg at 0518"
+  ],
+  "tq_right_leg_time": [
+   "0518",
+   "CAT right leg at 0518"
+  ],
+  "signs_1_time": [
+   "0522",
+   "OBs at 0522"
+  ],
+  "signs_1_pulse": [
+   "112",
+   "pulse 112"
+  ],
+  "signs_1_bp_systolic": [
+   "118",
+   "BP 118"
+  ],
+  "signs_1_bp_diastolic": [
+   "76",
+   "over uh over 76"
+  ],
+  "signs_1_resp_rate": [
+   "22",
+   "resp is 22"
+  ],
+  "signs_1_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "pain 8"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "it was ketamine"
+  ],
+  "analgesic_1_dose": [
+   "50 mg",
+   "ketamine 50 mg"
+  ],
+  "analgesic_1_route": [
+   "IM",
+   "50 mg IM"
+  ],
+  "analgesic_1_time": [
+   "0525",
+   "IM at 0525"
+  ],
+  "evac_priority": [
+   true,
+   "priority"
+  ],
+  "first_responder_name": [
+   "Wade, Sam",
+   "From Lance Corporal Wade, Sam"
+  ],
+  "first_responder_last4": [
+   "8841",
+   "last four eight eight four one"
+  ]
+ },
+ "notes": "Injuries: right thigh: through-and-through GSW; left thigh mentioned before right thigh was repeated.",
+ "flags": [
+  "Confirm whether the left thigh was also injured."
+ ]
+}

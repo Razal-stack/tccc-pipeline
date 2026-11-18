@@ -1,0 +1,133 @@
+{
+ "fields": {
+  "battle_roster": [
+   "MT7703",
+   "battle roster Mike Tango 7703"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "Queen's Royal Hussars",
+   "Queen's Royal Hussars"
+  ],
+  "time": [
+   "1640",
+   "time of injury 1640"
+  ],
+  "mechanism_rpg": [
+   true,
+   "mechanism RPG"
+  ],
+  "signs_1_time": [
+   "1650",
+   "signs at 1650"
+  ],
+  "signs_1_pulse": [
+   "104 radial",
+   "radial pulse 104"
+  ],
+  "signs_1_bp_systolic": [
+   "128",
+   "BP 128 over 80"
+  ],
+  "signs_1_bp_diastolic": [
+   "80",
+   "BP 128 over 80"
+  ],
+  "signs_1_resp_rate": [
+   "22",
+   "resp 22"
+  ],
+  "signs_1_spo2": [
+   "97",
+   "sats 97"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "6 Intense",
+   "pain 6"
+  ],
+  "eye_shield": [
+   true,
+   "rigid eye shield over the right eye"
+  ],
+  "eye_shield_right": [
+   true,
+   "rigid eye shield over the right eye"
+  ],
+  "dressing_other": [
+   true,
+   "burns dressings to the hands"
+  ],
+  "dressing_type": [
+   "burns dressings",
+   "burns dressings to the hands"
+  ],
+  "combat_pill_pack": [
+   true,
+   "combat pill pack given"
+  ],
+  "fluid_1_name": [
+   "Hartmann's",
+   "1 liter Hartmann's IV at 1655"
+  ],
+  "fluid_1_volume": [
+   "1 L",
+   "1 liter Hartmann's IV at 1655"
+  ],
+  "fluid_1_route": [
+   "IV",
+   "1 liter Hartmann's IV at 1655"
+  ],
+  "fluid_1_time": [
+   "1655",
+   "1 liter Hartmann's IV at 1655"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "ketamine 20 mg IV at 1658"
+  ],
+  "analgesic_1_dose": [
+   "20 mg",
+   "ketamine 20 mg IV at 1658"
+  ],
+  "analgesic_1_route": [
+   "IV",
+   "ketamine 20 mg IV at 1658"
+  ],
+  "analgesic_1_time": [
+   "1658",
+   "ketamine 20 mg IV at 1658"
+  ],
+  "hypothermia_prevention": [
+   true,
+   "blizzard blanket on"
+  ],
+  "hypothermia_prevention_type": [
+   "blizzard blanket",
+   "blizzard blanket on"
+  ],
+  "evac_priority": [
+   true,
+   "EVAC priority"
+  ],
+  "first_responder_name": [
+   "Kelly, Dan",
+   "Lance Corporal Kelly Dan"
+  ]
+ },
+ "notes": "Injuries: face: burns; both hands: burns; right eye: penetrating injury; burn area roughly 18%; vehicle commander; RPG strike on vehicle with fire; first responder last four unclear: '222 and static 5'",
+ "flags": [
+  "first responder last four unclear: '222 and static 5'",
+  "confirm whether burn mechanism should be ticked as well as RPG"
+ ]
+}

@@ -4,7 +4,7 @@
 - nothing missing
 
 ## Check these
-- Verify whether left thigh also sustained injury or was corrected to right thigh
+- Unclear if left thigh is also injured or was a verbal slip corrected to right thigh
 
 ## Card
 - evac_priority: True
@@ -31,8 +31,12 @@
 - analgesic_1_time: 0525
 - first_responder_name: Wade, Sam
 - first_responder_last4: 8841
-- notes: Injuries: right thigh: through and through GSW; left thigh mentioned before correction to right thigh
+- notes: Injuries: right thigh: through and through GSW; left thigh also mentioned prior to right thigh
 - injury_boxes: Ant_Right_Middle_Lateral_Thigh, Ant_Right_Middle_Medial_Thigh
 
 ## Transcript
+TRANSCRIPT A (medical speech model):
 MIST Private, uh, Private Collins, Dan, male, last four two seven seven one two Para GSW at 0505 no 0515 left thigh right thigh right thigh through and through CAT right leg at 0518 OBs at 0522 pulse 112 BP 118 over uh over 76 resp is 22 sats 97 alert pain 8 morphine 10 IM sorry not morphine it was ketamine 50 mg IM at 0525 priority From Lance Corporal Wade, Sam, last four eight eight four one
+
+TRANSCRIPT B (second listen):
+MIST. Private, uh, Private Collins, Dan, male, last four 2771, 2 Para, GSW at 0505. No, 0515, left thigh, right thigh, through and through. Tourniquet right leg at 0518, OBs at 0522, pulse 112, BP 118 over, uh, over 76. Resp is 22, sats 97, alert, pain 8. Morphine 10 IM. Sorry, not morphine, it was ketamine. 50 milligrams IM at 0525. Priority. From Lance Corporal Wade, Sam, last four 8841.

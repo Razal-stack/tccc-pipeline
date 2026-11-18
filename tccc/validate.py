@@ -30,7 +30,7 @@ def label(field):
 def supported(value, evidence, transcript):
     """Evidence words mostly present in the transcript, and every number in the value said somewhere."""
     have = set(_words(transcript))
-    ev = _words(evidence or "")
+    ev = _words(evidence or value)  # no quote given: the value's own words and digits must be in the transcript
     sq = squash(transcript) + " " + squash(transcript.replace("/", ""))  # "10/12" can be a time (1012) or BP (10 over 12)
     if not ev or (sum(w in have for w in ev) / len(ev) < 0.7 and squash(evidence) not in sq):
         return False

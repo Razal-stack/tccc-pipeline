@@ -1,0 +1,97 @@
+{
+ "fields": {
+  "name": [
+   "Young, Chloe",
+   "Private Young, Chloe"
+  ],
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "B Company, 1 Rifles",
+   "B Company, 1 Rifles"
+  ],
+  "mechanism_landmine": [
+   true,
+   "pressure plate landmine"
+  ],
+  "time": [
+   "1010",
+   "landmine at 10:10"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "CAT on the right leg"
+  ],
+  "tq_right_leg_time": [
+   "1012",
+   "10:12"
+  ],
+  "tq_extremity": [
+   true,
+   "tourniquet"
+  ],
+  "signs_1_time": [
+   "1020",
+   "OBS at 10:20"
+  ],
+  "signs_1_pulse": [
+   "116 radial",
+   "pulse 116 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "108",
+   "BP 108 over 70"
+  ],
+  "signs_1_bp_diastolic": [
+   "70",
+   "BP 108 over 70"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resp 24"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "Sats 96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "She's alert"
+  ],
+  "signs_1_pain": [
+   "10 Unimaginable",
+   "Pain 10 out of 10"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "IV"
+  ],
+  "other_med_1_time": [
+   "1025",
+   "10:25"
+  ],
+  "evac_urgent": [
+   true,
+   "Urgent"
+  ]
+ },
+ "notes": "Injuries: right foot: badly damaged by landmine, heavy bleeding; second tourniquet considered but not applied; patrol about 3 hours out",
+ "flags": [
+  "Last four garbled ('last four 7 NURO 07') \u2014 could not extract; confirm casualty's last 4 digits",
+  "Confirm TXA is tranexamic acid and dose/route"
+ ]
+}

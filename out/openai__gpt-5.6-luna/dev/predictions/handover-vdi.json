@@ -16,7 +16,7 @@
  "mechanism_mvc": false,
  "mechanism_rpg": false,
  "mechanism_other": false,
- "tq_extremity": true,
+ "tq_extremity": false,
  "tq_junctional": false,
  "tq_truncal": false,
  "dressing_hemostatic": false,
@@ -53,7 +53,7 @@
  "tq_right_leg_type": "",
  "tq_right_leg_time": "",
  "tq_left_leg_type": "",
- "tq_left_leg_time": "1115",
+ "tq_left_leg_time": "",
  "signs_1_time": "",
  "signs_1_pulse": "",
  "signs_1_bp_systolic": "",
@@ -137,6 +137,6 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "TQ type not stated; medication and airway information garbled: \"mist 1 tablet IV arm air pocket of tube\"; evacuation category incomplete.",
+ "notes": "",
  "injury_boxes": []
 }

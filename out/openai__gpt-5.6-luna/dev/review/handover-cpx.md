@@ -1,7 +1,10 @@
-# handover-cpx
+# handover-cpx.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
-- Confirm casualty surname/given-name order and morphine allergy; verify respiratory rate transcription ('RR SPS 18').
+- nothing flagged
 
 ## Card
 - evac_priority: True
@@ -26,7 +29,8 @@
 - analgesic_1_dose: 25 mg
 - analgesic_1_route: IM
 - analgesic_1_time: 1810
-- notes: Injuries: right hip: painful, unable to weight bear; fell from vehicle into a wadi from approximately three metres; fentanyl withheld due to reported morphine allergy.
+- notes: Injuries: right hip: painful, can't weight bear; fall from vehicle into a wadi about 3 meters; fentanyl withheld due to reported morphine allergy.
+- injury_boxes: Left_Hip
 
 ## Transcript
-[radio static] Fentanyl's not been given. I'm allergic to morphine and that. Yeah, he's saying he's allergic to morphine, so I've held the fentanyl. Given ketamine 25 mg IM at 18:10 instead. Mechanism: fell off the vehicle into a wadi about three meters about 17:50. Painful right hip, can't weight bear. Lance Corporal Ellis Jack, male, last four nine one zero four, Army One Mercian. Obs at 1805: pulse 96 radial, BP 138 over 88, RR SPS 18, sats 98, alert, pain eight. Evac priority. Today's fourth of November 2026. [radio static]
+Fentanyl's not been given. I'm allergic to morphine and that. Yeah, he's saying he's allergic to morphine, so I've held the fentanyl. Given ketamine 25 mg IM at 18:10 instead. Mechanism: fell off the vehicle into a wadi about 3 meters about 17:50. Painful right hip, can't weight bear. Lance Corporal Ellis Jack male last four nine one zero four Army I Mercian. OBS at 1805 pulse 96 radial BP 138 over 88 RR 18 sats 98 alert pain 8 EVAC priority. Today's fourth of November 2026.

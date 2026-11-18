@@ -1,0 +1,145 @@
+{
+ "fields": {
+  "date": [
+   "03-NOV-26",
+   "3 November 2026"
+  ],
+  "time": [
+   "1420",
+   "time of wounding 1420"
+  ],
+  "battle_roster": [
+   "JS4417",
+   "battle roster Juliet Sierra 4417"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "1 Yorks",
+   "1 Yorks"
+  ],
+  "mechanism_ied": [
+   true,
+   "mechanism IED"
+  ],
+  "evac_urgent": [
+   true,
+   "evac category urgent"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT tourniquet left leg"
+  ],
+  "tq_left_leg_type": [
+   "CAT",
+   "CAT tourniquet left leg"
+  ],
+  "tq_left_leg_time": [
+   "1420",
+   "left leg at 1420"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "second CAT on the right thigh"
+  ],
+  "tq_right_leg_time": [
+   "1425",
+   "right thigh at 1425"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "right thigh wound packed with QuikClot"
+  ],
+  "signs_1_time": [
+   "1428",
+   "signs 1428"
+  ],
+  "signs_1_pulse": [
+   "108 radial",
+   "radio pulse 108"
+  ],
+  "signs_1_bp_systolic": [
+   "92",
+   "BP 92/58"
+  ],
+  "signs_1_bp_diastolic": [
+   "58",
+   "BP 92/58"
+  ],
+  "signs_1_resp_rate": [
+   "26",
+   "resps 26"
+  ],
+  "signs_1_spo2": [
+   "94",
+   "sats 94"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "response to voice"
+  ],
+  "signs_1_pain": [
+   "9 Excruciating",
+   "pain 9/10"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "fentanyl lozenge"
+  ],
+  "analgesic_1_dose": [
+   "800 mcg",
+   "800 mcg"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "fentanyl lozenge"
+  ],
+  "analgesic_1_time": [
+   "1432",
+   "at 1432"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams of TXA"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "TXA IV push"
+  ],
+  "other_med_1_time": [
+   "1435",
+   "at 1435"
+  ],
+  "hypothermia_prevention": [
+   true,
+   "wrapped in a hypothermia prevention kit"
+  ],
+  "hypothermia_prevention_type": [
+   "hypothermia prevention kit",
+   "hypothermia prevention kit"
+  ],
+  "first_responder_name": [
+   "Jones",
+   "corporal Jones"
+  ],
+  "first_responder_last4": [
+   "3319",
+   "last four 3319"
+  ]
+ },
+ "notes": "Injuries: left leg below the knee: traumatic amputation; right thigh: wound with heavy bleeding; SAM at T0.",
+ "flags": [
+  "Casualty name and last four were not provided.",
+  "Clarify the meaning and use of 'SAM at T0'."
+ ]
+}

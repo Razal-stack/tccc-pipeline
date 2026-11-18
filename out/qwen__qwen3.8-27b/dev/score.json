@@ -1,0 +1,1177 @@
+{
+ "cards": 25,
+ "predicted": 25,
+ "overall": {
+  "precision": 0.9700214132762313,
+  "recall": 0.7905759162303665,
+  "f1": 0.8711538461538462,
+  "blank_ok": 2852,
+  "correct": 453,
+  "wrong": 14,
+  "missed": 106
+ },
+ "critical": {
+  "precision": 0.9722222222222222,
+  "recall": 0.7887323943661971,
+  "f1": 0.8709175738724728,
+  "blank_ok": 1945,
+  "correct": 280,
+  "missed": 67,
+  "wrong": 8
+ },
+ "groups": {
+  "identity": {
+   "precision": 0.9545454545454546,
+   "recall": 0.7974683544303798,
+   "f1": 0.8689655172413794,
+   "blank_ok": 142,
+   "wrong": 6,
+   "correct": 126,
+   "missed": 26
+  },
+  "evac": {
+   "precision": 1.0,
+   "recall": 0.875,
+   "f1": 0.9333333333333333,
+   "blank_ok": 51,
+   "correct": 21,
+   "missed": 3
+  },
+  "mechanism": {
+   "precision": 1.0,
+   "recall": 0.7407407407407407,
+   "f1": 0.851063829787234,
+   "blank_ok": 273,
+   "correct": 20,
+   "missed": 7
+  },
+  "tourniquets": {
+   "precision": 0.9565217391304348,
+   "recall": 0.6875,
+   "f1": 0.8,
+   "blank_ok": 268,
+   "missed": 9,
+   "correct": 22,
+   "wrong": 1
+  },
+  "vital_signs": {
+   "precision": 0.975609756097561,
+   "recall": 0.7843137254901961,
+   "f1": 0.8695652173913043,
+   "correct": 160,
+   "blank_ok": 596,
+   "missed": 40,
+   "wrong": 4
+  },
+  "treatments": {
+   "precision": 1.0,
+   "recall": 0.8285714285714286,
+   "f1": 0.90625,
+   "blank_ok": 515,
+   "correct": 29,
+   "missed": 6
+  },
+  "medications": {
+   "precision": 0.9615384615384616,
+   "recall": 0.8064516129032258,
+   "f1": 0.8771929824561403,
+   "blank_ok": 1007,
+   "correct": 75,
+   "missed": 15,
+   "wrong": 3
+  }
+ },
+ "injury_boxes": {
+  "precision": 0.8888888888888888,
+  "recall": 0.8470588235294118,
+  "f1": 0.8674698795180723,
+  "tp": 72,
+  "fp": 9,
+  "fn": 13
+ },
+ "naive_accuracy": 0.964963503649635,
+ "empty_card_baseline": 0.8327007299270073,
+ "invented_per_card": 0.0,
+ "errors": [
+  {
+   "file": "handover-aim.wav",
+   "field": "name",
+   "outcome": "wrong",
+   "pred": "Carr, Jas",
+   "truth": "Kaur, Jas",
+   "stage": "extraction",
+   "kind": "name/unit spelling"
+  },
+  {
+   "file": "handover-aim.wav",
+   "field": "mechanism_gsw",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-bwt.wav",
+   "field": "last4",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "5033",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-bwt.wav",
+   "field": "tq_right_leg_type",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "CAT",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "battle_roster",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "JS4417",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "evac_urgent",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "gender_m",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "date",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "03-NOV-26",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1420",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "service",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "Army",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "unit",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1 Yorks",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "mechanism_ied",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "tq_right_leg_type",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "CAT",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "tq_right_leg_time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1424",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "tq_left_leg_type",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "CAT",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "tq_left_leg_time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1422",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "signs_1_time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1428",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "signs_1_pulse",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "128 radial",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "signs_1_bp_systolic",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "92",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "signs_1_bp_diastolic",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "58",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "signs_1_resp_rate",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "26",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "signs_1_spo2",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "94",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "signs_1_avpu",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "V - Verbal",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "signs_1_pain",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "9 Excruciating",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "tq_extremity",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "dressing_hemostatic",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "analgesic_1_name",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "fentanyl",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "analgesic_1_dose",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "800 mcg",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "analgesic_1_route",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "OTFC",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "analgesic_1_time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1430",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "other_med_1_name",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "TXA",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "other_med_1_dose",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "2 g",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "other_med_1_route",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "IV",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "other_med_1_time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1435",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "hypothermia_prevention",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "hypothermia_prevention_type",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "hypothermia prevention kit",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "first_responder_name",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "Jones, Sam",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-ihg.wav",
+   "field": "first_responder_last4",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "3318",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "battle_roster",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "PK6009",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "evac_urgent",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "gender_m",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "0650",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "service",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "Army",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "unit",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1 Rifles",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "mechanism_artillery",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "tq_left_leg_type",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "CAT",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "tq_left_leg_time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "0655",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_1_time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "0700",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_1_pulse",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "120 radial",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_1_bp_systolic",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "104",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_1_bp_diastolic",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "66",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_1_resp_rate",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "24",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_1_spo2",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "95",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_1_avpu",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "A - Alert",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_1_pain",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "8 Horrible",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_2_time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "0715",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_2_pulse",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "108 radial",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_2_bp_systolic",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "112",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_2_bp_diastolic",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "70",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_2_resp_rate",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "20",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_2_spo2",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "97",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_2_avpu",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "A - Alert",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "signs_2_pain",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "6 Intense",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "tq_extremity",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "dressing_hemostatic",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "other_med_1_name",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "TXA",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "other_med_1_dose",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "2 g",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "other_med_1_route",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "IV",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-isa.wav",
+   "field": "other_med_1_time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "0705",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-jql.wav",
+   "field": "mechanism_burn",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-jql.wav",
+   "field": "first_responder_last4",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "2285",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-liq.wav",
+   "field": "time",
+   "outcome": "wrong",
+   "pred": "1110",
+   "truth": "1100",
+   "stage": "transcription",
+   "kind": "digit off"
+  },
+  {
+   "file": "handover-liq.wav",
+   "field": "first_responder_name",
+   "outcome": "wrong",
+   "pred": "Rhys, Owen",
+   "truth": "Reece, Owen",
+   "stage": "extraction",
+   "kind": "name/unit spelling"
+  },
+  {
+   "file": "handover-mbs.wav",
+   "field": "signs_2_time",
+   "outcome": "wrong",
+   "pred": "0450",
+   "truth": "0415",
+   "stage": "transcription",
+   "kind": "digit off"
+  },
+  {
+   "file": "handover-mbs.wav",
+   "field": "signs_2_pulse",
+   "outcome": "wrong",
+   "pred": "160 radial",
+   "truth": "116 radial",
+   "stage": "transcription",
+   "kind": "wrong value"
+  },
+  {
+   "file": "handover-mbs.wav",
+   "field": "blood_1_route",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "IV",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-oog.wav",
+   "field": "date",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "04-NOV-26",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-oog.wav",
+   "field": "signs_2_time",
+   "outcome": "wrong",
+   "pred": "0915",
+   "truth": "0920",
+   "stage": "transcription",
+   "kind": "digit off"
+  },
+  {
+   "file": "handover-pbj.wav",
+   "field": "antibiotic_1_name",
+   "outcome": "wrong",
+   "pred": "mox",
+   "truth": "moxifloxacin",
+   "stage": "transcription",
+   "kind": "name/unit spelling"
+  },
+  {
+   "file": "handover-pbj.wav",
+   "field": "antibiotic_1_dose",
+   "outcome": "wrong",
+   "pred": "400",
+   "truth": "400 mg",
+   "stage": "extraction",
+   "kind": "wrong value"
+  },
+  {
+   "file": "handover-pbj.wav",
+   "field": "other_med_1_dose",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1 g",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-pbj.wav",
+   "field": "other_med_2_dose",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1 g",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-qof.wav",
+   "field": "first_responder_name",
+   "outcome": "wrong",
+   "pred": "Hogan",
+   "truth": "Hogan, Ciara",
+   "stage": "extraction",
+   "kind": "name/unit spelling"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "evac_urgent",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "name",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "Patel, Nisha",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "last4",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "2468",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "gender_f",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1045",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "service",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "Army",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "unit",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1 Royal Anglian",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "mechanism_gsw",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_1_time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1052",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_1_pulse",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "116 radial",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_1_bp_systolic",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "104",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_1_bp_diastolic",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "68",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_1_resp_rate",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "24",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_1_spo2",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "95",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_1_avpu",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "A - Alert",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_1_pain",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "6 Intense",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_2_time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "1105",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_2_pulse",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "104 radial",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_2_bp_systolic",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "112",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_2_bp_diastolic",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "72",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_2_resp_rate",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "20",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_2_spo2",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "97",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "signs_2_avpu",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "A - Alert",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "dressing_hemostatic",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "breathing_o2",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "first_responder_name",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "Doyle, Mia",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-roo.wav",
+   "field": "first_responder_last4",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "3915",
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-uij.wav",
+   "field": "mechanism_mvc",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-vdi.wav",
+   "field": "time",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "0715",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-vdi.wav",
+   "field": "mechanism_ied",
+   "outcome": "missed",
+   "pred": false,
+   "truth": true,
+   "stage": "extraction",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-vdi.wav",
+   "field": "tq_left_leg_time",
+   "outcome": "wrong",
+   "pred": "1715",
+   "truth": "0718",
+   "stage": "transcription",
+   "kind": "digit off"
+  },
+  {
+   "file": "handover-vdi.wav",
+   "field": "signs_1_pulse",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "130",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-xqh.wav",
+   "field": "name",
+   "outcome": "wrong",
+   "pred": "Murphy, Aoi",
+   "truth": "Murphy, Aoife",
+   "stage": "extraction",
+   "kind": "name/unit spelling"
+  },
+  {
+   "file": "handover-xqh.wav",
+   "field": "signs_1_bp_diastolic",
+   "outcome": "wrong",
+   "pred": "74",
+   "truth": "76",
+   "stage": "transcription",
+   "kind": "digit off"
+  },
+  {
+   "file": "handover-xqh.wav",
+   "field": "first_responder_name",
+   "outcome": "wrong",
+   "pred": "Ahmed, Zayn",
+   "truth": "Ahmed, Zain",
+   "stage": "extraction",
+   "kind": "name/unit spelling"
+  },
+  {
+   "file": "handover-xvw.wav",
+   "field": "last4",
+   "outcome": "missed",
+   "pred": "",
+   "truth": "7007",
+   "stage": "transcription",
+   "kind": "left blank"
+  },
+  {
+   "file": "handover-zas.wav",
+   "field": "other_med_1_time",
+   "outcome": "wrong",
+   "pred": "0750",
+   "truth": "0755",
+   "stage": "transcription",
+   "kind": "digit off"
+  }
+ ]
+}

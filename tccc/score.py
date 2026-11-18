@@ -85,6 +85,18 @@ def prf(c):
     return p, r, f
 
 
+def bootstrap(per_card, other=None, n=2000, seed=0):
+    """95% interval for F1 by resampling cards. With `other` (same cards, another model): interval on the gap.
+    A model is only 'better' when the gap interval excludes zero."""
+    import random
+    rnd, files = random.Random(seed), sorted(per_card)
+    def f1(cards, counts):
+        return prf(sum((counts[f] for f in cards), Counter()))[2]
+    draws = sorted(f1(c, per_card) - (f1(c, other) if other else 0)
+                   for c in ([rnd.choice(files) for _ in files] for _ in range(n)))
+    return draws[int(n * .025)], draws[int(n * .975)]
+
+
 def score_card(pred, truth):
     per_field = {f: outcome(pred.get(f), truth.get(f)) for f in FIELDS}
     pb, tb = set(pred.get("injury_boxes") or []), set(truth.get("injury_boxes") or [])
@@ -123,7 +135,7 @@ def score(preds: dict, files=None):
         critical=dict(zip(("precision", "recall", "f1"), prf(critical)), **critical),
         groups={g: dict(zip(("precision", "recall", "f1"), prf(c)), **c) for g, c in by_group.items()},
         injury_boxes=dict(precision=bp, recall=br, f1=2 * bp * br / (bp + br) if bp + br else 0.0, **boxes),
-        naive_accuracy=naive, empty_card_baseline=empty_baseline,
+        naive_accuracy=naive, empty_card_baseline=empty_baseline, f1_interval=bootstrap(by_file), by_file=by_file,
         invented_per_card=total["invented"] / len(truths),
         errors=errors,
     )
@@ -134,9 +146,10 @@ def report(s) -> str:
     lines = [
         f"Cards scored: {s['cards']} ({s['predicted']} with predictions)",
         "",
-        f"F1 on filled fields:      {o['f1']:.1%}  (precision {o['precision']:.1%}, recall {o['recall']:.1%})",
+        f"F1 on filled fields:      {o['f1']:.1%}  (precision {o['precision']:.1%}, recall {o['recall']:.1%}; "
+        f"95% interval {s['f1_interval'][0]:.1%} to {s['f1_interval'][1]:.1%})",
         f"Safety-critical fields:   {c['f1']:.1%}  (precision {c['precision']:.1%}, recall {c['recall']:.1%})",
-        f"Invented values:          {o['invented']} total, {s['invented_per_card']:.2f} per card",
+        f"Invented values:          {o.get('invented', 0)} total, {s['invented_per_card']:.2f} per card",
         f"Injury boxes F1:          {s['injury_boxes']['f1']:.1%}",
         f"Naive field accuracy:     {s['naive_accuracy']:.1%}  (an empty card scores {s['empty_card_baseline']:.1%})",
         "",

@@ -1,0 +1,81 @@
+{
+ "fields": {
+  "gender_m": [
+   true,
+   "He's male"
+  ],
+  "name": [
+   "Taylor",
+   "Private Taylor"
+  ],
+  "unit": [
+   "2 Yorks",
+   "2 Yorks"
+  ],
+  "mechanism_ied": [
+   true,
+   "hit by an IED pressure plate"
+  ],
+  "time": [
+   "1220",
+   "about 12:20"
+  ],
+  "tq_extremity": [
+   true,
+   "Tourniquet CAT went on"
+  ],
+  "tq_right_leg_time": [
+   "1235",
+   "Also right leg, put that on at 12:35"
+  ],
+  "signs_1_time": [
+   "1240",
+   "Time now is 12:40"
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "carotid of about 140"
+  ],
+  "signs_1_resp_rate": [
+   "30",
+   "Breathing's fast, about 30"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responding to pain"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams"
+  ],
+  "other_med_1_route": [
+   "IO",
+   "through the IO"
+  ],
+  "other_med_1_time": [
+   "1238",
+   "at 12:38"
+  ],
+  "evac_urgent": [
+   true,
+   "EVAC urgent"
+  ],
+  "first_responder_name": [
+   "Byrne, Tom",
+   "Lance Corporal Byrne, Tom"
+  ],
+  "first_responder_last4": [
+   "1662",
+   "last four 1662"
+  ]
+ },
+ "notes": "Injuries: right leg above knee: traumatic amputation; first right leg CAT tourniquet ~1230 (10 mins before 1240); no radial pulse; casualty last4 heard as 5 digits (59033); MERT requested",
+ "flags": [
+  "Casualty last4 heard as 5 digits (59033) - verify 4-digit number",
+  "Second right leg tourniquet (1235) type not stated (first was CAT at ~1230)"
+ ]
+}

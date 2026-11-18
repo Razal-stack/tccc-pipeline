@@ -1,0 +1,92 @@
+{
+ "fields": {
+  "battle_roster": [
+   "LH3088",
+   "battle roster Lima Hotel 3088"
+  ],
+  "name": [
+   "Hughes",
+   "Casualty is Corporal Hughes"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "time": [
+   "1110",
+   "time of wounding 1110"
+  ],
+  "mechanism_landmine": [
+   true,
+   "He stood on a landmine"
+  ],
+  "tq_extremity": [
+   true,
+   "Two tourniquets on the right leg"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "a second CAT just below it at 1106"
+  ],
+  "tq_right_leg_time": [
+   "1106",
+   "a second CAT just below it at 1106"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Wound packed with Celox"
+  ],
+  "blood_1_name": [
+   "whole blood",
+   "One unit of whole blood through the IO at 1120"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "One unit of whole blood"
+  ],
+  "blood_1_route": [
+   "IO",
+   "through the IO"
+  ],
+  "blood_1_time": [
+   "1120",
+   "through the IO at 1120"
+  ],
+  "signs_1_time": [
+   "1115",
+   "That's at 1115"
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "Pulse 140 carotid"
+  ],
+  "signs_1_resp_rate": [
+   "32",
+   "resps 32"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responds to pain only"
+  ],
+  "evac_urgent": [
+   true,
+   "Category urgent"
+  ],
+  "first_responder_name": [
+   "Owen, Rhys",
+   "Lance Corporal Rhys Owen"
+  ],
+  "first_responder_last4": [
+   "9044",
+   "last four 9044"
+  ]
+ },
+ "notes": "Injuries: right foot to mid-shin: foot gone, mangled (traumatic amputation); two CAT tourniquets right leg - first high and tight at 1102, second just below it at 1106; card records the most recent (1106); wound packed with Celox; BP not recordable, no radial pulse; casualty last four not given, battle roster LH3088 only.",
+ "flags": [
+  "Two right-leg CATs (1102 and 1106) - card shows only the 1106 one",
+  "TQ times 1102/1106 are before the stated wounding time 1110 - verify times",
+  "BP not recordable - no numeric BP entered",
+  "No casualty last four spoken (battle roster only)",
+  "No date of injury given"
+ ]
+}

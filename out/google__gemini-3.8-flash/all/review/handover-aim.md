@@ -29,4 +29,8 @@
 - injury_boxes: Ant_Left_Middle_Lateral_Forearm, Ant_Left_Middle_Medial_Forearm
 
 ## Transcript
+TRANSCRIPT A (medical speech model):
 Casualty is Private Carr, Jas, female, last four eight three three six, RAF Tactical Medical Wing. Grenade at 2040, 3 November 2026, fragment wound to the left forearm. Tourniquet on... No, sorry, ignore that. That's the other casualty. Pressure dressing only on her. OBS at 2050, pulse 98 radial, BP 122 over 80. Resps 18, sats 98, alert, pain 5. Evac routine
+
+TRANSCRIPT B (second listen):
+Casualty is private car, Jazz, female, last four eight three three six, RAF tactical medical wing. Grenade at twenty forty, third November twenty twenty six, fragment wound to the left forearm. Tourniquet on— no, sorry, ignore that, that's the other casualty. Pressure dressing only on her. OBS at twenty fifty, pulse ninety-eight radial, BP one twenty-two over eighty. Resp eighteen, sats ninety-eight, alert, pain five. Evac routine.

@@ -1,0 +1,46 @@
+{
+ "fields": {
+  "name": [
+   "Morgan, Lewis",
+   "Private Morgan, er, Lewis"
+  ],
+  "time": [
+   "1722",
+   "17:22"
+  ],
+  "evac_urgent": [
+   true,
+   "Urgent, urgent"
+  ],
+  "mechanism_ied": [
+   true,
+   "hit IED"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT on it"
+  ],
+  "tq_left_leg_type": [
+   "CAT",
+   "CAT"
+  ],
+  "tq_left_leg_time": [
+   "1724",
+   "17:24"
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "Carotid about 140"
+  ],
+  "signs_1_resp_rate": [
+   "30",
+   "30 odds"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "only responding to pain"
+  ]
+ },
+ "notes": "Injuries: left leg above knee: traumatic amputation; pulse thready",
+ "flags": []
+}

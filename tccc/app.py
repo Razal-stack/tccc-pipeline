@@ -103,7 +103,7 @@ def page(tab, body, title="TCCC Casualty Cards"):
                   (("board", "Casualties", "/"), ("bench", "Accuracy", "/benchmark"), ("guide", "How to use it", "/guide")))
     return HTMLResponse(f"""<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
 <title>{esc(title)}</title><style>{CSS}</style><div class=app><aside><a class=brand href=/><i>TC</i><div>TCCC Casualty Cards<small>DD Form 1380 from handovers</small></div></a>
-{nav}<div class=foot>Listening: ElevenLabs Scribe v2 Medical<br>Reading: Gemini 3.8 Flash<br>About 10 s and 1 US cent per card</div></aside>
+{nav}<div class=foot>Listening: ElevenLabs Scribe v2 Medical<br>Second listen: Qwen 3.8 Omni Flash<br>Reading: Gemini 3.8 Flash<br>About 20 s and 1 to 2 US cents per card</div></aside>
 <main>{body}</main></div></html>""")
 
 

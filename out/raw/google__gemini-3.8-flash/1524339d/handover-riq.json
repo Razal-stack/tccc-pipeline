@@ -1,0 +1,65 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "I'd say urgent"
+  ],
+  "gender_m": [
+   true,
+   "this lad"
+  ],
+  "name": [
+   "Scott, Ryan",
+   "Scott, Ryan"
+  ],
+  "unit": [
+   "3 Scots",
+   "three Scots"
+  ],
+  "last4": [
+   "5290",
+   "five two nine nil"
+  ],
+  "mechanism_grenade": [
+   true,
+   "grenade"
+  ],
+  "breathing_chest_seal": [
+   true,
+   "vented chest seal"
+  ],
+  "signs_1_resp_rate": [
+   "28",
+   "28"
+  ],
+  "signs_1_spo2": [
+   "94",
+   "94"
+  ],
+  "signs_1_pulse": [
+   "110 radial",
+   "110 radial"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "7 Very Intense",
+   "seven"
+  ],
+  "allergies": [
+   "NKA",
+   "no allergies"
+  ],
+  "first_responder_last4": [
+   "7420",
+   "seven four two zero"
+  ]
+ },
+ "notes": "Injuries: left chest: sucking fragment wound; pre-intervention SpO2 90%; time of injury approx 2100 unconfirmed",
+ "flags": [
+  "transcripts disagree: A says Weed Cal, B says you tell",
+  "time of injury garbled ('21 Solon' / 'twenty-one so')"
+ ]
+}

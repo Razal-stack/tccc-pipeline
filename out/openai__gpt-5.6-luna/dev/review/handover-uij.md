@@ -1,7 +1,10 @@
-# handover-uij
+# handover-uij.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
-- nothing flagged
+- Time of injury not given
 
 ## Card
 - evac_routine: True
@@ -12,7 +15,8 @@
 - date: 28-OCT-26
 - service: Army
 - unit: 2 Medical Regiment
-- notes: Injuries: left ankle: twisted; walking wounded
+- notes: Injuries: left ankle: twisted ankle; walking wounded; no time of injury given.
+- injury_boxes: Ant_Left_Ankle
 
 ## Transcript
-This is Private Singh Priya female last 41212 Army 2 Medical Regiment fell down the stairs in the accommodation block on 28th October 2026 no time given twisted left ankle walking wounded routine
+This is Private Singh Priya female last four one two one two Army 2 Medical Regiment fell down the stairs in the accommodation block on 28th October 2026 no time given twisted left ankle walking wounded routine

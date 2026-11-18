@@ -163,3 +163,33 @@ speech model uses is lost. Later, not now: recordings over a few minutes would b
 Deepgram Nova-3 had failed on 11 of 21 benchmark files only because of the size cap. With the 16 kHz fallback it
 was benchmarked fairly: 62% of numbers on hard audio, 71% overall, last of the cloud models (Scribe v2 Medical
 86% and 92%).
+
+
+## Final round of benchmarks (all on the same frozen prompt and transcripts)
+
+**Speech-to-text, 19 models on all 50 recordings** (share of answer-key values in the transcript; hard = radio,
+heavy noise, two voices): Scribe v2 Medical + key terms 93% (hard 86%); Qwen 3.8 Omni Flash 92% (83%, best on
+IDs, about a fifth of the price); Fish Audio 91%; AssemblyAI 91%; OpenAI gpt-transcribe 90%; GPT Audio Mini 90%;
+Gemini 3.5 Transcribe 90%; Gemini 4 Argon 90% (best on names); Voxtral 89%; Parakeet Ultra 87%; Qwen3-ASR 85%;
+Nemotron 84%; Grok STT 84%; Scribe v2 83%; Gemini 3.8 Flash 82%; local Parakeet 80%; Deepgram Nova-3 74%; Meta
+Muse Voice, Xiaomi MiMo Flash and Muse Ember below 45% (the chat models paraphrase instead of transcribing).
+
+**Denoising before speech-to-text, all 50, Scribe + key terms:** raw 92.9% (hard 86.0%); DeepFilterNet3 91.0%
+(78.5%); Meta Denoiser DNS64 91.7% (80.2%). Helped 3-5 recordings, hurt 8. Earlier classic tests (spectral gating,
+band-pass) were worse still. Decision: raw audio.
+
+**Card filling, 14 models on the 25 tuning recordings, with 95% intervals:** Gemini 4 Argon 95.5%, Gemini 3.8
+Flash 95.3%, Gemini 4 Hydrogen 95.3%, GPT-6.1 Terra 95.2%, DeepSeek V4.1 Flash 95.0%, GLM 5.3 94.6%, Qwen 4 Max
+94.0% (12 made-up values), GLM 5.3 Flash 93.5%, then Qwen 3.8 Max, Qwen 3.8 27B, GPT-6.2 Sol, GPT-5.6 Luna,
+Mistral Large 4, Qwen 3.8 Flash (70-88%). Every gap against Gemini 3.8 Flash in the top six crosses zero: tied.
+Held-out check of the top three: Gemini 3.8 Flash 92.5% (2 made up), Gemini 4 Argon 92.4% (9), GPT-6.1 Terra 91.8%
+(5). Decision: Gemini 3.8 Flash. Not run (budget cap): Kimi, Grok 4.7, MiniMax, Mistral Medium, Nemotron Ultra.
+
+**Second listen (adopted):** the card model reads Scribe's transcript plus Qwen 3.8 Omni Flash's, and flags
+disagreements instead of guessing. Held-out: F1 92.5% -> 93.8% (gap interval +0.2 to +2.8 points: a real gain),
+precision 95.8% -> 97.6%, identity 85% -> 89.5%. All 50: 94.0% -> 94.7%. Live path runs both listens in parallel
+(about 20 s per card) and falls back to GPT-6.1 Terra if the card model errors.
+
+**Ideas taken from a production voice-AI architecture we reviewed:** confidence intervals before declaring a
+winner (adopted); a second, more careful transcription pass (adopted, as the second listen); rules in code rather
+than the model (already our design); a fallback model on error (adopted); synthetic test generation (next step).

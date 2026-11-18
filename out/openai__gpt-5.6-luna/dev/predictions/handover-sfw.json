@@ -137,9 +137,10 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "Wade, Sam",
  "first_responder_last4": "8841",
- "notes": "Injuries: left knee: GSW; right thigh: GSW, through and through",
+ "notes": "Injuries: left thigh: GSW; right thigh: through-and-through GSW",
  "injury_boxes": [
-  "Ant_Left_Knee",
+  "Ant_Left_Middle_Lateral_Thigh",
+  "Ant_Left_Middle_Medial_Thigh",
   "Ant_Right_Middle_Lateral_Thigh",
   "Ant_Right_Middle_Medial_Thigh"
  ]

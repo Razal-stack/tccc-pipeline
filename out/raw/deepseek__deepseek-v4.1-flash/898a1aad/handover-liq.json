@@ -1,0 +1,90 @@
+{
+ "fields": {
+  "battle_roster": [
+   "LH3088",
+   "battle roster Lima Hotel 3088"
+  ],
+  "name": [
+   "Hughes",
+   "Corporal Hughes"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_landmine": [
+   true,
+   "He stood on a landmine"
+  ],
+  "time": [
+   "1110",
+   "time of wounding 1110"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "a second CAT just below it at 1106"
+  ],
+  "tq_right_leg_time": [
+   "1106",
+   "at 1106"
+  ],
+  "tq_extremity": [
+   true,
+   "Two tourniquets on the right leg"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Wound packed with Celox"
+  ],
+  "blood_1_name": [
+   "whole blood",
+   "One unit of whole blood"
+  ],
+  "blood_1_volume": [
+   "1 unit",
+   "One unit of whole blood"
+  ],
+  "blood_1_route": [
+   "IO",
+   "through the IO"
+  ],
+  "blood_1_time": [
+   "1120",
+   "at 1120"
+  ],
+  "signs_1_time": [
+   "1115",
+   "That's at 1115"
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "Pulse 140 carotid"
+  ],
+  "signs_1_resp_rate": [
+   "32",
+   "resps 32"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "responds to pain only"
+  ],
+  "evac_urgent": [
+   true,
+   "Category urgent"
+  ],
+  "first_responder_name": [
+   "Owen, Rhys",
+   "Lance Corporal Rhys Owen"
+  ],
+  "first_responder_last4": [
+   "9044",
+   "last four 9044"
+  ]
+ },
+ "notes": "Injuries: right foot to mid-shin: mangled, amputated; two tourniquets on right leg: CAT high and tight at 1102 and second CAT just below at 1106 (card records the most recent); Celox hemostatic dressing; BP not recordable; no radial pulse; time found not stated.",
+ "flags": [
+  "BP not recordable - no systolic/diastolic value documented",
+  "Two tourniquets on right leg; only the most recent (CAT, 1106) is recorded on the card - confirm the 1102 CAT",
+  "No date, service or unit stated in handover"
+ ]
+}

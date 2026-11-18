@@ -51,11 +51,11 @@
  "tq_left_arm_type": "",
  "tq_left_arm_time": "",
  "tq_right_leg_type": "CAT",
- "tq_right_leg_time": "",
+ "tq_right_leg_time": "1106",
  "tq_left_leg_type": "",
  "tq_left_leg_time": "",
  "signs_1_time": "1115",
- "signs_1_pulse": "140 carotid; no radial",
+ "signs_1_pulse": "140 carotid",
  "signs_1_bp_systolic": "",
  "signs_1_bp_diastolic": "",
  "signs_1_resp_rate": "32",
@@ -137,13 +137,12 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "Owen, Rhys",
  "first_responder_last4": "9044",
- "notes": "Injuries: right foot: gone, mangled up to mid-shin; right leg: two CAT tourniquets, one high and tight and one just below it; BP not recordable.",
+ "notes": "Injuries: right foot to mid-shin: foot gone and mangled; two CATs on right leg, first high and tight at 1102 and second just below it at 1106; no radial pulse; BP not recordable; time of wounding 1110.",
  "injury_boxes": [
+  "Ant_Right_Distal_Lateral_Lower_Leg",
+  "Ant_Right_Distal_Medial_Lower_Leg",
   "Ant_Right_Foot",
-  "Ant_Right_Knee",
   "Ant_Right_Middle_Lateral_Lower_Leg",
-  "Ant_Right_Middle_Lateral_Thigh",
-  "Ant_Right_Middle_Medial_Lower_Leg",
-  "Ant_Right_Middle_Medial_Thigh"
+  "Ant_Right_Middle_Medial_Lower_Leg"
  ]
 }

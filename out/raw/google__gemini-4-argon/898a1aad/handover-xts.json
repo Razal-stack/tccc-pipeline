@@ -1,0 +1,90 @@
+{
+ "fields": {
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "name": [
+   "Webb, Laura",
+   "Lance Corporal Webb Laura"
+  ],
+  "last4": [
+   "4199",
+   "last four 4199"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "16 Signal Regiment",
+   "16 Signal Regiment"
+  ],
+  "mechanism_mvc": [
+   true,
+   "MVC Coyote rollover"
+  ],
+  "time": [
+   "1545",
+   "at 1545"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "ketamine"
+  ],
+  "analgesic_1_dose": [
+   "30 mg",
+   "30 mg in at 1600. Copy ketamine 13 mg in. Negative 30 30 mg"
+  ],
+  "analgesic_1_route": [
+   "IN",
+   "ketamine 30 mg in"
+  ],
+  "analgesic_1_time": [
+   "1600",
+   "at 1600"
+  ],
+  "signs_1_time": [
+   "1555",
+   "OBS at 1555"
+  ],
+  "signs_1_pulse": [
+   "90 radial",
+   "pulse 90 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "132",
+   "BP 132 over 84"
+  ],
+  "signs_1_bp_diastolic": [
+   "84",
+   "BP 132 over 84"
+  ],
+  "signs_1_resp_rate": [
+   "18",
+   "RR SPS 18"
+  ],
+  "signs_1_spo2": [
+   "99",
+   "sats 99"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "7 Very Intense",
+   "pain 7"
+  ],
+  "splint": [
+   true,
+   "SAM splint on the forearm"
+  ],
+  "evac_routine": [
+   true,
+   "routine"
+  ]
+ },
+ "notes": "Injuries: right forearm: suspected fracture; over right eye: cut; Coyote rollover; SAM splint on right forearm",
+ "flags": []
+}

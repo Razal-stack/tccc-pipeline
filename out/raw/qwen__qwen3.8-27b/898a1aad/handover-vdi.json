@@ -1,0 +1,23 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Cat A"
+  ],
+  "tq_extremity": [
+   true,
+   "left leg tourniquet"
+  ],
+  "tq_left_leg_time": [
+   "1715",
+   "Say again time of tourniquet, over. 1715."
+  ]
+ },
+ "notes": "left leg tourniquet time 1715; Cat A; IV/IM/IO and priority 2 mentioned but not mapped",
+ "flags": [
+  "TQ type not stated",
+  "priority 2 unclear",
+  "IV/IM/IO unclear",
+  "No casualty name/last4"
+ ]
+}

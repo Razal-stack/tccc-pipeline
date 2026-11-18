@@ -1,0 +1,121 @@
+{
+ "fields": {
+  "date": [
+   "29-OCT-26",
+   "29 October 2026"
+  ],
+  "name": [
+   "Khan, Imran",
+   "Lance Corporal Khan, Imran"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "1 Yorks",
+   "1 Yorks"
+  ],
+  "last4": [
+   "0847",
+   "last four 0847"
+  ],
+  "mechanism_gsw": [
+   true,
+   "He took a round to his stomach, GSW"
+  ],
+  "time": [
+   "2050",
+   "about 2050"
+  ],
+  "signs_1_time": [
+   "2020",
+   "Obs at 2020"
+  ],
+  "signs_1_pulse": [
+   "124 radial",
+   "Pulse is about 124, radial"
+  ],
+  "signs_1_bp_systolic": [
+   "96",
+   "96 over 60"
+  ],
+  "signs_1_bp_diastolic": [
+   "60",
+   "96 over 60"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "He's breathing about 24"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "Sats 96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "He's alert and talking"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "Pain's 8 he says"
+  ],
+  "dressing_pressure": [
+   true,
+   "just a pressure dressing"
+  ],
+  "antibiotic_1_name": [
+   "ertapenem",
+   "ertapenem"
+  ],
+  "antibiotic_1_dose": [
+   "1 g",
+   "1 gram"
+  ],
+  "antibiotic_1_route": [
+   "IV",
+   "IV"
+  ],
+  "antibiotic_1_time": [
+   "2030",
+   "at 2030"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "fentanyl lozenge"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "fentanyl lozenge"
+  ],
+  "analgesic_1_time": [
+   "2025",
+   "at 2025"
+  ],
+  "allergies": [
+   "codeine",
+   "Codeine"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "first_responder_name": [
+   "Quinn, Joe",
+   "Corporal Quinn, Joe"
+  ],
+  "first_responder_last4": [
+   "5713",
+   "last four 5713"
+  ]
+ },
+ "notes": "Injuries: left lower abdomen: GSW entry; no exit found; bowel not protruding. Fentanyl dose stated as 800 without a unit.",
+ "flags": [
+  "Obs and medication times precede the stated injury time; check times.",
+  "Fentanyl dose unit not stated; confirm dose."
+ ]
+}

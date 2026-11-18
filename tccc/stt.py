@@ -38,34 +38,45 @@ def to_16k(data: bytes) -> bytes:
     return _wav(frames, width, 16000)
 
 
-def transcribe(key, model, wav: Path, keyterms=False):
-    """Whole recording -> text (no chopping: voice-activity splitting dropped radio speech)."""
-    return _send(key, model, wav.read_bytes(), keyterms)
+LISTEN = ("Transcribe this casualty handover recording verbatim, in English. Include every word, number, correction "
+          "and repetition exactly as spoken. Output only the transcript.")
 
 
-def _send(key, model, data: bytes, keyterms):
-    body = {"model": model, "input_audio": {"data": base64.b64encode(data).decode(), "format": "wav"},
-            "language": "en", "temperature": 0}
+def _request(model, audio: bytes, keyterms, chat):
+    """Speech models use the transcription endpoint; audio chat models get the recording plus 'transcribe verbatim'."""
+    b64 = base64.b64encode(audio).decode()
+    if chat:
+        return "/chat/completions", {"model": model, "temperature": 0, "max_tokens": 2000, "messages": [{"role": "user", "content": [
+            {"type": "text", "text": LISTEN}, {"type": "input_audio", "input_audio": {"data": b64, "format": "wav"}}]}]}
+    body = {"model": model, "input_audio": {"data": b64, "format": "wav"}, "language": "en", "temperature": 0}
     if keyterms:
         body["keyterms"] = KEYTERMS
     if "whisper" in model:
         body["provider"] = {"options": {"groq": {"prompt": VOCAB}}}
-    for attempt in range(3):
+    return "/audio/transcriptions", body
+
+
+def transcribe(key, model, wav: Path, keyterms=False, chat=False):
+    """Whole recording -> (text, (cost, seconds)). Resent at 16 kHz if the model rejects the file as too large."""
+    data = audio = wav.read_bytes()
+    for attempt in range(4):
+        path, body = _request(model, audio, keyterms, chat)
         try:
-            r = call("/audio/transcriptions", key, body)
+            r = call(path, key, body, timeout=300)
             u = r.get("usage") or {}
-            return r.get("text", ""), (u.get("cost") or 0.0, u.get("seconds") or 0.0)
+            text = (r["choices"][0]["message"].get("content") or "") if chat else r.get("text", "")
+            return text.strip(), (u.get("cost") or 0.0, u.get("seconds") or 0.0)
         except urllib.error.HTTPError as e:
             msg = e.read().decode(errors="replace")[:300]
-            if e.code == 400 and "large audio" in msg and body["input_audio"]["data"] == base64.b64encode(data).decode():
-                body["input_audio"]["data"] = base64.b64encode(to_16k(data)).decode()  # some models cap file size
+            if e.code in (400, 413) and ("large" in msg.lower() or "sample rate" in msg.lower()) and audio is data:
+                audio = to_16k(data)  # some models cap file size or only take 16 kHz
                 continue
-            if e.code in (429, 502, 503) and attempt < 2:
+            if e.code in (402, 429, 502, 503) and attempt < 3:  # 402: credit held by in-flight requests, wait
                 time.sleep(5 * (attempt + 1))
                 continue
             return f"__ERROR__ {e.code} {msg}", (0.0, 0.0)
         except Exception as e:  # noqa: BLE001
-            if attempt < 2:
+            if attempt < 3:
                 time.sleep(3)
                 continue
             return f"__ERROR__ {e}", (0.0, 0.0)

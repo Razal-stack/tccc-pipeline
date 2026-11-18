@@ -1,0 +1,82 @@
+{
+ "fields": {
+  "gender_f": [
+   true,
+   "Female casualty"
+  ],
+  "service": [
+   "Army",
+   "Army Private Hart, Ellie"
+  ],
+  "name": [
+   "Hart, Ellie",
+   "Private Hart, Ellie"
+  ],
+  "mechanism_ied": [
+   true,
+   "Blast from a vehicle IED"
+  ],
+  "mechanism_burn": [
+   true,
+   "Burns to her right arm"
+  ],
+  "signs_1_time": [
+   "1925",
+   "Obs at 19:25"
+  ],
+  "signs_1_pulse": [
+   "100 radial",
+   "pulse about 100, radial"
+  ],
+  "signs_1_bp_systolic": [
+   "128",
+   "BP 128 over 80"
+  ],
+  "signs_1_bp_diastolic": [
+   "80",
+   "BP 128 over 80"
+  ],
+  "signs_1_resp_rate": [
+   "20",
+   "Resps 20"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "Sats 98"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "Alert"
+  ],
+  "signs_1_pain": [
+   "4 Distressing",
+   "Pain 4"
+  ],
+  "dressing_other": [
+   true,
+   "Clingfilm on the arm"
+  ],
+  "dressing_type": [
+   "cling film",
+   "Clingfilm on the arm"
+  ],
+  "evac_routine": [
+   true,
+   "Evac routine"
+  ],
+  "first_responder_name": [
+   "Lane, Becky",
+   "Corporal Lane, Becky"
+  ],
+  "first_responder_last4": [
+   "4088",
+   "last four 4088"
+  ]
+ },
+ "notes": "Injuries: right arm: superficial burns; ears: ringing, possible ruptured eardrums. Blast approximately 20 minutes before stated current time of 1930. Possible unit: Signals Det. Possible casualty last four: 5822.",
+ "flags": [
+  "Confirm casualty last four",
+  "Confirm unit",
+  "Check ears for suspected eardrum injury"
+ ]
+}

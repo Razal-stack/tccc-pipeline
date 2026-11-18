@@ -38,10 +38,10 @@
  "splint": false,
  "hypothermia_prevention": false,
  "battle_roster": "",
- "name": "Khan, Imran",
+ "name": "",
  "last4": "0847",
  "date": "29-OCT-26",
- "time": "2050",
+ "time": "",
  "service": "Army",
  "unit": "1 Yorks",
  "allergies": "codeine",
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "Quinn, Joe",
  "first_responder_last4": "5713",
- "notes": "Injuries: left lower abdomen: GSW entry wound; no exit wound found; no bowel evisceration",
+ "notes": "Injuries: left lower abdomen: GSW entry, no exit found, no bowel evisceration",
  "injury_boxes": [
   "LLQ",
   "LUQ"

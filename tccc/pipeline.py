@@ -9,7 +9,7 @@ import json
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from .extract import ask
+from .extract import SECOND, TWO, ask, combine
 from .fill_pdf import fill, read_back
 from .openrouter import guard_budget, load_key
 from .score import norm
@@ -17,7 +17,9 @@ from .stt import transcribe
 from .validate import check_card, missing_critical, to_card
 
 STT_MODEL = "elevenlabs/scribe-v2-medical"  # chosen by benchmark: best on radio, noise and two speakers
-LLM_MODEL = "google/gemini-3.8-flash"       # chosen by benchmark: best F1 for the price
+LLM_MODEL = "google/gemini-3.8-flash"       # chosen by benchmark: best held-out F1, fewest made-up values
+SECOND_MODEL = "qwen/qwen3.8-omni-flash"    # second listen: holds values the first model misses; disagreements get flagged
+FALLBACK_MODEL = "openai/gpt-6.1-terra"     # tied on accuracy; used only if the card model errors
 
 
 def review_sheet(card, flags, transcript):
@@ -25,7 +27,7 @@ def review_sheet(card, flags, transcript):
     return (f"# {card['file']}\n\n## Ask the sender\n" + "".join(f"- {x}\n" for x in missing_critical(card) or ["nothing missing"])
             + "\n## Check these\n" + "".join(f"- {x}\n" for x in flags or ["nothing flagged"])
             + "\n## Card\n" + "".join(f"- {k}: {v}\n" for k, v in filled.items())
-            + f"- injury_boxes: {', '.join(card['injury_boxes']) or 'none'}\n\n## Transcript\n{transcript}\n")
+            + f"- injury_boxes: {', '.join(card['injury_boxes']) or 'none'}\n\n## Transcript\n{transcript.replace(TWO, '').strip()}\n")
 
 
 def finish(file, reply, transcript, out: Path, pdf=True):
@@ -48,9 +50,16 @@ def process(wav: Path, out: Path, key=None):
     """One new recording through every step; each step's output is saved next to the card."""
     key = key or load_key()
     (out / "transcripts").mkdir(parents=True, exist_ok=True)
-    text, _ = transcribe(key, STT_MODEL, wav, keyterms=True)
+    with ThreadPoolExecutor(2) as pool:  # both listens at once
+        first = pool.submit(transcribe, key, STT_MODEL, wav, keyterms=True)
+        second = pool.submit(transcribe, key, SECOND_MODEL, wav, chat=True) if SECOND else None
+        text, b = first.result()[0], second.result()[0] if second else ""
+    text = combine(text, "" if b.startswith("__ERROR__") else b)
     (out / "transcripts" / f"{wav.stem}.txt").write_text(text)
-    reply, _ = ask(LLM_MODEL, text, key)
+    try:
+        reply, _ = ask(LLM_MODEL, text, key)
+    except Exception:  # noqa: BLE001  one retry on the runner-up model, so no card is lost to an API error
+        reply, _ = ask(FALLBACK_MODEL, text, key)
     card, flags = finish(wav.name, reply, text, out)
     return dict(file=wav.name, card=card, flags=flags, ask=missing_critical(card), pdf=str(out / "cards" / f"{wav.stem}.pdf"))
 

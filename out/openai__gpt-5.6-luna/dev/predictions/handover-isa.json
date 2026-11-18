@@ -128,7 +128,7 @@
  "antibiotic_2_time": "",
  "other_med_1_name": "TXA",
  "other_med_1_dose": "2 g",
- "other_med_1_route": "",
+ "other_med_1_route": "IV",
  "other_med_1_time": "0705",
  "other_med_2_name": "",
  "other_med_2_dose": "",
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Injuries: left buttock: fragmentation wounds; left thigh: fragmentation wounds",
+ "notes": "Injuries: left buttock: fragmentation wound; left thigh: fragmentation wound",
  "injury_boxes": [
   "Ant_Left_Middle_Lateral_Thigh",
   "Ant_Left_Middle_Medial_Thigh",

@@ -7,7 +7,9 @@ from. Code (tccc.validate) expands that to the full card and checks it. Raw repl
 """
 import argparse
 import hashlib
+import os
 import json
+import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -16,6 +18,21 @@ from .openrouter import call, guard_budget, load_key
 
 ROOT = Path(__file__).resolve().parent.parent
 TRANSCRIPTS = ROOT / "transcripts" / "elevenlabs__scribe-v2-medical+keyterms"  # speech-to-text with domain key terms
+SECOND = os.environ.get("TCCC_SECOND", "qwen__qwen3.8-omni-flash")  # second listen by a different model ("" = off)
+TWO = ("You have two transcripts of the same recording from different speech models. Use A by default. Use B where A "
+       "is garbled, cut off or a number is unclear. If A and B give different values for the same field and the "
+       "recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, "
+       "B says Y'. Quote evidence from whichever transcript you used.")
+
+
+def combine(a, b=""):
+    """What the card model reads: the primary transcript, plus the second listen when there is one."""
+    return f"{TWO}\n\nTRANSCRIPT A (medical speech model):\n{a}\n\nTRANSCRIPT B (second listen):\n{b}" if b else a
+
+
+def transcript(stem):
+    b = (ROOT / "transcripts" / SECOND / f"{stem}.txt") if SECOND else None
+    return combine((TRANSCRIPTS / f"{stem}.txt").read_text(), b.read_text() if b else "")
 FILES = sorted(TRUTH)
 SPLITS = {"dev": FILES[0::2], "heldout": FILES[1::2], "all": FILES}  # fixed: even positions dev, odd held-out
 
@@ -95,7 +112,7 @@ Leave "Injuries:" out if no injury location was said.
 
 
 def ask(model, transcript, key):
-    body = {"model": model, "temperature": 0, "response_format": {"type": "json_object"},
+    body = {"model": model, "temperature": 0, "max_tokens": 8000, "response_format": {"type": "json_object"},
             "messages": [{"role": "system", "content": PROMPT}, {"role": "user", "content": transcript}]}
     r = call("/chat/completions", key, body, timeout=300)
     text = r["choices"][0]["message"]["content"]
@@ -104,7 +121,7 @@ def ask(model, transcript, key):
 
 
 def run(model, names):
-    version = hashlib.sha1((PROMPT + TRANSCRIPTS.name).encode()).hexdigest()[:8]  # new prompt/transcripts -> new cache
+    version = hashlib.sha1((PROMPT + TRANSCRIPTS.name + SECOND).encode()).hexdigest()[:8]  # new prompt/transcripts -> new cache
     key, out = load_key(), ROOT / "out" / "raw" / model.replace("/", "__") / version
     out.mkdir(parents=True, exist_ok=True)
 
@@ -112,13 +129,14 @@ def run(model, names):
         dst = out / f.replace(".wav", ".json")
         if dst.exists():
             return 0.0
-        for _ in range(2):
+        for attempt in range(4):
             try:
-                reply, cost = ask(model, (TRANSCRIPTS / f.replace(".wav", ".txt")).read_text(), key)
+                reply, cost = ask(model, transcript(f.replace(".wav", "")), key)
                 dst.write_text(json.dumps(reply, indent=1))
                 return cost
-            except Exception as e:  # noqa: BLE001
+            except Exception as e:  # noqa: BLE001  (402 = credit held by in-flight requests: wait, then retry)
                 err = e
+                time.sleep(5 * (attempt + 1))
         print(f"  {f}: failed ({err})")
         return 0.0
 

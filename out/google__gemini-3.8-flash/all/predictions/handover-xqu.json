@@ -135,9 +135,9 @@
  "other_med_2_route": "",
  "other_med_2_time": "",
  "hypothermia_prevention_type": "",
- "first_responder_name": "Guru, Raj",
+ "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Injuries: left forearm: entry and exit GSW",
+ "notes": "Injuries: left forearm: gunshot wound entry and exit",
  "injury_boxes": [
   "Ant_Left_Middle_Lateral_Forearm",
   "Ant_Left_Middle_Medial_Forearm"

@@ -1,8 +1,11 @@
-# handover-odw
+# handover-odw.wav
+
+## Ask the sender
+- nothing missing
 
 ## Check these
-- Verify right-sided needle decompression and response to treatment
-- BP was not obtained
+- No blood pressure obtained—check if available
+- Confirm right-sided needle decompression and dressing status
 
 ## Card
 - evac_urgent: True
@@ -25,7 +28,8 @@
 - signs_2_resp_rate: 26
 - signs_2_spo2: 92
 - signs_2_avpu: A - Alert
-- notes: Injuries: right chest: GSW; pressure dressing over the wound; needle decompression right side at 0630; chest seal statement retracted; BP not taken.
+- notes: Injuries: right chest: GSW; chest seal stated, then retracted; pressure dressing over the wound; needle decompression right side at 0630; BP not taken.
+- injury_boxes: Right_Lower_Chest, Right_Upper_Chest
 
 ## Transcript
-[explosions] Casualties Corporal Bell, Adam, Royal Marines, 45 commander. GSW right chest 0620. Chest seal on. No scrap that. We ran out of seals. It's a pressure dressing over the wound. Obs at 0625 pulse 128 radial. He's male obviously. Resps 34, sats 86 responds to voice. Needle decompression right side at 0630. Obs again at 0640 pulse 118 radial. Resps 26 sats 92 alert now. Last four. Bell's last four is 0061. BP not taken. Evac urgent
+[explosions] Casualties Corporal Bell, Adam, Royal Marines, 45 Commando. GSW right chest 0620. Chest seal on. No scrap that. We ran out of seals. It's a pressure dressing over the wound. Obs at 0625. Pulse 128 radial. He's male obviously. Resps 34, sats 86. Responds to voice. Needle decompression right side at 0630. Obs again at 0640. Pulse 118 radial. Resps 26, sats 92. Alert now. Last four. Bell's last four is 0061. BP not taken. EVAC urgent. [explosions]

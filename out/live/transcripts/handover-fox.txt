@@ -1,0 +1,7 @@
+You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
+
+TRANSCRIPT A (medical speech model):
+Urgent urgent two tourniquets both legs CATs left at 0931 right at 0933 IED 0930 dismounted both legs gone below the knee first set of obs at 0940 pulse 120 radial BP 100/60 resps 24 sats 95 responds to voice second set at 0950 pulse is up to 138 and the radial's weak BP 82/50 resps 30 sats 93 and he's now only responding to pain 2 grams of TXA IO at 0945 one unit of whole blood IO at 0952 battle roster Romeo Echo 88206 date 31 October 2026 sent by Corporal Shaw Leah last four 2660
+
+TRANSCRIPT B (second listen):
+Urgent, urgent. Two tourniquets, both legs. CATs, left at 0931, right at 0933. IED, 0930. Dismounted. Both legs gone below the knee. First set of obs at 0940. Pulse 120 radial, BP 100 over 60, resp 24, sats 95. Responds to voice. Second set at 0950. Pulse is up to 138 and the radial's weak. BP 82 over 50, resp 30, sats 93, and he's now only responding to pain. Two grams of TXA IO at 0945. One unit of whole blood IO at 0952. Battle roster Romeo Echo 8826. Date 31st October 2026. Sent by Corporal Shaw, Leah, last four 2660.

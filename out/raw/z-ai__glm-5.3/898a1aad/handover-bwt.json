@@ -1,0 +1,77 @@
+{
+ "fields": {
+  "gender_m": [
+   true,
+   "He's male"
+  ],
+  "name": [
+   "Taylor",
+   "Private Taylor"
+  ],
+  "last4": [
+   "5903",
+   "Last four is 59033"
+  ],
+  "unit": [
+   "2 Yorks",
+   "2 Yorks"
+  ],
+  "time": [
+   "1220",
+   "got hit by an IED pressure plate. That was at about 12:20"
+  ],
+  "mechanism_ied": [
+   true,
+   "We got hit by an IED pressure plate"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "Tourniquet CAT"
+  ],
+  "tq_right_leg_time": [
+   "1235",
+   "put that on at 12:35"
+  ],
+  "tq_extremity": [
+   true,
+   "Tourniquet CAT"
+  ],
+  "signs_1_pulse": [
+   "140 carotid",
+   "carotid of about 140"
+  ],
+  "signs_1_resp_rate": [
+   "30",
+   "Breathing's fast, about 30"
+  ],
+  "signs_1_avpu": [
+   "P - Pain",
+   "He's responding to pain"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "Given him 2 grams of TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams of TXA"
+  ],
+  "other_med_1_route": [
+   "IO",
+   "through the IO"
+  ],
+  "other_med_1_time": [
+   "1238",
+   "at 12:38"
+  ],
+  "evac_urgent": [
+   true,
+   "EVAC urgent"
+  ]
+ },
+ "notes": "Injuries: right leg above knee: traumatic amputation; two tourniquets on right leg - first CAT placed ~1230 (~10 min before handover), second CAT placed 1235 (recorded); no radial pulse palpable; time of handover 12:40",
+ "flags": [
+  "BP not recorded",
+  "MERT requested"
+ ]
+}

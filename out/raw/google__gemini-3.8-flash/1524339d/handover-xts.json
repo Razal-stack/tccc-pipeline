@@ -1,0 +1,90 @@
+{
+ "fields": {
+  "gender_f": [
+   true,
+   "Casualty female"
+  ],
+  "name": [
+   "Webb, Laura",
+   "Webb Laura"
+  ],
+  "last4": [
+   "4199",
+   "4199"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "16 Signal Regiment",
+   "16 Signal Regiment"
+  ],
+  "mechanism_mvc": [
+   true,
+   "MVC Coyote rollover"
+  ],
+  "time": [
+   "1545",
+   "1545"
+  ],
+  "analgesic_1_name": [
+   "ketamine",
+   "ketamine"
+  ],
+  "analgesic_1_dose": [
+   "30 mg",
+   "30 mg"
+  ],
+  "analgesic_1_route": [
+   "IN",
+   "in"
+  ],
+  "analgesic_1_time": [
+   "1600",
+   "1600"
+  ],
+  "signs_1_time": [
+   "1555",
+   "1555"
+  ],
+  "signs_1_pulse": [
+   "90 radial",
+   "90 radial"
+  ],
+  "signs_1_bp_systolic": [
+   132,
+   "132"
+  ],
+  "signs_1_bp_diastolic": [
+   84,
+   "84"
+  ],
+  "signs_1_resp_rate": [
+   18,
+   "18"
+  ],
+  "signs_1_spo2": [
+   99,
+   "99"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "7 Very Intense",
+   "pain 7"
+  ],
+  "splint": [
+   true,
+   "SAM splint on the forearm"
+  ],
+  "evac_routine": [
+   true,
+   "routine"
+  ]
+ },
+ "notes": "Injuries: right forearm: suspected fracture; right eye: cut; SAM splint applied to right forearm",
+ "flags": []
+}

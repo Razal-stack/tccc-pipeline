@@ -73,7 +73,7 @@ def main():
     preds, raws, texts = {}, {}, {}
     for f in names:
         stem = f.replace(".wav", "")
-        texts[f] = (extract.TRANSCRIPTS / f"{stem}.txt").read_text()
+        texts[f] = extract.transcript(stem)  # evidence is checked against everything the model was given
         p = raw_dir / f"{stem}.json"
         raws[f] = json.loads(p.read_text()) if p.exists() else {}
         preds[f], _ = finish(f, raws[f], texts[f], out, pdf=a.pdf)  # same code path as live recordings
@@ -97,7 +97,7 @@ def main():
     (out / "report.md").write_text("\n".join(lines) + "\n")
     (out / "score.json").write_text(json.dumps(s, indent=1, default=str))
     ledger = ROOT / "out" / "runs.jsonl"
-    entry = json.dumps(dict(model=a.model, split=a.split, prompt=raw_dir.name, transcripts=extract.TRANSCRIPTS.name,
+    entry = json.dumps(dict(model=a.model, split=a.split, prompt=raw_dir.name, transcripts=extract.TRANSCRIPTS.name + (f"+{extract.SECOND}" if extract.SECOND else ""),
                                  f1=s["overall"]["f1"], precision=s["overall"]["precision"], recall=s["overall"]["recall"],
                                  critical_f1=s["critical"]["f1"], invented=s["overall"].get("invented", 0),
                                  boxes_f1=s["injury_boxes"]["f1"], stages=dict(stages), errors=s["errors"]), default=str)

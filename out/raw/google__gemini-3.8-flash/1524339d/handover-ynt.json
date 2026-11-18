@@ -1,0 +1,78 @@
+{
+ "fields": {
+  "battle_roster": [
+   "SP2214",
+   "battle roster Sierra Papa 22241 correction 22214"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "service": [
+   "Royal Marines",
+   "Royal Marines"
+  ],
+  "unit": [
+   "43 Commando",
+   "43 Commando"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED"
+  ],
+  "mechanism_burn": [
+   true,
+   "burns to the left hand"
+  ],
+  "time": [
+   "0440",
+   "time of wounding 4:40"
+  ],
+  "breathing_chest_seal": [
+   true,
+   "vented chest seal on the left chest"
+  ],
+  "breathing_needle_d": [
+   true,
+   "needle decompression on the left at 0452"
+  ],
+  "breathing_o2": [
+   true,
+   "oxygen on"
+  ],
+  "signs_1_time": [
+   "0455",
+   "OBS at 0455"
+  ],
+  "signs_1_pulse": [
+   "128 radial",
+   "radial pulse 128"
+  ],
+  "signs_1_resp_rate": [
+   "32",
+   "resps 32"
+  ],
+  "signs_1_spo2": [
+   "89",
+   "sats 89"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "responds to voice"
+  ],
+  "evac_urgent": [
+   true,
+   "upgrade that evac urgent"
+  ],
+  "first_responder_name": [
+   "Day, Finn",
+   "Corporal Day, Finn"
+  ],
+  "first_responder_last4": [
+   "3370",
+   "last four 3370"
+  ]
+ },
+ "notes": "Injuries: left chest: penetrating fragment wound; left hand: burns; needle decompression left at 0452",
+ "flags": []
+}

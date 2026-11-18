@@ -1,0 +1,22 @@
+{
+ "fields": {
+  "airway_npa": [
+   true,
+   "NPA"
+  ],
+  "signs_1_pulse": [
+   "48 carotid",
+   "Pulse 48 carotid"
+  ],
+  "signs_1_resp_rate": [
+   "6",
+   "Breathing 6"
+  ],
+  "signs_1_avpu": [
+   "U - Unresp",
+   "Doesn't respond to anything"
+  ]
+ },
+ "notes": "found unconscious in rubble; time found 0215; snoring respirations; jaw thrust",
+ "flags": []
+}

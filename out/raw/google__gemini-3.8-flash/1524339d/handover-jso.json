@@ -1,0 +1,85 @@
+{
+ "fields": {
+  "name": [
+   "Walker, Liam",
+   "Private Walker ... first name Liam"
+  ],
+  "last4": [
+   "4962",
+   "Walker's last four is 4962"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "unit": [
+   "1 Scots",
+   "1 Scots"
+  ],
+  "time": [
+   "1705",
+   "time of wounding was 1705"
+  ],
+  "mechanism_gsw": [
+   true,
+   "GSW"
+  ],
+  "tq_extremity": [
+   true,
+   "tourniquet a CAT went on it"
+  ],
+  "tq_left_arm_type": [
+   "CAT",
+   "tourniquet a CAT went on it"
+  ],
+  "tq_left_arm_time": [
+   "1707",
+   "tourniquet at 1707 left arm"
+  ],
+  "signs_1_time": [
+   "1712",
+   "OBS at 1712"
+  ],
+  "signs_1_pulse": [
+   "112 radial",
+   "radial pulse 112"
+  ],
+  "signs_1_bp_systolic": [
+   "124",
+   "BP 124 over 78"
+  ],
+  "signs_1_bp_diastolic": [
+   "78",
+   "BP 124 over 78"
+  ],
+  "signs_1_resp_rate": [
+   "20",
+   "resps 20"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "sats 98"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "he's alert"
+  ],
+  "signs_1_pain": [
+   "6 Intense",
+   "pain about 6"
+  ],
+  "evac_priority": [
+   true,
+   "EVAC priority"
+  ],
+  "first_responder_name": [
+   "Dunn, Ross",
+   "Corporal Dunn, Ross"
+  ]
+ },
+ "notes": "Injuries: left upper arm: GSW",
+ "flags": [
+  "transcripts disagree: A says gave him the combat pill at 1715, B says Gave him diamorphine",
+  "transcripts disagree: A says 3855, B says 3867"
+ ]
+}

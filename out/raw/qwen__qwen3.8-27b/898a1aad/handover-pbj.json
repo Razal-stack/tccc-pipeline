@@ -1,0 +1,62 @@
+{
+ "fields": {
+  "other_med_1_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_1_dose": [
+   "1 g",
+   "a gram"
+  ],
+  "other_med_1_time": [
+   "0900",
+   "0900"
+  ],
+  "other_med_2_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_2_dose": [
+   "1 g",
+   "a second gram"
+  ],
+  "other_med_2_time": [
+   "0920",
+   "0920"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "fentanyl lollipop"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "fentanyl lollipop"
+  ],
+  "analgesic_1_time": [
+   "0855",
+   "at 0855"
+  ],
+  "antibiotic_1_name": [
+   "mox",
+   "mox 400 by mouth same time"
+  ],
+  "antibiotic_1_dose": [
+   "400",
+   "400"
+  ],
+  "antibiotic_1_route": [
+   "PO",
+   "by mouth"
+  ],
+  "antibiotic_1_time": [
+   "0855",
+   "fentanyl lollipop at 0855, moxy 400 by mouth same time"
+  ]
+ },
+ "notes": "TXA route not stated; fentanyl dose not stated; moxy dose unit not stated.",
+ "flags": [
+  "TXA route not stated",
+  "fentanyl dose not stated",
+  "mox dose unit not stated"
+ ]
+}

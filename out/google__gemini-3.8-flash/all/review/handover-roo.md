@@ -11,7 +11,6 @@
 - gender_f: True
 - mechanism_gsw: True
 - dressing_hemostatic: True
-- dressing_pressure: True
 - breathing_o2: True
 - name: Patel, Nisha
 - last4: 2468
@@ -39,8 +38,12 @@
 - other_med_1_time: 1058
 - first_responder_name: Doyle, Mia
 - first_responder_last4: 3915
-- notes: Injuries: left side of the neck: GSW, no exit wound
+- notes: Injuries: left side of the neck: GSW, no exit wound; manual pressure held on neck wound packing
 - injury_boxes: AnteriorNeck
 
 ## Transcript
+TRANSCRIPT A (medical speech model):
 [helicopter] MIST report. Casualty is Corporal Patel Nisha, female, last four 2468, Army 1 Royal Anglian. Time of wounding 10:45. Mechanism: gunshot wound. Injuries: GSW to the left side of the neck, no exit wound. Signs at 10:52, radial pulse 116, BP 104 over 68, resps 24, sats 95, alert, pain 6 out of 10. Treatment: wound packed with hemostatic gauze and pressure held. Oxygen on. Two grams of TXA I4 at 10:58. Repeat OBS at 11:05. Radial pulse 104, BP 112 over 72, resps 20, sats 97, alert. EVAC urgent. Sent by Corporal Doyle Mia, last four 3915. [helicopter]
+
+TRANSCRIPT B (second listen):
+MIST report. Casualty is Corporal Patel, Nisha, female, last four 2468, Army, 1 Royal Anglian. Time of wounding 1045. Mechanism: gunshot wound. Injuries: GSW to the left side of the neck, no exit wound. Signs at 1052: radial pulse 116, BP 104 over 68, resp 24, sats 95, alert, pain 6 out of 10. Treatment: wound packed with haemostatic gauze and pressure held, oxygen on, 2 grams of TXA IV at 1058. Repeat OBS at 1105: radial pulse 104, BP 112 over 72, resp 20, sats 97, alert. Evac urgent. Sent by Corporal Doyle, Mia, last four 3915.

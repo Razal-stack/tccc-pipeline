@@ -1,0 +1,107 @@
+{
+ "fields": {
+  "battle_roster": [
+   "DK4091",
+   "battle roster Delta Kilo 4091"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "2 Lancs",
+   "2 Lancs"
+  ],
+  "date": [
+   "05-NOV-26",
+   "Date 05 November 2026"
+  ],
+  "time": [
+   "1315",
+   "Time of wounding 1315"
+  ],
+  "mechanism_ied": [
+   true,
+   "Mechanism IED"
+  ],
+  "signs_1_time": [
+   "1322",
+   "Signs at 1322"
+  ],
+  "signs_1_pulse": [
+   "126 radial",
+   "pulse 126 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "94",
+   "BP 94 over 56"
+  ],
+  "signs_1_bp_diastolic": [
+   "56",
+   "BP 94 over 56"
+  ],
+  "signs_1_resp_rate": [
+   "28",
+   "Resps 28"
+  ],
+  "signs_1_spo2": [
+   "93",
+   "Sats 93"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "responds to voice"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "Pain 8"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT on the right thigh at 1317"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "CAT on the right thigh"
+  ],
+  "tq_right_leg_time": [
+   "1317",
+   "CAT on the right thigh at 1317"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "Celox to the groin"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "1 gram of TXA-4 at 1330"
+  ],
+  "other_med_1_dose": [
+   "1 g",
+   "1 gram of TXA-4"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "TXA-4"
+  ],
+  "other_med_1_time": [
+   "1330",
+   "1 gram of TXA-4 at 1330"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ]
+ },
+ "notes": "Injuries: both thighs: fragment wounds; groin: fragment wounds; Celox haemostatic dressing to groin; CAT to right thigh only \u2014 no TQ stated for left thigh; no casualty name or last four given, battle roster only.",
+ "flags": [
+  "Groin fragment wounds with Celox only \u2014 confirm junctional bleeding controlled",
+  "Left thigh fragment wound \u2014 no tourniquet/dressing documented",
+  "No casualty name/last4 \u2014 battle roster DK4091 only",
+  "BP 94/56, pulse 126, V on AVPU \u2014 shock, no fluid/blood documented"
+ ]
+}

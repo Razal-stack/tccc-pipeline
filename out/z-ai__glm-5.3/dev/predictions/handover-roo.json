@@ -20,7 +20,7 @@
  "tq_junctional": false,
  "tq_truncal": false,
  "dressing_hemostatic": true,
- "dressing_pressure": true,
+ "dressing_pressure": false,
  "dressing_other": false,
  "airway_intact": false,
  "airway_npa": false,
@@ -39,7 +39,7 @@
  "hypothermia_prevention": false,
  "battle_roster": "",
  "name": "Patel, Nisha",
- "last4": "42468",
+ "last4": "2468",
  "date": "",
  "time": "1045",
  "service": "Army",
@@ -136,8 +136,8 @@
  "other_med_2_time": "",
  "hypothermia_prevention_type": "",
  "first_responder_name": "Doyle, Mia",
- "first_responder_last4": "43915",
- "notes": "Injuries: left neck: GSW, no exit wound; wound packed with hemostatic gauze and pressure held",
+ "first_responder_last4": "3915",
+ "notes": "Injuries: left side of neck: GSW, no exit wound; wound packed with hemostatic gauze with pressure held",
  "injury_boxes": [
   "AnteriorNeck"
  ]

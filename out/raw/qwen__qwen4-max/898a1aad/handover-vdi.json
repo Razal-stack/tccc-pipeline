@@ -1,0 +1,24 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Cat A EVAC"
+  ],
+  "tq_extremity": [
+   true,
+   "left leg tourniquet"
+  ],
+  "tq_left_leg_time": [
+   "1715",
+   "Say again time of tourniquet, over. 1715."
+  ]
+ },
+ "notes": "Left leg tourniquet applied 1715; tourniquet type not stated. Evac category A confirmed twice on read-back. No injury description, mechanism, casualty identifiers or vital signs given despite SIGN request. Garbled segment 'MIST 1 Cat A IV IM IO priority 2' \u2014 routes IV/IM/IO heard with no drug, dose or volume, nothing recorded; 'priority 2' not treated as an evac category.",
+ "flags": [
+  "Tourniquet type not stated for left leg",
+  "Garbled 'IV IM IO priority 2' \u2014 confirm any drugs/routes given and evac priority",
+  "No injury description or mechanism received",
+  "No casualty name/last4 or battle roster received",
+  "SIGN requested but no vital signs received"
+ ]
+}

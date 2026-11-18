@@ -43,4 +43,10 @@
 - injury_boxes: Left_Buttock
 
 ## Transcript
+You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
+
+TRANSCRIPT A (medical speech model):
 MIST 2 November 2026. Corporal Ward, Josh. Male last four three one four one. Army One Lancs. GSW left buttock at 0850. OBS at 0855. Pulse 28. Sorry, that's respis. Respis 28. Pulse is 132 radial. BP 96 over 62. Sats 94. Response to voice. Pain 9. Hemostatic gauze packed. Pressure dressing over. Two grams TXA-4 at 0900. Repeat OBS at 09.10. Pulse 118 radial. BP 104 over 68. Respis 24. Sats 96. Alert urgent. Medic Corporal Firth Nina last four nine two two six
+
+TRANSCRIPT B (second listen):
+MIST, 2nd November 2026, Corporal Ward, Josh, male, last four 3141, Army, one langs. GSW left buttock at 0850. OBS at 0855, pulse 28, sorry that's resp's, resp's 28, pulse is 132 radial, BP 96 over 62, sats 94, response to voice, pain nine. Hemostatic gauze packed, pressure dressing over. Two grams TXA IV at 0900. Repeat OBS at 0910, pulse 118 radial, BP 104 over 68, resp's 24, sats 96, alert. Urgent. Medic Corporal Firth, Nina, last four 9226.

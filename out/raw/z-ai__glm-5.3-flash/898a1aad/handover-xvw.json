@@ -1,0 +1,97 @@
+{
+ "fields": {
+  "name": [
+   "Young, Chloe",
+   "Private Young, Chloe"
+  ],
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "B Company, 1 Rifles",
+   "B Company, 1 Rifles"
+  ],
+  "time": [
+   "1010",
+   "stood on a, a pressure plate landmine at 10:10"
+  ],
+  "mechanism_landmine": [
+   true,
+   "stood on a, a pressure plate landmine"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "We've got a CAT on the right leg"
+  ],
+  "tq_right_leg_time": [
+   "1012",
+   "a CAT on the right leg, 10:12"
+  ],
+  "tq_extremity": [
+   true,
+   "a CAT on the right leg"
+  ],
+  "signs_1_time": [
+   "1020",
+   "OBS at 10:20"
+  ],
+  "signs_1_pulse": [
+   "116 radial",
+   "pulse 116 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "108",
+   "BP 108 over 70"
+  ],
+  "signs_1_bp_diastolic": [
+   "70",
+   "BP 108 over 70"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "She's alert"
+  ],
+  "signs_1_pain": [
+   "10 Unimaginable",
+   "Pain 10 out of 10"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "Sats 96"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "resp 24"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "2 grams TXA IV"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams TXA"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "TXA IV"
+  ],
+  "other_med_1_time": [
+   "1025",
+   "at 10:25"
+  ],
+  "evac_urgent": [
+   true,
+   "Urgent"
+  ]
+ },
+ "notes": "Injuries: right foot: badly damaged, lots of bleeding; patrol had been out about 3 hours; 6 personnel remaining on patrol, all fine; speaker began to mention a second tourniquet then retracted ('No, we didn't need a second one') \u2014 only one TQ applied; casualty last four came through garbled as '7 NURO 07'",
+ "flags": [
+  "last four garbled ('7 NURO 07') \u2014 confirm casualty's last 4 digits",
+  "date not given \u2014 fill from patrol log"
+ ]
+}

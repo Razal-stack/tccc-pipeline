@@ -21,4 +21,8 @@
 - injury_boxes: Ant_Left_Distal_Lateral_Thigh, Ant_Left_Distal_Medial_Thigh
 
 ## Transcript
+TRANSCRIPT A (medical speech model):
 [gunfire] Okay, okay, MIST. Um, he's, he's been hit IED just now. Er, it was, it was 17:22. Stay with me mate, stay with me. Look at me. Right, left leg's gone above the knee. I've got a CAT on it high and tight. 17:24. Pulse is, it's, er, it's thready. Carotid about 140. Breathing fast, 30 odds. Open your eyes mate. He's only responding to pain. Name's Private Morgan, er, Lewis. Last four? He can't tell me. I don't know. Urgent, urgent. We need the MERT now
+
+TRANSCRIPT B (second listen):
+Okay, okay, Mace. Um, he's he's been hit IED just now. Uh, it was it was 1722. Stay with me mate, stay with me. Look at me. Right. Left leg's gone, above the knee. I've got uh a CAT on it, high and tight. 1724. Pulse is it's uh it's thready, carotid about 140. Breathing fast, 30 odd. Open your eyes mate. He's only responding to pain. Name's Private Morgan, uh, Lewis. Last four, he can't tell me, I don't know. Urgent, urgent. We need the MRT now.

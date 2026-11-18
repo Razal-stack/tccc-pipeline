@@ -1,0 +1,109 @@
+{
+ "fields": {
+  "name": [
+   "Wright",
+   "Corporal Wright"
+  ],
+  "last4": [
+   "6604",
+   "last four six six zero four"
+  ],
+  "date": [
+   "05-NOV-26",
+   "5 November 2026"
+  ],
+  "time": [
+   "0530",
+   "0530"
+  ],
+  "unit": [
+   "1 Royal Irish",
+   "One Royal Irish"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_blunt": [
+   true,
+   "Both legs crushed"
+  ],
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "splint": [
+   true,
+   "Splinted both legs"
+  ],
+  "hypothermia_prevention": [
+   true,
+   "he's in the HPMK to keep warm"
+  ],
+  "hypothermia_prevention_type": [
+   "HPMK",
+   "HPMK"
+  ],
+  "signs_1_time": [
+   "0550",
+   "OBS at 0550"
+  ],
+  "signs_1_pulse": [
+   "116 radial",
+   "pulse 116 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "108",
+   "108"
+  ],
+  "signs_1_bp_diastolic": [
+   "70",
+   "70"
+  ],
+  "signs_1_resp_rate": [
+   "22",
+   "resps 22"
+  ],
+  "signs_1_spo2": [
+   "95",
+   "sats 95"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "He responds to voice"
+  ],
+  "signs_1_pain": [
+   "9 Excruciating",
+   "Pain, uh, nine"
+  ],
+  "analgesic_1_name": [
+   "morphine",
+   "Morphine"
+  ],
+  "analgesic_1_dose": [
+   "10 mg",
+   "10 mg"
+  ],
+  "analgesic_1_route": [
+   "IM",
+   "IM"
+  ],
+  "analgesic_1_time": [
+   "0558",
+   "at 0558"
+  ],
+  "first_responder_name": [
+   "Hogan, CRA",
+   "Lance Corporal Hogan, CRA"
+  ],
+  "first_responder_last4": [
+   "4772",
+   "last four four seven seven two"
+  ]
+ },
+ "notes": "Injuries: both legs: crushed; left leg: badly deformed; suspected mortar round hit building (not confirmed); trapped under rubble for about 20 minutes; no big bleeding.",
+ "flags": [
+  "Mortar strike suspected, not confirmed",
+  "First responder first name 'CRA' may be garbled"
+ ]
+}

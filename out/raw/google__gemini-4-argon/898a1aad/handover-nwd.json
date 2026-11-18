@@ -1,0 +1,24 @@
+{
+ "fields": {
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "mechanism_other": [
+   true,
+   "Caught in a blast"
+  ],
+  "mechanism_other_text": [
+   "blast",
+   "Caught in a blast"
+  ],
+  "dressing_pressure": [
+   true,
+   "Pressure dressings on"
+  ]
+ },
+ "notes": "Injuries: both legs: multiple fragment wounds; local national adult; no name, no ID; time of injury garbled ('about 15U'); no obs yet",
+ "flags": [
+  "Time of injury unclear ('about 15U' - possibly 1500)"
+ ]
+}

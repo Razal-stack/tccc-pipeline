@@ -1,0 +1,129 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Evac urgent"
+  ],
+  "name": [
+   "Price, Owen",
+   "Lance Corporal Price Owen"
+  ],
+  "last4": [
+   "9931",
+   "last four 9931"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "date": [
+   "29-OCT-26",
+   "Date 29 October 2026"
+  ],
+  "time": [
+   "2115",
+   "Time of injury 2115"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "allergies": [
+   "NKA",
+   "No known allergies"
+  ],
+  "mechanism_burn": [
+   true,
+   "Burns casualty"
+  ],
+  "dressing_other": [
+   true,
+   "Burns covered with cling film"
+  ],
+  "dressing_type": [
+   "cling film",
+   "cling film"
+  ],
+  "signs_1_time": [
+   "2128",
+   "Obs at 2128"
+  ],
+  "signs_1_pulse": [
+   "120 radial",
+   "Radial pulse 120"
+  ],
+  "signs_1_bp_systolic": [
+   "130",
+   "BP 130 over 85"
+  ],
+  "signs_1_bp_diastolic": [
+   "85",
+   "BP 130 over 85"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "Resps 24"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "Sats 96"
+  ],
+  "signs_1_pain": [
+   "8 Horrible",
+   "Pain 8 out of 10"
+  ],
+  "fluid_1_name": [
+   "Plasma-Lyte",
+   "One liter of Plasma-Lyte 4"
+  ],
+  "fluid_1_volume": [
+   "1 L",
+   "One liter of Plasma-Lyte 4"
+  ],
+  "fluid_1_route": [
+   "IV",
+   "Plasma-Lyte 4"
+  ],
+  "fluid_1_time": [
+   "2135",
+   "Oh, the Plasma-Lyte went up at 2135, not 2130"
+  ],
+  "analgesic_1_name": [
+   "morphine",
+   "Morphine 5 mg IV at 2132"
+  ],
+  "analgesic_1_dose": [
+   "5 mg",
+   "Morphine 5 mg IV at 2132"
+  ],
+  "analgesic_1_route": [
+   "IV",
+   "Morphine 5 mg IV at 2132"
+  ],
+  "analgesic_1_time": [
+   "2132",
+   "Morphine 5 mg IV at 2132"
+  ],
+  "hypothermia_prevention": [
+   true,
+   "Keeping him warm with a blizzard blanket"
+  ],
+  "hypothermia_prevention_type": [
+   "blizzard blanket",
+   "blizzard blanket"
+  ],
+  "first_responder_name": [
+   "Grant, Ali",
+   "Medic is Lance Corporal Grant Ali"
+  ],
+  "first_responder_last4": [
+   "7036",
+   "last four 7036"
+  ]
+ },
+ "notes": "Injuries: left forearm: partial and full thickness burns; right forearm: partial and full thickness burns; front of chest: partial and full thickness burns; ~20% TBSA; fuel fire while refueling generator; unit transcribed as 'Royal Army detachment'; sats 96 'on low' (unclear if room air or O2)",
+ "flags": [
+  "Unit 'Royal Army detachment' appears garbled \u2014 verify unit",
+  "Sats '96 on low' unclear if room air or low-flow oxygen \u2014 verify O2 status"
+ ]
+}

@@ -1,0 +1,69 @@
+{
+ "fields": {
+  "name": [
+   "Scott, Ryan",
+   "Private Scott Ryan"
+  ],
+  "last4": [
+   "5290",
+   "last four five two nine nil"
+  ],
+  "unit": [
+   "3 Scots",
+   "three Scott"
+  ],
+  "gender_m": [
+   true,
+   "this lad"
+  ],
+  "mechanism_grenade": [
+   true,
+   "from a grenade"
+  ],
+  "breathing_chest_seal": [
+   true,
+   "I've put a vented chest seal on it"
+  ],
+  "signs_1_spo2": [
+   "90",
+   "sats were 90"
+  ],
+  "signs_2_resp_rate": [
+   "28",
+   "breathing's it's about 28"
+  ],
+  "signs_2_spo2": [
+   "94",
+   "now they're 94 after the seal"
+  ],
+  "signs_2_pulse": [
+   "110 radial",
+   "pulse 110 radial"
+  ],
+  "signs_2_pain": [
+   "7 Very Intense",
+   "pain he says he's seven"
+  ],
+  "allergies": [
+   "NKA",
+   "he's got no allergies"
+  ],
+  "evac_urgent": [
+   true,
+   "priority maybe urgent I'd say urgent"
+  ],
+  "first_responder_name": [
+   "Weed, Cal",
+   "Corporal Weed Cal"
+  ],
+  "first_responder_last4": [
+   "7420",
+   "last four seven four two zero"
+  ]
+ },
+ "notes": "Injuries: left side of chest: fragment wound, sucking; vented chest seal; reported time unclear: '21 Solon maybe a bit after'; 'a lot JP' unclear.",
+ "flags": [
+  "Clarify reported time",
+  "Clarify garbled consciousness assessment"
+ ]
+}
