@@ -116,6 +116,11 @@ tr.row{cursor:pointer}tr.row:hover td{background:#fcfbfa}td.go{color:var(--mute)
 .grid .unk{color:var(--soft)}.grid .rid{color:var(--mute);margin-left:6px;font-size:12px}
 .grid .al{margin-left:6px;font-size:11px;font-weight:600;color:var(--u);background:var(--ub);border-radius:4px;padding:1px 5px;text-transform:uppercase;letter-spacing:.03em}
 .stats div{flex:1}
+.tchart{position:relative;padding:24px 0 26px}.trow{display:flex;align-items:center;height:40px}.tl{width:190px;flex:none;font-size:13.5px}
+.ttrack{position:relative;flex:1;height:14px;background:var(--hair);border-radius:7px}.ttrack i{position:absolute;top:0;bottom:0;border-radius:7px}
+.ttrack i.hand{background:#c9b8a6}.ttrack i.sys{background:var(--navy)}.ttrack b{position:absolute;top:-2px;margin-left:10px;font:500 12.5px var(--mono);white-space:nowrap}
+.band{position:absolute;top:-6px;bottom:20px;background:rgba(196,50,30,.08);border-left:1px dashed var(--u);border-right:1px dashed var(--u)}.band span{position:absolute;top:-20px;left:4px;font-size:11.5px;color:var(--u);white-space:nowrap}
+.tick{position:absolute;bottom:0;font:11px var(--mono);color:var(--mute);transform:translateX(-50%)}
 .empty{padding:36px;text-align:center;color:var(--soft);display:none}
 .cols{display:grid;grid-template-columns:minmax(380px,.85fr) minmax(0,1.25fr);gap:24px;align-items:start}.stick{position:sticky;top:16px}
 .box{padding:18px 20px;margin-bottom:14px}.box.warn{background:#fffaf2;border-color:#f0dcbc}.box.bad{background:#fff8f6;border-color:#f2d3cc}.box.good{background:#f6fbf8;border-color:#cfe6d7}
@@ -497,10 +502,22 @@ TRIED = (
 def how():
     flow = "".join(f"<div class='layer{' code' if i in (4, 5) else ''}'><span class=n>{i:02d}</span><b>{t}</b><p>{esc(d)}</p>"
                    f"<span class=tool>{esc(tool)}</span></div>" for i, (t, d, tool) in enumerate(LAYERS, 1))
+    items = sum(len(rv.get("Ask the sender", [])) + len(rv.get("Check these", [])) + len(confidence(c, rv.get("Transcript", ""))[1])
+                for _, _, c, rv in casualties())
+    rows = (("By hand, 1 medic", 50 * 5 / 60, 50 * 8 / 60), ("By hand, 2 medics", 50 * 5 / 120, 50 * 8 / 120),
+            ("With the system, 1 medic", (50 * 1 + .5 * items) / 60, (50 * 1.5 + items) / 60),
+            ("With the system, 2 medics", (50 * 1 + .5 * items) / 120, (50 * 1.5 + items) / 120))
+    scale = 8.0  # hours across the full width
+    chart = ("<div class=tchart><div class=band style='left:calc(190px + (100% - 190px) * " + f"{3 / scale:.4f});"
+             f"width:calc((100% - 190px) * {1 / scale:.4f})'><span>vehicle arrives</span></div>") + "".join(
+        f"<div class=trow><span class=tl>{lbl}</span><div class=ttrack><i class='{'sys' if 'system' in lbl else 'hand'}' style='left:{lo / scale:.1%};width:{(hi - lo) / scale:.1%}'></i>"
+        f"<b style='left:{hi / scale:.1%}'>{lo:.1f} to {hi:.1f} h</b></div></div>" for lbl, lo, hi in rows) + "".join(
+        f"<span class=tick style='left:calc(190px + (100% - 190px) * {h / scale:.3f})'>{h} h</span>" for h in range(0, 9)) + "</div>"
     tried = "".join(f"<div class=try><span class=n>{i}</span><div><b>{esc(q)}</b><p>{esc(what)}</p><p class=res>{esc(res)}</p></div></div>"
                     for i, (q, what, res) in enumerate(TRIED, 1))
-    return page("how", f"""<div class=head><div class=grow><h1>How it works</h1><p class=lede>A recorded handover becomes a signed TCCC card in
-six steps, in about 20 seconds. AI does the listening and the reading. Fixed rules do the checking. A person always signs.</p></div></div>
+    return page("how", f"""<div class=head><div class=grow><h1>How it works</h1><p class=lede>A recorded handover becomes a draft TCCC card in about 20
+seconds per card (all 50 at once take about a minute). AI does the listening and the reading, fixed rules do the checking, and the
+medic decides: the system drafts, a person always reviews and signs.</p></div></div>
 <div class=panel style='padding:24px 28px;margin-bottom:20px'><h2>The situation</h2><div class=legend>
 <b>Where</b><span>03:00, an abandoned farmhouse used as a trauma ward. Fifty casualties have come through since the last evacuation.</span>
 <b>The handover</b><span>The <b>first responder</b>, the soldier or medic who treated the casualty where they were hurt, hands them over, in person
@@ -514,9 +531,16 @@ needs checking, so they only deal with the gaps.</span>
 <b>Who uses it</b><span>The medic at the trauma point reviews and signs each card; the evacuation coordinator uses the totals by urgency;
 the receiving surgeon reads the card.</span></div></div>
 <div class=panel style='padding:24px 28px;margin-bottom:20px'><h2>At a glance</h2>
-<p class=sub style='margin:0 0 12px'>Blue is AI, grey is fixed rules, green is the medic. About 20 seconds from recording to card.</p>
+<p class=sub style='margin:0 0 12px'>Blue is AI, grey is fixed rules, green is the medic (human in the loop). About 20 seconds per card from
+recording to draft; all 50 run at the same time.</p>
 <div style='max-width:1000px;margin:0 auto'>{DIAGRAM}</div></div>
 <div class=flow>{flow}</div>
+<div class=panel style='padding:24px 28px;margin-bottom:16px'><h2>Time it saves</h2>
+<p class=sub style='margin:0 0 16px'>Estimated hours for the medic team to finish all 50 cards. The band marks when the evacuation vehicle arrives (3 to 4 hours).</p>
+{chart}
+<p class=sub style='margin:16px 0 0'>Estimates, not timed medics. By hand: 5 to 8 minutes a card (listen back, write about 19 boxes, mark the body
+diagram). With the system: 1 to 1.5 minutes to review every card, because the medic still checks all 50, plus 0.5 to 1 minute for each of
+the {items} things the 50 cards ask the medic to ask or check. The system's own processing (about a minute for all 50) runs before the review.</p></div>
 <div class=panel style='padding:24px 28px;margin-bottom:16px'><h2>Why two listeners?</h2><p class=lede style='max-width:none'>Noisy radio
 messages get misheard. One listener might write 1420 where the other hears 1422. When they agree, we can be more confident. When they
 disagree, the system does not pick one: it leaves the box empty and tells the medic exactly what to check ("Listener 1 heard 1420,
