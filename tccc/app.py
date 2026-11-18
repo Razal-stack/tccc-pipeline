@@ -100,6 +100,10 @@ tr.row{cursor:pointer}tr.row:hover td{background:#fcfbfa}td.go{color:var(--mute)
 .layer p{margin:6px 0 0;color:var(--soft);font-size:13px}.layer .tool{display:inline-block;margin-top:10px;font:12px var(--mono);background:var(--hair);border-radius:6px;padding:2px 7px;color:var(--ink2)}
 .layer.code{background:#fbfaf8}.listens{display:grid;grid-template-columns:1fr 1fr;gap:16px}.listens h4{margin:0 0 6px;font-size:13px;font-weight:600}
 @media(max-width:900px){.listens{grid-template-columns:1fr}}
+.allergy{display:inline-block;margin-top:5px;font-size:12px;font-weight:500;color:var(--u);background:var(--ub);border-radius:6px;padding:1px 7px}
+.stats b.evb{font-size:15px;font-weight:400;color:var(--soft);line-height:2.1}.stats b.evb em{font:500 24px var(--sans);font-style:normal;margin:0 2px 0 8px;color:var(--ink)}
+.stats b.evb em:first-child{margin-left:0}.stats b.evb em.u{color:var(--u)}.stats b.evb em.p{color:#c27a10}.stats b.evb em.r{color:var(--r)}.stats b.evb em.n{color:var(--mute)}
+.stats div:nth-child(2){flex:2}
 .empty{padding:36px;text-align:center;color:var(--soft);display:none}
 .cols{display:grid;grid-template-columns:minmax(380px,.85fr) minmax(0,1.25fr);gap:24px;align-items:start}.stick{position:sticky;top:16px}
 .box{padding:18px 20px;margin-bottom:14px}.box.warn{background:#fffaf2;border-color:#f0dcbc}.box.bad{background:#fff8f6;border-color:#f2d3cc}.box.good{background:#f6fbf8;border-color:#cfe6d7}
@@ -170,6 +174,21 @@ def care(card):
     return out
 
 
+def vitals(card):
+    """Latest set of observations in one line: pulse, BP, SpO2, AVPU, and when."""
+    i = max((i for i in range(1, 5) if any(card.get(f"signs_{i}_{k}") for k in ("pulse", "bp_systolic", "spo2", "avpu"))), default=0)
+    if not i:
+        return "", ""
+    g = lambda k: card.get(f"signs_{i}_{k}") or ""  # noqa: E731
+    parts = [f"P {g('pulse')}" if g("pulse") else "", f"BP {g('bp_systolic')}/{g('bp_diastolic')}" if g("bp_systolic") else "",
+             f"SpO2 {g('spo2')}" if g("spo2") else "", g("avpu")[:1] and f"AVPU {g('avpu')[:1]}"]
+    return " · ".join(x for x in parts if x), (f"at {g('time')}" if g("time") else "time not given") + (f", set {i}" if i > 1 else "")
+
+
+def has_tq(card):
+    return any(card.get(f"tq_{l}_type") or card.get(f"tq_{l}_time") for l, _ in LIMBS)
+
+
 def status(rv):
     """(key, what exactly): missing information first, because the person who handed over may leave."""
     get, conf = rv.get("Ask the sender", []), rv.get("Check these", [])
@@ -212,21 +231,33 @@ def board():
         st, why = status(rv)
         counts[st] += 1
         counts[ec] += 1
-        f1, _ = answer_key(card)
+        f1, cmp = answer_key(card)
+        counts["tq"] += has_tq(card)
         line = " · ".join(x for x in (", ".join(mechanism(card)), ", ".join(injuries(card)[:2])) if x)
+        v, vt = vitals(card)
+        allergy = card.get("allergies") if (card.get("allergies") or "").upper() not in ("", "NKA") else ""
+        oc = Counter(o for _, o, _, _ in cmp)
+        keycell = "" if f1 is None else (f"<div class=key><s><i style=width:{f1:.0%}></i></s><span>{f1:.0%}</span></div>"
+                                         f"<div class=sub style=margin-top:4px>{oc['correct']} match · {oc['wrong'] + oc['invented']} off · {oc['missed']} missed</div>")
         rid = stem.replace("handover-", "")
         find = " ".join((person, rid, line, " ".join(care(card)))).lower()
         rows += (f"<tr class=row data-st={st} data-ev={ec} data-q='{esc(find)}' onclick=\"location='/card/{name}/{stem}'\">"
                  f"<td><span class='tag {ec}'><span class='dot {ec}'></span>{ev}</span></td>"
                  f"<td><div class=who>{esc(person) if known else '<span style=color:var(--soft)>Name not given</span>'}</div>"
-                 f"<div class='sub mono'>{rid}{' · just added' if name == 'live' else ''}</div></td>"
+                 f"<div class='sub mono'>{rid}{' · just added' if name == 'live' else ''}</div>"
+                 f"<div class=sub>{'wounded ' + card['time'] if card.get('time') else 'wound time not given'}</div>"
+                 f"{f'<div class=allergy>Allergy: {esc(allergy)}</div>' if allergy else ''}</td>"
                  f"<td>{esc(line) or '<span class=sub>not stated</span>'}<div class=sub>{esc(', '.join(care(card)[:3]))}</div></td>"
+                 f"<td>{esc(v) or '<span class=sub>no observations</span>'}<div class=sub>{esc(vt)}</div></td>"
                  f"<td><span class='tag {st}'><span class='dot {st}'></span>{STATUS[st][0]}</span><span class=why>{esc(why)}</span></td>"
-                 f"<td>{'' if f1 is None else f'<div class=key><s><i style=width:{f1:.0%}></i></s><span>{f1:.0%}</span></div>'}</td><td class=go>›</td></tr>")
+                 f"<td>{keycell}</td><td class=go>›</td></tr>")
     n = sum(counts[k] for k in STATUS)
     h = next((r for r in reversed(runs()) if r["model"] == LLM_MODEL and r["split"] == "heldout"), None)
-    stats = (f"<div><span>Casualties</span><b>{n}</b></div><div><span>Ready to attach</span><b>{counts['ok']}<small>of {n}</small></b></div>"
-             f"<div><span>Urgent</span><b>{counts['u']}</b></div>"
+    stats = (f"<div><span>Casualties</span><b>{n}</b></div>"
+             f"<div><span>For the evacuation request</span><b class=evb><em class=u>{counts['u']}</em> urgent <em class=p>{counts['p']}</em> priority "
+             f"<em class=r>{counts['r']}</em> routine <em class=n>{counts['n']}</em> not stated</b></div>"
+             f"<div><span>Ready to attach</span><b>{counts['ok']}<small>of {n}</small></b></div>"
+             f"<div><span>Tourniquets on</span><b>{counts['tq']}<small>casualties</small></b></div>"
              + (f"<div><span>Accuracy on unseen recordings</span><b>{h['f1']:.1%}<small>of filled fields right</small></b></div>" if h else ""))
     tabs = f"<button class='tab on' data-st='' data-hint='Every recorded handover, most urgent first.'>All<i>{n}</i></button>" + "".join(
         f"<button class=tab data-st={k} data-hint='{esc(d)}'><span class='dot {k}'></span>{t}<i>{counts[k]}</i></button>" for k, (t, d) in STATUS.items())
@@ -244,7 +275,7 @@ def board():
 <div class=tabs>{tabs}</div><p class=hint>Every recorded handover, most urgent first.</p>
 <div class=panel><div class=bar2><input class=search placeholder="Search by name, roster number, recording, injury or treatment">
 <span class=lbl>Evacuation</span>{chips}</div>
-<table><thead><tr><th>Evacuation</th><th>Casualty</th><th>What happened · what was done</th><th>Card</th>
+<table><thead><tr><th>Evacuation</th><th>Casualty</th><th>What happened · what was done</th><th>Latest vitals</th><th>Card</th>
 <th title="Testing only: agreement with the official answer for that recording">Answer key</th><th></th></tr></thead>
 <tbody>{rows}</tbody></table><div class=empty>No casualties match these filters.</div></div>
 <script>
