@@ -1,9 +1,0 @@
-# handover-jvq
-
-## Check these
-- nothing flagged
-
-## Card
-
-## Transcript
-Missed report. Battle roster Delta. Kilo 4091. Male. Army. Two Larc. Date 05 November 2026. Time of wounding 13:15. Mechanism IED. Injuries fragment wounds to both thighs and the groin. Signs at 13:22 pulse 126 radial, BP 94/56, Resps 28, Sats 93. Responds to voice. Pain 8. Treatment CAT on the right thigh at 13:17. Celox to the groin. One gram of TXA4 at 13:30. Evac urgent

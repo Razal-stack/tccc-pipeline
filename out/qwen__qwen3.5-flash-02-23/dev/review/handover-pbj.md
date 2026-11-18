@@ -1,9 +1,0 @@
-# handover-pbj
-
-## Check these
-- nothing flagged
-
-## Card
-
-## Transcript
-Drugs given: TXL a gram at 0900 and a second gram at 0920. Fentanyl lollipop at 0855. Moxie 400 by mouth same time. Nothing else to add.

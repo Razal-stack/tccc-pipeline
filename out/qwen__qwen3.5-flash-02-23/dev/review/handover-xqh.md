@@ -1,9 +1,0 @@
-# handover-xqh
-
-## Check these
-- nothing flagged
-
-## Card
-
-## Transcript
-Casualty is Private Murphy, Aoi. Female, last four seven two five eight. Army One Regiment RMP. MVC Jackal rollover at 2310 on 31 October 2026. Suspected fractured right femur, laceration to the right forearm. OBS at 2320, radial pulse 108, BP 122 over 74. Resps 20, sats 97, alert, pain nine. Traction splint on the right leg, pressure dressing on the forearm. Ketamine 50 mg... correction 20 mg IV at 2325. EVAC priority. Treated by Corporal Ahmed Zayn last four one nine four four.

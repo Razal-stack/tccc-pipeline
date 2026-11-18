@@ -8,3 +8,4 @@ out/denoised/
 
 .venv/
 out/live/uploads/
+.DS_Store

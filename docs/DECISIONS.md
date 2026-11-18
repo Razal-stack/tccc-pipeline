@@ -3,8 +3,8 @@
 This is the "why" behind `docs/ARCHITECTURE.md` (the "what"). Each decision lists context, options, the choice, the
 measured evidence, the cost of the choice, and when to reopen it. Read the competence section, then jump to any ADR.
 
-Numbers come from `README.md`, `docs/archive/experiment-log.md`, `AI_LOG.md`, `out/runs.jsonl`, the bake-off table
-and the code. Where sources disagreed, the newer or more specific figure is used (see "Notes on sources" at the end).
+Numbers come from `README.md`, `docs/ARCHITECTURE.md`, `AI_LOG.md`, `out/runs.jsonl`, the bake-off table
+(`transcripts/_bakeoff.csv`) and the code. Where sources disagreed, the newer or more specific figure is used (see "Notes on sources" at the end).
 
 ## Core competence of this architecture
 
@@ -351,7 +351,18 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
   Argon as the third listener, 23 of them are confirmed and 96% of those are right (22 right, 1 wrong), so the check
   list for these values shrinks from 37 to 14. AssemblyAI confirms fewer (16, 94% right). For recall, at most 9 of the
   34 values both listeners lost appear in any third transcript (an upper bound, matched by digits), which would move
-  all-50 recall from 92.1% to 92.9% at most. 33 of the 50 cards would trigger it. Full table in `docs/REVIEW.md`.
+  all-50 recall from 92.1% to 92.9% at most. 33 of the 50 cards would trigger it.
+
+  | Third listener | Single-listener values it confirms (right / wrong) | Right when confirmed | Lost values it holds |
+  |---|---|---|---|
+  | Gemini 4 Argon | 22 of 30 / 1 of 7 | 96% | 7 of 34 |
+  | AssemblyAI Universal | 15 of 30 / 1 of 7 | 94% | 2 of 34 |
+  | Fish Audio | 10 of 30 / 1 of 7 | 91% | 3 of 34 |
+  | OpenAI gpt-transcribe | 14 of 30 / 2 of 7 | 88% | 1 of 34 |
+
+- **The three loops compared.** Asking the language model again (ADR-01) adds nothing: the errors are in what was
+  heard. A third listen (this ADR) mostly saves review time. The human loop (ADR-15) is the only one that can recover
+  audio that is gone (vdi, kdb), so it stays the main loop.
 - **Trade-offs.** A third listener to pay for and wait on (it can run in parallel with the reader). One wrong value in
   the simulation would have been confirmed, so "confirmed" lowers priority on the check list; it does not hide the
   value. Windowed re-listening needs word timestamps and care at the window edges (ADR-02's lesson).
@@ -374,13 +385,8 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
   denoiser and listener results.
 - **A different form or force.** New fields, units or drug lists change the keyterms, prompt conventions and injury lookup.
 
-## Notes on sources
+## Notes on the numbers
 
-- **Spend.** Older notes said $3.90 and then $4.24. The key's own usage, read on 18 Nov 2026, is $4.52; that is used.
-- **Offline model.** The experiment log has an early "74% of values" for a local model and a later benchmark with local
-  Parakeet at 80%. This record uses 80%.
-- **Gemini 4 Argon as a listener.** The archived notes say 90%; the bake-off table (`transcripts/_bakeoff.csv`, the
-  later source) says 93.6%. This record uses the table.
-- **Held-out F1.** 92.5% is the single-listener result, 93.8% the final result with the second listen. Both are labelled.
-- **Held-out body boxes.** 80.5% as in the architecture doc; the README rounds it to 81%.
-- **Empty card.** `CLAUDE.md` says 84.5%, the README 85%. This record says about 85%.
+- Held-out F1 92.5% is the single-listener result; 93.8% is the final result with the second listen.
+- Speech capture figures come from the bake-off table (`transcripts/_bakeoff.csv`), the latest run of each model.
+- Spend is the key's own usage, read with `make check-key` on 18 Nov 2026 ($4.52 of the $7 cap).

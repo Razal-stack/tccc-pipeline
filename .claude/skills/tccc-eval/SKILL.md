@@ -12,7 +12,7 @@ Read `CLAUDE.md`, `docs/ARCHITECTURE.md` and `docs/DECISIONS.md` first.
    Cached replies in `out/raw/<model>/<prompt hash>/` mean validation, body-map and scoring changes cost nothing.
 3. Open `out/<model>/dev/report.md`. Read "Where the errors come from", then the error table.
 4. Fix the step the error belongs to:
-   - `transcription` -> nothing in extraction can help; note it (see the re-listen idea in `docs/REVIEW.md`).
+   - `transcription` -> nothing in extraction can help; note it (see the re-listen idea, ADR-16 in `docs/DECISIONS.md`).
    - `extraction` -> a general rule in `PROMPT` (`tccc/extract.py`). Never a rule keyed to one file.
    - `validation` -> loosen the check in `tccc/validate.py`.
    - `invented` -> tighten a rule or the evidence check.

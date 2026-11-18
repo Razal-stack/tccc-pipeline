@@ -191,7 +191,6 @@ have used $4.52 of the $7 cap (checked with `make check-key` on 18 Nov 2026). Re
 ## More detail
 
 - [`docs/DECISIONS.md`](docs/DECISIONS.md): why this technology and this shape, decision by decision, with the evidence.
-- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md): the steps, where the loops are, how each step is scored.
-- [`docs/REVIEW.md`](docs/REVIEW.md): an engineering review of this repo, including whether to add a re-listen loop.
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md): the steps, where the loops are, how each step is scored, the
+  experiments behind each choice, and known limits and next steps.
 - [`AI_LOG.md`](AI_LOG.md): how I worked with AI coding tools.
-- [`docs/archive/experiment-log.md`](docs/archive/experiment-log.md): the full experiment notebook.

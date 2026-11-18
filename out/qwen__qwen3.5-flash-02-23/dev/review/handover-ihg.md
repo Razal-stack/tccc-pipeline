@@ -1,9 +1,0 @@
-# handover-ihg
-
-## Check these
-- nothing flagged
-
-## Card
-
-## Transcript
-Mission report: one casualty, 3 November 2026. Battle roster Juliet Sierra 4417, male, Army, one unit. Time of wounding: 1420. Mechanism: IED strike on a dismounted foot patrol. Injuries: traumatic amputation of the left leg below the knee, heavy bleeding from the wound to the right thigh. Signs at 1428: radio pulse 128, BP 92/58, respS 26, sats 94. Response to voice, pain, and non-verbal stimuli. Treatment: tourniquet left leg at 1420, second tourniquet right thigh at 1425, right thigh wound packed with QuikClot at 1430, fentanyl lozenge 800 mcg at 1430, 2 grams of TXA administered at 1435 wrapped in a hydrofoam event packet. Evac category virgin. Sent by corporal Jones with SAM at 1090 at last call 3319.

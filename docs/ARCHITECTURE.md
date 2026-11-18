@@ -1,9 +1,7 @@
 # Architecture and evals
 
 A fixed chain of small steps. Each step has one job, one module and its own score, so when a card is wrong we can
-say which step lost the value. Why each piece was chosen, with the evidence, is in [DECISIONS.md](DECISIONS.md). The
-full experiment history is in [archive/experiment-log.md](archive/experiment-log.md). The engineering review that led
-to this layout is in [REVIEW.md](REVIEW.md).
+say which step lost the value. Why each piece was chosen, with the evidence, is in [DECISIONS.md](DECISIONS.md).
 
 ## The chain, and where the loops are
 
@@ -34,7 +32,7 @@ recording.wav (whole, raw: no cutting, no denoising)
 
 There is deliberately no automated loop that asks the language model again. A second reader agreed with the first
 on 99.6% of fields, and extra medical rules caught none of the remaining errors: they come from hearing, not
-reading. The re-listen loop targets hearing, and an offline simulation of it is in [REVIEW.md](REVIEW.md#the-loop-question).
+reading. The re-listen loop targets hearing; its offline simulation is in [DECISIONS.md](DECISIONS.md) (ADR-16).
 
 ## Two entry points, one code path
 
@@ -109,10 +107,39 @@ hash and the next run pays for new replies.
   transcripts $0.47.
 - The model returns only the roughly 22 filled fields, not all 138, which keeps output tokens low.
 
-## Known limits of the code (see REVIEW.md for the full list)
+## Experiments behind the choices
 
-- The field list and checkbox types are read from the answer-key file, so the production path needs
-  `data/output-true-values.json` present. Fixing it changes the prompt text and so the cache hash; deferred.
-- `tccc/stt.py` uses `audioop`, which Python 3.13 removed. Fine on 3.9 to 3.12.
-- Uploads are processed inside the request (about 20 seconds) with no file type or size check. Fine for a demo,
-  not for a shared server.
+Each row backs a claim on the Benchmark page or in [DECISIONS.md](DECISIONS.md). The code is in `tccc/experiments/`.
+
+| Question | What was run | Result |
+|---|---|---|
+| Which speech model? | 19 models on all 50 recordings (`stt_bakeoff`, paid), scored by share of answer-key values in the transcript | Scribe v2 Medical + key terms 93% (hard audio 86%); Qwen 3.8 Omni Flash 92% (83%); Fish Audio and AssemblyAI 91%; local Parakeet 80%; Deepgram Nova-3 74%. Full table: `transcripts/_bakeoff.csv` |
+| Key terms? | Scribe with and without a domain word list | drug and kit words 90% to 97% |
+| Clean the audio first? | DeepFilterNet3 and Meta Denoiser on all 50 (`denoise`, local), spectral gating and band-pass on 9 hard files | raw 92.9% (hard 86.0%), DeepFilterNet3 91.0% (78.5%), Demucs 91.7% (80.2%); classic filters worse still. Raw audio kept |
+| Which reader? | 14 models on the frozen prompt, dev set, 95% intervals; top three on held-out | top six tied (94.6% to 95.5%); held-out made-up values Gemini 3.8 Flash 2, Terra 5, Argon 9 |
+| A second reader as verifier? | Gemini and Opus 5.5 side by side on dev, from cache | 14 of 3,425 fields differ; a perfect referee adds 0.4 points |
+| A second listener? | Scribe plus Qwen, reader sees both, disagreements flagged | held-out 92.5% to 93.8% (gap interval +0.2 to +2.8); Argon as second listener invented more (12 vs 4 on dev) |
+| A third listener? | cached bake-off transcripts replayed (`relisten`, free) | confirms 23 of 37 single-listener values at 96% right; see ADR-16 |
+| Prompt versions | v2 to v5 on dev, single listener | 93.3%, 94.3%, 94.5% (with key-term transcripts), 95.4%, 95.3% (body boxes 87% to 97%) |
+
+Any benchmarked reader can be re-scored for free from its cached replies, for example
+`TCCC_SECOND= .venv/bin/python -m tccc.run qwen/qwen4-max --split dev` (an empty `TCCC_SECOND` selects the
+single-listener transcripts those runs used). Early runs on older prompts (including the Anthropic models) are in
+`out/runs.jsonl`.
+
+## Known limits and next steps
+
+- **Lost audio stays lost.** vdi is mostly static and kdb keeps about 5 seconds of speech; no model recovers them.
+  The card asks the medic, which is the right answer.
+- **Names are spelled as they sound** ("Kaur" heard as "Carr"). The ID tag settles it; the card asks for it.
+- **Small test set.** 25 held-out cards give wide intervals. Next: write new handover scripts with known answers,
+  voice them with text-to-speech, add radio noise, and test on hundreds of cards with a fresh held-out set.
+- **Third listen** (ADR-16): build behind a flag and measure on held-out; expected gain is review time.
+- **Offline use.** A local speech model already captures 80% of values; forward use would need it.
+- **The production path reads the field list from the answer-key file** (`data/output-true-values.json`). Moving
+  it to `field_map.json` changes the prompt text and so the cache hash, so it waits for the next prompt change.
+- **One "was this heard?" check, not three.** Evidence, error stages and confidence each use a slightly different
+  matcher; merging them means re-calibrating the 97.9% / 81.1% confidence split.
+- **Demo-grade app.** Uploads are processed inside the request (about 20 seconds) with no file type or size check;
+  no auth. `tccc/stt.py` uses `audioop`, removed in Python 3.13 (fine on 3.9 to 3.12).
+- **Time saved is an assumption.** A short timed tabletop exercise with medics would replace it with numbers.

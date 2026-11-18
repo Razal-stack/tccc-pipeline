@@ -1,9 +1,0 @@
-# handover-ojr
-
-## Check these
-- nothing flagged
-
-## Card
-
-## Transcript
-Grid 947312, date 2 November 2026. Casualty is male, battle roster Tango Bravo 2251. Gunshot wound left calf at 1400. Pulse 110 radial. Tourniquet on at 1405. It's a soft TW left leg. Obs at 1410. BP 120 over 75. Resps 20. He's alert. Sats 97. Pain 5. Call sign 32 Bravo priority

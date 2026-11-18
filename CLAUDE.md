@@ -32,7 +32,7 @@ web UI. No frameworks or scaffolds until the core pipeline is done and scored.
 Held-out F1 93.8% (precision 97.6%, safety-critical 96.8%, 0.08 invented/card); all 50 F1 94.7%. 50 PDFs in
 `out/google__gemini-3.8-flash/all/cards/`, all pass schema and read-back checks. Spend $4.52 of $7 cap (`make check-key`).
 Read `README.md` (founder view, quickstart), `docs/ARCHITECTURE.md` (steps, loops, evals), `docs/DECISIONS.md`
-(why each choice), `docs/REVIEW.md` (engineering review), `AI_LOG.md`. History: `docs/archive/experiment-log.md`.
+(why each choice), `AI_LOG.md`. Older working notes live in git history only.
 Commands: `make` (setup, app, test, eval, cards; `pipeline` and `bakeoff` are paid).
 
 | Module | Job |
@@ -53,7 +53,7 @@ Commands: `make` (setup, app, test, eval, cards; `pipeline` and `bakeoff` are pa
 
 Chosen: speech `elevenlabs/scribe-v2-medical` + keyterms, plus a second listen `qwen/qwen3.8-omni-flash`
 (`TCCC_SECOND`); extraction `google/gemini-3.8-flash` reading both; fallback `openai/gpt-6.1-terra`. Raw audio, no
-denoiser (tested 4). See docs/DECISIONS.md and docs/archive/experiment-log.md "Final round of benchmarks".
+denoiser (tested 4). See docs/DECISIONS.md and docs/ARCHITECTURE.md "Experiments behind the choices".
 
 ## What the data showed (drives every decision)
 
@@ -90,25 +90,11 @@ denoiser (tested 4). See docs/DECISIONS.md and docs/archive/experiment-log.md "F
 - Evac: Cat A / T1 / urgent -> `evac_urgent`. Doses with a space: `800 mcg`, `2 g`, `1 unit`, `1 L`.
 - Battle roster = initials + last four (e.g. `JS4417`), only when spoken as such.
 
-## Plan (one step at a time; Rasal decides at each decision point)
+## Plan
 
-1. **Speech-to-text choice.** Run `stt_bakeoff`, show Rasal both tables, he picks the model (best accuracy on the
-   hard conditions at a sensible cost). Then transcribe all 50 with it.
-2. **Dev / held-out split.** 25 / 25, fixed and written down (e.g. alternate files in sorted order). Tune prompts on
-   dev only. Report held-out first, then all 50.
-3. **Extraction** (`tccc/extract.py`): one OpenRouter chat-completions call per transcript, temperature 0, strict
-   JSON schema in the ground-truth shape plus `evidence` (exact transcript words) per filled field and `flags`.
-   Prompt carries the rules above. Compare two strong models on dev; pick by the scorer.
-4. **Validation in code** (`tccc/validate.py`): formats, ranges (SpO2 50-100, systolic > diastolic, plausible
-   pulse/resp), dropdown snapping, evidence must appear in the transcript or the value is dropped and flagged,
-   derived checkboxes (`tq_extremity`).
-5. **Injury boxes:** map the injury locations to the 163 box names in `field_map.json` (lookup, not free choice).
-6. **Pipeline runner** (`tccc/run.py`): recording -> transcript -> card JSON -> validate -> PDF. Outputs
-   `out/predictions/*.json`, `out/cards/*.pdf`, `out/review/*.md` (flagged fields for a medic to check).
-7. **Score** with `tccc.score`, break down by group and condition, attribute each error to transcription (true value
-   not in transcript) or extraction (it was there).
-8. **README for a founder** + `AI_LOG.md` (what was delegated to AI tools, what was reviewed or rewritten, where we
-   pushed back, with concrete examples).
+All eight build steps are done (speech choice, split, extraction, validation, injury boxes, runner, scoring,
+docs). Next steps and known limits: `docs/ARCHITECTURE.md` "Known limits and next steps". Before changing anything:
+`make test`; after: `make eval` must still give held-out 93.8% unless the change is meant to move it.
 
 ## Working rules
 
@@ -118,7 +104,7 @@ denoiser (tested 4). See docs/DECISIONS.md and docs/archive/experiment-log.md "F
 - Never print or commit the API key. The GitHub repo is public (Rasal's decision, to share with reviewers), so
   scan history for secrets before every push.
 - **Spend:** The provided OpenRouter key is only for pipeline inference (speech-to-text, extraction), run at the
-  end on the cheapest model that holds accuracy (`openai/gpt-5.6-luna` preferred). No Opus or premium models on
-  it. Development uses our own Claude Code. Tune offline against cached replies in `out/raw/`.
+  end on the cheapest model that holds accuracy (chosen: `google/gemini-3.8-flash`, see ADR-05). No Opus or premium
+  models on it. Development uses our own Claude Code. Tune offline against cached replies in `out/raw/`.
 - Docs and README: plain, warm, human tone; no em dashes.
 - Commit after each working step with a clear message.

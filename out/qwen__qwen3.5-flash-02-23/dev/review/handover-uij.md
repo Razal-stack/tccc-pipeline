@@ -1,9 +1,0 @@
-# handover-uij
-
-## Check these
-- nothing flagged
-
-## Card
-
-## Transcript
-This is Private Singh Priya female last 41212 Army 2 Medical Regiment fell down the stairs in the accommodation block on 28th October 2026 no time given twisted left ankle walking wounded routine
