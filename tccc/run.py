@@ -13,15 +13,13 @@ import argparse
 import json
 import re
 from collections import Counter
-from pathlib import Path
 
 from . import extract
+from .config import OUT, slug
 from .score import group_of, norm, report, score
 from .textnorm import squash, spoken_to_digits
 from .pipeline import finish
 from .validate import clean
-
-ROOT = Path(__file__).resolve().parent.parent
 
 
 def heard(value, transcript):
@@ -69,7 +67,7 @@ def main():
 
     names = extract.SPLITS[a.split]
     raw_dir = extract.run(a.model, names)
-    out = ROOT / "out" / a.model.replace("/", "__") / a.split
+    out = OUT / slug(a.model) / a.split
     preds, raws, texts = {}, {}, {}
     for f in names:
         stem = f.replace(".wav", "")
@@ -96,7 +94,7 @@ def main():
     lines += [f"| {e['file'][9:12]} | {e['field']} | {e['stage']} | {e['kind']} | {e['pred']} | {e['truth']} |" for e in s["errors"]]
     (out / "report.md").write_text("\n".join(lines) + "\n")
     (out / "score.json").write_text(json.dumps(s, indent=1, default=str))
-    ledger = ROOT / "out" / "runs.jsonl"
+    ledger = OUT / "runs.jsonl"
     entry = json.dumps(dict(model=a.model, split=a.split, prompt=raw_dir.name, transcripts=extract.TRANSCRIPTS.name + (f"+{extract.SECOND}" if extract.SECOND else ""),
                                  f1=s["overall"]["f1"], precision=s["overall"]["precision"], recall=s["overall"]["recall"],
                                  critical_f1=s["critical"]["f1"], invented=s["overall"].get("invented", 0),

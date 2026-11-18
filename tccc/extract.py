@@ -7,18 +7,14 @@ from. Code (tccc.validate) expands that to the full card and checks it. Raw repl
 """
 import argparse
 import hashlib
-import os
 import json
 import time
 from concurrent.futures import ThreadPoolExecutor
-from pathlib import Path
 
+from .config import OUT, PRIMARY_TRANSCRIPTS as TRANSCRIPTS, SECOND, TRANSCRIPTS as ALL_TRANSCRIPTS, slug
 from .score import FIELDS, TRUTH
 from .openrouter import call, guard_budget, load_key
 
-ROOT = Path(__file__).resolve().parent.parent
-TRANSCRIPTS = ROOT / "transcripts" / "elevenlabs__scribe-v2-medical+keyterms"  # speech-to-text with domain key terms
-SECOND = os.environ.get("TCCC_SECOND", "qwen__qwen3.8-omni-flash")  # second listen by a different model ("" = off)
 TWO = ("You have two transcripts of the same recording from different speech models. Use A by default. Use B where A "
        "is garbled, cut off or a number is unclear. If A and B give different values for the same field and the "
        "recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, "
@@ -31,8 +27,10 @@ def combine(a, b=""):
 
 
 def transcript(stem):
-    b = (ROOT / "transcripts" / SECOND / f"{stem}.txt") if SECOND else None
+    b = (ALL_TRANSCRIPTS / SECOND / f"{stem}.txt") if SECOND else None
     return combine((TRANSCRIPTS / f"{stem}.txt").read_text(), b.read_text() if b else "")
+
+
 FILES = sorted(TRUTH)
 SPLITS = {"dev": FILES[0::2], "heldout": FILES[1::2], "all": FILES}  # fixed: even positions dev, odd held-out
 
@@ -122,7 +120,7 @@ def ask(model, transcript, key):
 
 def run(model, names):
     version = hashlib.sha1((PROMPT + TRANSCRIPTS.name + SECOND).encode()).hexdigest()[:8]  # new prompt/transcripts -> new cache
-    out = ROOT / "out" / "raw" / model.replace("/", "__") / version
+    out = OUT / "raw" / slug(model) / version
     todo = [f for f in names if not (out / f.replace(".wav", ".json")).exists()]
     key = load_key() if todo else None  # fully cached: no key, no calls
     out.mkdir(parents=True, exist_ok=True)

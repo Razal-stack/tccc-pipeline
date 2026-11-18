@@ -9,17 +9,13 @@ import json
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from .extract import SECOND, TWO, ask, combine
+from .config import FALLBACK_MODEL, LLM_MODEL, OUT, SECOND, SECOND_MODEL, STT_MODEL  # noqa: F401  (re-exported)
+from .extract import TWO, ask, combine
 from .fill_pdf import fill, read_back
 from .openrouter import guard_budget, load_key
 from .score import norm
 from .stt import transcribe
 from .validate import check_card, missing_critical, to_card
-
-STT_MODEL = "elevenlabs/scribe-v2-medical"  # chosen by benchmark: best on radio, noise and two speakers
-LLM_MODEL = "google/gemini-3.8-flash"       # chosen by benchmark: best held-out F1, fewest made-up values
-SECOND_MODEL = "qwen/qwen3.8-omni-flash"    # second listen: holds values the first model misses; disagreements get flagged
-FALLBACK_MODEL = "openai/gpt-6.1-terra"     # tied on accuracy; used only if the card model errors
 
 
 def review_sheet(card, flags, transcript):
@@ -67,7 +63,7 @@ def process(wav: Path, out: Path, key=None):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("recordings", nargs="+", type=Path)
-    ap.add_argument("--out", type=Path, default=Path("out/live"))
+    ap.add_argument("--out", type=Path, default=OUT / "live")
     a = ap.parse_args()
     key = load_key()
     guard_budget(key)

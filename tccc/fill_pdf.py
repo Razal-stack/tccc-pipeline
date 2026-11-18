@@ -10,7 +10,8 @@ from pypdf import PdfReader, PdfWriter
 from pypdf.generic import (ArrayObject, BooleanObject, DecodedStreamObject, DictionaryObject, FloatObject,
                            NameObject, TextStringObject)
 
-DATA = Path(__file__).resolve().parent.parent / "data"
+from .config import DATA
+
 BLANK = DATA / "tccc-card-blank.pdf"
 FIELD_MAP = json.loads((DATA / "field_map.json").read_text())
 

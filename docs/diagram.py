@@ -1,7 +1,7 @@
-"""Draw the layered "how it works" diagram: python3 -m tccc.diagram  ->  docs/how-it-works.svg (used by the app and README)."""
+"""Draw the layered "how it works" diagram: python3 docs/diagram.py  ->  docs/how-it-works.svg (used by the app and README)."""
 from pathlib import Path
 
-OUT = Path(__file__).resolve().parent.parent / "docs" / "how-it-works.svg"
+OUT = Path(__file__).resolve().parent / "how-it-works.svg"
 KIND = {"ai": ("#eef5fb", "#0065b4"), "rule": ("#f4f3ef", "#868685"), "person": ("#eaf5ee", "#2f7d4f"), "io": ("#ffffff", "#c9c7c2")}
 
 

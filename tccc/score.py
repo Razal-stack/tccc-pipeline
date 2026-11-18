@@ -19,7 +19,8 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-DATA = Path(__file__).resolve().parent.parent / "data"
+from .config import DATA
+
 TRUTH = {r["file"]: r for r in json.loads((DATA / "output-true-values.json").read_text())}
 SKIP = {"file", "injury_boxes", "notes"}
 FIELDS = [k for k in next(iter(TRUTH.values())) if k not in SKIP]

@@ -3,17 +3,14 @@
 Checks: known field, format (times, doses, dropdown labels), plausible range, and evidence: the quoted words
 must be in the transcript and the value's digits must appear in it. Derived: tq_extremity, injury boxes.
 """
-import json
 import re
-from pathlib import Path
 
 from .extract import AVPU, BOOLS, PAIN, ROUTES, TEXTS
-from .injury import boxes_from_notes
+from .injury import VALID as BOXES, boxes_from_notes
 from .textnorm import spoken_to_digits, squash
 
 RANGES = {"pulse": (20, 250), "bp_systolic": (40, 260), "bp_diastolic": (20, 160), "resp_rate": (2, 70),
           "spo2": (50, 100)}
-BOXES = set(json.loads((Path(__file__).resolve().parent.parent / "data" / "field_map.json").read_text())["injury_boxes"])
 LIMB_TQ = ("tq_right_arm_", "tq_left_arm_", "tq_right_leg_", "tq_left_leg_")
 
 

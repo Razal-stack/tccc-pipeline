@@ -8,9 +8,9 @@ Unknown location -> no boxes; output is always a subset of the 163 valid names.
     python -m tccc.injury        # P / R / F1 on dev, held-out, all 50 + held-out mismatches
 """
 import json
-from pathlib import Path
 
-DATA = Path(__file__).resolve().parent.parent / "data"
+from .config import DATA
+
 VALID = set(json.loads((DATA / "field_map.json").read_text())["injury_boxes"])
 MID = lambda part: [f"{{A}}_{{S}}_Middle_{m}_{part}" for m in ("Lateral", "Medial")]
 LL = lambda *lv: [f"{{A}}_{{S}}_{v}_{m}_Lower_Leg" for v in lv for m in ("Lateral", "Medial")]

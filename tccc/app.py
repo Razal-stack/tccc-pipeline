@@ -15,15 +15,15 @@ from pathlib import Path
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
 
+from .config import LLM_MODEL, OUT, ROOT, SECOND_MODEL, STT_MODEL, slug
 from .extract import SPLITS
-from .pipeline import LLM_MODEL, SECOND_MODEL, STT_MODEL, process
+from .openrouter import guard_budget, load_key
+from .pipeline import process
 from .score import TRUTH, prf, score_card
 from .textnorm import spoken_to_digits, squash
 from .validate import BOOLS, label
 
-ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "out"
-SETS = {"eval": OUT / LLM_MODEL.replace("/", "__") / "all", "live": OUT / "live"}
+SETS = {"eval": OUT / slug(LLM_MODEL) / "all", "live": OUT / "live"}
 LOGO = (Path(__file__).parent / "static" / "logo.svg").read_text()
 DIAGRAM = (ROOT / "docs" / "how-it-works.svg").read_text()
 EVAC = (("evac_urgent", "Urgent", "u"), ("evac_priority", "Priority", "p"), ("evac_routine", "Routine", "r"))
@@ -461,7 +461,7 @@ def bench():
         f"<td class=mono>{held[m]['invented'] if m in held else ''}</td><td class=mono>${COST50.get(m, 0):.2f}</td></tr>"
         for m, r in sorted(models.items(), key=lambda kv: -kv[1]["f1"])[:12])
     groups, key = "", ""
-    hs = OUT / LLM_MODEL.replace("/", "__") / "heldout" / "score.json"
+    hs = OUT / slug(LLM_MODEL) / "heldout" / "score.json"
     if hs.exists():
         g = json.loads(hs.read_text())["groups"]
         order = sorted(g.items(), key=lambda kv: -kv[1]["f1"])
@@ -669,5 +669,10 @@ def upload(audio: UploadFile = File(...)):
     dst = SETS["live"] / "uploads" / Path(audio.filename or "recording.wav").name
     dst.parent.mkdir(parents=True, exist_ok=True)
     dst.write_bytes(audio.file.read())
-    process(dst, SETS["live"])
+    try:
+        key = load_key()
+        guard_budget(key)  # same hard spend cap as the command line
+    except SystemExit as e:
+        return page("board", f"<h1>Not processed</h1><p class=lede>{esc(str(e))}</p>", "Spend cap reached")
+    process(dst, SETS["live"], key)
     return RedirectResponse(f"/card/live/{dst.stem}", status_code=303)

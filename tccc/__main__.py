@@ -7,8 +7,7 @@ import sys
 import threading
 import webbrowser
 
-from .pipeline import LLM_MODEL
-from .run import ROOT
+from .config import LLM_MODEL, OUT, slug
 
 PORT = 8000
 
@@ -18,7 +17,7 @@ def main():
         import uvicorn
     except ImportError:
         sys.exit("Missing packages. Run: python3 -m pip install -r requirements.txt")
-    cards = ROOT / "out" / LLM_MODEL.replace("/", "__") / "all" / "cards"
+    cards = OUT / slug(LLM_MODEL) / "all" / "cards"
     if len(list(cards.glob("*.pdf"))) < 50:
         print("Building the 50 cards from cached results (no API calls)...")
         from . import run

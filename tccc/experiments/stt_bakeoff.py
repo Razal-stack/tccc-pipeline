@@ -1,8 +1,8 @@
 """Compare speech-to-text models on the hardest recordings, through OpenRouter.
 
-    python -m tccc.stt_bakeoff --list                       # show transcription models your key can use
-    python -m tccc.stt_bakeoff                              # run the default shortlist on 21 test files
-    python -m tccc.stt_bakeoff --models a/b c/d --all       # chosen models, all 50 recordings
+    python -m tccc.experiments.stt_bakeoff --list                       # show transcription models your key can use
+    python -m tccc.experiments.stt_bakeoff                              # run the default shortlist on 21 test files
+    python -m tccc.experiments.stt_bakeoff --models a/b c/d --all       # chosen models, all 50 recordings
 
 Needs OPENROUTER_API_KEY (environment, or a .env file in the repo or the task folder)
 and the recordings folder (--recordings, default ./recordings or ../challenge/recordings).
@@ -16,10 +16,10 @@ import wave
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from .openrouter import ROOT, call, guard_budget, load_key
-from .score import TRUTH
-from .stt import transcribe
-from .textnorm import categorized_recall, recall
+from ..openrouter import ROOT, call, guard_budget, load_key
+from ..score import TRUTH
+from ..stt import transcribe
+from ..textnorm import categorized_recall, recall
 
 # Hardest 10 by local-transcription number recall: radio links, heavy noise, two voices.
 HARD = ["handover-oqx.wav", "handover-vdi.wav", "handover-kdb.wav", "handover-pbj.wav", "handover-ihg.wav",

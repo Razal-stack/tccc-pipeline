@@ -1,15 +1,16 @@
 """Experiment: clean the audio with a neural denoiser before speech-to-text. Runs locally, free.
 
-    python3 -m tccc.denoise deepfilternet      # writes out/denoised/deepfilternet/*.wav
-    python3 -m tccc.denoise demucs             # Meta's denoiser (DNS64)
-    python3 -m tccc.stt_bakeoff --all --keyterms --models elevenlabs/scribe-v2-medical \
+    python3 -m tccc.experiments.denoise deepfilternet      # writes out/denoised/deepfilternet/*.wav
+    python3 -m tccc.experiments.denoise demucs             # Meta's denoiser (DNS64)
+    python3 -m tccc.experiments.stt_bakeoff --all --keyterms --models elevenlabs/scribe-v2-medical \
         --recordings out/denoised/deepfilternet --tag deepfilternet     # transcribe and compare with raw audio
 """
 import sys
 import wave
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+from ..config import ROOT
+
 RECORDINGS = ROOT.parent / "recordings"
 
 
