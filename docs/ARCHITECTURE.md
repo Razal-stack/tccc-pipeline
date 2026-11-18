@@ -154,16 +154,11 @@ Later fix (free re-score): the evidence check read "10/12" only as "10 over 12" 
 rejected a correctly heard tourniquet time. It now accepts both readings. Held-out 92.4% -> 92.5% (safety-critical
 96.2% -> 96.4%); the held-out cached replies were reused, no new model calls.
 
-## Every file goes through, whatever its length
+## File size and length
 
-Today's recordings run 7 to 61 seconds (largest 5.9 MB at 48 kHz). Two safeguards in `tccc/stt.py`:
-- **Too large for a model** (some cap file size, e.g. Deepgram Nova-3 through OpenRouter): resend at 16 kHz mono,
-  a third of the size, with no loss for speech models that work at 16 kHz.
-- **Longer than 2 minutes**: shrink to 16 kHz, split into pieces of at most 2 minutes, each cut at the quietest
-  0.2 s in the 8 s before the limit (a pause, never mid-word or mid-number), transcribe in order and join.
-  Voice-activity chopping was ruled out because it dropped radio speech.
-Test: the longest recording (ihg, 61 s) forced into four 20 s pieces caught 14 of 17 numbers, the whole file 13
-of 17, so splitting loses nothing.
+Today's recordings run 7 to 61 seconds (largest 5.9 MB at 48 kHz). If a model rejects a file as too large (Deepgram
+Nova-3 through OpenRouter does), it is resent at 16 kHz mono: a third of the size, same length and words, nothing a
+speech model uses is lost. Later, not now: recordings over a few minutes would be shrunk, then split at pauses.
 
 Deepgram Nova-3 had failed on 11 of 21 benchmark files only because of the size cap. With the 16 kHz fallback it
 was benchmarked fairly: 62% of numbers on hard audio, 71% overall, last of the cloud models (Scribe v2 Medical
