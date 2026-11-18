@@ -3,3 +3,6 @@ __pycache__/
 .env
 out/*/*/cards/
 out/denoised/
+
+.venv/
+out/live/uploads/
