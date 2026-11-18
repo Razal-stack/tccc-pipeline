@@ -104,6 +104,10 @@ tr.row{cursor:pointer}tr.row:hover td{background:#fcfbfa}td.go{color:var(--mute)
 .stats b.evb{font-size:15px;font-weight:400;color:var(--soft);line-height:2.1}.stats b.evb em{font:500 24px var(--sans);font-style:normal;margin:0 2px 0 8px;color:var(--ink)}
 .stats b.evb em:first-child{margin-left:0}.stats b.evb em.u{color:var(--u)}.stats b.evb em.p{color:#c27a10}.stats b.evb em.r{color:var(--r)}.stats b.evb em.n{color:var(--mute)}
 .stats div:nth-child(2){flex:2}
+.tried{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:12px 28px}
+.try{display:grid;grid-template-columns:28px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--hair)}
+.try .n{font:500 13px var(--mono);color:#fff;background:var(--navy);border-radius:50%;width:26px;height:26px;display:grid;place-items:center}
+.try b{font-weight:600}.try p{margin:4px 0 0;color:var(--soft)}.try p.res{color:var(--ink)}.try p.res:before{content:"Result: ";font-weight:600}
 .empty{padding:36px;text-align:center;color:var(--soft);display:none}
 .cols{display:grid;grid-template-columns:minmax(380px,.85fr) minmax(0,1.25fr);gap:24px;align-items:start}.stick{position:sticky;top:16px}
 .box{padding:18px 20px;margin-bottom:14px}.box.warn{background:#fffaf2;border-color:#f0dcbc}.box.bad{background:#fff8f6;border-color:#f2d3cc}.box.good{background:#f6fbf8;border-color:#cfe6d7}
@@ -429,37 +433,67 @@ call is cached, so re-scoring or changing the checks costs nothing.</p></div>"""
 
 
 LAYERS = (
-    ("Recording", "The whole handover as recorded: radio, noise, two voices and all. Nothing is cut or cleaned: denoisers made it worse.", "audio file"),
-    ("Listen twice", "Two different speech models write down what was said, at the same time. One is told which words to expect (TXA, IV, tourniquet).", "Scribe v2 Medical + Qwen 3.8 Omni Flash"),
-    ("Read", "A language model fills the card from both transcripts, with the exact words for each value. Where the two listens disagree, it leaves the box blank and flags it.", "Gemini 3.8 Flash"),
-    ("Check", "Plain code, no AI. Every value must be in what was heard, in the right format, and medically plausible. Anything that fails is blanked and flagged.", "rules in code"),
-    ("Fill the card", "Values go into the real DD Form 1380. Spoken injury locations map to the body-diagram boxes. The PDF is read back to confirm every field landed.", "PDF form"),
-    ("Medic", "Gets the card plus a short list: what to ask the sender, what to check. Signs, attaches, evacuates.", "this app"),
+    ("The recording comes in", "The whole handover, exactly as recorded: radio crackle, gunfire, two people talking. We do not cut it or try to clean up the background noise.", "audio file"),
+    ("Two listeners write it down", "Two different speech-to-text tools each turn the recording into written words, at the same time. Like two people taking down the same radio message.", "ElevenLabs Scribe (medical) + Qwen Omni"),
+    ("A reader fills in the card", "An AI model reads both write-ups and fills in each box on the card, quoting the words it took each answer from. If the two listeners heard a number differently, it leaves that box empty and asks the medic.", "Gemini Flash"),
+    ("Automatic checks", "Simple fixed rules, no AI: every answer must appear in what was said, be in the right format, and make medical sense (for example oxygen between 50 and 100). Anything that fails is left empty and flagged.", "fixed rules"),
+    ("The card is printed", "The answers go into the official TCCC card (DD Form 1380), including the marks on the body diagram. The finished card is then read back to make sure every box landed correctly.", "official PDF"),
+    ("The medic checks and signs", "The medic sees the card plus a short to-do list: what to ask the person who handed over, and what to double-check. Then signs it and attaches it to the casualty.", "this app"),
+)
+
+TRIED = (
+    ("Which tool should turn speech into text?", "We compared 19 speech-to-text tools from ElevenLabs, OpenAI, Google, Deepgram, AssemblyAI and others, on all 50 recordings.",
+     "ElevenLabs Scribe (its medical version) caught the most: 93% of the details, and 86% on the hardest radio and noisy recordings."),
+    ("Should we clean up the noise first?", "We tried four tools that remove background noise before the speech-to-text step.",
+     "It made things worse on noisy recordings (86% fell to about 80%). The cleaning also removes bits of words. So we send the original recording."),
+    ("Does it help to say which words to expect?", "We gave the speech-to-text tool a list of words it will hear: TXA, IV, tourniquet, unit names.",
+     "Yes. Drug and equipment words went from 90% to 97% correct. Kept."),
+    ("Which AI should fill in the card?", "We compared 14 AI models from OpenAI, Google, Qwen, DeepSeek, Mistral and others, on the same write-ups.",
+     "The best six were effectively tied (about 95%). We picked Gemini Flash because it did best on recordings it had never seen and made up the fewest answers."),
+    ("Would a second AI checking the first one help?", "We had two different AI models fill in the same cards and compared them.",
+     "No. They agreed on 99.6% of answers and made the same mistakes, because the mistakes come from what was heard, not from the reading."),
+    ("Would a second listener help?", "We added a second, different speech-to-text tool and gave the reader both write-ups.",
+     "Yes. It catches details the first one missed (21 of 80). When the two disagree, the box is flagged instead of guessed. Accuracy on unseen recordings rose from 92.5% to 93.8%."),
+    ("Would extra medical rules catch more?", "We tested rules on drug doses and on timings (for example a tourniquet applied before the injury).",
+     "They caught none of the remaining 25 mistakes, which are believable but misheard values. Not added."),
+    ("How do we know the score is honest?", "We set aside half the recordings at the start and only tested on them once, at the end, like an exam the system had not seen.",
+     "93.8% on those unseen recordings, 94.7% across all 50. The first is the one to trust for real use."),
 )
 
 
 @app.get("/how")
 def how():
-    flow = "".join(f"<div class='layer{' code' if t in ('Check', 'Fill the card') else ''}'><span class=n>{i:02d}</span><b>{t}</b><p>{esc(d)}</p>"
+    flow = "".join(f"<div class='layer{' code' if i in (4, 5) else ''}'><span class=n>{i:02d}</span><b>{t}</b><p>{esc(d)}</p>"
                    f"<span class=tool>{esc(tool)}</span></div>" for i, (t, d, tool) in enumerate(LAYERS, 1))
-    return page("how", f"""<div class=head><div class=grow><h1>How it works</h1><p class=lede>A recorded handover goes through six layers and comes out
-as a signed TCCC card. AI does the listening and reading; plain code does the checking and filling, so nothing reaches the card unchecked.</p></div></div>
+    tried = "".join(f"<div class=try><span class=n>{i}</span><div><b>{esc(q)}</b><p>{esc(what)}</p><p class=res>{esc(res)}</p></div></div>"
+                    for i, (q, what, res) in enumerate(TRIED, 1))
+    return page("how", f"""<div class=head><div class=grow><h1>How it works</h1><p class=lede>A recorded handover becomes a signed TCCC card in
+six steps, in about 20 seconds. AI does the listening and the reading. Fixed rules do the checking. A person always signs.</p></div></div>
+<div class=panel style='padding:24px 28px;margin-bottom:20px'><h2>The situation</h2><div class=legend>
+<b>Where</b><span>03:00, an abandoned farmhouse used as a trauma ward. Fifty casualties have come through since the last evacuation.</span>
+<b>The handover</b><span>The <b>first responder</b>, the soldier or medic who treated the casualty where they were hurt, hands them over, in person
+or by radio. They say what hit the casualty, where they are hurt, their vital signs, what treatment was given and how urgently they need
+to move (often in the order Mechanism, Injuries, Signs, Treatment: "MIST"). Every handover was recorded.</span>
+<b>The problem</b><span>Each casualty needs a <b>TCCC card</b> attached before the evacuation vehicle arrives in 3 to 4 hours. It is the only
+record of care that travels with them, and the surgeon at the next stop decides what to do first from it. Nobody has time to write 50 cards
+by hand while still treating, and a missed or made-up detail can cost a limb or cause an overdose.</span>
+<b>What this does</b><span>Turns each recorded handover into a filled card in about 20 seconds, and tells the medic what is missing or
+needs checking, so they only deal with the gaps.</span>
+<b>Who uses it</b><span>The medic at the trauma point reviews and signs each card; the evacuation coordinator uses the totals by urgency;
+the receiving surgeon reads the card.</span></div></div>
 <div class=flow>{flow}</div>
-<div class=guide>
-<div class=panel><h2>What we did</h2><ul>
-<li><b>Measured everything</b> against the answer key that came with the recordings, on 25 recordings locked away until the end.</li>
-<li><b>Picked the best listener</b> out of 19 speech models, and tested four ways of cleaning the audio (all made it worse).</li>
-<li><b>Picked the card model</b> out of 14 language models: the top six tied, so the choice came down to unseen recordings and safety.</li>
-<li><b>Added a second listen</b>, which lifted accuracy on unseen recordings from 92.5% to 93.8% and turns disagreements into flags.</li></ul></div>
-<div class=panel><h2>Why it is safe to trust</h2><ul>
-<li><b>Blank means not said.</b> The card never holds a value nobody spoke.</li>
-<li><b>Every value is traceable</b> to the words in the recording.</li>
-<li><b>Disagreement is surfaced, not hidden:</b> two listens that differ go to the medic.</li>
-<li><b>A person signs every card.</b> The system prepares it; the medic decides.</li></ul></div>
-<div class=panel><h2>Cost and speed</h2><p>About 20 seconds and 1.3 US cents a card. All 50 recordings cost about $0.65 to run and
-take about a minute in parallel. Results are cached, so re-checking costs nothing.</p></div>
-<div class=panel><h2>Built with</h2><p>Python, OpenRouter for every model call, FastAPI for this app, and the real DD Form 1380 PDF.
-One command, <span class=mono>python3 -m tccc</span>, opens everything.</p></div></div>""")
+<div class=panel style='padding:24px 28px;margin-bottom:16px'><h2>Why two listeners?</h2><p class=lede style='max-width:none'>Noisy radio
+messages get misheard. One listener might write 1420 where the other hears 1422. When they agree, we can be more confident. When they
+disagree, the system does not pick one: it leaves the box empty and tells the medic exactly what to check ("Listener 1 heard 1420,
+listener 2 heard 1422"). On a casualty card, a question is safer than a wrong number.</p></div>
+<div class=panel style='padding:24px 28px;margin-bottom:16px'><h2>What we tried, and how we landed here</h2>
+<p class=sub style='margin:0 0 14px'>Every choice was tested against the correct answers supplied with the 50 recordings.</p>
+<div class=tried>{tried}</div></div>
+<div class=panel style='padding:22px 28px'><h2>A few terms</h2><div class=legend>
+<b>Speech-to-text</b><span>A tool that turns spoken words into written text.</span>
+<b>AI model (language model)</b><span>Software that reads text and answers questions about it; here, it fills in the card's boxes.</span>
+<b>Answer key</b><span>The correct card for each recording, supplied with the task. Used only to measure accuracy.</span>
+<b>Accuracy</b><span>Of the boxes that should have something in them, how many our card got right, also counting anything we wrote that should not be there.</span></div></div>""")
 
 
 @app.get("/guide")
