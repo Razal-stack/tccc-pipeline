@@ -58,8 +58,12 @@ Or start the app (`make app`) and use **New handover** to upload a recording; th
 ## How well it works
 
 Before any tuning I split the 50 recordings in two: the file names sorted alphabetically, every other one set aside.
-25 were for **tuning** (writing the instructions, picking models); the other 25 are **held-out**, never looked at
-while building and scored once at the end. The held-out score is the honest exam result. On those 25:
+25 were for **tuning**: every instruction and rule was written from mistakes on these. The other 25 are
+**held-out**: no prompt rule was written from them. They were, though, used to choose between the last two or three
+models (tied on the tuning set; I picked the one that made up the fewest values) and to confirm the second listener,
+and one evidence-check fix (a time spoken as "10/12") came from a held-out card. So the held-out score is slightly
+optimistic.
+It is still the best guide to a new recording. On those 25:
 
 | What we measure | Score |
 |---|---|
@@ -174,7 +178,9 @@ fastened to the casualty. Every value traces back to the words that were spoken.
 
 What I would build next: a larger test set (write new handover scripts with known answers, voice them with
 text-to-speech and add radio noise, so results rest on hundreds of cards, not 50); an offline mode for forward
-use (a local speech model already captures 80% with no network); reading missing items back to the sender in real
+use (NVIDIA Parakeet, run on a laptop with no internet in the same speech test, caught 80% of answer-key values
+against 93% for Scribe and 52% against 86% on hard audio: a device in the field may have no network, so an on-device
+model is the route to offline use, but at about 13 points of hearing accuracy it is a next step, not the default); reading missing items back to the sender in real
 time; and splitting very long recordings at pauses (not needed here: the longest is 61 seconds).
 
 ## The app

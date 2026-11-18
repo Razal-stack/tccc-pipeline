@@ -79,7 +79,8 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
   - Share of answer-key values present in the transcript: Scribe v2 Medical with keyterms 93% overall, 86% on hard
     audio. Next: Qwen 3.8 Omni Flash 92% (83% hard), Fish Audio and AssemblyAI 91%.
   - Keyterms moved drug and kit words from 90% to 97%.
-  - Local Parakeet 80%, Deepgram Nova-3 74%. Three chat models paraphrased instead of transcribing (below 45%).
+  - NVIDIA Parakeet TDT 0.6B v2, run on the Mac with no internet (sherpa-onnx, int8), 80% (hard 52%); Deepgram
+    Nova-3 74%. Three chat models paraphrased instead of transcribing (below 45%).
 - **Trade-offs.** One vendor is the main listener. Keyterms bias toward expected words, which helps drugs and kits but
   could favour a listed word over a rare real one.
 - **Revisit when.** A new model beats it on the hard-audio column, or the vocabulary changes (other forces or drugs).
@@ -267,7 +268,9 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
   tuned and scored on the same 50. (3) The same F1 with a fixed split chosen before tuning and intervals on comparisons.
 - **Decision.** Option 3.
   - Split: sort the file names; even positions are dev (25), odd are held-out (25) (`SPLITS` in `tccc/extract.py`). All
-    tuning on dev. Held-out run once, reported first, then all 50.
+    prompt rules come from dev. Held-out is reported first, then all 50.
+  - Held-out was not untouched: it chose between the final tied readers (on made-up values), confirmed the second
+    listen, and prompted one evidence-check fix (a time spoken as "10/12" on ato). So it is slightly optimistic.
   - Each field is correct, wrong, invented (written, never said) or missed. F1 balances precision and recall.
   - 95% intervals by bootstrap: 2,000 resamples of cards, with a paired interval on the gap between two models.
 - **Evidence.**
@@ -277,7 +280,8 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
     answer key has a few slips we did not tune to.
 - **Trade-offs.** 25 cards per half is small, so intervals are wide. Free-text notes are not scored. The all-50 number
   includes the tuning half and flatters a little.
-- **Revisit when.** A larger synthetic set exists. Then use a fresh held-out set, not the current one again.
+- **Revisit when.** A larger synthetic set exists. Then keep a fresh held-out set truly untouched: model choice on a
+  separate validation split, the test set scored once.
 
 ## ADR-13: Minimal FastAPI app, server-rendered HTML, no frontend framework
 
@@ -373,7 +377,9 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
 
 ## What would change these decisions
 
-- **Offline or forward use.** A local speech model already captures 80% of values with no network. If a device must work
+- **Offline or forward use.** NVIDIA Parakeet, running on the Mac with no internet, got 80% of answer-key values into
+  its transcript in the same bake-off (52% on hard audio), against 93% (86%) for Scribe. A device in the field may
+  have no network, so an on-device model is the route to offline use, at about 13 points of hearing accuracy. If a device must work
   offline, ADR-03 and ADR-04 change, and the fallback in ADR-05 matters more.
 - **Longer recordings.** Today's run 7 to 61 seconds. Beyond a few minutes, files would be shrunk and then split at pauses,
   which reopens ADR-02.

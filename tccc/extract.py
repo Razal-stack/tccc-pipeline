@@ -109,16 +109,45 @@ Leave "Injuries:" out if no injury location was said.
 """
 
 
-def ask(model, transcript, key):
+class BadReply(ValueError):
+    """The model answered, but not with a usable card: cut off, not JSON, or the wrong shape. Retrying the same
+    temperature-0 call would give the same answer, so callers move on (fallback model, or a blank card and a flag)."""
+
+
+def check_reply(reply) -> dict:
+    """Shape check before anything reads the reply: {"fields": {name: [value, quote] or value}, "notes", "flags"}."""
+    if not isinstance(reply, dict):
+        raise BadReply("reply is not a JSON object")
+    fields = reply.get("fields") or {}
+    if not isinstance(fields, dict):
+        raise BadReply("'fields' is not an object")
+    for name, item in fields.items():
+        bad_list = isinstance(item, list) and not 1 <= len(item) <= 2
+        if bad_list or item is None or isinstance(item, dict):
+            raise BadReply(f"field {name!r} is not [value, quote] or a plain value")
+    if not isinstance(reply.get("flags") or [], list) or not isinstance(reply.get("notes") or "", str):
+        raise BadReply("'flags' must be a list and 'notes' a string")
+    return reply
+
+
+def ask(model: str, transcript: str, key: str):
+    """One model call -> (checked reply, cost in USD). Raises BadReply for an unusable answer."""
     body = {"model": model, "temperature": 0, "max_tokens": 8000, "response_format": {"type": "json_object"},
             "messages": [{"role": "system", "content": PROMPT}, {"role": "user", "content": transcript}]}
     r = call("/chat/completions", key, body, timeout=300)
-    text = r["choices"][0]["message"]["content"]
-    text = text[text.find("{"): text.rfind("}") + 1]
-    return json.loads(text), (r.get("usage") or {}).get("cost", 0.0)
+    choice = r["choices"][0]
+    if choice.get("finish_reason") == "length":
+        raise BadReply("reply was cut off at the output limit")
+    text = choice["message"]["content"] or ""
+    try:
+        reply = json.loads(text[text.find("{"): text.rfind("}") + 1])
+    except ValueError as e:
+        raise BadReply(f"reply is not valid JSON ({e})") from None
+    return check_reply(reply), (r.get("usage") or {}).get("cost", 0.0)
 
 
-def run(model, names):
+def run(model: str, names: list):
+    """Cached replies for these recordings; only missing ones are paid for. Returns the cache folder."""
     version = hashlib.sha1((PROMPT + TRANSCRIPTS.name + SECOND).encode()).hexdigest()[:8]  # new prompt/transcripts -> new cache
     out = OUT / "raw" / slug(model) / version
     todo = [f for f in names if not (out / f.replace(".wav", ".json")).exists()]
@@ -134,10 +163,13 @@ def run(model, names):
                 reply, cost = ask(model, transcript(f.replace(".wav", "")), key)
                 dst.write_text(json.dumps(reply, indent=1))
                 return cost
-            except Exception as e:  # noqa: BLE001  (402 = credit held by in-flight requests: wait, then retry)
+            except BadReply as e:
+                err = e
+                break
+            except Exception as e:  # noqa: BLE001  network or API error (402 = credit held by in-flight requests): wait, retry
                 err = e
                 time.sleep(5 * (attempt + 1))
-        print(f"  {f}: failed ({err})")
+        print(f"  {f}: failed ({err}); scored as an empty card")
         return 0.0
 
     if todo:

@@ -22,7 +22,8 @@ Read `CLAUDE.md`, `docs/ARCHITECTURE.md` and `docs/DECISIONS.md` first.
 
 ## Rules
 
-- Tune on dev only. Held-out is run once, at the end, and reported first.
+- Tune on dev only. Held-out has already been used to pick between tied models (so it is slightly optimistic);
+  do not use it for more decisions. Report it first.
 - The provided OpenRouter key: final inference only, cheapest model that holds accuracy. No Opus or premium
   models. Check spend in each run's "new spend" line. The cap is `TCCC_BUDGET_USD` (default $7).
 - Safety first: blank + flag beats a confident wrong value.

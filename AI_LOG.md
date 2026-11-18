@@ -116,7 +116,8 @@ questioned claims that sounded good.
 
 - The unit-name list in the prompt is general knowledge, but I wrote it after seeing units in the answer key, so
   the held-out score on that one field is slightly flattered.
-- Every prompt rule was written from errors on the 25 tuning recordings; the held-out 25 were run once at the end.
+- Every prompt rule was written from errors on the 25 tuning recordings. The held-out 25 were also used to pick
+  between the final tied models and to confirm the second listener, so that score is slightly optimistic.
 - The answer key has oddities (for example, left and right swapped on two cards). I noted them and did not tune to
   them.
 

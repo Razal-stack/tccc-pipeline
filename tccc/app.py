@@ -297,7 +297,7 @@ def board():
     h = next((r for r in reversed(runs()) if r["model"] == LLM_MODEL and r["split"] == "heldout"), None)
     stats = (f"<div><span>Casualties</span><b>{n}</b></div><div><span>Urgent</span><b>{counts['u']}</b></div>"
              f"<div><span>Ready to attach</span><b>{counts['ok']} <small>of {n}</small></b></div>"
-             + (f"<div><span title='25 recordings set aside before tuning and scored once at the end'>Accuracy, held-out recordings</span><b>{h['f1']:.1%}</b></div>" if h else ""))
+             + (f"<div><span title='25 recordings set aside before tuning; prompts and rules were never tuned on them'>Accuracy, held-out recordings</span><b>{h['f1']:.1%}</b></div>" if h else ""))
     tabs = f"<button class='tab on' data-st='' data-hint='Every recorded handover, most urgent first.'>All<i>{n}</i></button>" + "".join(
         f"<button class=tab data-st={k} data-hint='{esc(d)}'><span class='dot {k}'></span>{t}<i>{counts[k]}</i></button>" for k, (t, d) in STATUS.items())
     chips = "<button class='chip on' data-ev=''>Any</button>" + "".join(
@@ -480,14 +480,17 @@ def bench():
             f"<div><span>Across all 50 (includes the tuning half)</span><b>{a['f1']:.1%}</b></div></div>"
             f"<div class='panel box' style='margin:-12px 0 24px'><h3>What \"held-out\" means</h3><p style='margin:0'>Before any tuning, the 50 "
             f"recordings were split in two. The file names were sorted alphabetically and every other one was set aside: 25 for "
-            f"<b>tuning</b> (used to write the instructions and pick the models) and 25 <b>held-out</b> (never looked at while building, "
-            f"scored once at the end). The held-out score is the honest exam result, the best guide to a new recording. The all-50 "
-            f"number is higher partly because it includes the 25 the system was tuned on.</p>"
+            f"<b>tuning</b> (every instruction and rule was written from mistakes on these) and 25 <b>held-out</b>, which the "
+            f"instructions were never tuned on. The held-out score is the best guide to a new recording. One honest caveat: the "
+            f"held-out recordings were also used to choose between the last two or three models, which were tied on the tuning set "
+            f"(we picked the one that made up the fewest values), and a list of UK unit names was written after seeing units in "
+            f"the answer key. So the held-out number is slightly optimistic. The all-50 number is higher partly because it "
+            f"includes the 25 the system was tuned on.</p>"
             f"<details style='margin-top:8px'><summary class=sub style='cursor:pointer'>Which recordings are in each half</summary>"
             f"<p class='sub mono' style='margin:8px 0 0'>Tuning: {dev}<br>Held-out: {held}</p></details></div>") if h and a else ""
     return page("bench", f"""<div class=head><div class=grow><h1>Benchmark</h1><p class=lede>Every choice was measured against the answer key that came
 with the recordings. Only fields a handover actually filled are scored, since an empty card already "matches" most of the form. Half
-the recordings were locked away and run once at the end.</p></div></div>{head}
+the recordings were held out from all prompt tuning.</p></div></div>{head}
 <div class='panel finding'><h2>Drugs and tourniquets are always right. Names are the weak spot.</h2>
 <p class=note>Accuracy by part of the card, on the 25 held-out recordings. Each percentage is the same F1 score as the headline, counted
 only over the boxes in that part of the card that the handover actually filled (or that we filled). Every part is used and scored.</p>
@@ -501,7 +504,7 @@ flags the value instead of guessing (held-out accuracy 92.5% to 93.8%). Four den
 <table><tr><th>Speech model</th><th>All recordings</th><th>Hard audio</th><th>Per audio hour</th></tr>{stt_rows}</table></div>
 <div class='panel finding'><h2>Why Gemini 3.8 Flash, when Gemini 4 Argon scored higher</h2>
 <p class=note>On the 25 tuning recordings the top six are within 1 point, and their 95% intervals overlap: that gap is noise, not
-skill. So the deciding test was the 25 held-out recordings, scored once. There, Gemini 3.8 Flash was as accurate as Argon and made
+skill. So the deciding test was the 25 held-out recordings (which makes the held-out score slightly optimistic). There, Gemini 3.8 Flash was as accurate as Argon and made
 up 2 values where Argon made up 9 and GPT-6.1 Terra 5. Terra is $0.16 cheaper for all 50 cards; on a casualty card, two and a half
 times as many invented values is not worth 16 cents.</p>
 <table><tr><th>Language model</th><th>Tuning set</th><th>Held-out</th><th>Made up (held-out)</th><th>Cost for 50 cards</th></tr>{model_rows}</table></div>
@@ -547,8 +550,8 @@ TRIED = (
      "Yes. It catches details the first one missed (21 of 80). When the two disagree, the box is flagged instead of guessed. Accuracy on the held-out recordings rose from 92.5% to 93.8%."),
     ("Would extra medical rules catch more?", "We tested rules on drug doses and on timings (for example a tourniquet applied before the injury).",
      "They caught none of the remaining 25 mistakes, which are believable but misheard values. Not added."),
-    ("How do we know the score is honest?", "Before any tuning we sorted the 50 file names and set every other one aside: 25 to tune on, 25 'held-out' recordings scored only once, at the end, like an exam the system had not seen.",
-     "93.8% on the 25 held-out recordings, 94.7% across all 50 (which includes the 25 it was tuned on). The held-out score is the one to trust for real use."),
+    ("How do we know the score is honest?", "Before any tuning we sorted the 50 file names and set every other one aside: 25 to tune on, 25 'held-out' recordings that no instruction or rule was ever written from. The held-out set was also used to choose between the last few tied models, so its score is slightly optimistic.",
+     "93.8% on the 25 held-out recordings, 94.7% across all 50 (which includes the 25 it was tuned on). The held-out score is the better guide for real use."),
 )
 
 
@@ -657,7 +660,10 @@ reassess or convert a tourniquet within about two hours, so confirm the category
 <li><b>Corrections win; retractions are dropped</b> ("ignore that, other casualty").</li>
 <li><b>Two listens.</b> Where they disagree on a value, it is flagged for you rather than chosen.</li></ul></div>
 <div class=panel><h2>What it does not do</h2><ul><li>Replace the medic's judgement or signature. Every card is checked by a person before it is attached.</li>
-<li>Work offline yet. A local speech model captures about 80% of the values with no network; that is the next step for forward use.</li></ul></div></div>""")
+<li>Work offline yet. In the same speech test, NVIDIA Parakeet, a model small enough to run on a laptop with no internet, caught
+about 80% of the details against 93% for the online model we use (and only about half on radio and noisy recordings). A device in the
+field may have no network, so a model like this is the route to offline use; it costs about 13 points of hearing accuracy, which is why
+it is a next step and not the default.</li></ul></div></div>""")
 
 
 @app.get("/pdf/{name}/{stem}")

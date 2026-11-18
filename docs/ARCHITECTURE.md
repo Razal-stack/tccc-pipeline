@@ -82,7 +82,10 @@ Error stages in every report:
 ## Honest evaluation
 
 - Fixed split, made before any tuning: file names sorted, even positions are dev (25, used for tuning), odd
-  positions are held-out (25, scored once at the end). `SPLITS` in `tccc/extract.py`.
+  positions are held-out (25). `SPLITS` in `tccc/extract.py`. Prompts and rules were tuned on dev only. Held-out
+  was also used to choose between the final two or three tied readers (on made-up values), to confirm the second
+  listen, and it prompted one evidence-check fix ("10/12" as a time, on ato); it was scored a few times along the
+  way (`out/runs.jsonl`), so it is slightly optimistic.
 - Held-out is reported first; all 50 includes the tuning half.
 - Known answer-key oddities, not tuned to: roo omits TXA and oxygen that are clearly spoken; aim ticks GSW though
   only a grenade is mentioned; hip and upper back boxes swap left and right on two cards.
@@ -135,7 +138,11 @@ single-listener transcripts those runs used). Early runs on older prompts (inclu
 - **Small test set.** 25 held-out cards give wide intervals. Next: write new handover scripts with known answers,
   voice them with text-to-speech, add radio noise, and test on hundreds of cards with a fresh held-out set.
 - **Third listen** (ADR-16): build behind a flag and measure on held-out; expected gain is review time.
-- **Offline use.** A local speech model already captures 80% of values; forward use would need it.
+- **Offline use.** NVIDIA Parakeet TDT 0.6B v2 (int8, run on the Mac through sherpa-onnx with no internet) was in
+  the same 19-model bake-off: 80% of answer-key values reached its transcript (52% on hard audio), against 93% (86%)
+  for Scribe. A device in the field may have no network, so an on-device model like Parakeet is the route to offline
+  use, at the cost of about 13 points of hearing accuracy (far more on radio and noise). That is why it is a next
+  step and not the default.
 - **The production path reads the field list from the answer-key file** (`data/output-true-values.json`). Moving
   it to `field_map.json` changes the prompt text and so the cache hash, so it waits for the next prompt change.
 - **One "was this heard?" check, not three.** Evidence, error stages and confidence each use a slightly different
