@@ -6,7 +6,9 @@ medic what to ask the person who handed over, and which values to check.
 
 ## How well it works
 
-On the 25 recordings I locked away and never looked at while tuning (the honest test):
+Before any tuning I split the 50 recordings in two: the file names sorted alphabetically, every other one set aside.
+25 were for **tuning** (writing the instructions, picking models); the other 25 are **held-out**, never looked at
+while building and scored once at the end. The held-out score is the honest exam result. On those 25:
 
 | What we measure | Score |
 |---|---|
@@ -16,7 +18,7 @@ On the 25 recordings I locked away and never looked at while tuning (the honest 
 | Tourniquets, and drugs and fluids | 100% each |
 | Values made up that were never said | 2 in 25 cards |
 
-On all 50 recordings: 94.7% F1, 97.5% precision, 96.4% on safety-critical fields. All 50 filled PDF cards are in
+On all 50 recordings (which includes the 25 it was tuned on, so it flatters a little): 94.7% F1, 97.5% precision, 96.4% on safety-critical fields. All 50 filled PDF cards are in
 `out/google__gemini-3.8-flash/all/cards/`.
 
 ### How the % is calculated
@@ -31,9 +33,9 @@ missed (left blank when something was said). Then:
 - **F1**: one number that balances the two. It only goes up if we are both careful and thorough.
 
 Values are compared after light tidying ("800mcg" equals "800 mcg"). Free-text notes are not scored; the
-body-diagram ticks are scored separately (89% on all 50, 81% on the locked-away 25).
+body-diagram ticks are scored separately (89% on all 50, 81% on the held-out 25).
 
-Before starting, I split the recordings: 25 to tune on, 25 locked away and run once at the end. Every result also
+The split is fixed in code (`SPLITS` in `tccc/extract.py`: even positions tune, odd positions held-out). Every result also
 has a 95% interval from resampling the cards, and a change only counts as better when the interval on the gap
 excludes zero.
 
@@ -92,7 +94,7 @@ I benchmarked every step on our own recordings and answer key, not on vendor cla
 |---|---|---|
 | Which speech model? | 19 models on all 50 recordings: ElevenLabs, AssemblyAI, Deepgram, OpenAI, Google, Mistral, xAI, NVIDIA, Qwen, Meta, Fish Audio, plus audio chat models | **ElevenLabs Scribe v2 Medical**: 93% of values captured, 86% on radio and noise. Deepgram Nova-3 was near the bottom (74%) |
 | Clean the audio first? | 4 methods: spectral gating, radio band-pass, DeepFilterNet3, Meta Denoiser (Demucs) | **No.** Every one made hard audio worse (86% fell to 79-80% with the neural denoisers). Modern speech models are trained on noise; denoisers remove parts of words |
-| Which model fills the card? | 14 models on the final prompt (OpenAI, Google, Qwen, GLM, DeepSeek, Mistral), the top 3 also on the locked-away set; Anthropic models in an earlier round | **Gemini 3.8 Flash.** The top six are statistically tied (about 95%); Gemini had the best held-out score and fewest made-up values. Qwen 4 Max scored well but made up twice as many |
+| Which model fills the card? | 14 models on the final prompt (OpenAI, Google, Qwen, GLM, DeepSeek, Mistral), the top 3 also on the held-out set; Anthropic models in an earlier round | **Gemini 3.8 Flash.** The top six are statistically tied (about 95%); Gemini had the best held-out score and fewest made-up values. Qwen 4 Max scored well but made up twice as many |
 | A second model to verify? | Two card models side by side | **No.** They make the same mistakes (agree on 99.6% of fields): errors come from the audio, not the reading |
 | A second listen? | Scribe plus a second speech model, disagreements flagged | **Yes.** It holds 21 of the 80 values Scribe misses. Held-out F1 92.5% to 93.8% (gap interval +0.2 to +2.8 points), precision 95.8% to 97.6%, identity 85% to 89.5% |
 | A vision model for the PDF? | Not needed | The body diagram is named tick boxes; filling it is exact code |
@@ -110,7 +112,7 @@ blank box and a flag is safer than a confident guess.
 - **The answer key has a few slips.** One card (roo) leaves out a TXA dose and oxygen that are clearly spoken, and
   two body-diagram entries swap left and right. I did not bend the system to match them, so they count against us.
 - **One small leak, flagged.** I wrote a list of real UK unit names into the instructions after seeing units in
-  the answer key, so the unit field on the locked-away set is slightly flattered.
+  the answer key, so the unit field on the held-out set is slightly flattered.
 
 ## In the real world
 

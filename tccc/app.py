@@ -15,6 +15,7 @@ from pathlib import Path
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
 
+from .extract import SPLITS
 from .pipeline import LLM_MODEL, SECOND_MODEL, STT_MODEL, process
 from .score import TRUTH, prf, score_card
 from .textnorm import spoken_to_digits, squash
@@ -137,6 +138,10 @@ iframe{width:100%;height:calc(100vh - 32px);border:1px solid var(--line);border-
 .hbar span{font:12.5px var(--mono);color:var(--soft)}.pick{font-size:11.5px;font-weight:500;color:var(--blue);background:var(--tint);border-radius:999px;padding:1px 8px;margin-left:8px}
 .guide{columns:2 520px;column-gap:16px}.guide .panel{padding:22px 26px;margin-bottom:16px;break-inside:avoid;display:inline-block;width:100%}.guide ol,.guide ul{padding-left:20px;margin:6px 0 0}.guide li{margin:8px 0}
 .legend{display:grid;grid-template-columns:200px 1fr;gap:14px 16px;align-items:start;margin-top:8px}
+.groups{display:grid;grid-template-columns:minmax(320px,.8fr) minmax(0,1.2fr);gap:32px;align-items:start}
+.sw{display:inline-block;width:18px;height:6px;border-radius:3px;background:var(--navy);text-decoration:none}.sw.dim{background:#d9d7d3}
+.gkey td{font-size:13px;padding:8px 12px 8px 0;vertical-align:top}.gkey td.mono{white-space:nowrap}.gkey th{padding:6px 12px 6px 0}
+@media(max-width:1100px){.groups{grid-template-columns:1fr}}
 @media(max-width:960px){.app{grid-template-columns:1fr}aside{position:static;height:auto}.cols{grid-template-columns:1fr}.stick{position:static}main{padding:24px 18px}}
 """
 
@@ -292,7 +297,7 @@ def board():
     h = next((r for r in reversed(runs()) if r["model"] == LLM_MODEL and r["split"] == "heldout"), None)
     stats = (f"<div><span>Casualties</span><b>{n}</b></div><div><span>Urgent</span><b>{counts['u']}</b></div>"
              f"<div><span>Ready to attach</span><b>{counts['ok']} <small>of {n}</small></b></div>"
-             + (f"<div><span>Accuracy, unseen recordings</span><b>{h['f1']:.1%}</b></div>" if h else ""))
+             + (f"<div><span title='25 recordings set aside before tuning and scored once at the end'>Accuracy, held-out recordings</span><b>{h['f1']:.1%}</b></div>" if h else ""))
     tabs = f"<button class='tab on' data-st='' data-hint='Every recorded handover, most urgent first.'>All<i>{n}</i></button>" + "".join(
         f"<button class=tab data-st={k} data-hint='{esc(d)}'><span class='dot {k}'></span>{t}<i>{counts[k]}</i></button>" for k, (t, d) in STATUS.items())
     chips = "<button class='chip on' data-ev=''>Any</button>" + "".join(
@@ -401,8 +406,28 @@ def heard(text):
             f"<div><h4>Listen 2 · Qwen 3.8 Omni Flash</h4><div class=say>{esc(b.strip())}</div></div></div>")
 
 
-def bar(v, dim=False):
-    return f"<div class=hbar><s class='{'dim' if dim else ''}' style='width:{v * 220:.0f}px'></s><span>{v:.0%}</span></div>"
+def bar(v, dim=False, places=0):
+    return f"<div class=hbar><s class='{'dim' if dim else ''}' style='width:{v * 220:.0f}px'></s><span>{v:.{places}%}</span></div>"
+
+
+WEAK = .9  # Benchmark bars below this F1 are drawn grey
+# score.GROUPS key -> (label, card fields it covers, why it is lower when it is)
+GROUP_INFO = {
+    "tourniquets": ("Tourniquets", "limb, type and time for each arm and leg, and the extremity tick", ""),
+    "medications": ("Drugs and fluids", "painkillers, antibiotics, TXA and other drugs, fluids and blood: name, dose, route, time", ""),
+    "evac": ("Evacuation priority", "urgent, priority or routine", ""),
+    "vital_signs": ("Vital signs", "each set of obs: time, pulse, blood pressure, breathing rate, oxygen, AVPU, pain", ""),
+    "mechanism": ("Mechanism", "what caused the injury: gunshot, IED, blast, fall and so on", ""),
+    "identity": ("Who and when", "name, last four, battle roster, sex, date, time of wounding, service, unit, allergies, "
+                 "the sender's name and last four",
+                 "Mostly blanks rather than wrong values. Names are written the way they sound (\"Kaur\" heard as \"Carr\"), "
+                 "one recording is almost all static, and the time of wounding is often not said clearly. The card asks for "
+                 "these, and the ID tag settles the name."),
+    "treatments": ("Other treatments", "dressings, airway, breathing aids (chest seal, oxygen, needle), splint, eye shield, "
+                   "combat pill pack, hypothermia kit",
+                   "Small items mentioned in passing (a pill pack, a splint) are the easiest to miss. Nearly all its errors "
+                   "are boxes left unticked, not wrong ticks."),
+}
 
 
 # card-model cost for all 50 recordings, measured on the run (one transcript; two transcripts add about 40%)
@@ -435,34 +460,50 @@ def bench():
         f"<td class=mono>{unseen.get(m, '<span class=sub>not run</span>')}</td>"
         f"<td class=mono>{held[m]['invented'] if m in held else ''}</td><td class=mono>${COST50.get(m, 0):.2f}</td></tr>"
         for m, r in sorted(models.items(), key=lambda kv: -kv[1]["f1"])[:12])
-    groups = ""
+    groups, key = "", ""
     hs = OUT / LLM_MODEL.replace("/", "__") / "heldout" / "score.json"
     if hs.exists():
-        names = {"identity": "Who (name, ID, unit)", "evac": "Evacuation priority", "mechanism": "Mechanism", "tourniquets": "Tourniquets",
-                 "vital_signs": "Vital signs", "treatments": "Other treatments", "medications": "Drugs and fluids"}
         g = json.loads(hs.read_text())["groups"]
-        groups = "".join(f"<tr><td>{names.get(k, k)}</td><td>{bar(v['f1'], v['f1'] < .9)}</td></tr>" for k, v in sorted(g.items(), key=lambda kv: -kv[1]["f1"]))
-    head = (f"<div class=stats><div><span>Accuracy on 25 unseen recordings</span><b>{h['f1']:.1%}</b></div>"
+        order = sorted(g.items(), key=lambda kv: -kv[1]["f1"])
+        groups = "".join(f"<tr><td>{GROUP_INFO[k][0]}</td><td>{bar(v['f1'], v['f1'] < WEAK, 1)}</td></tr>" for k, v in order if k in GROUP_INFO)
+        key = "".join(
+            f"<tr><td><b>{GROUP_INFO[k][0]}</b><div class=sub>{GROUP_INFO[k][1]}</div>"
+            + (f"<div class=sub style='color:var(--ink2)'>{GROUP_INFO[k][2]}</div>" if v["f1"] < WEAK else "")
+            + f"</td><td class=mono>{sum(v.get(o, 0) for o in ('correct', 'wrong', 'missed', 'invented'))}</td>"
+            f"<td class=mono>{v.get('correct', 0)} / {v.get('missed', 0)} / {v.get('wrong', 0)} / {v.get('invented', 0)}</td></tr>"
+            for k, v in order if k in GROUP_INFO)
+    dev, held = (", ".join(f[9:12] for f in SPLITS[s]) for s in ("dev", "heldout"))
+    head = (f"<div class=stats><div><span>Accuracy on the 25 held-out recordings</span><b>{h['f1']:.1%}</b></div>"
             f"<div><span>Of what it writes, right</span><b>{h['precision']:.1%}</b></div>"
             f"<div><span>Drugs, tourniquets, vitals, evac</span><b>{h['critical_f1']:.1%}</b></div>"
-            f"<div><span>Across all 50</span><b>{a['f1']:.1%}</b></div></div>") if h and a else ""
+            f"<div><span>Across all 50 (includes the tuning half)</span><b>{a['f1']:.1%}</b></div></div>"
+            f"<div class='panel box' style='margin:-12px 0 24px'><h3>What \"held-out\" means</h3><p style='margin:0'>Before any tuning, the 50 "
+            f"recordings were split in two. The file names were sorted alphabetically and every other one was set aside: 25 for "
+            f"<b>tuning</b> (used to write the instructions and pick the models) and 25 <b>held-out</b> (never looked at while building, "
+            f"scored once at the end). The held-out score is the honest exam result, the best guide to a new recording. The all-50 "
+            f"number is higher partly because it includes the 25 the system was tuned on.</p>"
+            f"<details style='margin-top:8px'><summary class=sub style='cursor:pointer'>Which recordings are in each half</summary>"
+            f"<p class='sub mono' style='margin:8px 0 0'>Tuning: {dev}<br>Held-out: {held}</p></details></div>") if h and a else ""
     return page("bench", f"""<div class=head><div class=grow><h1>Benchmark</h1><p class=lede>Every choice was measured against the answer key that came
 with the recordings. Only fields a handover actually filled are scored, since an empty card already "matches" most of the form. Half
 the recordings were locked away and run once at the end.</p></div></div>{head}
 <div class='panel finding'><h2>Drugs and tourniquets are always right. Names are the weak spot.</h2>
-<p class=note>Accuracy by part of the card, on the 25 unseen recordings. Names are spelled the way they sound ("Kaur" heard as "Carr");
-in the field the ID tag settles it, which is why the card asks for it.</p><table style='max-width:560px'>{groups}</table></div>
+<p class=note>Accuracy by part of the card, on the 25 held-out recordings. Each percentage is the same F1 score as the headline, counted
+only over the boxes in that part of the card that the handover actually filled (or that we filled). Every part is used and scored.</p>
+<div class=groups><div><table>{groups}</table>
+<div class=legend2 style='margin-top:12px'><span><s class=sw></s>{WEAK:.0%} or above</span><span><s class='sw dim'></s>below {WEAK:.0%}: the weaker areas, worth a closer look</span></div></div>
+<div><table class=gkey><tr><th>Part of the card</th><th>Values scored</th><th title='right / left blank / different / made up'>Right / blank / different / made up</th></tr>{key}</table></div></div></div>
 <div class='panel finding'><h2>Listening is the ceiling, so we listen twice.</h2>
 <p class=note>19 speech models on all 50 recordings: share of the true values that reached the transcript. Hard audio means radio,
 heavy noise or two voices. A second, different model holds 21 of the 80 values the first one misses; where the two disagree, the card
-flags the value instead of guessing (unseen accuracy 92.5% to 93.8%). Four denoisers were also tested; all made hard audio worse.</p>
+flags the value instead of guessing (held-out accuracy 92.5% to 93.8%). Four denoisers were also tested; all made hard audio worse.</p>
 <table><tr><th>Speech model</th><th>All recordings</th><th>Hard audio</th><th>Per audio hour</th></tr>{stt_rows}</table></div>
 <div class='panel finding'><h2>Why Gemini 3.8 Flash, when Gemini 4 Argon scored higher</h2>
 <p class=note>On the 25 tuning recordings the top six are within 1 point, and their 95% intervals overlap: that gap is noise, not
-skill. So the deciding test was the 25 locked-away recordings, scored once. There, Gemini 3.8 Flash was as accurate as Argon and made
+skill. So the deciding test was the 25 held-out recordings, scored once. There, Gemini 3.8 Flash was as accurate as Argon and made
 up 2 values where Argon made up 9 and GPT-6.1 Terra 5. Terra is $0.16 cheaper for all 50 cards; on a casualty card, two and a half
 times as many invented values is not worth 16 cents.</p>
-<table><tr><th>Language model</th><th>Tuning set</th><th>Unseen recordings</th><th>Made up (unseen)</th><th>Cost for 50 cards</th></tr>{model_rows}</table></div>
+<table><tr><th>Language model</th><th>Tuning set</th><th>Held-out</th><th>Made up (held-out)</th><th>Cost for 50 cards</th></tr>{model_rows}</table></div>
 <div class='panel finding'><h2>What a run costs</h2>
 <p class=note>The final pipeline on all 50 recordings: Scribe v2 Medical $0.15, second listen $0.03, Gemini reading both transcripts
 $0.47. About <b>$0.65 for all 50</b>, 1.3 cents a card, about 20 seconds each, all 50 in parallel in about a minute. Every model
@@ -502,11 +543,11 @@ TRIED = (
     ("Would a second AI checking the first one help?", "We had two different AI models fill in the same cards and compared them.",
      "No. They agreed on 99.6% of answers and made the same mistakes, because the mistakes come from what was heard, not from the reading."),
     ("Would a second listener help?", "We added a second, different speech-to-text tool and gave the reader both write-ups.",
-     "Yes. It catches details the first one missed (21 of 80). When the two disagree, the box is flagged instead of guessed. Accuracy on unseen recordings rose from 92.5% to 93.8%."),
+     "Yes. It catches details the first one missed (21 of 80). When the two disagree, the box is flagged instead of guessed. Accuracy on the held-out recordings rose from 92.5% to 93.8%."),
     ("Would extra medical rules catch more?", "We tested rules on drug doses and on timings (for example a tourniquet applied before the injury).",
      "They caught none of the remaining 25 mistakes, which are believable but misheard values. Not added."),
-    ("How do we know the score is honest?", "We set aside half the recordings at the start and only tested on them once, at the end, like an exam the system had not seen.",
-     "93.8% on those unseen recordings, 94.7% across all 50. The first is the one to trust for real use."),
+    ("How do we know the score is honest?", "Before any tuning we sorted the 50 file names and set every other one aside: 25 to tune on, 25 'held-out' recordings scored only once, at the end, like an exam the system had not seen.",
+     "93.8% on the 25 held-out recordings, 94.7% across all 50 (which includes the 25 it was tuned on). The held-out score is the one to trust for real use."),
 )
 
 
