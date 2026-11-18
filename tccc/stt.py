@@ -21,6 +21,31 @@ KEYTERMS = ["TXA", "IV", "IO", "IM", "CAT", "SOFTT-W", "tourniquet", "fentanyl",
             "Para", "Commando", "Royal Anglian", "Royal Welsh", "RMP", "RAF Regiment", "Irish Guards"]
 
 
+MAX_SECONDS = 120  # longer recordings are split; every file goes through whatever its length
+
+
+def _wav(frames, width, rate):
+    out = io.BytesIO()
+    with wave.open(out, "wb") as w:
+        w.setnchannels(1), w.setsampwidth(width), w.setframerate(rate), w.writeframes(frames)
+    return out.getvalue()
+
+
+def split(data: bytes, max_s=MAX_SECONDS, search_s=8) -> list:
+    """Mono wav -> pieces of at most max_s, each cut at the quietest 0.2 s in the search_s before the limit.
+    Cutting in a pause, never at a fixed time, keeps words and numbers ("one twenty eight") whole."""
+    with wave.open(io.BytesIO(data)) as w:
+        width, rate, frames = w.getsampwidth(), w.getframerate(), w.readframes(w.getnframes())
+    n, per, win = len(frames) // width, rate * max_s, int(rate * .2)
+    cuts = [0]
+    while n - cuts[-1] > per:
+        end = cuts[-1] + per
+        quiet = min(range(end - search_s * rate, end - win, win // 2),
+                    key=lambda i: audioop.rms(frames[i * width:(i + win) * width], width))
+        cuts.append(quiet + win // 2)
+    return [_wav(frames[a * width:b * width], width, rate) for a, b in zip(cuts, cuts[1:] + [n])]
+
+
 def to_16k(data: bytes) -> bytes:
     """48 kHz wav -> 16 kHz mono wav (a third of the size; speech models work at 16 kHz anyway)."""
     with wave.open(io.BytesIO(data)) as w:
@@ -28,14 +53,23 @@ def to_16k(data: bytes) -> bytes:
     if ch > 1:
         frames = audioop.tomono(frames, width, .5, .5)
     frames, _ = audioop.ratecv(frames, width, 1, rate, 16000, None)
-    out = io.BytesIO()
-    with wave.open(out, "wb") as w:
-        w.setnchannels(1), w.setsampwidth(width), w.setframerate(16000), w.writeframes(frames)
-    return out.getvalue()
+    return _wav(frames, width, 16000)
 
 
-def transcribe(key, model, wav: Path, keyterms=False):
+def transcribe(key, model, wav: Path, keyterms=False, max_s=MAX_SECONDS):
+    """Whole recording -> text. Long recordings: shrink to 16 kHz, split at pauses, transcribe pieces in order."""
     data = wav.read_bytes()
+    with wave.open(io.BytesIO(data)) as w:
+        seconds = w.getnframes() / w.getframerate()
+    if seconds <= max_s:
+        return _send(key, model, data, keyterms)
+    parts = [_send(key, model, piece, keyterms) for piece in split(to_16k(data), max_s)]
+    errors = [t for t, _ in parts if t.startswith("__ERROR__")]
+    return (errors[0] if errors else " ".join(t.strip() for t, _ in parts),
+            tuple(sum(x) for x in zip(*(u for _, u in parts))))
+
+
+def _send(key, model, data: bytes, keyterms):
     body = {"model": model, "input_audio": {"data": base64.b64encode(data).decode(), "format": "wav"},
             "language": "en", "temperature": 0}
     if keyterms:
