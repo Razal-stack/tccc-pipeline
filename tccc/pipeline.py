@@ -49,15 +49,21 @@ def process(wav: Path, out: Path, key=None):
     with ThreadPoolExecutor(2) as pool:  # both listens at once
         first = pool.submit(transcribe, key, STT_MODEL, wav, keyterms=True)
         second = pool.submit(transcribe, key, SECOND_MODEL, wav, chat=True) if SECOND else None
-        text, b = first.result()[0], second.result()[0] if second else ""
-    text = combine(text, "" if b.startswith("__ERROR__") else b)
+        (text, (cost_a, _)), (b, (cost_b, _)) = first.result(), second.result() if second else ("", (0.0, 0.0))
+    b = "" if b.startswith("__ERROR__") else b
+    if text.startswith("__ERROR__"):  # first listen failed: read the second alone rather than an error message
+        if not b:
+            raise RuntimeError(f"{wav.name}: both listens failed ({text[:120]})")
+        text, b = b, ""
+    text = combine(text, b)
     (out / "transcripts" / f"{wav.stem}.txt").write_text(text)
     try:
-        reply, _ = ask(LLM_MODEL, text, key)
+        reply, cost_c = ask(LLM_MODEL, text, key)
     except Exception:  # noqa: BLE001  one retry on the runner-up model, so no card is lost to an API error
-        reply, _ = ask(FALLBACK_MODEL, text, key)
+        reply, cost_c = ask(FALLBACK_MODEL, text, key)
     card, flags = finish(wav.name, reply, text, out)
-    return dict(file=wav.name, card=card, flags=flags, ask=missing_critical(card), pdf=str(out / "cards" / f"{wav.stem}.pdf"))
+    return dict(file=wav.name, card=card, flags=flags, ask=missing_critical(card), pdf=str(out / "cards" / f"{wav.stem}.pdf"),
+                cost=cost_a + cost_b + cost_c)
 
 
 def main():
@@ -65,11 +71,19 @@ def main():
     ap.add_argument("recordings", nargs="+", type=Path)
     ap.add_argument("--out", type=Path, default=OUT / "live")
     a = ap.parse_args()
+    missing = [str(w) for w in a.recordings if not w.exists()]
+    if missing:
+        raise SystemExit(f"recording not found: {', '.join(missing)}")
     key = load_key()
     guard_budget(key)
+    print(f"Listening with {STT_MODEL} and {SECOND_MODEL}, reading with {LLM_MODEL}...")
+    total = 0.0
     with ThreadPoolExecutor(8) as pool:  # each casualty is independent: 50 cards take about as long as one
         for r in pool.map(lambda w: process(w, a.out, key), a.recordings):
-            print(f"{r['file']}: {len(r['flags'])} flags, {len(r['ask'])} to ask -> {r['pdf']}")
+            total += r["cost"]
+            print(f"{r['file']}: {len(r['flags'])} to check, {len(r['ask'])} to ask, ${r['cost']:.4f} -> {r['pdf']}")
+    print(f"\n{len(a.recordings)} card(s), ${total:.4f} spent. Outputs in {a.out}/: cards/ (PDF), predictions/ (card JSON),"
+          f" review/ (what to ask and check), transcripts/ (both listens).")
 
 
 if __name__ == "__main__":

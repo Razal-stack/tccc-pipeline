@@ -16,7 +16,8 @@ import wave
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from ..openrouter import ROOT, call, guard_budget, load_key
+from ..config import ROOT
+from ..openrouter import call, guard_budget, load_key
 from ..score import TRUTH
 from ..stt import transcribe
 from ..textnorm import categorized_recall, recall

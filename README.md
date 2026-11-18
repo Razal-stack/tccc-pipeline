@@ -12,7 +12,7 @@ make setup && make app      # then open http://localhost:8000 (it opens by itsel
 ```
 
 That is all. It needs Python 3.9 or newer and `make` (both come with macOS). No API key and no spending: all 50
-cards are rebuilt from cached results. Without `make`: `python3 -m pip install -r requirements.txt && python3 -m tccc`.
+cards are rebuilt from cached results. To run it live on new recordings, see "Try it live" below. Without `make`: `python3 -m pip install -r requirements.txt && python3 -m tccc`.
 
 | Command | What it does | Cost |
 |---|---|---|
@@ -21,17 +21,39 @@ cards are rebuilt from cached results. Without `make`: `python3 -m pip install -
 | `make test` | offline unit tests, plus a check that the held-out score is still 93.8% | free |
 | `make eval` | score the 25 held-out recordings, then all 50, from cached model replies | free |
 | `make cards` | rebuild all 50 PDF cards and review sheets from cache | free |
-| `make relisten` | simulate a third listener from cached transcripts (see `docs/REVIEW.md`) | free |
-| `make pipeline FILE=x.wav` | a new recording, end to end, into `out/live/` | **paid**, about 1.3 cents |
+| `make relisten` | simulate a third listener from cached transcripts (see `docs/DECISIONS.md`, ADR-16) | free |
+| `make check-key` | check your OpenRouter key works and show spend against the cap | free |
+| `make live FILE=x.wav` | one recording end to end with fresh model calls, into `out/live/` | **paid**, about 1.3 cents |
+| `make live-all` | all 50 recordings with fresh calls into `out/live-all/` (cached results untouched), then scored | **paid**, about $0.65 |
 | `make bakeoff` | the speech-to-text bake-off (fetches only missing transcripts) | **paid** |
 | `make stop`, `make clean` | stop the app; remove Python caches | free |
 
-Paid commands read `OPENROUTER_API_KEY` from the environment or `../.env`, and refuse to start once the key's real
-usage reaches the cap (`TCCC_BUDGET_USD`, default $7). Uploading a recording in the app is paid too, with the same cap.
-
 **Where things land:** filled cards `out/google__gemini-3.8-flash/all/cards/*.pdf`; card data `.../predictions/*.json`;
 the medic's sheet `.../review/*.md`; scored reports `out/google__gemini-3.8-flash/<split>/report.md`; every run
-`out/runs.jsonl`; new recordings `out/live/`.
+`out/runs.jsonl`; live recordings `out/live/`.
+
+## Try it live with your own key
+
+The quickstart replays cached results so you can look around for free. To run new recordings through the real
+models:
+
+```bash
+cp .env.example .env                                  # then put your key after OPENROUTER_API_KEY=
+make check-key                                        # free: confirms the key works, shows spend vs the cap
+make live FILE=../recordings/handover-isa.wav         # one recording -> PDF, card, review sheet in out/live/
+```
+
+Or start the app (`make app`) and use **New handover** to upload a recording; the card opens when it is done.
+
+- **What it calls:** ElevenLabs Scribe v2 Medical and Qwen 3.8 Omni Flash listen at the same time; Gemini 3.8 Flash
+  reads both transcripts (GPT-6.1 Terra steps in if Gemini errors). All through OpenRouter, so one key covers all four.
+- **Cost and time:** about 1.3 US cents and about 20 seconds a card; `make live-all` reruns all 50 for about $0.65 in
+  about a minute and scores the fresh cards against the answer key. Each run prints what it spent.
+- **Spend cap:** before any paid call the code reads your key's real usage and stops once it reaches $7. Change it
+  with `TCCC_BUDGET_USD` in `.env`. If no key is found, you get a plain message saying where to put it, in the
+  terminal or in the app.
+- The key is read from the environment first, then `.env` in this folder, then `../.env`. It is never printed, and
+  `.env` is git-ignored.
 
 ## How well it works
 
@@ -164,7 +186,7 @@ A benchmark page shows the results above, and a guide explains how a medic uses 
 ## Cost
 
 About $0.65 to run all 50 recordings end to end (1.3 cents a card). All development runs on the provided key
-have used $4.24 of the $7 cap. Re-scoring and rebuilding cards is free because every model call is cached.
+have used $4.52 of the $7 cap (checked with `make check-key` on 18 Nov 2026). Re-scoring and rebuilding cards is free because every model call is cached.
 
 ## More detail
 

@@ -251,7 +251,7 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
 - **Evidence.**
   - Re-scoring and changing validation cost $0 (the "10/12" fix above).
   - An early Opus comparison cost $0.95 before the rule existed. After it: no premium models on the client key.
-  - Total spend on the provided key is $4.24, under the cap (see notes on sources).
+  - Total spend on the provided key is $4.52, under the cap (read from the key itself with `make check-key`).
   - A real bug: credit is reserved for every request in flight, so parallel jobs with no output limit on reasoning models
     were refused and showed up as blank cards (77% that was really 92%). Fixed with output limits and waiting retries.
 - **Trade-offs.** The hash uses folder names, not transcript contents, so editing a transcript in place does not invalidate
@@ -376,8 +376,7 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
 
 ## Notes on sources
 
-- **Spend.** An older `CLAUDE.md` said $3.90 and `README.md` $4.24 for runs on the provided key. This record (and now
-  `CLAUDE.md`) uses the later $4.24.
+- **Spend.** Older notes said $3.90 and then $4.24. The key's own usage, read on 18 Nov 2026, is $4.52; that is used.
 - **Offline model.** The experiment log has an early "74% of values" for a local model and a later benchmark with local
   Parakeet at 80%. This record uses 80%.
 - **Gemini 4 Argon as a listener.** The archived notes say 90%; the bake-off table (`transcripts/_bakeoff.csv`, the

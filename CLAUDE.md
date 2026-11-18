@@ -30,7 +30,7 @@ web UI. No frameworks or scaffolds until the core pipeline is done and scored.
 ## Status (2026-11-18): complete, scored, documented, reviewed
 
 Held-out F1 93.8% (precision 97.6%, safety-critical 96.8%, 0.08 invented/card); all 50 F1 94.7%. 50 PDFs in
-`out/google__gemini-3.8-flash/all/cards/`, all pass schema and read-back checks. Spend $4.24 of $7 cap.
+`out/google__gemini-3.8-flash/all/cards/`, all pass schema and read-back checks. Spend $4.52 of $7 cap (`make check-key`).
 Read `README.md` (founder view, quickstart), `docs/ARCHITECTURE.md` (steps, loops, evals), `docs/DECISIONS.md`
 (why each choice), `docs/REVIEW.md` (engineering review), `AI_LOG.md`. History: `docs/archive/experiment-log.md`.
 Commands: `make` (setup, app, test, eval, cards; `pipeline` and `bakeoff` are paid).

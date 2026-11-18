@@ -307,8 +307,9 @@ def board():
 <p class=lede>Each recorded handover becomes a filled TCCC card. Most urgent first; open a casualty to see the card and what it still needs.</p></div>
 <button class=btn onclick="document.querySelector('.drop').classList.toggle('show')">New handover</button></div>
 <form class=drop action=/upload method=post enctype=multipart/form-data>
-<label><b>Drop a handover recording, or click to choose one</b><span class=sub>The whole recording, any common audio format. Ready in about
-20 seconds. Nothing is guessed: anything not said stays blank.</span><div class=file></div>
+<label><b>Drop a handover recording, or click to choose one</b><span class=sub>The whole recording, as a WAV file. Ready in about
+20 seconds. Nothing is guessed: anything not said stays blank. Runs live on your OpenRouter key from <span class=mono>.env</span>
+(about 1.3 cents a card, stops at the spend cap).</span><div class=file></div>
 <input type=file name=audio accept="audio/*" required></label><button class=btn>Create card</button></form>
 <div class=stats>{stats}</div>
 <div class=tabs>{tabs}</div><p class=hint>Every recorded handover, most urgent first.</p>
@@ -672,7 +673,8 @@ def upload(audio: UploadFile = File(...)):
     try:
         key = load_key()
         guard_budget(key)  # same hard spend cap as the command line
-    except SystemExit as e:
-        return page("board", f"<h1>Not processed</h1><p class=lede>{esc(str(e))}</p>", "Spend cap reached")
+    except SystemExit as e:  # no key, or the spend cap is reached: say so plainly instead of an error page
+        return page("board", f"<h1>Not processed</h1><p class=lede>{esc(str(e))}</p>"
+                    "<p><a class='btn ghost' href=/>Back to casualties</a></p>", "Not processed")
     process(dst, SETS["live"], key)
     return RedirectResponse(f"/card/live/{dst.stem}", status_code=303)

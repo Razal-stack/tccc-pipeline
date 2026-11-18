@@ -4,11 +4,12 @@ VENV  := .venv
 BIN   := $(VENV)/bin
 MODEL ?= google/gemini-3.8-flash
 PORT  := 8000
+RECORDINGS ?= ../recordings
 
-.PHONY: help setup app stop test eval cards pipeline bakeoff relisten diagram clean
+.PHONY: help setup app stop test eval cards check-key live live-all bakeoff relisten diagram clean
 
 help:  ## list the targets
-	@grep -E '^[a-z]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*## "}{printf "  make %-10s %s\n", $$1, $$2}'
+	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*## "}{printf "  make %-10s %s\n", $$1, $$2}'
 
 setup: $(VENV)/.installed  ## create .venv and install everything (free)
 
@@ -34,9 +35,18 @@ eval: setup  ## score held-out, then all 50, from cached replies (free)
 cards: setup  ## rebuild all 50 PDF cards and review sheets from cache (free)
 	$(BIN)/python -m tccc.run $(MODEL) --split all --pdf
 
-pipeline: setup  ## PAID: one new recording, e.g. make pipeline FILE=../recordings/handover-isa.wav -> out/live/
-	@test -n "$(FILE)" || { echo "usage: make pipeline FILE=path/to/recording.wav"; exit 1; }
-	$(BIN)/python -m tccc.pipeline $(FILE)
+check-key: setup  ## check your OpenRouter key works and show spend vs the cap (free; never prints the key)
+	@$(BIN)/python -m tccc.openrouter
+
+live: setup  ## PAID ~1.3 cents: one recording end to end, e.g. make live FILE=../recordings/handover-isa.wav -> out/live/
+	@test -n "$(FILE)" || { echo "usage: make live FILE=path/to/recording.wav"; exit 1; }
+	@$(BIN)/python -m tccc.pipeline $(FILE)
+
+live-all: setup  ## PAID ~$0.65: all 50 recordings with fresh calls into out/live-all/ (cache untouched), then score
+	@ls $(RECORDINGS)/*.wav >/dev/null 2>&1 || { echo "no recordings in $(RECORDINGS) (set RECORDINGS=...)"; exit 1; }
+	@read -p "This makes fresh paid calls for all 50 recordings (about \$$0.65 on your key). Type yes to go on: " a; [ "$$a" = yes ]
+	@$(BIN)/python -m tccc.pipeline $(RECORDINGS)/*.wav --out out/live-all
+	@$(BIN)/python -m tccc.score out/live-all/predictions
 
 bakeoff: setup  ## PAID: speech-to-text bake-off on the shortlist (fetches only missing transcripts)
 	$(BIN)/python -m tccc.experiments.stt_bakeoff
