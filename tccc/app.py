@@ -24,6 +24,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "out"
 SETS = {"eval": OUT / LLM_MODEL.replace("/", "__") / "all", "live": OUT / "live"}
 LOGO = (Path(__file__).parent / "static" / "logo.svg").read_text()
+DIAGRAM = (ROOT / "docs" / "how-it-works.svg").read_text()
 EVAC = (("evac_urgent", "Urgent", "u"), ("evac_priority", "Priority", "p"), ("evac_routine", "Routine", "r"))
 LIMBS = (("right_arm", "R arm"), ("left_arm", "L arm"), ("right_leg", "R leg"), ("left_leg", "L leg"))
 MEDS = ("analgesic_1", "analgesic_2", "analgesic_3", "antibiotic_1", "antibiotic_2", "other_med_1", "other_med_2",
@@ -512,6 +513,9 @@ by hand while still treating, and a missed or made-up detail can cost a limb or 
 needs checking, so they only deal with the gaps.</span>
 <b>Who uses it</b><span>The medic at the trauma point reviews and signs each card; the evacuation coordinator uses the totals by urgency;
 the receiving surgeon reads the card.</span></div></div>
+<div class=panel style='padding:24px 28px;margin-bottom:20px'><h2>At a glance</h2>
+<p class=sub style='margin:0 0 12px'>Blue is AI, grey is fixed rules, green is the medic. About 20 seconds from recording to card.</p>
+<div style='max-width:1000px;margin:0 auto'>{DIAGRAM}</div></div>
 <div class=flow>{flow}</div>
 <div class=panel style='padding:24px 28px;margin-bottom:16px'><h2>Why two listeners?</h2><p class=lede style='max-width:none'>Noisy radio
 messages get misheard. One listener might write 1420 where the other hears 1422. When they agree, we can be more confident. When they

@@ -39,11 +39,7 @@ excludes zero.
 
 ## How it works
 
-```
-recording ─┬─ 1a. Scribe v2 Medical (with expected words) ─┐
-           └─ 1b. Qwen 3.8 Omni Flash (second listen)      ─┴─ 2. Gemini 3.8 Flash reads both
-           ─ 3. checks in code ─ 4. body diagram ─ 5. PDF + review sheet ─ 6. score
-```
+![How a recorded handover becomes a TCCC card](docs/how-it-works.svg)
 
 1. **Listen twice.** ElevenLabs Scribe v2 Medical writes the main transcript, told which words to expect (TXA, IV,
    tourniquet, unit names). A second, different model listens to the same raw audio at the same time.
