@@ -27,14 +27,17 @@ web UI. No frameworks or scaffolds until the core pipeline is done and scored.
 | `../tccc-card-blank.pdf` | Fillable AcroForm (copy in `data/`) |
 | `../.env` | `OPENROUTER_API_KEY`, provided with the brief. **Never print, log or commit it.** |
 
-## Status (2026-11-17): complete, scored, documented
+## Status (2026-11-18): complete, scored, documented, reviewed
 
 Held-out F1 93.8% (precision 97.6%, safety-critical 96.8%, 0.08 invented/card); all 50 F1 94.7%. 50 PDFs in
-`out/google__gemini-3.8-flash/all/cards/`, all pass schema and read-back checks. Spend $3.90 of $7 cap.
-Read `README.md` (founder view), `docs/ARCHITECTURE.md` (steps, evals, every experiment), `AI_LOG.md`.
+`out/google__gemini-3.8-flash/all/cards/`, all pass schema and read-back checks. Spend $4.24 of $7 cap.
+Read `README.md` (founder view, quickstart), `docs/ARCHITECTURE.md` (steps, loops, evals), `docs/DECISIONS.md`
+(why each choice), `docs/REVIEW.md` (engineering review), `AI_LOG.md`. History: `docs/archive/experiment-log.md`.
+Commands: `make` (setup, app, test, eval, cards; `pipeline` and `bakeoff` are paid).
 
 | Module | Job |
 |---|---|
+| `tccc/config.py` | paths and the four chosen models |
 | `tccc/openrouter.py` | API key, one HTTP call, hard spend cap (`TCCC_BUDGET_USD`, default 7) checked against real key usage |
 | `tccc/stt.py` | Speech-to-text with domain `keyterms` |
 | `tccc/extract.py` | Prompt (v5) + one LLM call; replies cached by prompt+transcript hash in `out/raw/` |
@@ -44,11 +47,13 @@ Read `README.md` (founder view), `docs/ARCHITECTURE.md` (steps, evals, every exp
 | `tccc/pipeline.py` | Production: new recording -> card, PDF, review (`finish` shared with run) |
 | `tccc/run.py` | Evaluation: split -> scored report with error stage + kind; appends `out/runs.jsonl` |
 | `tccc/app.py` | FastAPI: dashboard, card review beside PDF, upload |
-| `tccc/stt_bakeoff.py`, `tccc/score.py`, `tccc/textnorm.py` | Speech benchmark, scorer, number normalising |
+| `tccc/score.py`, `tccc/textnorm.py` | Scorer, number normalising |
+| `tccc/experiments/` | `stt_bakeoff` (paid speech benchmark), `denoise` (local, needs torch), `relisten` (free third-listen simulation) |
+| `docs/diagram.py`, `tests/` | Draws `docs/how-it-works.svg`; offline pytest suite with golden held-out regression |
 
 Chosen: speech `elevenlabs/scribe-v2-medical` + keyterms, plus a second listen `qwen/qwen3.8-omni-flash`
 (`TCCC_SECOND`); extraction `google/gemini-3.8-flash` reading both; fallback `openai/gpt-6.1-terra`. Raw audio, no
-denoiser (tested 4). See docs/ARCHITECTURE.md "Final round of benchmarks".
+denoiser (tested 4). See docs/DECISIONS.md and docs/archive/experiment-log.md "Final round of benchmarks".
 
 ## What the data showed (drives every decision)
 
@@ -110,7 +115,8 @@ denoiser (tested 4). See docs/ARCHITECTURE.md "Final round of benchmarks".
 - Show data, then let Rasal decide at decision points (model choice, scope cuts). Short, clear updates.
 - Simple beats clever: fixed pipeline, no agent loops, no frameworks, no UI until the core is scored.
 - Safety first: a blank field + flag beats a confident wrong value.
-- Never print or commit the API key. Repo stays private.
+- Never print or commit the API key. The GitHub repo is public (Rasal's decision, to share with reviewers), so
+  scan history for secrets before every push.
 - **Spend:** The provided OpenRouter key is only for pipeline inference (speech-to-text, extraction), run at the
   end on the cheapest model that holds accuracy (`openai/gpt-5.6-luna` preferred). No Opus or premium models on
   it. Development uses our own Claude Code. Tune offline against cached replies in `out/raw/`.

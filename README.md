@@ -2,7 +2,36 @@
 
 Fifty casualties came through, and each one needs a TCCC card before the vehicle arrives. This project listens to
 the recorded handover for each casualty and fills in the card: a PDF ready to print, plus a short sheet telling the
-medic what to ask the person who handed over, and which values to check.
+medic what to ask the person who handed over, and which values to check. The medic always reviews and signs; the
+system only drafts.
+
+## Quickstart
+
+```bash
+make setup && make app      # then open http://localhost:8000 (it opens by itself)
+```
+
+That is all. It needs Python 3.9 or newer and `make` (both come with macOS). No API key and no spending: all 50
+cards are rebuilt from cached results. Without `make`: `python3 -m pip install -r requirements.txt && python3 -m tccc`.
+
+| Command | What it does | Cost |
+|---|---|---|
+| `make setup` | create `.venv` and install everything | free |
+| `make app` | the app on port 8000: casualty list, each card beside its PDF, how it works, benchmark, guide | free |
+| `make test` | offline unit tests, plus a check that the held-out score is still 93.8% | free |
+| `make eval` | score the 25 held-out recordings, then all 50, from cached model replies | free |
+| `make cards` | rebuild all 50 PDF cards and review sheets from cache | free |
+| `make relisten` | simulate a third listener from cached transcripts (see `docs/REVIEW.md`) | free |
+| `make pipeline FILE=x.wav` | a new recording, end to end, into `out/live/` | **paid**, about 1.3 cents |
+| `make bakeoff` | the speech-to-text bake-off (fetches only missing transcripts) | **paid** |
+| `make stop`, `make clean` | stop the app; remove Python caches | free |
+
+Paid commands read `OPENROUTER_API_KEY` from the environment or `../.env`, and refuse to start once the key's real
+usage reaches the cap (`TCCC_BUDGET_USD`, default $7). Uploading a recording in the app is paid too, with the same cap.
+
+**Where things land:** filled cards `out/google__gemini-3.8-flash/all/cards/*.pdf`; card data `.../predictions/*.json`;
+the medic's sheet `.../review/*.md`; scored reports `out/google__gemini-3.8-flash/<split>/report.md`; every run
+`out/runs.jsonl`; new recordings `out/live/`.
 
 ## How well it works
 
@@ -126,27 +155,21 @@ text-to-speech and add radio noise, so results rest on hundreds of cards, not 50
 use (a local speech model already captures 80% with no network); reading missing items back to the sender in real
 time; and splitting very long recordings at pauses (not needed here: the longest is 61 seconds).
 
-## Try it
+## The app
 
-```bash
-python3 -m pip install -r requirements.txt
-python3 -m tccc            # one command: opens the app with all 50 cards (built from cached results, no key needed)
-```
-
-To process new recordings or re-run the models (reads `OPENROUTER_API_KEY` from `../.env`):
-
-```bash
-python3 -m tccc.pipeline ../recordings/handover-isa.wav   # one recording -> out/live/ (card, PDF, review sheet)
-python3 -m uvicorn tccc.app:app --port 8000          # web app: cards, benchmark, guide; upload a recording
-python3 -m tccc.run google/gemini-3.8-flash --split heldout --pdf   # re-run the honest evaluation (cached, free)
-```
-
-The web app lists every casualty, most urgent first, with each card's status: **Complete**, **Missing
+The web app (`make app`) lists every casualty, most urgent first, with each card's status: **Complete**, **Missing
 information** (naming what to ask for) or **Needs checking**. Each card opens in MIST order beside the filled PDF.
 A benchmark page shows the results above, and a guide explains how a medic uses it.
 
-A hard spending cap protects the provided key: before any paid call, the code checks the key's real usage and
-stops at $7. The pipeline's runs on the provided key have used $4.24.
+## Cost
 
-More detail: `docs/ARCHITECTURE.md` (every step, how it is scored, every experiment) and `AI_LOG.md` (how I worked
-with AI coding tools).
+About $0.65 to run all 50 recordings end to end (1.3 cents a card). All development runs on the provided key
+have used $4.24 of the $7 cap. Re-scoring and rebuilding cards is free because every model call is cached.
+
+## More detail
+
+- [`docs/DECISIONS.md`](docs/DECISIONS.md): why this technology and this shape, decision by decision, with the evidence.
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md): the steps, where the loops are, how each step is scored.
+- [`docs/REVIEW.md`](docs/REVIEW.md): an engineering review of this repo, including whether to add a re-listen loop.
+- [`AI_LOG.md`](AI_LOG.md): how I worked with AI coding tools.
+- [`docs/archive/experiment-log.md`](docs/archive/experiment-log.md): the full experiment notebook.

@@ -3,8 +3,8 @@
 This is the "why" behind `docs/ARCHITECTURE.md` (the "what"). Each decision lists context, options, the choice, the
 measured evidence, the cost of the choice, and when to reopen it. Read the competence section, then jump to any ADR.
 
-Numbers come from `README.md`, `docs/ARCHITECTURE.md`, `AI_LOG.md` and the code. Where sources disagreed, the newer or
-more specific figure is used (see "Notes on sources" at the end).
+Numbers come from `README.md`, `docs/archive/experiment-log.md`, `AI_LOG.md`, `out/runs.jsonl`, the bake-off table
+and the code. Where sources disagreed, the newer or more specific figure is used (see "Notes on sources" at the end).
 
 ## Core competence of this architecture
 
@@ -83,7 +83,9 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
 - **Trade-offs.** One vendor is the main listener. Keyterms bias toward expected words, which helps drugs and kits but
   could favour a listed word over a rare real one.
 - **Revisit when.** A new model beats it on the hard-audio column, or the vocabulary changes (other forces or drugs).
-  The speech benchmark script makes a rerun cheap.
+  The speech benchmark script makes a rerun cheap. First candidate: the bake-off table now lists Gemini 4 Argon at
+  93.6% of values (87.6% on hard audio), slightly above Scribe's 92.9% (86.0%). Argon as the main listener was never
+  tested end to end.
 
 ## ADR-04: A second independent listener; disagreement becomes a flag
 
@@ -102,6 +104,8 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
   - Calibrated on all 50: values both listeners heard are 97.9% correct (753 values); single-listener values are 81.1%
     correct (37 values), about nine times the error rate.
   - Qwen 3.8 Omni Flash was best on IDs and costs about a fifth of the price; it adds about $0.03 for all 50.
+  - Gemini 4 Argon was also tried as the second listen on dev: F1 95.0% with 12 made-up values, against 95.5% and 4
+    for Qwen (`out/runs.jsonl`). A stronger listener that makes the reader invent more is the wrong trade.
 - **Trade-offs.** Two listens per recording and a longer reader prompt. Both still miss what every model misses (the vdi
   radio recording, "Kaur" heard as "Carr"). Latency stays about 20 s because the listens run at once.
 - **Revisit when.** Flagged disagreements overwhelm the medic, or a stronger second model appears. See ADR-16.
@@ -284,7 +288,7 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
   FastAPI file rendering HTML on the server.
 - **Decision.** Option 3 (`tccc/app.py`): a dashboard with a status per card (Complete, Missing information, Needs
   checking), each card in MIST order beside the filled PDF, a benchmark page, a "how it works" page, and upload of a new
-  recording. `python3 -m tccc` opens it from cached results with no key.
+  recording. `make app` (or `python3 -m tccc`) opens it from cached results with no key.
 - **Evidence.** The app counts "ask" and "check" items live from the cards, so the README's time estimate tracks the real
   review load (118 items across the 50 cards).
 - **Trade-offs.** Not a product: no auth, no persistence beyond files, one big file that is fine to read but not to grow.
@@ -334,21 +338,25 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
   question: rejected, it adds no new information about the audio (ADR-01). (3) Re-transcribe only the time window around the
   uncertain value, with a third model or a constrained prompt (digits only, a closed list of drugs or units).
 - **Decision (sketch).**
-  - Trigger: a value is heard by only one listener, or the two listeners disagree.
-  - Action: cut only that window from the raw audio and transcribe it again with a third speech model or a constrained prompt.
-  - Rule: the value enters the card only if it is then heard by two of the three listeners. Otherwise it stays blank and
-    flagged, as today.
+  - Trigger: a value on the card was heard by only one listener, or the two listeners disagree.
+  - Action: a third speech model listens. Start with the whole recording (simple, about $0.19 for all 50 with Gemini 4
+    Argon); move to just the disputed seconds once the first listener returns word timestamps.
+  - Rule: a value the third listen confirms is marked "confirmed by 2 of 3" and leaves the medic's check list. A value
+    only the third listen heard never goes on the card by itself; it goes to the medic as a suggestion ("a third listen
+    heard 1422 for the left leg tourniquet time, please confirm"). So the invented-value risk does not rise.
   - Explicitly not an LLM re-asking loop. Every vote is a fresh acoustic listen, so a value is backed by audio and not by a
     model's second opinion.
-- **Evidence.**
-
-<!-- LOOP-EVIDENCE: filled in by reviewer -->
-
-- **Trade-offs.** Needs word-level timestamps to find the window (and aligning them across two models), a third listener to
-  pay for, and care that a short clip has less context than the full recording. Windows are chosen by uncertainty, not
-  silence, so this is not VAD, but ADR-02's lesson applies to where the window edges go.
-- **Revisit when.** Offline measurements show enough recovered values at an acceptable error rate, on a test set larger than
-  25 held-out cards.
+- **Evidence (simulated offline, free).** `python3 -m tccc.experiments.relisten` replays cached bake-off transcripts as
+  the third listener, on all 50 final cards. 37 values were heard by only one listener (81.1% right). With Gemini 4
+  Argon as the third listener, 23 of them are confirmed and 96% of those are right (22 right, 1 wrong), so the check
+  list for these values shrinks from 37 to 14. AssemblyAI confirms fewer (16, 94% right). For recall, at most 9 of the
+  34 values both listeners lost appear in any third transcript (an upper bound, matched by digits), which would move
+  all-50 recall from 92.1% to 92.9% at most. 33 of the 50 cards would trigger it. Full table in `docs/REVIEW.md`.
+- **Trade-offs.** A third listener to pay for and wait on (it can run in parallel with the reader). One wrong value in
+  the simulation would have been confirmed, so "confirmed" lowers priority on the check list; it does not hide the
+  value. Windowed re-listening needs word timestamps and care at the window edges (ADR-02's lesson).
+- **Revisit when.** Build it behind a flag next, and measure on held-out: check-list items removed, wrong values
+  confirmed. The expected gain is review time, not headline F1.
 
 ---
 
@@ -368,9 +376,12 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
 
 ## Notes on sources
 
-- **Spend.** `CLAUDE.md` says $3.90 and `README.md` says $4.24 for runs on the provided key. This record uses $4.24.
-- **Offline model.** `docs/ARCHITECTURE.md` has an early "74% of values" for a local model and a later benchmark with local
+- **Spend.** An older `CLAUDE.md` said $3.90 and `README.md` $4.24 for runs on the provided key. This record (and now
+  `CLAUDE.md`) uses the later $4.24.
+- **Offline model.** The experiment log has an early "74% of values" for a local model and a later benchmark with local
   Parakeet at 80%. This record uses 80%.
+- **Gemini 4 Argon as a listener.** The archived notes say 90%; the bake-off table (`transcripts/_bakeoff.csv`, the
+  later source) says 93.6%. This record uses the table.
 - **Held-out F1.** 92.5% is the single-listener result, 93.8% the final result with the second listen. Both are labelled.
 - **Held-out body boxes.** 80.5% as in the architecture doc; the README rounds it to 81%.
 - **Empty card.** `CLAUDE.md` says 84.5%, the README 85%. This record says about 85%.
