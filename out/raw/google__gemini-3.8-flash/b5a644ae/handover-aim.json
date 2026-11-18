@@ -1,0 +1,76 @@
+{
+ "fields": {
+  "gender_f": [
+   true,
+   "female"
+  ],
+  "last4": [
+   "8336",
+   "eight three three six"
+  ],
+  "service": [
+   "RAF",
+   "RAF"
+  ],
+  "unit": [
+   "Tactical Medical Wing",
+   "Tactical Medical Wing"
+  ],
+  "date": [
+   "03-NOV-26",
+   "3 November 2026"
+  ],
+  "time": [
+   "2040",
+   "2040"
+  ],
+  "mechanism_grenade": [
+   true,
+   "Grenade"
+  ],
+  "dressing_pressure": [
+   true,
+   "Pressure dressing"
+  ],
+  "signs_1_time": [
+   "2050",
+   "2050"
+  ],
+  "signs_1_pulse": [
+   "98 radial",
+   "98 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "122",
+   "122"
+  ],
+  "signs_1_bp_diastolic": [
+   "80",
+   "80"
+  ],
+  "signs_1_resp_rate": [
+   "18",
+   "18"
+  ],
+  "signs_1_spo2": [
+   "98",
+   "98"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "5 Very Distress",
+   "pain 5"
+  ],
+  "evac_routine": [
+   true,
+   "Evac routine"
+  ]
+ },
+ "notes": "Injuries: left forearm: fragment wound",
+ "flags": [
+  "transcripts disagree: A says Carr, Jas, B says Kaur, Jas"
+ ]
+}

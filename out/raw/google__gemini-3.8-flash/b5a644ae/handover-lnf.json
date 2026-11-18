@@ -1,0 +1,94 @@
+{
+ "fields": {
+  "evac_priority": [
+   true,
+   "EVAC priority"
+  ],
+  "gender_f": [
+   true,
+   "Female"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED"
+  ],
+  "name": [
+   "Lowe, Megan",
+   "Private Lowe, Megan"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "21 Engineer Regiment",
+   "21 Engineer Regiment"
+  ],
+  "time": [
+   "1110",
+   "1110"
+  ],
+  "last4": [
+   "4480",
+   "four four eight zero"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT on the right arm"
+  ],
+  "tq_right_arm_type": [
+   "CAT",
+   "CAT"
+  ],
+  "tq_right_arm_time": [
+   "1114",
+   "1114"
+  ],
+  "dressing_pressure": [
+   true,
+   "pressure dressing to the face"
+  ],
+  "signs_1_time": [
+   "1120",
+   "1120"
+  ],
+  "signs_1_pulse": [
+   "120 radial",
+   "120 radial"
+  ],
+  "signs_1_bp_systolic": [
+   "90",
+   "90 over 50"
+  ],
+  "signs_1_bp_diastolic": [
+   "50",
+   "90 over 50"
+  ],
+  "signs_1_resp_rate": [
+   "24",
+   "24"
+  ],
+  "signs_1_spo2": [
+   "96",
+   "96"
+  ],
+  "signs_1_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_1_pain": [
+   "7 Very Intense",
+   "pain 7"
+  ],
+  "first_responder_name": [
+   "Moss, Harry",
+   "Lance Corporal Moss Harry"
+  ],
+  "first_responder_last4": [
+   "5593",
+   "five five nine three"
+  ]
+ },
+ "notes": "Injuries: right upper arm: fragment wound; right side of face: fragment wound; mounted, top cover",
+ "flags": []
+}

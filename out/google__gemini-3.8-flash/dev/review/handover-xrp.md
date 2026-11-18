@@ -4,7 +4,7 @@
 - nothing missing
 
 ## Check these
-- transcripts disagree: A says 1176, B says 176
+- nothing flagged
 
 ## Card
 - evac_urgent: True
@@ -14,6 +14,7 @@
 - airway_cric: True
 - breathing_o2: True
 - name: Evans
+- last4: 1176
 - date: 01-NOV-26
 - time: 0820
 - unit: 1 Royal Welsh
@@ -30,14 +31,12 @@
 - analgesic_1_time: 0835
 - first_responder_name: Hall, Chris
 - first_responder_last4: 4409
-- notes: Injuries: face: massive injuries; both legs: fragment wounds; surgical cric at 0828; pressure dressing left leg only, right leg not bleeding; resps assisted
+- notes: Injuries: face: massive injuries; both legs: fragment wounds; surgical cric at 0828; pressure dressing left leg only; resps assisted
 - injury_boxes: Ant_Left_Knee, Ant_Left_Middle_Lateral_Lower_Leg, Ant_Left_Middle_Lateral_Thigh, Ant_Left_Middle_Medial_Lower_Leg, Ant_Left_Middle_Medial_Thigh, Ant_Right_Knee, Ant_Right_Middle_Lateral_Lower_Leg, Ant_Right_Middle_Lateral_Thigh, Ant_Right_Middle_Medial_Lower_Leg, Ant_Right_Middle_Medial_Thigh, Chin, Left_Cheek, Mouth, Nose, Right_Cheek
 
 ## Transcript
-You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
-
 TRANSCRIPT A (medical speech model):
 urgent IED 0820 1 November 2026 casualties Corporal Evans male One Royal Welsh massive facial injuries couldn't keep the airway open so surgical cric at 0828 also fragment wounds to both legs pressure dressings on both scrap that dressing on the left leg only the right's not bleeding Evans last four 1-1-7-6 oxygen on through the cric obs at 0838 radial pulse 124 sats 92 after the cric resps 24 assisted ketamine 50 mg IV at 0835 BP 100/64 responds to pain sent by Lance Corporal Hall Chris medic last four 4409
 
 TRANSCRIPT B (second listen):
-Urgent. IED 0820, 1st November 2026. Casualties Corporal Evans, male, 1 Royal Welsh. Massive facial injuries, couldn't keep the airway open, so surgical cric at 0828. Also fragment wounds to both legs, pressure dressings on both. Scrap that, dressing on the left leg only, the right's not bleeding. Evans, last four 176. Oxygen on through the cric. OBs at 0838, radial pulse 124, sats 92 after the cric, respairs 24 assisted. Ketamine 50 milligrams IV at 0835. BP 100 over 64, responds to pain. Sent by Lance Corporal Hall, Chris, medic, last four 4409.
+Urgent. IED, 0820, 1st November 2026. Casualty's Corporal Evans, male, 1 Royal Welsh. Massive facial injuries, couldn't keep the airway open, so surgical cric at 0828. Also fragment wounds to both legs, pressure dressings on both. Scrap that, dressing on the left leg only, the right's not bleeding. Evans, last four 1176. Oxygen on through the cric. Obs at 0838, radial pulse 124, sats 92 after the cric, resps 24 assisted. Ketamine 50 mg IV at 0835. BP 100 over 64, responds to pain. Sent by Lance Corporal Hall, Chris, medic, last four 4409.

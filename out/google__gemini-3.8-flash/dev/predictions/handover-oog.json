@@ -38,9 +38,9 @@
  "splint": false,
  "hypothermia_prevention": false,
  "battle_roster": "",
- "name": "",
+ "name": "Davies, Rhys",
  "last4": "2906",
- "date": "",
+ "date": "04-NOV-26",
  "time": "0905",
  "service": "Army",
  "unit": "2 Platoon, B Company",
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "Nash, Kieran",
  "first_responder_last4": "5019",
- "notes": "Injuries: right upper chest: single GSW; right upper back: exit wound; needle decompression right chest at 0912",
+ "notes": "Injuries: right upper chest: single GSW; right upper back: exit wound",
  "injury_boxes": [
   "Left_Upper_Back",
   "Right_Upper_Chest"

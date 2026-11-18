@@ -1,10 +1,11 @@
 # handover-mbs.wav
 
 ## Ask the sender
-- whole blood: route
+- nothing missing
 
 ## Check these
-- transcripts disagree: A says 03:40, B says 0320 hours
+- transcripts disagree: A says 04:50, B says 0415
+- transcripts disagree: A says 160, B says 116
 
 ## Card
 - evac_urgent: True
@@ -13,6 +14,7 @@
 - name: Shaw, Ben
 - last4: 1505
 - date: 30-OCT-26
+- time: 0340
 - service: Army
 - unit: 4th Regiment Royal Artillery
 - signs_1_time: 0348
@@ -23,8 +25,6 @@
 - signs_1_spo2: 96
 - signs_1_avpu: A - Alert
 - signs_1_pain: 9 Excruciating
-- signs_2_time: 0450
-- signs_2_pulse: 160 radial
 - signs_2_bp_systolic: 98
 - signs_2_bp_diastolic: 62
 - signs_2_resp_rate: 22
@@ -33,6 +33,7 @@
 - signs_2_pain: 6 Intense
 - blood_1_name: whole blood
 - blood_1_volume: 1 unit
+- blood_1_route: IO
 - blood_1_time: 0405
 - analgesic_1_name: fentanyl
 - analgesic_1_dose: 800 mcg
@@ -40,14 +41,12 @@
 - analgesic_1_time: 0350
 - first_responder_name: Lyle, Owen
 - first_responder_last4: 6052
-- notes: Injuries: pelvis: crushed, unstable when gently pressed; pelvic binder applied; whole blood route incomplete
+- notes: Injuries: pelvis: crushed, unstable when gently pressed; pelvic binder applied
 - injury_boxes: Pelvis
 
 ## Transcript
-You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
-
 TRANSCRIPT A (medical speech model):
 [gunfire] MIST report 30 October 2026. Casualty is gunner Shaw, Ben, male, last four 1505, Army Fourth Regiment Royal Artillery. Time of injury 03:40. Mechanism hit by a reversing Mastiff on the gun line. Injuries crushed pelvis unstable when gently pressed. Signs at 03:48 radial pulse 130, BP 88 over 54, resp 26, sats 96, alert. Pain 9. Treatment pelvic binder on, fentanyl 800 mcg lozenge at 03:50, one unit of whole blood via at 04:05. Repeat at 04:50 radial pulse 160, BP 98 over 62, resp 22, sats 97, alert. Pain 6. Cat A, T1. From Bombardier Lyle, Owen last four 6052. [gunfire]
 
 TRANSCRIPT B (second listen):
-MIST report, 30 October 2026. Casualty is Gunner Shaw, Ben, male, last four 1505, Army, 4th Regiment Royal Artillery. Time of injury, 0320 hours. Mechanism, hit by a reversing Mastiff on the gun line. Injuries, crushed pelvis, unstable when gently pressed. Signs at 0348: radial pulse 130, BP 88 over 54, resp 26, sats 96, alert, pain 9. Treatment: pelvic binder on, fentanyl 800 micrograms at 0350, one unit of whole blood via 0405. Repeat at 0450: radial pulse 160, BP 98 over 62, resp 22, sats 97, alert, pain 6. CAT A, T1. From Bombardier Lyle, Owen, last four 6052.
+MIST report, 30 October 2026. Casualty is Gunner Shaw, Ben, male, last four 1505, Army, 4th Regiment Royal Artillery. Time of injury, 0340. Mechanism: hit by a reversing Mastiff on the gun line. Injuries: crushed pelvis, unstable when gently pressed. Signs at 0348: radial pulse 130, BP 88 over 54, resps 26, sats 96, Alert, pain 9. Treatment: pelvic binder on, fentanyl 800 mic lozenge at 0350, one unit of whole blood via IO at 0405. Repeat at 0415: radial pulse 116, BP 98 over 62, resps 22, sats 97, Alert, pain 6. Cat A, T1. From Bombardier Lyle, Owen, last four 6052.

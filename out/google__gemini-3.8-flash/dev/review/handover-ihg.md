@@ -1,14 +1,12 @@
 # handover-ihg.wav
 
 ## Ask the sender
+- tourniquet time, left leg
 - fentanyl: time
-- time of first observations
 
 ## Check these
-- transcripts disagree: A says 1428, B says 1420
-- transcripts disagree: A says 108, B says 120
-- transcripts disagree: A says 92, B says 90
-- transcripts disagree: A says 58, B says 50
+- transcripts disagree: A says 108, B says 128
+- transcripts disagree: A says 1420, B says 1422
 - transcripts disagree: A says 1432, B says 1430
 
 ## Card
@@ -26,7 +24,9 @@
 - tq_right_leg_type: CAT
 - tq_right_leg_time: 1425
 - tq_left_leg_type: CAT
-- tq_left_leg_time: 1420
+- signs_1_time: 1428
+- signs_1_bp_systolic: 92
+- signs_1_bp_diastolic: 58
 - signs_1_resp_rate: 26
 - signs_1_spo2: 94
 - signs_1_avpu: V - Verbal
@@ -39,16 +39,14 @@
 - other_med_1_route: IV
 - other_med_1_time: 1435
 - hypothermia_prevention_type: hypothermia prevention kit
-- first_responder_name: Jones
+- first_responder_name: Jones, Sam
 - first_responder_last4: 3319
-- notes: Injuries: left leg below knee: traumatic amputation; right thigh: wound with heavy bleeding
+- notes: Injuries: left leg below knee: traumatic amputation; right thigh: heavy bleeding from wound; right thigh wound packed with QuikClot at 1430
 - injury_boxes: Ant_Left_Proximal_Lateral_Lower_Leg, Ant_Left_Proximal_Medial_Lower_Leg, Ant_Right_Middle_Lateral_Thigh, Ant_Right_Middle_Medial_Thigh
 
 ## Transcript
-You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
-
 TRANSCRIPT A (medical speech model):
 MIST report one casualty 3 November 2026 battle roster Juliet Sierra 4417 male Army 1 Yorks time of wounding 1420 mechanism IED strike on a dismounted foot patrol injuries traumatic amputation of the left leg below the knee heavy bleeding from the wound to the right thigh signs 1428 radio pulse 108 BP 92/58 resps 26 sats 94 response to voice pain 9/10 treatment CAT tourniquet left leg at 1420 second CAT on the right thigh at 1425 right thigh wound packed with QuikClot at 1430 fentanyl lozenge 800 mcg at 1432 2 grams of TXA IV push at 1435 wrapped in a hypothermia prevention kit evac category urgent sent by corporal Jones with SAM at T0 at last four 3319
 
 TRANSCRIPT B (second listen):
-MISTY. RANDEVU 2026. BATWING. JULIET SIERRA 4417. MALE, ARMED, 1 WOUND. TIME OF INJURY 1420. MECHANISM: IED STRIKE ON A DISMOUNTED FOOT PATROL. INJURIES: TRAUMATIC AMPUTATION OF THE LEFT LEG BELOW THE KNEE. HEAVY BLEEDING FROM THE WOUND SITE. SIGNS: 1420. RADIAL PULSE 120. BP 90 OVER 50. RESP 26. SATS 94. RESPONSE TO FLUIDS: PAIN 9 OUT OF 10. TREATMENT: CATHETERIZED LEFT LEG AT 1420. SECOND CATHETER RIGHT THIGH AT 1425. RIGHT THIGH FENTANYL LOZENGES 800 MICROGRAMS AT 1430. 2 GRAMS TXA IV AT 1435. WRAPPED IN COMBAT BANDAGE AND ELEVATED. EVAC CATEGORY URGENT. SENT BY 40 JERKS WITH SATS 94. LAST CALL 331.
+MIST report, one casualty, thrown about on Suite 26. Battle roster Juliet Sierra 4417, male, Army, One Brigade. Time of wounding, 1420. Mechanism, IED strike on dismounted foot patrol. Injuries, traumatic amputation of the left leg below the knee, heavy bleeding from wounds to the right thigh. Signs at 1428, radial pulse 128, BP 92 over 58, resps 26, sats 94, responds to voice, pain 9 out of 10. Treatments, CAT tourniquet left leg at 1422, second CAT on the right thigh at 1425, right thigh wound packed with hemostatic gauze, fentanyl lozenge 800 mcg at 1430, 2 g of TXA IV at 1435, wrapped in a hypothermia prevention kit. EVAC category, urgent. Sent by Corporal Jones, Sam, team medic, plastered wall, 325. Over.

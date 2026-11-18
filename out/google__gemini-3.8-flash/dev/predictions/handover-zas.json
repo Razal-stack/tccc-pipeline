@@ -98,7 +98,7 @@
  "fluid_2_volume": "",
  "fluid_2_route": "",
  "fluid_2_time": "",
- "blood_1_name": "freeze-dried plasma",
+ "blood_1_name": "plasma",
  "blood_1_volume": "1 unit",
  "blood_1_route": "IV",
  "blood_1_time": "0800",
@@ -129,7 +129,7 @@
  "other_med_1_name": "TXA",
  "other_med_1_dose": "2 g",
  "other_med_1_route": "IV",
- "other_med_1_time": "",
+ "other_med_1_time": "0750",
  "other_med_2_name": "",
  "other_med_2_dose": "",
  "other_med_2_route": "",
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Injuries: high in the right groin: shrapnel wound; SAM junctional tourniquet applied right groin at 0748",
+ "notes": "Injuries: right groin: shrapnel wound; SAM junctional tourniquet applied to right groin at 0748",
  "injury_boxes": [
   "Right_Groin"
  ]

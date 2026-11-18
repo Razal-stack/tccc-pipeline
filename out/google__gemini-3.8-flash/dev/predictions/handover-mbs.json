@@ -41,7 +41,7 @@
  "name": "Shaw, Ben",
  "last4": "1505",
  "date": "30-OCT-26",
- "time": "",
+ "time": "0340",
  "service": "Army",
  "unit": "4th Regiment Royal Artillery",
  "allergies": "",
@@ -62,8 +62,8 @@
  "signs_1_spo2": "96",
  "signs_1_avpu": "A - Alert",
  "signs_1_pain": "9 Excruciating",
- "signs_2_time": "0450",
- "signs_2_pulse": "160 radial",
+ "signs_2_time": "",
+ "signs_2_pulse": "",
  "signs_2_bp_systolic": "98",
  "signs_2_bp_diastolic": "62",
  "signs_2_resp_rate": "22",
@@ -100,7 +100,7 @@
  "fluid_2_time": "",
  "blood_1_name": "whole blood",
  "blood_1_volume": "1 unit",
- "blood_1_route": "",
+ "blood_1_route": "IO",
  "blood_1_time": "0405",
  "blood_2_name": "",
  "blood_2_volume": "",
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "Lyle, Owen",
  "first_responder_last4": "6052",
- "notes": "Injuries: pelvis: crushed, unstable when gently pressed; pelvic binder applied; whole blood route incomplete",
+ "notes": "Injuries: pelvis: crushed, unstable when gently pressed; pelvic binder applied",
  "injury_boxes": [
   "Pelvis"
  ]

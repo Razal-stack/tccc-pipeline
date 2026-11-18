@@ -122,7 +122,9 @@ def ask(model, transcript, key):
 
 def run(model, names):
     version = hashlib.sha1((PROMPT + TRANSCRIPTS.name + SECOND).encode()).hexdigest()[:8]  # new prompt/transcripts -> new cache
-    key, out = load_key(), ROOT / "out" / "raw" / model.replace("/", "__") / version
+    out = ROOT / "out" / "raw" / model.replace("/", "__") / version
+    todo = [f for f in names if not (out / f.replace(".wav", ".json")).exists()]
+    key = load_key() if todo else None  # fully cached: no key, no calls
     out.mkdir(parents=True, exist_ok=True)
 
     def one(f):
@@ -140,7 +142,7 @@ def run(model, names):
         print(f"  {f}: failed ({err})")
         return 0.0
 
-    if any(not (out / f.replace(".wav", ".json")).exists() for f in names):
+    if todo:
         guard_budget(key)
     with ThreadPoolExecutor(8) as pool:
         cost = sum(pool.map(one, names))

@@ -11,7 +11,7 @@
  "mechanism_fall": false,
  "mechanism_grenade": false,
  "mechanism_gsw": false,
- "mechanism_ied": false,
+ "mechanism_ied": true,
  "mechanism_landmine": false,
  "mechanism_mvc": false,
  "mechanism_rpg": false,
@@ -53,12 +53,12 @@
  "tq_right_leg_type": "",
  "tq_right_leg_time": "",
  "tq_left_leg_type": "",
- "tq_left_leg_time": "1715",
+ "tq_left_leg_time": "",
  "signs_1_time": "",
- "signs_1_pulse": "",
+ "signs_1_pulse": "160",
  "signs_1_bp_systolic": "",
  "signs_1_bp_diastolic": "",
- "signs_1_resp_rate": "",
+ "signs_1_resp_rate": "28",
  "signs_1_spo2": "",
  "signs_1_avpu": "",
  "signs_1_pain": "",
@@ -137,6 +137,12 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "",
- "injury_boxes": []
+ "notes": "Injuries: left leg: amputation",
+ "injury_boxes": [
+  "Ant_Left_Knee",
+  "Ant_Left_Middle_Lateral_Lower_Leg",
+  "Ant_Left_Middle_Lateral_Thigh",
+  "Ant_Left_Middle_Medial_Lower_Leg",
+  "Ant_Left_Middle_Medial_Thigh"
+ ]
 }

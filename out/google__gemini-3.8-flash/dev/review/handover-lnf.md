@@ -33,10 +33,8 @@
 - injury_boxes: Ant_Right_Lateral_Bicep, Ant_Right_Medial_Bicep, Right_Cheek
 
 ## Transcript
-You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
-
 TRANSCRIPT A (medical speech model):
 MIST. Female Private Lowe, Megan Army 21 Engineer Regiment IED at 1110 mounted she was top cover obs at 1120 BP 90 over 60 fragment wound to the right upper arm and the right side of the face pulse 120 radial CAT on the right arm at 1114 last four four four eight zero resps 24 sats 96 alert pain 7 pressure dressing to the face. Oh and that BP I said 90 over 60 it's 90 over 50 EVAC priority. Sent by Lance Corporal Moss Harry last four five five nine three
 
 TRANSCRIPT B (second listen):
-Mist. Female, private low, Megan, Army, 21 Engineer Regiment. IED at 1110, mounted, she was top cover. Obs at 1120, BP 90 over 60, fragment wound to the right upper arm and the right side of the face. Pulse 120 radial, CAT on the right arm at 1114, last four 4480. Resp's 24, sats 96, alert, pain 7, pressure dressing to the face. Oh, and that BP, I said 90 over 60, it's 90 over 50. Evac priority, sent by Lance Corporal Moss, Harry, last four 5593.
+MIST, female, Private Lowe, Megan, Army, 21 Engineer Regiment. IED at 1110, mounted, she was top cover. Obs at 1120, BP 90 over 60, fragment wound to the right upper arm and the right side of the face, pulse 120 radial, CAT on the right arm at 1114, last four 4480. Resps 24, sats 96, alert, pain seven, pressure dressing to the face. Oh, and BP I said 90 over 60, it's 90 over 50. Evac Priority, sent by Lance Corporal Moss, Harry, last four 5593.

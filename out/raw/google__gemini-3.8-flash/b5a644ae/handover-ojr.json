@@ -1,0 +1,76 @@
+{
+ "fields": {
+  "date": [
+   "02-NOV-26",
+   "2 November 2026"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "battle_roster": [
+   "TB2251",
+   "Tango Bravo 2251"
+  ],
+  "mechanism_gsw": [
+   true,
+   "Gunshot wound"
+  ],
+  "time": [
+   "1400",
+   "at 1400"
+  ],
+  "signs_1_pulse": [
+   "110 radial",
+   "Pulse 110 radial"
+  ],
+  "tq_extremity": [
+   true,
+   "Tourniquet"
+  ],
+  "tq_left_leg_time": [
+   "1405",
+   "1405"
+  ],
+  "tq_left_leg_type": [
+   "SOFTT-W",
+   "SOFTT-W"
+  ],
+  "signs_2_time": [
+   "1410",
+   "1410"
+  ],
+  "signs_2_bp_systolic": [
+   "120",
+   "120"
+  ],
+  "signs_2_bp_diastolic": [
+   "75",
+   "75"
+  ],
+  "signs_2_resp_rate": [
+   "20",
+   "20"
+  ],
+  "signs_2_avpu": [
+   "A - Alert",
+   "alert"
+  ],
+  "signs_2_spo2": [
+   "97",
+   "97"
+  ],
+  "signs_2_pain": [
+   "5 Very Distress",
+   "pain 5"
+  ],
+  "evac_priority": [
+   true,
+   "priority"
+  ]
+ },
+ "notes": "Injuries: left calf: GSW; grid 947312; call sign 32 Bravo",
+ "flags": [
+  "timing of 1400: ambiguous whether time of injury or initial vitals"
+ ]
+}

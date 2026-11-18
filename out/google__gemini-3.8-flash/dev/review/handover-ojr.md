@@ -1,10 +1,10 @@
 # handover-ojr.wav
 
 ## Ask the sender
-- nothing missing
+- time of first observations
 
 ## Check these
-- nothing flagged
+- timing of 1400: ambiguous whether time of injury or initial vitals
 
 ## Card
 - evac_priority: True
@@ -16,22 +16,20 @@
 - time: 1400
 - tq_left_leg_type: SOFTT-W
 - tq_left_leg_time: 1405
-- signs_1_time: 1410
 - signs_1_pulse: 110 radial
-- signs_1_bp_systolic: 120
-- signs_1_bp_diastolic: 75
-- signs_1_resp_rate: 20
-- signs_1_spo2: 97
-- signs_1_avpu: A - Alert
-- signs_1_pain: 5 Very Distress
-- notes: Injuries: left calf: gunshot wound
+- signs_2_time: 1410
+- signs_2_bp_systolic: 120
+- signs_2_bp_diastolic: 75
+- signs_2_resp_rate: 20
+- signs_2_spo2: 97
+- signs_2_avpu: A - Alert
+- signs_2_pain: 5 Very Distress
+- notes: Injuries: left calf: GSW; grid 947312; call sign 32 Bravo
 - injury_boxes: Post_Left_Middle_Lateral_Lower_Leg, Post_Left_Middle_Medial_Lower_Leg
 
 ## Transcript
-You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
-
 TRANSCRIPT A (medical speech model):
 Grid 947312, date 2 November 2026. Casualty is male, battle roster Tango Bravo 2251. Gunshot wound left calf at 1400. Pulse 110 radial. Tourniquet on at 1405. It's a SOFTT-W left leg obs at 1410. BP 120 over 75, resps 20. He's alert. Sats 97, pain 5. Call sign 32 Bravo priority
 
 TRANSCRIPT B (second listen):
-Tread 947312, date 2 November 2026. Casualty is male, battle roster Tango Bravo 2251. Gunshot wound left calf at 1400, pulse 110 radial. Tourniquet on at 1405, it's a soft TW left leg. Obs at 1410. BP 120 over 75, resps 20. He's alert. Sats 97, pain 5. Callsign 32 Bravo, priority.
+Grid 947 312. Date 2 November 2026. Casualty is male. Battle roster Tango Bravo 2251. Gunshot wound left calf. At, uh, 1400, pulse 110, radial. Tourniquet on at 1405. It's a SOFTT-W, left leg. Obs at 1410. BP 120 over 75, resps 20. He's alert, sats 97, pain 5. Call sign 32 Bravo. Priority.

@@ -1,0 +1,134 @@
+{
+ "fields": {
+  "date": [
+   "03-NOV-26",
+   "3 November 2026"
+  ],
+  "battle_roster": [
+   "JS4417",
+   "Juliet Sierra 4417"
+  ],
+  "gender_m": [
+   true,
+   "male"
+  ],
+  "service": [
+   "Army",
+   "Army"
+  ],
+  "unit": [
+   "1 Yorks",
+   "1 Yorks"
+  ],
+  "time": [
+   "1420",
+   "1420"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED strike"
+  ],
+  "signs_1_time": [
+   "1428",
+   "1428"
+  ],
+  "signs_1_bp_systolic": [
+   92,
+   "92/58"
+  ],
+  "signs_1_bp_diastolic": [
+   58,
+   "92/58"
+  ],
+  "signs_1_resp_rate": [
+   26,
+   "26"
+  ],
+  "signs_1_spo2": [
+   94,
+   "94"
+  ],
+  "signs_1_avpu": [
+   "V - Verbal",
+   "response to voice"
+  ],
+  "signs_1_pain": [
+   "9 Excruciating",
+   "9/10"
+  ],
+  "tq_extremity": [
+   true,
+   "CAT tourniquet"
+  ],
+  "tq_left_leg_type": [
+   "CAT",
+   "CAT tourniquet left leg"
+  ],
+  "tq_right_leg_type": [
+   "CAT",
+   "CAT on the right thigh"
+  ],
+  "tq_right_leg_time": [
+   "1425",
+   "1425"
+  ],
+  "dressing_hemostatic": [
+   true,
+   "QuikClot"
+  ],
+  "analgesic_1_name": [
+   "fentanyl",
+   "fentanyl lozenge"
+  ],
+  "analgesic_1_dose": [
+   "800 mcg",
+   "800 mcg"
+  ],
+  "analgesic_1_route": [
+   "OTFC",
+   "lozenge"
+  ],
+  "other_med_1_name": [
+   "TXA",
+   "TXA"
+  ],
+  "other_med_1_dose": [
+   "2 g",
+   "2 grams"
+  ],
+  "other_med_1_route": [
+   "IV",
+   "IV push"
+  ],
+  "other_med_1_time": [
+   "1435",
+   "1435"
+  ],
+  "hypothermia_prevention": [
+   true,
+   "hypothermia prevention kit"
+  ],
+  "hypothermia_prevention_type": [
+   "hypothermia prevention kit",
+   "hypothermia prevention kit"
+  ],
+  "evac_urgent": [
+   true,
+   "urgent"
+  ],
+  "first_responder_name": [
+   "Jones, Sam",
+   "Corporal Jones, Sam"
+  ],
+  "first_responder_last4": [
+   "3319",
+   "last four 3319"
+  ]
+ },
+ "notes": "Injuries: left leg below knee: traumatic amputation; right thigh: heavy bleeding from wound; right thigh wound packed with QuikClot at 1430",
+ "flags": [
+  "transcripts disagree: A says 108, B says 128",
+  "transcripts disagree: A says 1420, B says 1422",
+  "transcripts disagree: A says 1432, B says 1430"
+ ]
+}

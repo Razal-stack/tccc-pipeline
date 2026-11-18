@@ -39,7 +39,7 @@
  "hypothermia_prevention": false,
  "battle_roster": "",
  "name": "Young, Chloe",
- "last4": "7007",
+ "last4": "7907",
  "date": "",
  "time": "1010",
  "service": "Army",
@@ -137,7 +137,7 @@
  "hypothermia_prevention_type": "",
  "first_responder_name": "",
  "first_responder_last4": "",
- "notes": "Injuries: right foot: badly damaged, lots of bleeding",
+ "notes": "Injuries: right foot: badly damaged, bleeding",
  "injury_boxes": [
   "Ant_Right_Foot"
  ]

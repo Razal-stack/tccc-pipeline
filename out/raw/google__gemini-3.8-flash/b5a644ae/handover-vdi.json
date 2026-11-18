@@ -1,0 +1,28 @@
+{
+ "fields": {
+  "evac_urgent": [
+   true,
+   "Cat A"
+  ],
+  "mechanism_ied": [
+   true,
+   "IED"
+  ],
+  "tq_extremity": [
+   true,
+   "left leg tourniquet"
+  ],
+  "signs_1_pulse": [
+   "160",
+   "Pulse one six zero"
+  ],
+  "signs_1_resp_rate": [
+   28,
+   "respiratory two eight"
+  ]
+ },
+ "notes": "Injuries: left leg: amputation",
+ "flags": [
+  "transcripts disagree: A says 1715, B says 07:15 Zulu"
+ ]
+}
