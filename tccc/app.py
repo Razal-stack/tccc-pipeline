@@ -53,7 +53,7 @@ aside a.nav{color:var(--ink2);padding:7px 10px;border-radius:8px;text-decoration
 aside a.nav:hover{background:var(--hair)}aside a.nav.on{background:#fff;color:var(--ink);font-weight:500;box-shadow:0 0 0 1px var(--line)}
 aside .foot{margin-top:auto;font-size:12px;color:var(--soft);padding:14px 10px 0;border-top:1px solid var(--line);line-height:1.7}
 aside .foot b{font-weight:500;color:var(--ink2)}
-main{padding:36px 40px 72px;min-width:0}
+main{padding:36px 48px 72px;min-width:0;width:100%;max-width:1400px;margin:0 auto}
 .head{display:flex;align-items:flex-end;gap:16px;margin-bottom:28px;flex-wrap:wrap}.head .grow{flex:1;min-width:300px}
 h1{font:400 34px/1.15 var(--serif);letter-spacing:-.01em;margin:0 0 8px}h2{font:400 22px/1.25 var(--serif);margin:0 0 6px}
 h3{font-size:14px;font-weight:600;margin:0 0 10px}.lede{color:var(--soft);font-size:15px;max-width:720px;margin:0}
@@ -93,6 +93,13 @@ tr.row{cursor:pointer}tr.row:hover td{background:#fcfbfa}td.go{color:var(--mute)
 .cmp tr.wrong td:nth-child(2),.cmp tr.invented td:nth-child(2){color:var(--u);font-weight:500}.cmp tr.missed td:nth-child(2){color:var(--p)}
 .legend2{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--soft);margin:2px 0 10px}.legend2 span{display:inline-flex;gap:6px;align-items:center}
 .dot.correct{background:var(--r)}.dot.wrong{background:var(--u)}.dot.missed{background:#d98a1a}.dot.invented{background:#7a4fc7}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin:8px 0 24px;counter-reset:l}
+.layer{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 14px 14px 0}
+.layer:after{content:"→";position:absolute;right:-13px;top:22px;color:var(--mute);font-size:15px}.layer:last-child:after{content:none}
+.layer b{display:block;font:500 15px var(--sans);margin:4px 0}.layer .n{font:500 11.5px var(--mono);color:var(--blue)}
+.layer p{margin:6px 0 0;color:var(--soft);font-size:13px}.layer .tool{display:inline-block;margin-top:10px;font:12px var(--mono);background:var(--hair);border-radius:6px;padding:2px 7px;color:var(--ink2)}
+.layer.code{background:#fbfaf8}.listens{display:grid;grid-template-columns:1fr 1fr;gap:16px}.listens h4{margin:0 0 6px;font-size:13px;font-weight:600}
+@media(max-width:900px){.listens{grid-template-columns:1fr}}
 .empty{padding:36px;text-align:center;color:var(--soft);display:none}
 .cols{display:grid;grid-template-columns:minmax(380px,.85fr) minmax(0,1.25fr);gap:24px;align-items:start}.stick{position:sticky;top:16px}
 .box{padding:18px 20px;margin-bottom:14px}.box.warn{background:#fffaf2;border-color:#f0dcbc}.box.bad{background:#fff8f6;border-color:#f2d3cc}.box.good{background:#f6fbf8;border-color:#cfe6d7}
@@ -107,7 +114,7 @@ iframe{width:100%;height:calc(100vh - 32px);border:1px solid var(--line);border-
 .finding td,.finding th{padding:9px 12px 9px 0}
 .hbar{display:flex;align-items:center;gap:10px}.hbar s{display:block;height:6px;border-radius:3px;background:var(--navy);text-decoration:none}.hbar s.dim{background:#d9d7d3}
 .hbar span{font:12.5px var(--mono);color:var(--soft)}.pick{font-size:11.5px;font-weight:500;color:var(--blue);background:var(--tint);border-radius:999px;padding:1px 8px;margin-left:8px}
-.guide{max-width:760px}.guide .panel{padding:22px 26px;margin-bottom:14px}.guide ol,.guide ul{padding-left:20px;margin:6px 0 0}.guide li{margin:8px 0}
+.guide{columns:2 520px;column-gap:16px}.guide .panel{padding:22px 26px;margin-bottom:16px;break-inside:avoid;display:inline-block;width:100%}.guide ol,.guide ul{padding-left:20px;margin:6px 0 0}.guide li{margin:8px 0}
 .legend{display:grid;grid-template-columns:200px 1fr;gap:14px 16px;align-items:start;margin-top:8px}
 @media(max-width:960px){.app{grid-template-columns:1fr}aside{position:static;height:auto}.cols{grid-template-columns:1fr}.stick{position:static}main{padding:24px 18px}}
 """
@@ -115,11 +122,11 @@ iframe{width:100%;height:calc(100vh - 32px);border:1px solid var(--line);border-
 
 def page(tab, body, title="TCCC Casualty Cards"):
     nav = "".join(f"<a class='nav{' on' if t == tab else ''}' href='{u}'>{n}</a>" for t, n, u in
-                  (("board", "Casualties", "/"), ("bench", "Benchmark", "/benchmark"), ("guide", "Guide", "/guide")))
+                  (("board", "Casualties", "/"), ("how", "How it works", "/how"), ("bench", "Benchmark", "/benchmark"), ("guide", "Guide", "/guide")))
     return HTMLResponse(f"""<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
 <title>{esc(title)}</title><style>{CSS}</style><div class=app><aside><a class=logo href=/ aria-label=Home>{LOGO}</a>
 <div class=prod>Casualty cards · DD Form 1380</div>{nav}
-<div class=foot><b>Listening</b> ElevenLabs Scribe v2 Medical<br><b>Second listen</b> Qwen 3.8 Omni Flash<br><b>Reading</b> Gemini 3.8 Flash<br>About 20 s and 1 to 2 US cents a card</div></aside>
+<div class=foot>50 recorded handovers turned into TCCC cards.<br><a href=/how>How it works</a> · <a href=/benchmark>How accurate</a></div></aside>
 <main>{body}</main></div></html>""")
 
 
@@ -306,8 +313,20 @@ def card_page(name: str, stem: str):
 <span class=l>I</span><div>{esc('; '.join(injuries(card)) or 'not stated')}<div class=sub>{esc(card.get('notes') or '')}</div></div>
 <span class=l>S</span><div>{f"<table class=vit>{vrows}</table>" if vit else 'no observations given'}</div>
 <span class=l>T</span><div>{esc(', '.join(care(card) + other) or 'none given')}</div></div></div>
-<div class='panel box'><h3>What was heard</h3><div class=say>{esc(rv.get('Transcript', ''))}</div></div></div>
+<div class='panel box'><h3>What was heard</h3>{heard(rv.get('Transcript', ''))}</div></div>
 <div class=stick><iframe src='/pdf/{name}/{stem}#view=FitH&navpanes=0&pagemode=none' title='Filled DD Form 1380'></iframe></div></div>""", person)
+
+
+def heard(text):
+    """The two listens side by side, named, with why there are two."""
+    if "TRANSCRIPT B" not in text:
+        return f"<div class=say>{esc(text)}</div>"
+    a, b = text.split("TRANSCRIPT B (second listen):")
+    a = a.replace("TRANSCRIPT A (medical speech model):", "").strip()
+    return (f"<p class=sub style='margin:-4px 0 12px'>Two different models listened to the same recording. Where they heard a value "
+            f"differently, the card leaves it blank and asks you to check.</p><div class=listens>"
+            f"<div><h4>Listen 1 · ElevenLabs Scribe v2 Medical</h4><div class=say>{esc(a)}</div></div>"
+            f"<div><h4>Listen 2 · Qwen 3.8 Omni Flash</h4><div class=say>{esc(b.strip())}</div></div></div>")
 
 
 def bar(v, dim=False):
@@ -378,17 +397,65 @@ $0.47. About <b>$0.65 for all 50</b>, 1.3 cents a card, about 20 seconds each, a
 call is cached, so re-scoring or changing the checks costs nothing.</p></div>""")
 
 
+LAYERS = (
+    ("Recording", "The whole handover as recorded: radio, noise, two voices and all. Nothing is cut or cleaned: denoisers made it worse.", "audio file"),
+    ("Listen twice", "Two different speech models write down what was said, at the same time. One is told which words to expect (TXA, IV, tourniquet).", "Scribe v2 Medical + Qwen 3.8 Omni Flash"),
+    ("Read", "A language model fills the card from both transcripts, with the exact words for each value. Where the two listens disagree, it leaves the box blank and flags it.", "Gemini 3.8 Flash"),
+    ("Check", "Plain code, no AI. Every value must be in what was heard, in the right format, and medically plausible. Anything that fails is blanked and flagged.", "rules in code"),
+    ("Fill the card", "Values go into the real DD Form 1380. Spoken injury locations map to the body-diagram boxes. The PDF is read back to confirm every field landed.", "PDF form"),
+    ("Medic", "Gets the card plus a short list: what to ask the sender, what to check. Signs, attaches, evacuates.", "this app"),
+)
+
+
+@app.get("/how")
+def how():
+    flow = "".join(f"<div class='layer{' code' if t in ('Check', 'Fill the card') else ''}'><span class=n>{i:02d}</span><b>{t}</b><p>{esc(d)}</p>"
+                   f"<span class=tool>{esc(tool)}</span></div>" for i, (t, d, tool) in enumerate(LAYERS, 1))
+    return page("how", f"""<div class=head><div class=grow><h1>How it works</h1><p class=lede>A recorded handover goes through six layers and comes out
+as a signed TCCC card. AI does the listening and reading; plain code does the checking and filling, so nothing reaches the card unchecked.</p></div></div>
+<div class=flow>{flow}</div>
+<div class=guide>
+<div class=panel><h2>What we did</h2><ul>
+<li><b>Measured everything</b> against the answer key that came with the recordings, on 25 recordings locked away until the end.</li>
+<li><b>Picked the best listener</b> out of 19 speech models, and tested four ways of cleaning the audio (all made it worse).</li>
+<li><b>Picked the card model</b> out of 14 language models: the top six tied, so the choice came down to unseen recordings and safety.</li>
+<li><b>Added a second listen</b>, which lifted accuracy on unseen recordings from 92.5% to 93.8% and turns disagreements into flags.</li></ul></div>
+<div class=panel><h2>Why it is safe to trust</h2><ul>
+<li><b>Blank means not said.</b> The card never holds a value nobody spoke.</li>
+<li><b>Every value is traceable</b> to the words in the recording.</li>
+<li><b>Disagreement is surfaced, not hidden:</b> two listens that differ go to the medic.</li>
+<li><b>A person signs every card.</b> The system prepares it; the medic decides.</li></ul></div>
+<div class=panel><h2>Cost and speed</h2><p>About 20 seconds and 1.3 US cents a card. All 50 recordings cost about $0.65 to run and
+take about a minute in parallel. Results are cached, so re-checking costs nothing.</p></div>
+<div class=panel><h2>Built with</h2><p>Python, OpenRouter for every model call, FastAPI for this app, and the real DD Form 1380 PDF.
+One command, <span class=mono>python3 -m tccc</span>, opens everything.</p></div></div>""")
+
+
 @app.get("/guide")
 def guide():
-    return page("guide", """<div class=guide><div class=head><div class=grow><h1>Guide</h1>
+    return page("guide", """<div class=head><div class=grow><h1>Guide</h1>
 <p class=lede>For the casualty collection point: many casualties, little time, one medic writing cards. The system writes the card from the
-handover, so the medic only deals with the gaps.</p></div></div>
+handover, so the medic only deals with the gaps.</p></div></div><div class=guide>
 <div class=panel><h2>At the handover</h2><ol>
 <li><b>Record the whole handover</b>, start to finish. Corrections ("six fifteen, correction six fifty") and read-backs matter.</li>
 <li><b>Upload it</b> with <i>New handover</i>. The card is ready in about 20 seconds.</li>
 <li><b>Read the status before the person handing over leaves.</b> <i>Missing information</i> names what to ask for ("say again tourniquet time").</li>
 <li><i>Needs checking</i>: compare the value with what you heard. Both transcripts are on the card page.</li>
 <li><b>Print, check, sign, attach</b> where it can be seen (wrist or belt loop). The card travels with the casualty.</li></ol></div>
+<div class=panel><h2>From card to evacuation</h2><div class=legend>
+<span class=sub>Who</span><span>The medic or casualty collection point lead reviews cards; the evacuation coordinator uses the totals; the
+surgeon at the next stop reads the card.</span>
+<span><b>1 · Record</b></span><span>Each handover, in full. The card is ready in about 20 seconds.</span>
+<span><b>2 · Close the gaps</b></span><span><i>Missing information</i>: ask the sender before they leave. <i>Needs checking</i>: confirm against the recording.</span>
+<span><b>3 · Sign and attach</b></span><span>Print, check, sign, fasten to the casualty (wrist or belt loop). The card travels with them.</span>
+<span><b>4 · Request evacuation</b></span><span>The Casualties page gives the totals by priority (Urgent, Priority, Routine) for the evacuation
+request, and lists who still has no priority stated.</span>
+<span><b>5 · Hand over</b></span><span>Give each casualty's MIST from the card to the evacuation crew. The card and both transcripts are the record of care.</span></div></div>
+<div class=panel><h2>Where "Urgent" comes from</h2><p>The evacuation category is what the first responder said: <i>urgent</i>, <i>Cat A</i> or
+<i>T1</i> become Urgent; <i>priority</i> and <i>routine</i> as said. The system never decides triage itself. Checked against the answer
+key, 49 of 50 categories are right and none is wrong; the 50th, a recording lost to radio static, is left as <i>Not stated</i> so
+the medic asks.</p><p class=sub>Worth a second look: casualties sent as Priority with a tourniquet on (8 here). TCCC guidance is to
+reassess or convert a tourniquet within about two hours, so confirm the category if evacuation is delayed.</p></div>
 <div class=panel><h2>What the labels mean</h2><div class=legend>
 <span><span class='tag ok'><span class='dot ok'></span>Complete</span></span><span>Everything a surgeon needs was said and nothing is in doubt.</span>
 <span><span class='tag get'><span class='dot get'></span>Missing information</span></span><span>Not said: who the casualty is, evacuation priority, a tourniquet time, a drug's dose or route.</span>

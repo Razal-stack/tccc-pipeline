@@ -105,7 +105,13 @@ time; and splitting very long recordings at pauses (not needed here: the longest
 ## Try it
 
 ```bash
-python3 -m pip install -r requirements.txt          # reads OPENROUTER_API_KEY from ../.env
+python3 -m pip install -r requirements.txt
+python3 -m tccc            # one command: opens the app with all 50 cards (built from cached results, no key needed)
+```
+
+To process new recordings or re-run the models (reads `OPENROUTER_API_KEY` from `../.env`):
+
+```bash
 python3 -m tccc.pipeline ../recordings/handover-isa.wav   # one recording -> out/live/ (card, PDF, review sheet)
 python3 -m uvicorn tccc.app:app --port 8000          # web app: cards, benchmark, guide; upload a recording
 python3 -m tccc.run google/gemini-3.8-flash --split heldout --pdf   # re-run the honest evaluation (cached, free)
