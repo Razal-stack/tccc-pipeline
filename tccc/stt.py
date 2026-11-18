@@ -1,7 +1,10 @@
 """Speech-to-text through OpenRouter, with domain key terms to bias recognition toward drugs, kit and units."""
+import audioop
 import base64
+import io
 import time
 import urllib.error
+import wave
 from pathlib import Path
 
 from .openrouter import call
@@ -18,8 +21,22 @@ KEYTERMS = ["TXA", "IV", "IO", "IM", "CAT", "SOFTT-W", "tourniquet", "fentanyl",
             "Para", "Commando", "Royal Anglian", "Royal Welsh", "RMP", "RAF Regiment", "Irish Guards"]
 
 
+def to_16k(data: bytes) -> bytes:
+    """48 kHz wav -> 16 kHz mono wav (a third of the size; speech models work at 16 kHz anyway)."""
+    with wave.open(io.BytesIO(data)) as w:
+        ch, width, rate, frames = w.getnchannels(), w.getsampwidth(), w.getframerate(), w.readframes(w.getnframes())
+    if ch > 1:
+        frames = audioop.tomono(frames, width, .5, .5)
+    frames, _ = audioop.ratecv(frames, width, 1, rate, 16000, None)
+    out = io.BytesIO()
+    with wave.open(out, "wb") as w:
+        w.setnchannels(1), w.setsampwidth(width), w.setframerate(16000), w.writeframes(frames)
+    return out.getvalue()
+
+
 def transcribe(key, model, wav: Path, keyterms=False):
-    body = {"model": model, "input_audio": {"data": base64.b64encode(wav.read_bytes()).decode(), "format": "wav"},
+    data = wav.read_bytes()
+    body = {"model": model, "input_audio": {"data": base64.b64encode(data).decode(), "format": "wav"},
             "language": "en", "temperature": 0}
     if keyterms:
         body["keyterms"] = KEYTERMS
@@ -32,6 +49,9 @@ def transcribe(key, model, wav: Path, keyterms=False):
             return r.get("text", ""), (u.get("cost") or 0.0, u.get("seconds") or 0.0)
         except urllib.error.HTTPError as e:
             msg = e.read().decode(errors="replace")[:300]
+            if e.code == 400 and "large audio" in msg and body["input_audio"]["data"] == base64.b64encode(data).decode():
+                body["input_audio"]["data"] = base64.b64encode(to_16k(data)).decode()  # some models cap file size
+                continue
             if e.code in (429, 502, 503) and attempt < 2:
                 time.sleep(5 * (attempt + 1))
                 continue
