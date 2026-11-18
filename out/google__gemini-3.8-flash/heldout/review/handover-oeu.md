@@ -32,8 +32,6 @@
 - injury_boxes: Ant_Right_Elbow, Ant_Right_Lateral_Bicep, Ant_Right_Medial_Bicep, Ant_Right_Middle_Lateral_Forearm, Ant_Right_Middle_Medial_Forearm, Left_Ear, Right_Ear
 
 ## Transcript
-You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
-
 TRANSCRIPT A (medical speech model):
 Female casualty. I think she's from the Signals Det. Army Private Hart, Ellie. Blast from a vehicle IED maybe 20 minutes ago. Time now's 19:30. Burns to her right arm, superficial, and she's got ringing ears, probably burst eardrums. Obs at 19:25, pulse about 100, radial. Last four... 5822 I think. BP 128 over 80. Resps 20. Sats 98. Alert. Pain 4. Clingfilm on the arm. Evac routine. I'm Corporal Lane, Becky, last four 4088. [gunfire]
 

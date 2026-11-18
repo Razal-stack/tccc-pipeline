@@ -41,8 +41,6 @@
 - injury_boxes: Ant_Left_Middle_Lateral_Lower_Leg, Ant_Left_Middle_Medial_Lower_Leg
 
 ## Transcript
-You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
-
 TRANSCRIPT A (medical speech model):
 MIST report Burns the November 2026. Casualty is Private Okafor Grace, female, last four 5512, Army 1 Rifles. Allergic to penicillin. Time of injury 02.10. Mechanism fall from height about 4 meters off the sangar wall. Injuries open fracture of the left lower leg, laceration to the scalp. Signs at 02.20 radial pulse 96, BP 134/86, resps 18, sats 98, alert, pain 8 out of 10. Treatment pressure dressing to the scalp, left leg dressed and splinted, morphine 10 mg IM at 02.25, moxifloxacin 400 mg by mouth at 02.30. EVAC priority from Corporal Ryan Megan last four 6741
 

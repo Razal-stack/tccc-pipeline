@@ -35,8 +35,6 @@
 - injury_boxes: AnteriorHead, Left_Lower_Back, Left_Middle_Back, Left_Upper_Back, Right_Lower_Back, Right_Middle_Back, Right_Upper_Back
 
 ## Transcript
-You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
-
 TRANSCRIPT A (medical speech model):
 IED strike on the Foxhound front left wheel time 1030 casualties the driver battle roster Golf Romeo 5180 Army Household Cavalry he was um knocked out briefly now responds to voice complaining of low back pain 7 out of 10 NPA in at 1040 OBES at 1042 radial pulse 92 he's also got a laceration to the left forehead pressure dressing on that BP 142 over 90 RSP is 18 sats 96 on air call her in scoop for the spine second OBES 1055 pulse 88 radial BP 138 over 86 RSP is 16 sats 97 and he's a lip now EVAC priority male casualty
 

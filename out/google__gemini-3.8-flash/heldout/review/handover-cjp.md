@@ -32,8 +32,6 @@
 - injury_boxes: Ant_Right_Knee
 
 ## Transcript
-You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
-
 TRANSCRIPT A (medical speech model):
 MIST battle roster. Victor Alpha 62119 male. RPG 1200 penetrating wound to the left knee. CAT left leg at 1205. Obs at 1208. Pulse 104. BP 126 over 80. Resps 20. Sats 97. Alert pain 6. Fentanyl lozenge 800 at 1210 priority. Sent by Corporal Penn Alex last four 2157. Correction to my earlier. It's the right knee and the right leg not left. Right
 

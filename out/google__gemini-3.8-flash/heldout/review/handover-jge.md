@@ -26,8 +26,6 @@
 - injury_boxes: none
 
 ## Transcript
-You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
-
 TRANSCRIPT A (medical speech model):
 Handing over a female casualty. She's, she's had a fentanyl lozenge, um, not sure on the time and a gram of TXA-4 at 18:20. Tourniquet on the left arm. I don't know what time it went on. Pulse 130. That's all I've got.
 

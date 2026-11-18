@@ -32,8 +32,6 @@
 - injury_boxes: Ant_Right_Middle_Lateral_Forearm, Ant_Right_Middle_Medial_Forearm
 
 ## Transcript
-You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
-
 TRANSCRIPT A (medical speech model):
 Tourniquet right arm CAT at 1620. Roger. TQ right arm 1602. Negative 1620. Casualty's Private Doyle, Sean, male, last four 7712, Army 1 Irish Guards. Mechanism GSW to the right forearm wounded at 1615 pulse 118 radial BP 116 over 74, resp is 22, sats 97 alert pain 7 fentanyl lozenge 800 mics 1625. Copy fentanyl 800 at 1625. EVAC category? Priority.
 

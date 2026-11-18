@@ -45,8 +45,6 @@
 - injury_boxes: Ant_Left_Proximal_Lateral_Lower_Leg, Ant_Left_Proximal_Medial_Lower_Leg, Ant_Right_Proximal_Lateral_Lower_Leg, Ant_Right_Proximal_Medial_Lower_Leg
 
 ## Transcript
-You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
-
 TRANSCRIPT A (medical speech model):
 Urgent urgent two tourniquets both legs CATs left at 09:31 right at 09:33 IED 09:30 dismounted both legs gone below the knee first set of obs at 09:40 pulse 120 radial BP 100/60 resps 24 sats 95 responds to voice second set at 09:50 pulse is up to 138 and the radial's weak BP 82/50 resps 30 sats 93 and he's now only responding to pain 2 g of TXA IO at 09:45 1 unit of whole blood IO at 09:52 battle roster Romeo Echo 88206 date 31 October 2026 sent by Corporal Shaw Leah last four 2660
 

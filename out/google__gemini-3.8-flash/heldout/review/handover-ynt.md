@@ -29,8 +29,6 @@
 - injury_boxes: Left_Lower_Chest, Left_Palm, Left_Upper_Chest
 
 ## Transcript
-You have two transcripts of the same recording from different speech models. Use A by default. Use B where A is garbled, cut off or a number is unclear. If A and B give different values for the same field and the recording cannot tell you which is right, leave the field blank and flag it: 'transcripts disagree: A says X, B says Y'. Quote evidence from whichever transcript you used.
-
 TRANSCRIPT A (medical speech model):
 battle roster Sierra Papa 22241 correction 22214 male Royal Marines 43 Commando IED time of wounding 4:40 penetrating fragment wound to the left chest plus burns to the left hand vented chest seal on the left chest needle decompression on the left at 0452 oxygen on OBS at 0455 radial pulse 128 resps 32 sats 89 responds to voice evac priority no upgrade that evac urgent sent by Corporal Day PIN last four 3370
 
