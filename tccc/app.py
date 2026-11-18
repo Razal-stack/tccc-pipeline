@@ -53,7 +53,7 @@ aside a.nav{color:var(--ink2);padding:7px 10px;border-radius:8px;text-decoration
 aside a.nav:hover{background:var(--hair)}aside a.nav.on{background:#fff;color:var(--ink);font-weight:500;box-shadow:0 0 0 1px var(--line)}
 aside .foot{margin-top:auto;font-size:12px;color:var(--soft);padding:14px 10px 0;border-top:1px solid var(--line);line-height:1.7}
 aside .foot b{font-weight:500;color:var(--ink2)}
-main{padding:40px 48px 72px;max-width:1220px}
+main{padding:36px 40px 72px;min-width:0}
 .head{display:flex;align-items:flex-end;gap:16px;margin-bottom:28px;flex-wrap:wrap}.head .grow{flex:1;min-width:300px}
 h1{font:400 34px/1.15 var(--serif);letter-spacing:-.01em;margin:0 0 8px}h2{font:400 22px/1.25 var(--serif);margin:0 0 6px}
 h3{font-size:14px;font-weight:600;margin:0 0 10px}.lede{color:var(--soft);font-size:15px;max-width:720px;margin:0}
@@ -89,8 +89,12 @@ tr.row{cursor:pointer}tr.row:hover td{background:#fcfbfa}td.go{color:var(--mute)
 .why{display:block;font-size:12.5px;color:var(--soft);margin-top:5px;max-width:380px}
 .key{display:flex;align-items:center;gap:8px}.key s{display:block;width:56px;height:4px;border-radius:2px;background:var(--hair);overflow:hidden;text-decoration:none}
 .key s i{display:block;height:100%;background:var(--navy)}.key span{font:12.5px var(--mono);color:var(--soft)}
+.cmp td{padding:7px 10px 7px 0;font-size:13px;border-bottom:1px solid var(--hair)}.cmp td:first-child{color:var(--soft);width:34%}
+.cmp tr.wrong td:nth-child(2),.cmp tr.invented td:nth-child(2){color:var(--u);font-weight:500}.cmp tr.missed td:nth-child(2){color:var(--p)}
+.legend2{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--soft);margin:2px 0 10px}.legend2 span{display:inline-flex;gap:6px;align-items:center}
+.dot.correct{background:var(--r)}.dot.wrong{background:var(--u)}.dot.missed{background:#d98a1a}.dot.invented{background:#7a4fc7}
 .empty{padding:36px;text-align:center;color:var(--soft);display:none}
-.cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:22px;align-items:start}.stick{position:sticky;top:24px}
+.cols{display:grid;grid-template-columns:minmax(380px,.85fr) minmax(0,1.25fr);gap:24px;align-items:start}.stick{position:sticky;top:16px}
 .box{padding:18px 20px;margin-bottom:14px}.box.warn{background:#fffaf2;border-color:#f0dcbc}.box.bad{background:#fff8f6;border-color:#f2d3cc}.box.good{background:#f6fbf8;border-color:#cfe6d7}
 .box ul{margin:4px 0 0;padding-left:18px}.box li{margin:4px 0}.box h3 .dot{margin-right:8px;vertical-align:middle}
 .mist{display:grid;grid-template-columns:28px 1fr;gap:14px 14px;margin-top:16px}
@@ -98,7 +102,7 @@ tr.row{cursor:pointer}tr.row:hover td{background:#fcfbfa}td.go{color:var(--mute)
 dl{display:grid;grid-template-columns:120px 1fr;gap:5px 14px;margin:0}dt{color:var(--soft);font-size:13px}dd{margin:0;font-weight:500}
 .vit{width:auto}.vit td,.vit th{border:0;border-bottom:1px solid var(--hair);padding:5px 18px 5px 0;font-size:13px;font-weight:400}
 .vit th{color:var(--soft)}.say{font:12.5px/1.8 var(--mono);color:var(--ink2);white-space:pre-wrap}
-iframe{width:100%;height:86vh;border:1px solid var(--line);border-radius:12px;background:#fff}
+iframe{width:100%;height:calc(100vh - 32px);border:1px solid var(--line);border-radius:12px;background:#fff}
 .finding{padding:22px 24px;margin-bottom:16px}.finding .note{color:var(--soft);margin:2px 0 16px;max-width:780px}
 .finding td,.finding th{padding:9px 12px 9px 0}
 .hbar{display:flex;align-items:center;gap:10px}.hbar s{display:block;height:6px;border-radius:3px;background:var(--navy);text-decoration:none}.hbar s.dim{background:#d9d7d3}
@@ -174,7 +178,7 @@ def answer_key(card):
     if not truth:
         return None, []
     per_field, _ = score_card(card, truth)
-    return prf(Counter(per_field.values()))[2], [(f, o, card.get(f), truth.get(f)) for f, o in per_field.items() if o not in ("correct", "blank_ok")]
+    return prf(Counter(per_field.values()))[2], [(f, o, card.get(f), truth.get(f)) for f, o in per_field.items() if o != "blank_ok"]
 
 
 def casualties():
@@ -282,28 +286,39 @@ def card_page(name: str, stem: str):
     f1, errs = answer_key(card)
     key = ""
     if f1 is not None:
-        what = {"missed": "left blank", "invented": "not said", "wrong": "different"}
-        table = ("<table><tr><th>Field</th><th>Result</th><th>Card</th><th>Answer key</th></tr>" + "".join(
-            f"<tr><td class=mono>{f}</td><td>{what[o]}</td><td>{esc(str(p))}</td><td>{esc(str(t))}</td></tr>" for f, o, p, t in errs) + "</table>") if errs else "<span class=sub>Every field agrees.</span>"
-        key = f"<div class='panel box'><h3>Answer key: {f1:.0%} of filled fields agree <span class=sub>· testing only</span></h3>{table}</div>"
+        show = lambda v: "✓" if v is True else ("" if v in (False, None) else esc(str(v)))  # noqa: E731
+        c = Counter(o for _, o, _, _ in errs)
+        rows = "".join(f"<tr class={o}><td>{f.replace('_', ' ')}</td><td><span class='dot {o}'></span> {show(p) or '<span class=sub>blank</span>'}</td>"
+                       f"<td>{show(t) or '<span class=sub>blank</span>'}</td></tr>" for f, o, p, t in sorted(errs, key=lambda e: e[1] == "correct"))
+        key = (f"<div class='panel box'><h3>Card vs answer key: {f1:.0%} <span class=sub>· testing only</span></h3><div class=legend2>"
+               f"<span><span class='dot correct'></span>{c['correct']} match</span><span><span class='dot wrong'></span>{c['wrong']} different</span>"
+               f"<span><span class='dot missed'></span>{c['missed']} not captured</span><span><span class='dot invented'></span>{c['invented']} not in answer key</span></div>"
+               f"<table class=cmp><tr><th>Field</th><th>Our card</th><th>Answer key</th></tr>{rows}</table></div>")
     unknown = "" if known else " · no name, roster number or last four was said: take them from the casualty's ID tags"
     wounded = f" at {card['time']}" if card.get("time") else ""
     return page("board", f"""<p class=sub><a href=/>Casualties</a> / {stem.replace('handover-', '')}</p>
 <div class=head><div class=grow><h1>{esc(person) if known else 'Name not given'}</h1>
 <p class=lede><span class='tag {ec}'><span class='dot {ec}'></span>{ev}</span> <span class='tag {st}'><span class='dot {st}'></span>{STATUS[st][0]}</span>
 <span class=sub>{unknown}</span></p></div><a class='btn ghost' href='/pdf/{name}/{stem}' target=_blank>Open PDF to print</a></div>
-<div class=cols><div>{todo}
+<div class=cols><div>{todo}{key}
 <div class='panel box'><h3>The card, in MIST order</h3>{ident_html}
 <div class=mist><span class=l>M</span><div>{esc(', '.join(mechanism(card)) or 'not stated')}{wounded}</div>
 <span class=l>I</span><div>{esc('; '.join(injuries(card)) or 'not stated')}<div class=sub>{esc(card.get('notes') or '')}</div></div>
 <span class=l>S</span><div>{f"<table class=vit>{vrows}</table>" if vit else 'no observations given'}</div>
 <span class=l>T</span><div>{esc(', '.join(care(card) + other) or 'none given')}</div></div></div>
-<div class='panel box'><h3>What was heard</h3><div class=say>{esc(rv.get('Transcript', ''))}</div></div>{key}</div>
-<div class=stick><iframe src='/pdf/{name}/{stem}#view=FitH' title='Filled DD Form 1380'></iframe></div></div>""", person)
+<div class='panel box'><h3>What was heard</h3><div class=say>{esc(rv.get('Transcript', ''))}</div></div></div>
+<div class=stick><iframe src='/pdf/{name}/{stem}#view=FitH&navpanes=0&pagemode=none' title='Filled DD Form 1380'></iframe></div></div>""", person)
 
 
 def bar(v, dim=False):
     return f"<div class=hbar><s class='{'dim' if dim else ''}' style='width:{v * 220:.0f}px'></s><span>{v:.0%}</span></div>"
+
+
+# card-model cost for all 50 recordings, measured on the run (one transcript; two transcripts add about 40%)
+COST50 = {"google/gemini-3.8-flash": .34, "google/gemini-4-argon": .36, "google/gemini-4-hydrogen": 1.16, "openai/gpt-6.1-terra": .18,
+          "deepseek/deepseek-v4.1-flash": .36, "z-ai/glm-5.3": .52, "qwen/qwen4-max": .36, "z-ai/glm-5.3-flash": .46,
+          "qwen/qwen3.8-max-0902": .72, "qwen/qwen3.8-27b": .56, "openai/gpt-6.2-sol": .24, "openai/gpt-5.6-luna": .06,
+          "mistralai/mistral-large-4-0": 1.08, "qwen/qwen3.8-flash": .34}
 
 
 @app.get("/benchmark")
@@ -322,8 +337,13 @@ def bench():
     for r in rs:
         if r["split"] == "dev" and r["model"] != LLM_MODEL or (r["model"] == LLM_MODEL and r["split"] == "dev" and "+" not in r.get("transcripts", "+")):
             models[r["model"]] = r
-    model_rows = "".join(f"<tr><td class=mono>{esc(m)}{'<span class=pick>in use</span>' if m == LLM_MODEL else ''}</td><td>{bar(r['f1'], m != LLM_MODEL)}</td>"
-                         f"<td class=mono>{r['invented']}</td></tr>" for m, r in sorted(models.items(), key=lambda kv: -kv[1]["f1"])[:12])
+    held = {r["model"]: r for r in rs if r["split"] == "heldout" and "+" not in r.get("transcripts", "").split("keyterms")[-1]}
+    unseen = {m: f"{r['f1']:.1%}" for m, r in held.items()}
+    model_rows = "".join(
+        f"<tr><td class=mono>{esc(m)}{'<span class=pick>in use</span>' if m == LLM_MODEL else ''}</td><td>{bar(r['f1'], m != LLM_MODEL)}</td>"
+        f"<td class=mono>{unseen.get(m, '<span class=sub>not run</span>')}</td>"
+        f"<td class=mono>{held[m]['invented'] if m in held else ''}</td><td class=mono>${COST50.get(m, 0):.2f}</td></tr>"
+        for m, r in sorted(models.items(), key=lambda kv: -kv[1]["f1"])[:12])
     groups = ""
     hs = OUT / LLM_MODEL.replace("/", "__") / "heldout" / "score.json"
     if hs.exists():
@@ -346,10 +366,16 @@ in the field the ID tag settles it, which is why the card asks for it.</p><table
 heavy noise or two voices. A second, different model holds 21 of the 80 values the first one misses; where the two disagree, the card
 flags the value instead of guessing (unseen accuracy 92.5% to 93.8%). Four denoisers were also tested; all made hard audio worse.</p>
 <table><tr><th>Speech model</th><th>All recordings</th><th>Hard audio</th><th>Per audio hour</th></tr>{stt_rows}</table></div>
-<div class='panel finding'><h2>The top card-filling models are tied.</h2>
-<p class=note>Tuning set, 25 recordings. The top six are within each other's 95% intervals, so the choice came down to the unseen set
-and safety: Gemini 3.8 Flash scored best there and made up the fewest values.</p>
-<table><tr><th>Language model</th><th>Filled fields right</th><th>Values not said</th></tr>{model_rows}</table></div>""")
+<div class='panel finding'><h2>Why Gemini 3.8 Flash, when Gemini 4 Argon scored higher</h2>
+<p class=note>On the 25 tuning recordings the top six are within 1 point, and their 95% intervals overlap: that gap is noise, not
+skill. So the deciding test was the 25 locked-away recordings, scored once. There, Gemini 3.8 Flash was as accurate as Argon and made
+up 2 values where Argon made up 9 and GPT-6.1 Terra 5. Terra is $0.16 cheaper for all 50 cards; on a casualty card, two and a half
+times as many invented values is not worth 16 cents.</p>
+<table><tr><th>Language model</th><th>Tuning set</th><th>Unseen recordings</th><th>Made up (unseen)</th><th>Cost for 50 cards</th></tr>{model_rows}</table></div>
+<div class='panel finding'><h2>What a run costs</h2>
+<p class=note>The final pipeline on all 50 recordings: Scribe v2 Medical $0.15, second listen $0.03, Gemini reading both transcripts
+$0.47. About <b>$0.65 for all 50</b>, 1.3 cents a card, about 20 seconds each, all 50 in parallel in about a minute. Every model
+call is cached, so re-scoring or changing the checks costs nothing.</p></div>""")
 
 
 @app.get("/guide")
