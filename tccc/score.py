@@ -18,6 +18,7 @@ import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
+from typing import Optional
 
 from .config import DATA
 
@@ -98,14 +99,14 @@ def bootstrap(per_card, other=None, n=2000, seed=0):
     return draws[int(n * .025)], draws[int(n * .975)]
 
 
-def score_card(pred, truth):
+def score_card(pred: dict, truth: dict) -> tuple:
     per_field = {f: outcome(pred.get(f), truth.get(f)) for f in FIELDS}
     pb, tb = set(pred.get("injury_boxes") or []), set(truth.get("injury_boxes") or [])
     boxes = dict(tp=len(pb & tb), fp=len(pb - tb), fn=len(tb - pb))
     return per_field, boxes
 
 
-def score(preds: dict, files=None):
+def score(preds: dict, files: Optional[list] = None) -> dict:
     """preds: {file: card_dict}. Files with no prediction count as an empty card. files: subset to score."""
     truths = {f: TRUTH[f] for f in (files or TRUTH)}
     total, critical = Counter(), Counter()
@@ -163,7 +164,7 @@ def report(s) -> str:
     return "\n".join(lines)
 
 
-def load_dir(d):
+def load_dir(d: Path) -> dict:
     preds = {}
     for p in Path(d).glob("*.json"):
         card = json.loads(p.read_text())

@@ -1,0 +1,11 @@
+line-length = 130
+target-version = "py39"
+
+[lint]
+select = ["E", "F", "W", "B", "UP", "SIM"]
+ignore = ["E731", "SIM108"]  # short lambdas and if/else blocks read better than forced one-liners here
+
+[lint.per-file-ignores]
+"tccc/app.py" = ["E501", "B008"]  # inline HTML templates; File(...) default is FastAPI's idiom
+"docs/diagram.py" = ["E501"]      # inline SVG
+"tccc/extract.py" = ["E501"]      # the prompt text is hashed into the cache key; reflowing it would force paid re-runs

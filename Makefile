@@ -6,7 +6,7 @@ MODEL ?= google/gemini-3.8-flash
 PORT  := 8000
 RECORDINGS ?= ../recordings
 
-.PHONY: help setup app stop test eval cards check-key live live-all bakeoff relisten diagram clean
+.PHONY: help setup app stop test lint eval cards check-key live live-all bakeoff relisten diagram clean
 
 help:  ## list the targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*## "}{printf "  make %-10s %s\n", $$1, $$2}'
@@ -27,6 +27,10 @@ stop:  ## stop anything already serving on port 8000
 
 test: setup  ## offline unit tests + golden held-out regression (free, no network)
 	$(BIN)/python -m pytest -q
+
+lint: setup  ## ruff (style and bugs) and vulture (unused code)
+	$(BIN)/ruff check .
+	$(BIN)/vulture tccc --min-confidence 70
 
 eval: setup  ## score held-out, then all 50, from cached replies (free)
 	$(BIN)/python -m tccc.run $(MODEL) --split heldout

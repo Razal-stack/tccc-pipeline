@@ -69,7 +69,7 @@ def boxes_for(loc: str) -> set[str]:
 
 
 def boxes_from_notes(notes: str) -> list[str]:
-    return sorted(set().union(*[boxes_for(l) for l in locations(notes)]))
+    return sorted(set().union(*[boxes_for(loc) for loc in locations(notes)]))
 
 
 if __name__ == "__main__":

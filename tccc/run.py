@@ -91,11 +91,13 @@ def main():
     lines += ["", "## Errors by group and stage", ""]
     lines += [f"- {g} / {st}: {n}" for (g, st), n in sorted(by_group_stage.items(), key=lambda x: -x[1])]
     lines += ["", "## Every error", "", "| file | field | stage | kind | predicted | truth |", "|---|---|---|---|---|---|"]
-    lines += [f"| {e['file'][9:12]} | {e['field']} | {e['stage']} | {e['kind']} | {e['pred']} | {e['truth']} |" for e in s["errors"]]
+    lines += [f"| {e['file'][9:12]} | {e['field']} | {e['stage']} | {e['kind']} | {e['pred']} | {e['truth']} |"
+              for e in s["errors"]]
     (out / "report.md").write_text("\n".join(lines) + "\n")
     (out / "score.json").write_text(json.dumps(s, indent=1, default=str))
     ledger = OUT / "runs.jsonl"
-    entry = json.dumps(dict(model=a.model, split=a.split, prompt=raw_dir.name, transcripts=extract.TRANSCRIPTS.name + (f"+{extract.SECOND}" if extract.SECOND else ""),
+    transcripts = extract.TRANSCRIPTS.name + (f"+{extract.SECOND}" if extract.SECOND else "")
+    entry = json.dumps(dict(model=a.model, split=a.split, prompt=raw_dir.name, transcripts=transcripts,
                                  f1=s["overall"]["f1"], precision=s["overall"]["precision"], recall=s["overall"]["recall"],
                                  critical_f1=s["critical"]["f1"], invented=s["overall"].get("invented", 0),
                                  boxes_f1=s["injury_boxes"]["f1"], stages=dict(stages), errors=s["errors"]), default=str)

@@ -48,17 +48,19 @@ def _appearance(writer, annot, text):
     size = min(11.0, h - 2)
     safe = text.replace("\\", "\\\\").replace("(", "\\(").replace(")", "\\)")
     stream = DecodedStreamObject()
-    stream.set_data(f"/Tx BMC q BT /Helv {size:.1f} Tf 0 g 2 {(h - size) / 2 + 1:.2f} Td ({safe}) Tj ET Q EMC".encode("latin-1", "replace"))
+    content = f"/Tx BMC q BT /Helv {size:.1f} Tf 0 g 2 {(h - size) / 2 + 1:.2f} Td ({safe}) Tj ET Q EMC"
+    stream.set_data(content.encode("latin-1", "replace"))
     font = DictionaryObject({NameObject("/Type"): NameObject("/Font"), NameObject("/Subtype"): NameObject("/Type1"),
                              NameObject("/BaseFont"): NameObject("/Helvetica"),
                              NameObject("/Encoding"): NameObject("/WinAnsiEncoding")})
     stream.update({NameObject("/Type"): NameObject("/XObject"), NameObject("/Subtype"): NameObject("/Form"),
                    NameObject("/BBox"): ArrayObject([FloatObject(0), FloatObject(0), FloatObject(w), FloatObject(h)]),
-                   NameObject("/Resources"): DictionaryObject({NameObject("/Font"): DictionaryObject({NameObject("/Helv"): font})})})
+                   NameObject("/Resources"): DictionaryObject(
+                       {NameObject("/Font"): DictionaryObject({NameObject("/Helv"): font})})})
     annot[NameObject("/AP")] = DictionaryObject({NameObject("/N"): writer._add_object(stream)})
 
 
-def fill(card: dict, out_path, blank=BLANK):
+def fill(card: dict, out_path: Path, blank: Path = BLANK) -> Path:
     values = _field_values(card)
     writer = PdfWriter(clone_from=PdfReader(str(blank)))
     for page in writer.pages:

@@ -6,6 +6,7 @@ import json
 import sys
 import urllib.error
 import urllib.request
+from typing import Optional
 
 from .config import BUDGET, setting
 
@@ -15,7 +16,7 @@ NO_KEY = ("No OpenRouter key found. To run live, copy .env.example to .env in th
           "Looking at the 50 cached cards needs no key: make app.")
 
 
-def load_key():
+def load_key() -> str:
     """Environment variable, then the repo's .env, then ../.env. Exits with a plain message if none is set."""
     key = setting("OPENROUTER_API_KEY")
     if not key:
@@ -23,14 +24,14 @@ def load_key():
     return key
 
 
-def call(path, key, body=None, timeout=180):
+def call(path: str, key: str, body: Optional[dict] = None, timeout: int = 180) -> dict:
     req = urllib.request.Request(API + path, data=json.dumps(body).encode() if body else None,
                                  headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         return json.load(r)
 
 
-def guard_budget(key):
+def guard_budget(key: str) -> None:
     """Refuse to start paid calls once the key's real usage reaches the cap."""
     used = call("/key", key)["data"]["usage"]
     if used >= BUDGET:

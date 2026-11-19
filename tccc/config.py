@@ -1,6 +1,7 @@
 """Paths and the chosen models, in one place. Each choice is explained in docs/DECISIONS.md."""
 import os
 from pathlib import Path
+from typing import Optional
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -9,7 +10,7 @@ TRANSCRIPTS = ROOT / "transcripts"
 ENV_FILES = (ROOT / ".env", ROOT.parent / ".env", ROOT.parent / "challenge" / ".env")  # first wins
 
 
-def setting(name, default=None):
+def setting(name: str, default: Optional[str] = None) -> Optional[str]:
     """Environment variable first, then the first .env file that sets it (an empty value there counts as unset)."""
     if name in os.environ:
         return os.environ[name]
@@ -23,7 +24,7 @@ def setting(name, default=None):
     return default
 
 
-def slug(model):
+def slug(model: str) -> str:
     """'google/gemini-3.8-flash' -> 'google__gemini-3.8-flash' (folder names under out/ and transcripts/)."""
     return model.replace("/", "__")
 

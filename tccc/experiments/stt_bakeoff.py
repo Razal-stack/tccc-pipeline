@@ -96,16 +96,16 @@ def main():
     if not models:
         sys.exit("no models to run; try --list")
 
-    rec_dir = Path(a.recordings) if a.recordings else next(
-        (p for p in (ROOT / "recordings", ROOT.parent / "recordings", ROOT.parent / "challenge" / "recordings") if p.exists()), None)
+    candidates = (ROOT / "recordings", ROOT.parent / "recordings", ROOT.parent / "challenge" / "recordings")
+    rec_dir = Path(a.recordings) if a.recordings else next((p for p in candidates if p.exists()), None)
     if rec_dir is None:
         sys.exit("recordings folder not found; pass --recordings")
     files = sorted(TRUTH) if a.all else HARD + OTHER
     print(f"models: {models}\nrecordings: {len(files)} from {rec_dir}\n")
 
     jobs = []
+    variant = ("+keyterms" if a.keyterms else "") + (f"+{a.tag}" if a.tag else "")
     for m in models:
-        variant = ("+keyterms" if a.keyterms else "") + (f"+{a.tag}" if a.tag else "")
         out = ROOT / "transcripts" / (m.replace("/", "__") + variant)
         out.mkdir(parents=True, exist_ok=True)
         for f in files:
@@ -132,7 +132,7 @@ def main():
         guard_budget(key)
     with ThreadPoolExecutor(6) as pool:
         for m, name, c, secs, wall in pool.map(run, jobs):
-            ledger.setdefault(m + ("+keyterms" if a.keyterms else "") + (f"+{a.tag}" if a.tag else ""), {})[name] = [c, secs, wall]
+            ledger.setdefault(m + variant, {})[name] = [c, secs, wall]
             ledger_path.write_text(json.dumps(ledger, indent=1))
     cost = sum(v[0] for per in ledger.values() for v in per.values())
 
@@ -157,10 +157,12 @@ def main():
                     errors += 1
                     text = ""  # a failed transcript counts as nothing found
                 r = recall(text, TRUTH[f])
-                nums[g][0] += r["nums_hit"]; nums[g][1] += r["nums"]
+                nums[g][0] += r["nums_hit"]
+                nums[g][1] += r["nums"]
                 for c, (hit, tot) in categorized_recall(text, TRUTH[f]).items():
                     if c in by_cat:
-                        by_cat[c][0] += hit; by_cat[c][1] += tot
+                        by_cat[c][0] += hit
+                        by_cat[c][1] += tot
         rows.append((m, nums, by_cat, errors))
 
     def per_hour(m):
@@ -195,7 +197,8 @@ def main():
             fh.write(f"{m}," + ",".join(f"{v:.3f}" for v in vals) + f",{per_hour(m)},{median_wall(m)},{errors}\n")
     print(f"\nwrote {csv_path.relative_to(ROOT)}")
     print(f"\nTable 1. Numbers found in the transcript (total spent so far ${cost:.4f})")
-    print(f"hard = {len(groups['hard'])} radio / heavy noise / two-speaker files; other = {len(groups['other'])} correction-trap and clean files\n")
+    print(f"hard = {len(groups['hard'])} radio / heavy noise / two-speaker files; "
+          f"other = {len(groups['other'])} correction-trap and clean files\n")
     print("| Model | Hard files | Other files | All | Cost per audio hour | Median s per file | Errors |")
     print("|---|---|---|---|---|---|---|")
     for m, nums, _, errors in rows:

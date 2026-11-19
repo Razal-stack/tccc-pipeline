@@ -46,8 +46,9 @@ def _request(model, audio: bytes, keyterms, chat):
     """Speech models use the transcription endpoint; audio chat models get the recording plus 'transcribe verbatim'."""
     b64 = base64.b64encode(audio).decode()
     if chat:
-        return "/chat/completions", {"model": model, "temperature": 0, "max_tokens": 2000, "messages": [{"role": "user", "content": [
-            {"type": "text", "text": LISTEN}, {"type": "input_audio", "input_audio": {"data": b64, "format": "wav"}}]}]}
+        content = [{"type": "text", "text": LISTEN}, {"type": "input_audio", "input_audio": {"data": b64, "format": "wav"}}]
+        return "/chat/completions", {"model": model, "temperature": 0, "max_tokens": 2000,
+                                     "messages": [{"role": "user", "content": content}]}
     body = {"model": model, "input_audio": {"data": b64, "format": "wav"}, "language": "en", "temperature": 0}
     if keyterms:
         body["keyterms"] = KEYTERMS
@@ -56,7 +57,7 @@ def _request(model, audio: bytes, keyterms, chat):
     return "/audio/transcriptions", body
 
 
-def transcribe(key, model, wav: Path, keyterms=False, chat=False):
+def transcribe(key: str, model: str, wav: Path, keyterms: bool = False, chat: bool = False) -> tuple:
     """Whole recording -> (text, (cost, seconds)). Resent at 16 kHz if the model rejects the file as too large."""
     data = audio = wav.read_bytes()
     for attempt in range(4):

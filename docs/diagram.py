@@ -10,7 +10,7 @@ def box(x, y, w, h, title, lines, kind):
     cx = x + w / 2
     return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="12" fill="{fill}" stroke="{stroke}" stroke-width="1.5"/>'
             f'<text x="{cx}" y="{y + 30}" text-anchor="middle" class="t">{title}</text>'
-            + "".join(f'<text x="{cx}" y="{y + 52 + i * 19}" text-anchor="middle" class="s">{l}</text>' for i, l in enumerate(lines)))
+            + "".join(f'<text x="{cx}" y="{y + 52 + i * 19}" text-anchor="middle" class="s">{line}</text>' for i, line in enumerate(lines)))
 
 
 def arrow(x1, y1, x2, y2):
@@ -28,7 +28,7 @@ def note(y, from_x, from_y, title, lines):
     return (f'<path d="M{from_x},{from_y} L996,{from_y}" stroke="#c9c7c2" stroke-dasharray="4 4"/>'
             f'<rect x="1000" y="{y}" width="300" height="{34 + 19 * len(lines)}" rx="10" fill="#fffaf2" stroke="#f0dcbc"/>'
             f'<text x="1016" y="{y + 24}" class="nt">{title}</text>'
-            + "".join(f'<text x="1016" y="{y + 46 + i * 19}" class="ns">{l}</text>' for i, l in enumerate(lines)))
+            + "".join(f'<text x="1016" y="{y + 46 + i * 19}" class="ns">{line}</text>' for i, line in enumerate(lines)))
 
 
 CHECKS = (("Said in the recording?", "every value must appear", "in what was heard"),

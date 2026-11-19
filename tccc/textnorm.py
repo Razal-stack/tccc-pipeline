@@ -38,7 +38,7 @@ MED_FIELDS = ("analgesic_1_name", "antibiotic_1_name", "other_med_1_name", "bloo
               "tq_right_leg_type", "tq_left_leg_type", "tq_right_arm_type", "tq_left_arm_type")
 
 
-def key_values(truth: dict):
+def key_values(truth: dict) -> tuple:
     """The numbers and terms a transcript must contain for the card to be fillable."""
     nums = set()
     for k, v in truth.items():
@@ -48,7 +48,7 @@ def key_values(truth: dict):
     return nums, terms
 
 
-def recall(transcript: str, truth: dict):
+def recall(transcript: str, truth: dict) -> dict:
     nums, terms = key_values(truth)
     sq, words = squash(transcript), spoken_to_digits(transcript)
     n_hit = sum(1 for n in nums if n in sq)
@@ -72,7 +72,7 @@ def _category(field):
     return None
 
 
-def categorized_recall(transcript: str, truth: dict):
+def categorized_recall(transcript: str, truth: dict) -> dict:
     """Per category: (found, total). Numbers are matched digit-for-digit; names and drugs as words."""
     sq, words = squash(transcript), spoken_to_digits(transcript)
     out = {c: [0, 0] for c in list(CATEGORIES) + ["drugs_kit", "names"]}
@@ -88,7 +88,7 @@ def categorized_recall(transcript: str, truth: dict):
                 letters = re.sub(r"[^a-z]", "", v.lower())  # battle roster letters, e.g. JS from JS4417
                 if letters:
                     out[cat][1] += 1
-                    out[cat][0] += letters in sq or all(re.search(rf"\b{l}\w*", words) for l in letters)
+                    out[cat][0] += letters in sq or all(re.search(rf"\b{ch}\w*", words) for ch in letters)
     for k in MED_FIELDS:
         if truth.get(k):
             out["drugs_kit"][1] += 1

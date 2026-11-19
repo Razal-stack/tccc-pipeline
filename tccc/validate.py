@@ -11,6 +11,7 @@ from .textnorm import spoken_to_digits, squash
 
 RANGES = {"pulse": (20, 250), "bp_systolic": (40, 260), "bp_diastolic": (20, 160), "resp_rate": (2, 70),
           "spo2": (50, 100)}
+MED_SLOTS = ("analgesic", "antibiotic", "other_med", "fluid", "blood")
 LIMB_TQ = ("tq_right_arm_", "tq_left_arm_", "tq_right_leg_", "tq_left_leg_")
 
 
@@ -18,13 +19,13 @@ def _words(text):
     return re.findall(r"[a-z0-9]+", spoken_to_digits(text))
 
 
-def label(field):
+def label(field: str) -> str:
     """tq_right_leg_time -> 'Tourniquet right leg time': field names a medic can read."""
     words = field.replace("tq_", "tourniquet_").replace("signs_", "obs set ").replace("bp_", "BP ").replace("spo2", "SpO2")
     return words.replace("_", " ").replace("other med", "drug").strip().capitalize()
 
 
-def supported(value, evidence, transcript):
+def supported(value: str, evidence: str, transcript: str) -> bool:
     """Evidence words mostly present in the transcript, and every number in the value said somewhere."""
     have = set(_words(transcript))
     ev = _words(evidence or value)  # no quote given: the value's own words and digits must be in the transcript
@@ -63,7 +64,7 @@ def clean(field, v):
     return v
 
 
-def to_card(file, reply, transcript):
+def to_card(file: str, reply: dict, transcript: str) -> tuple:
     card = {"file": file, **{f: False for f in BOOLS}, **{f: "" for f in TEXTS}}
     flags = [str(x) for x in reply.get("flags") or []]
     for field, item in (reply.get("fields") or {}).items():
@@ -93,7 +94,7 @@ def to_card(file, reply, transcript):
     return card, flags
 
 
-def check_card(card):
+def check_card(card: dict) -> list:
     """Schema check before the PDF is written: every field, right type, valid dropdown and box names."""
     problems = [f"missing {f}" for f in BOOLS + TEXTS if f not in card]
     problems += [f"{f} not true/false" for f in BOOLS if not isinstance(card.get(f), bool)]
@@ -106,7 +107,7 @@ def check_card(card):
     return problems
 
 
-def missing_critical(card):
+def missing_critical(card: dict) -> list:
     """What a surgeon needs but the handover did not give: ask the sender, never guess."""
     ask = []
     if not any(card[k] for k in ("name", "last4", "battle_roster")):
@@ -118,7 +119,8 @@ def missing_critical(card):
             ask.append(f"tourniquet time, {limb.replace('_', ' ')}")
     if card["tq_extremity"] and not any(card[p + k] for p in LIMB_TQ for k in ("type", "time")):
         ask.append("tourniquet: limb, type and time")
-    for k in [k for k in card if k.endswith("_name") and k[:-5].rstrip("_0123456789") in ("analgesic", "antibiotic", "other_med", "fluid", "blood")]:
+    meds = [k for k in card if k.endswith("_name") and k[:-5].rstrip("_0123456789") in MED_SLOTS]
+    for k in meds:
         if card[k]:
             base, item = k[:-5], card[k]
             for part in ("dose" if not base.startswith(("fluid", "blood")) else "volume", "route", "time"):

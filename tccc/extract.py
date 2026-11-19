@@ -21,12 +21,12 @@ TWO = ("You have two transcripts of the same recording from different speech mod
        "B says Y'. Quote evidence from whichever transcript you used.")
 
 
-def combine(a, b=""):
+def combine(a: str, b: str = "") -> str:
     """What the card model reads: the primary transcript, plus the second listen when there is one."""
     return f"{TWO}\n\nTRANSCRIPT A (medical speech model):\n{a}\n\nTRANSCRIPT B (second listen):\n{b}" if b else a
 
 
-def transcript(stem):
+def transcript(stem: str) -> str:
     b = (ALL_TRANSCRIPTS / SECOND / f"{stem}.txt") if SECOND else None
     return combine((TRANSCRIPTS / f"{stem}.txt").read_text(), b.read_text() if b else "")
 
@@ -130,7 +130,7 @@ def check_reply(reply) -> dict:
     return reply
 
 
-def ask(model: str, transcript: str, key: str):
+def ask(model: str, transcript: str, key: str) -> tuple:
     """One model call -> (checked reply, cost in USD). Raises BadReply for an unusable answer."""
     body = {"model": model, "temperature": 0, "max_tokens": 8000, "response_format": {"type": "json_object"},
             "messages": [{"role": "system", "content": PROMPT}, {"role": "user", "content": transcript}]}
@@ -146,7 +146,7 @@ def ask(model: str, transcript: str, key: str):
     return check_reply(reply), (r.get("usage") or {}).get("cost", 0.0)
 
 
-def run(model: str, names: list):
+def run(model: str, names: list) -> float:
     """Cached replies for these recordings; only missing ones are paid for. Returns the cache folder."""
     version = hashlib.sha1((PROMPT + TRANSCRIPTS.name + SECOND).encode()).hexdigest()[:8]  # new prompt/transcripts -> new cache
     out = OUT / "raw" / slug(model) / version

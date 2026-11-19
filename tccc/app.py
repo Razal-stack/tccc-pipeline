@@ -41,109 +41,7 @@ STATUS = {"ok": ("Complete", "Everything important was said. Print, sign and att
 app = FastAPI(title="TCCC Casualty Cards")
 esc = html.escape
 
-CSS = """
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap');
-:root{--bg:#faf9f7;--panel:#fff;--ink:#181818;--ink2:#414141;--soft:#706e6b;--mute:#a19f9b;--line:#e7e6e4;--hair:#f1f0ee;
---navy:#041018;--blue:#0065b4;--sky:#079eda;--tint:#eef5fb;
---u:#c4321e;--ub:#fbedea;--p:#a5640a;--pb:#fcf3e4;--r:#2f7d4f;--rb:#eaf5ee;--n:#868685;--nb:#f1f0ee;
---serif:Newsreader,Georgia,serif;--sans:Geist,system-ui,-apple-system,sans-serif;--mono:'Geist Mono',ui-monospace,monospace}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 var(--sans);-webkit-font-smoothing:antialiased;font-feature-settings:"tnum"}
-a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
-.app{display:grid;grid-template-columns:232px minmax(0,1fr);min-height:100vh}
-aside{border-right:1px solid var(--line);padding:22px 14px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:2px}
-.logo{display:block;padding:0 10px 4px}.logo svg{height:30px;width:auto;display:block}
-.prod{font-size:12px;color:var(--soft);padding:0 10px 22px}
-aside a.nav{color:var(--ink2);padding:7px 10px;border-radius:8px;text-decoration:none;font-weight:450}
-aside a.nav:hover{background:var(--hair)}aside a.nav.on{background:#fff;color:var(--ink);font-weight:500;box-shadow:0 0 0 1px var(--line)}
-aside .foot{margin-top:auto;font-size:12px;color:var(--soft);padding:14px 10px 0;border-top:1px solid var(--line);line-height:1.7}
-aside .foot b{font-weight:500;color:var(--ink2)}
-main{padding:36px 48px 72px;min-width:0;width:100%;max-width:1400px;margin:0 auto}
-.head{display:flex;align-items:flex-end;gap:16px;margin-bottom:28px;flex-wrap:wrap}.head .grow{flex:1;min-width:300px}
-h1{font:400 34px/1.15 var(--serif);letter-spacing:-.01em;margin:0 0 8px}h2{font:400 22px/1.25 var(--serif);margin:0 0 6px}
-h3{font-size:14px;font-weight:600;margin:0 0 10px}.lede{color:var(--soft);font-size:15px;max-width:720px;margin:0}
-.sub{color:var(--soft);font-size:12.5px}.mono{font-family:var(--mono);font-size:12.5px}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border:0;border-radius:999px;padding:9px 18px;font:500 14px var(--sans);cursor:pointer;text-decoration:none}
-.btn:hover{background:#1b2a36;text-decoration:none}.btn:disabled{background:#6b7680;cursor:wait}
-.btn.ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}.btn.ghost:hover{background:var(--hair)}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px}
-.stats{display:flex;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:28px}
-.stats div{flex:1;min-width:170px;padding:16px 20px 16px 0;margin-right:20px;border-right:1px solid var(--line)}.stats div:last-child{border-right:0}
-.stats span{font-size:12.5px;color:var(--soft);display:block}.stats b{display:block;font:500 26px/1.3 var(--sans);letter-spacing:-.02em;margin-top:2px}
-.stats b small{font-size:13px;color:var(--soft);font-weight:400;letter-spacing:0;margin-left:4px}
-.drop{display:none;gap:16px;align-items:center;flex-wrap:wrap;padding:18px 20px;margin-bottom:24px;border:1px dashed #cfcdc9;background:#fff;border-radius:12px}
-.drop.show{display:flex}.drop.over{background:var(--tint);border-color:var(--blue)}.drop label{flex:1;min-width:260px;cursor:pointer}
-.drop label b{display:block;font-weight:500}.drop input{display:none}.file{font:12.5px var(--mono);color:var(--blue);margin-top:4px}
-.tabs{display:flex;gap:26px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.tab{all:unset;cursor:pointer;padding:10px 0;margin-bottom:-1px;border-bottom:2px solid transparent;color:var(--soft);font-weight:500;display:flex;gap:7px;align-items:center}
-.tab i{font-style:normal;font:500 12px var(--mono);background:var(--hair);color:var(--ink2);border-radius:999px;padding:1px 8px}
-.tab:hover{color:var(--ink)}.tab.on{color:var(--ink);border-color:var(--navy)}.tab.on i{background:var(--navy);color:#fff}
-.hint{color:var(--soft);font-size:13px;margin:12px 0 14px;min-height:20px}
-.bar2{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 14px;border-bottom:1px solid var(--line)}
-.search{flex:1;min-width:220px;border:1px solid var(--line);border-radius:8px;padding:8px 12px;font:14px var(--sans);outline:none;background:#fff}
-.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--tint)}.lbl{font-size:12.5px;color:var(--soft);margin-left:4px}
-.chip{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:5px 11px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line);background:#fff;color:var(--ink2)}
-.chip:hover{background:var(--hair)}.chip.on{box-shadow:inset 0 0 0 1px var(--navy);color:var(--ink);font-weight:500}.chip i{font-style:normal;color:var(--mute);font-size:12px}
-table{width:100%;border-collapse:collapse}th{text-align:left;font-weight:500;font-size:12px;color:var(--soft);padding:10px 14px;border-bottom:1px solid var(--line)}
-td{padding:14px;border-bottom:1px solid var(--hair);vertical-align:top}tr:last-child td{border-bottom:0}
-tr.row{cursor:pointer}tr.row:hover td{background:#fcfbfa}td.go{color:var(--mute);text-align:right;vertical-align:middle;width:24px}tr.row:hover td.go{color:var(--ink)}
-.who{font-weight:500}.dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex:none;background:var(--n)}
-.dot.u,.dot.conf{background:var(--u)}.dot.p,.dot.get{background:#d98a1a}.dot.r,.dot.ok{background:var(--r)}.dot.all{background:var(--navy)}
-.tag{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;padding:2px 9px 2px 8px;border-radius:999px;white-space:nowrap}
-.tag.u,.tag.conf{background:var(--ub);color:var(--u)}.tag.p,.tag.get{background:var(--pb);color:var(--p)}.tag.r,.tag.ok{background:var(--rb);color:var(--r)}.tag.n{background:var(--nb);color:var(--soft)}
-.why{display:block;font-size:12.5px;color:var(--soft);margin-top:5px;max-width:380px}
-.key{display:flex;align-items:center;gap:8px}.key s{display:block;width:56px;height:4px;border-radius:2px;background:var(--hair);overflow:hidden;text-decoration:none}
-.key s i{display:block;height:100%;background:var(--navy)}.key span{font:12.5px var(--mono);color:var(--soft)}
-.cmp td{padding:7px 10px 7px 0;font-size:13px;border-bottom:1px solid var(--hair)}.cmp td:first-child{color:var(--soft);width:34%}
-.cmp tr.wrong td:nth-child(2),.cmp tr.invented td:nth-child(2){color:var(--u);font-weight:500}.cmp tr.missed td:nth-child(2){color:var(--p)}
-.legend2{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--soft);margin:2px 0 10px}.legend2 span{display:inline-flex;gap:6px;align-items:center}
-.dot.correct{background:var(--r)}.dot.wrong{background:var(--u)}.dot.missed{background:#d98a1a}.dot.invented{background:#7a4fc7}
-.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin:8px 0 24px;counter-reset:l}
-.layer{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 14px 14px 0}
-.layer:after{content:"→";position:absolute;right:-13px;top:22px;color:var(--mute);font-size:15px}.layer:last-child:after{content:none}
-.layer b{display:block;font:500 15px var(--sans);margin:4px 0}.layer .n{font:500 11.5px var(--mono);color:var(--blue)}
-.layer p{margin:6px 0 0;color:var(--soft);font-size:13px}.layer .tool{display:inline-block;margin-top:10px;font:12px var(--mono);background:var(--hair);border-radius:6px;padding:2px 7px;color:var(--ink2)}
-.layer.code{background:#fbfaf8}.listens{display:grid;grid-template-columns:1fr 1fr;gap:16px}.listens h4{margin:0 0 6px;font-size:13px;font-weight:600}
-@media(max-width:900px){.listens{grid-template-columns:1fr}}
-.allergy{display:inline-block;margin-top:5px;font-size:12px;font-weight:500;color:var(--u);background:var(--ub);border-radius:6px;padding:1px 7px}
-.stats b.evb{font-size:15px;font-weight:400;color:var(--soft);line-height:2.1}.stats b.evb em{font:500 24px var(--sans);font-style:normal;margin:0 2px 0 8px;color:var(--ink)}
-.stats b.evb em:first-child{margin-left:0}.stats b.evb em.u{color:var(--u)}.stats b.evb em.p{color:#c27a10}.stats b.evb em.r{color:var(--r)}.stats b.evb em.n{color:var(--mute)}
-.stats div:nth-child(2){flex:2}
-.tried{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:12px 28px}
-.try{display:grid;grid-template-columns:28px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--hair)}
-.try .n{font:500 13px var(--mono);color:#fff;background:var(--navy);border-radius:50%;width:26px;height:26px;display:grid;place-items:center}
-.try b{font-weight:600}.try p{margin:4px 0 0;color:var(--soft)}.try p.res{color:var(--ink)}.try p.res:before{content:"Result: ";font-weight:600}
-.grid{table-layout:fixed}.grid td{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:middle;padding:13px 14px;height:52px}
-.grid th{white-space:nowrap}.grid .num{text-align:right}.grid td.next{color:var(--soft);font-size:13px}
-.grid .unk{color:var(--soft)}.grid .rid{color:var(--mute);margin-left:6px;font-size:12px}
-.grid .al{margin-left:6px;font-size:11px;font-weight:600;color:var(--u);background:var(--ub);border-radius:4px;padding:1px 5px;text-transform:uppercase;letter-spacing:.03em}
-.stats div{flex:1}
-.tchart{position:relative;padding:24px 0 26px}.trow{display:flex;align-items:center;height:40px}.tl{width:190px;flex:none;font-size:13.5px}
-.ttrack{position:relative;flex:1;height:14px;background:var(--hair);border-radius:7px}.ttrack i{position:absolute;top:0;bottom:0;border-radius:7px}
-.ttrack i.hand{background:#c9b8a6}.ttrack i.sys{background:var(--navy)}.ttrack b{position:absolute;top:-2px;margin-left:10px;font:500 12.5px var(--mono);white-space:nowrap}
-.band{position:absolute;top:-6px;bottom:20px;background:rgba(196,50,30,.08);border-left:1px dashed var(--u);border-right:1px dashed var(--u)}.band span{position:absolute;top:-20px;left:4px;font-size:11.5px;color:var(--u);white-space:nowrap}
-.tick{position:absolute;bottom:0;font:11px var(--mono);color:var(--mute);transform:translateX(-50%)}
-.empty{padding:36px;text-align:center;color:var(--soft);display:none}
-.cols{display:grid;grid-template-columns:minmax(380px,.85fr) minmax(0,1.25fr);gap:24px;align-items:start}.stick{position:sticky;top:16px}
-.box{padding:18px 20px;margin-bottom:14px}.box.warn{background:#fffaf2;border-color:#f0dcbc}.box.bad{background:#fff8f6;border-color:#f2d3cc}.box.good{background:#f6fbf8;border-color:#cfe6d7}
-.box ul{margin:4px 0 0;padding-left:18px}.box li{margin:4px 0}.box h3 .dot{margin-right:8px;vertical-align:middle}
-.mist{display:grid;grid-template-columns:28px 1fr;gap:14px 14px;margin-top:16px}
-.mist .l{font:500 13px var(--mono);color:#fff;background:var(--navy);border-radius:7px;text-align:center;height:26px;line-height:26px}
-dl{display:grid;grid-template-columns:120px 1fr;gap:5px 14px;margin:0}dt{color:var(--soft);font-size:13px}dd{margin:0;font-weight:500}
-.vit{width:auto}.vit td,.vit th{border:0;border-bottom:1px solid var(--hair);padding:5px 18px 5px 0;font-size:13px;font-weight:400}
-.vit th{color:var(--soft)}.say{font:12.5px/1.8 var(--mono);color:var(--ink2);white-space:pre-wrap}
-iframe{width:100%;height:calc(100vh - 32px);border:1px solid var(--line);border-radius:12px;background:#fff}
-.finding{padding:22px 24px;margin-bottom:16px}.finding .note{color:var(--soft);margin:2px 0 16px;max-width:780px}
-.finding td,.finding th{padding:9px 12px 9px 0}
-.hbar{display:flex;align-items:center;gap:10px}.hbar s{display:block;height:6px;border-radius:3px;background:var(--navy);text-decoration:none}.hbar s.dim{background:#d9d7d3}
-.hbar span{font:12.5px var(--mono);color:var(--soft)}.pick{font-size:11.5px;font-weight:500;color:var(--blue);background:var(--tint);border-radius:999px;padding:1px 8px;margin-left:8px}
-.guide{columns:2 520px;column-gap:16px}.guide .panel{padding:22px 26px;margin-bottom:16px;break-inside:avoid;display:inline-block;width:100%}.guide ol,.guide ul{padding-left:20px;margin:6px 0 0}.guide li{margin:8px 0}
-.legend{display:grid;grid-template-columns:200px 1fr;gap:14px 16px;align-items:start;margin-top:8px}
-.groups{display:grid;grid-template-columns:minmax(320px,.8fr) minmax(0,1.2fr);gap:32px;align-items:start}
-.sw{display:inline-block;width:18px;height:6px;border-radius:3px;background:var(--navy);text-decoration:none}.sw.dim{background:#d9d7d3}
-.gkey td{font-size:13px;padding:8px 12px 8px 0;vertical-align:top}.gkey td.mono{white-space:nowrap}.gkey th{padding:6px 12px 6px 0}
-@media(max-width:1100px){.groups{grid-template-columns:1fr}}
-@media(max-width:960px){.app{grid-template-columns:1fr}aside{position:static;height:auto}.cols{grid-template-columns:1fr}.stick{position:static}main{padding:24px 18px}}
-"""
+CSS = (Path(__file__).parent / "static" / "app.css").read_text()
 
 
 def page(tab, body, title="TCCC Casualty Cards"):
@@ -163,7 +61,7 @@ def review(name, stem):
     for part in (SETS[name] / "review" / f"{stem}.md").read_text().split("\n## ")[1:]:
         title, _, body = part.partition("\n")
         out[title] = body.strip() if title == "Transcript" else \
-            [l[2:] for l in body.splitlines() if l.startswith("- ") and l[2:] not in ("nothing missing", "nothing flagged")]
+            [line[2:] for line in body.splitlines() if line.startswith("- ") and line[2:] not in ("nothing missing", "nothing flagged")]
     return out
 
 
@@ -226,10 +124,6 @@ def confidence(card, transcript):
     return (1 - len(one) / len(vals) if vals else 1.0), one
 
 
-def has_tq(card):
-    return any(card.get(f"tq_{l}_type") or card.get(f"tq_{l}_time") for l, _ in LIMBS)
-
-
 def status(rv):
     """(key, what exactly): missing information first, because the person who handed over may leave."""
     get, conf = rv.get("Ask the sender", []), rv.get("Check these", [])
@@ -260,7 +154,7 @@ def casualties():
 
 def runs():
     p = OUT / "runs.jsonl"
-    return [json.loads(l) for l in p.read_text().splitlines()] if p.exists() else []
+    return [json.loads(line) for line in p.read_text().splitlines()] if p.exists() else []
 
 
 # ---------------------------------------------------------------- pages

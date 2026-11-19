@@ -8,6 +8,7 @@ import argparse
 import json
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from typing import Optional
 
 from .config import FALLBACK_MODEL, LLM_MODEL, OUT, SECOND, SECOND_MODEL, STT_MODEL  # noqa: F401  (re-exported)
 from .extract import TWO, ask, combine
@@ -18,15 +19,17 @@ from .stt import transcribe
 from .validate import check_card, missing_critical, to_card
 
 
-def review_sheet(card, flags, transcript):
+def review_sheet(card: dict, flags: list, transcript: str) -> str:
     filled = {k: v for k, v in card.items() if v and k not in ("file", "injury_boxes")}
-    return (f"# {card['file']}\n\n## Ask the sender\n" + "".join(f"- {x}\n" for x in missing_critical(card) or ["nothing missing"])
-            + "\n## Check these\n" + "".join(f"- {x}\n" for x in flags or ["nothing flagged"])
+    bullets = lambda items, empty: "".join(f"- {x}\n" for x in items or [empty])
+    return (f"# {card['file']}\n\n## Ask the sender\n" + bullets(missing_critical(card), "nothing missing")
+            + "\n## Check these\n" + bullets(flags, "nothing flagged")
             + "\n## Card\n" + "".join(f"- {k}: {v}\n" for k, v in filled.items())
-            + f"- injury_boxes: {', '.join(card['injury_boxes']) or 'none'}\n\n## Transcript\n{transcript.replace(TWO, '').strip()}\n")
+            + f"- injury_boxes: {', '.join(card['injury_boxes']) or 'none'}\n"
+            + f"\n## Transcript\n{transcript.replace(TWO, '').strip()}\n")
 
 
-def finish(file, reply, transcript, out: Path, pdf=True):
+def finish(file: str, reply: dict, transcript: str, out: Path, pdf: bool = True) -> tuple:
     """Model reply -> checked card -> PDF (read back to verify) -> card JSON + review sheet. Shared with tccc.run."""
     stem = Path(file).stem
     for sub in ("cards", "predictions", "review"):
@@ -42,7 +45,7 @@ def finish(file, reply, transcript, out: Path, pdf=True):
     return card, flags
 
 
-def process(wav: Path, out: Path, key=None):
+def process(wav: Path, out: Path, key: Optional[str] = None) -> dict:
     """One new recording through every step; each step's output is saved next to the card."""
     key = key or load_key()
     (out / "transcripts").mkdir(parents=True, exist_ok=True)
