@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 OUT = ROOT / "out"
 TRANSCRIPTS = ROOT / "transcripts"
-ENV_FILES = (ROOT / ".env", ROOT.parent / ".env", ROOT.parent / "challenge" / ".env")  # first wins
+ENV_FILES = (ROOT / ".env", ROOT.parent / ".env")  # first wins
 
 
 def setting(name: str, default: Optional[str] = None) -> Optional[str]:

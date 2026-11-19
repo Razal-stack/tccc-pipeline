@@ -2,10 +2,10 @@
 
 ## What this is
 
-An engineering challenge.
-Brief: `../task.md`. Time budget 3-4 hours. They judge: scoping judgment, AI tooling instincts, whether it works
+An engineering challenge: turn recorded casualty handovers into filled casualty cards.
+Brief: `../task.md`. Time budget 3-4 hours. What matters: scoping judgment, AI tooling instincts, whether it works
 against the ground truth, how AI coding tools were used (what was delegated, reviewed, pushed back on), and how
-clearly it's explained to a non-technical founder. Rough edges are fine if stated.
+clearly it's explained to a non-technical reader. Rough edges are fine if stated.
 
 **Goal:** turn 50 recorded casualty handovers (`../recordings/*.wav`) into filled TCCC cards (DD Form 1380, PDF),
 and report a % accuracy against `../output-true-values.json` with a clear explanation of how it's calculated.
@@ -13,7 +13,7 @@ and report a % accuracy against `../output-true-values.json` with a clear explan
 **Out of scope (per the brief):** auth, deployment, running on a device in the field, production error handling,
 web UI. No frameworks or scaffolds until the core pipeline is done and scored.
 
-**Deliverables:** this repo (runs), filled cards for the recordings, accuracy % + method, a short README for a founder.
+**Deliverables:** this repo (runs), filled cards for the recordings, accuracy % + method, a short README for a non-technical reader.
 
 ## Files outside the repo (task folder, one level up)
 
@@ -25,13 +25,13 @@ web UI. No frameworks or scaffolds until the core pipeline is done and scored.
 | `../golden-cards/` | Ground truth filled into the PDF |
 | `../field_map.json` | Field name -> PDF field; `repeated_on_back`; 163 `injury_boxes` (copy in `data/`) |
 | `../tccc-card-blank.pdf` | Fillable AcroForm (copy in `data/`) |
-| `../.env` | `OPENROUTER_API_KEY`, provided with the brief. **Never print, log or commit it.** |
+| `../.env` | `OPENROUTER_API_KEY` (provided with the brief). **Never print, log or commit it.** |
 
 ## Status (2026-11-18): complete, scored, documented, reviewed
 
 Held-out F1 93.8% (precision 97.6%, safety-critical 96.8%, 0.08 invented/card); all 50 F1 94.7%. 50 PDFs in
 `out/google__gemini-3.8-flash/all/cards/`, all pass schema and read-back checks. Spend $4.52 of $7 cap (`make check-key`).
-Read `README.md` (founder view, quickstart), `docs/ARCHITECTURE.md` (steps, loops, evals), `docs/DECISIONS.md`
+Read `README.md` (plain-language overview, quickstart), `docs/ARCHITECTURE.md` (steps, loops, evals), `docs/DECISIONS.md`
 (why each choice), `AI_LOG.md`. Older working notes live in git history only.
 Commands: `make` (setup, app, test, eval, cards; `pipeline` and `bakeoff` are paid).
 
@@ -101,7 +101,7 @@ docs). Next steps and known limits: `docs/ARCHITECTURE.md` "Known limits and nex
 - Show data, then let Rasal decide at decision points (model choice, scope cuts). Short, clear updates.
 - Simple beats clever: fixed pipeline, no agent loops, no frameworks, no UI until the core is scored.
 - Safety first: a blank field + flag beats a confident wrong value.
-- Never print or commit the API key. The GitHub repo is public (Rasal's decision, to share with reviewers), so
+- Never print or commit the API key. The GitHub repo is public (Rasal's decision), so
   scan history for secrets before every push.
 - **Spend:** The provided OpenRouter key is only for pipeline inference (speech-to-text, extraction), run at the
   end on the cheapest model that holds accuracy (chosen: `google/gemini-3.8-flash`, see docs/DECISIONS.md). No Opus or premium

@@ -1,17 +1,9 @@
-# TCCC cards from recorded handovers
+# Casualty cards from recorded handovers
 
-It is 03:00 in an abandoned farmhouse being used as a trauma ward. Fifty wounded soldiers have come through since
-the last evacuation. Each was handed over by the first responder, the soldier or medic who treated them where they
-were hit, in person or over a radio link that is often noisy. They say what hit the casualty, where they are hurt,
-their vital signs, what treatment was given and how urgently they need to move, often in that order (MIST).
-Every handover was recorded.
-
-Each casualty needs a TCCC card (DD Form 1380) before the evacuation vehicle arrives in 3 to 4 hours. It is the
-only record of care that travels with them, and the surgeon at the next stop decides what to do first from it. The
-few medics there are still treating and cannot write 50 cards by hand, and a missed or made-up detail can cost a
-limb or cause an overdose. This project listens to each recording and fills in the card: a PDF ready to print, plus
-a short sheet telling the medic what to ask the person who handed over and which values to check. It is built for
-the medic at the casualty collection point. The medic always reviews and signs; the system only drafts.
+A voice-to-record tool for military casualty care. It listens to a recorded handover from the first responder and
+drafts the card that must travel with the casualty (the TCCC card, DD Form 1380), plus a short sheet telling the
+medic what to ask the sender and which values to check. The scenario: 50 casualties, every card needed before the
+evacuation vehicle arrives in 3 to 4 hours. The system only drafts; the medic reviews and signs.
 
 **Headline:** on 25 recordings held out from tuning, 93.8% accuracy on the details the handover actually gave (F1,
 which balances writing them correctly and not missing them); 97.6% of what it writes is right, and it makes up
@@ -93,11 +85,12 @@ It is still the best guide to a new recording. On those 25:
 |---|---|
 | **Accuracy on the fields the handover actually filled (F1)** | **93.8%** |
 | Of the values it writes, how many are right (precision) | 97.6% |
+| Of the values that should be on the card, how many it wrote correctly (recall) | 90.4% |
 | Safety-critical fields (drugs, doses, tourniquets, vitals, evac) | 96.8% |
 | Tourniquets, and drugs and fluids | 100% each |
 | Values made up that were never said | 2 in 25 cards |
 
-On all 50 recordings (which includes the 25 it was tuned on, so it flatters a little): 94.7% F1, 97.5% precision, 96.4% on safety-critical fields. All 50 filled PDF cards are in
+On all 50 recordings (which includes the 25 it was tuned on, so it flatters a little): 94.7% F1, 97.5% precision, 92.1% recall, 96.4% on safety-critical fields. All 50 filled PDF cards are in
 `out/google__gemini-3.8-flash/all/cards/`.
 
 ### How the % is calculated
@@ -163,7 +156,7 @@ list, a confidence mark per value, both transcripts, the words behind each value
 97.9% correct; values only one heard are 81.1% correct, about nine times the error rate. The app shows each card's
 share of agreed values and names the single-listener values, so the medic knows where to look first.
 
-About 20 seconds and 1 to 2 US cents per card; all 50 run in parallel in about a minute.
+About 20 seconds and about 1.3 US cents per card; all 50 run in parallel in about a minute.
 
 ## What I tested, and what I decided
 
@@ -210,7 +203,7 @@ time; and splitting very long recordings at pauses (not needed here: the longest
 ## The app
 
 The web app (`make app`) lists every casualty, most urgent first, with each card's status: **Complete**, **Missing
-information** (naming what to ask for) or **Needs checking**. Each card opens in MIST order beside the filled PDF.
+information** (naming what to ask for) or **Needs checking**. Each card opens in MIST order (mechanism, injuries, signs, treatment) beside the filled PDF.
 A benchmark page shows the results above, and a guide explains how a medic uses it.
 
 ## Cost

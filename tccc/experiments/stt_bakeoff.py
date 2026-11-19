@@ -5,7 +5,7 @@
     python -m tccc.experiments.stt_bakeoff --models a/b c/d --all       # chosen models, all 50 recordings
 
 Needs OPENROUTER_API_KEY (environment, or a .env file in the repo or the task folder)
-and the recordings folder (--recordings, default ./recordings or ../challenge/recordings).
+and the recordings folder (--recordings, default ./recordings or ../recordings).
 Transcripts are saved to transcripts/<model>/<recording>.txt, so re-runs only fetch what's missing.
 """
 import argparse
@@ -96,7 +96,7 @@ def main():
     if not models:
         sys.exit("no models to run; try --list")
 
-    candidates = (ROOT / "recordings", ROOT.parent / "recordings", ROOT.parent / "challenge" / "recordings")
+    candidates = (ROOT / "recordings", ROOT.parent / "recordings")
     rec_dir = Path(a.recordings) if a.recordings else next((p for p in candidates if p.exists()), None)
     if rec_dir is None:
         sys.exit("recordings folder not found; pass --recordings")

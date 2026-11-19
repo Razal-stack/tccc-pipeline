@@ -14,7 +14,7 @@ Development ran on my own subscriptions. The provided OpenRouter key was used on
 
 I started with a lot of planning in Claude sessions, before any code. I wrote specs for how the pipeline should
 work, then revised and revisited them as results came in. Every round was the same loop: plan, build, measure
-against the answer key, revise the plan. The prompt versions (v3 to v5), the move from one listener to two, and the
+against the answer key, revise the plan. The successive versions of the reader's instructions (v3 to v5, listed in `docs/ARCHITECTURE.md`, "Prompts"), the move from one listener to two, and the
 decision to drop audio clean-up all came out of that loop, not out of the first plan.
 
 ## What I did myself
@@ -41,7 +41,7 @@ These are the inputs and decisions that shaped the pipeline.
   models was my decision. I weighed accuracy on the unseen recordings, invented values, cost per card and speed.
   - Reader: Gemini 3.8 Flash over Gemini 4 Argon. The top six were tied on accuracy, so invented values broke the
     tie: on the held-out set Gemini 3.8 Flash made up 2 values, Terra 5, Argon 9. Terra was $0.16 cheaper for 50
-    cards ($0.18 against $0.34), but two and a half times the invented values is not worth 16 cents on a
+    cards reading one transcript ($0.18 against $0.34; reading both transcripts brings Gemini to $0.47), but two and a half times the invented values is not worth 16 cents on a
     casualty card.
   - Hearing: Scribe v2 Medical with key terms (93% of answer-key values reached the transcript, 86% on hard
     audio) at a sensible cost. Qwen 3.8 Omni Flash as the second listener, best on IDs, costing about a fifth

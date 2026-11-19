@@ -344,11 +344,10 @@ def bench():
     stt_rows = "".join(f"<tr><td class=mono>{esc(r['model'])}{'<span class=pick>in use</span>' if r['model'] in chosen else ''}</td>"
                        f"<td>{bar(float(r['all_numbers']), r['model'] not in chosen)}</td><td>{bar(float(r['hard_files_numbers']), r['model'] not in chosen)}</td>"
                        f"<td class=mono>{esc(r['cost_per_audio_hour'])}</td></tr>" for r in stt[:14])
-    models = {}
-    for r in rs:
-        if r["split"] == "dev" and r["model"] != LLM_MODEL or (r["model"] == LLM_MODEL and r["split"] == "dev" and "+" not in r.get("transcripts", "+")):
-            models[r["model"]] = r
-    held = {r["model"]: r for r in rs if r["split"] == "heldout" and "+" not in r.get("transcripts", "").split("keyterms")[-1]}
+    def one_listener(r):
+        return "+" not in r.get("transcripts", "").split("keyterms")[-1]
+    models = {r["model"]: r for r in rs if r["split"] == "dev" and one_listener(r)}
+    held = {r["model"]: r for r in rs if r["split"] == "heldout" and one_listener(r)}
     unseen = {m: f"{r['f1']:.1%}" for m, r in held.items()}
     model_rows = "".join(
         f"<tr><td class=mono>{esc(m)}{'<span class=pick>in use</span>' if m == LLM_MODEL else ''}</td><td>{bar(r['f1'], m != LLM_MODEL)}</td>"
@@ -401,7 +400,8 @@ flags the value instead of guessing (held-out accuracy 92.5% to 93.8%). Four den
 skill. So the deciding test was the 25 held-out recordings (which makes the held-out score slightly optimistic). There, Gemini 3.8 Flash was as accurate as Argon and made
 up 2 values where Argon made up 9 and GPT-6.1 Terra 5. Terra is $0.16 cheaper for all 50 cards; on a casualty card, two and a half
 times as many invented values is not worth 16 cents.</p>
-<table><tr><th>Language model</th><th>Tuning set</th><th>Held-out</th><th>Made up (held-out)</th><th>Cost for 50 cards</th></tr>{model_rows}</table></div>
+<table><tr><th>Language model</th><th>Tuning set</th><th>Held-out</th><th>Made up (held-out)</th><th>Cost for 50 cards</th></tr>{model_rows}</table>
+<p class=sub>Cost is for reading one transcript; reading both transcripts, as the final pipeline does, adds about 40% ($0.34 becomes $0.47 for Gemini 3.8 Flash).</p></div>
 <div class='panel finding'><h2>What a run costs</h2>
 <p class=note>The final pipeline on all 50 recordings: Scribe v2 Medical $0.15, second listener $0.03, Gemini reading both transcripts
 $0.47. About <b>$0.65 for all 50</b>, 1.3 cents a card, about 20 seconds each, all 50 in parallel in about a minute. Every model

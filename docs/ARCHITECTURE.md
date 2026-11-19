@@ -162,10 +162,10 @@ Error stages in every report:
 
 ## Current results (final prompt, both listeners, Gemini 3.8 Flash as reader)
 
-| Set | F1 | Precision | Safety-critical F1 | Invented | Body boxes F1 |
-|---|---|---|---|---|---|
-| Held-out 25 | 93.8% | 97.6% | 96.8% | 2 (0.08 a card) | 80.5% |
-| All 50 | 94.7% | 97.5% | 96.4% | 6 (0.12 a card) | 89% |
+| Set | F1 | Precision | Recall | Safety-critical F1 | Invented | Body boxes F1 |
+|---|---|---|---|---|---|---|
+| Held-out 25 | 93.8% | 97.6% | 90.4% | 96.8% | 2 (0.08 a card) | 80.5% |
+| All 50 | 94.7% | 97.5% | 92.1% | 96.4% | 6 (0.12 a card) | 89% |
 
 Reproduce for free: `make eval`. Every model call is cached in `out/raw/<reader>/<prompt hash>/` and
 `transcripts/<speech model>/`, so re-scoring, changing checks or the body map costs nothing. A prompt edit changes

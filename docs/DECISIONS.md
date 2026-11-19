@@ -2,7 +2,7 @@
 
 This is the "why" behind `docs/ARCHITECTURE.md` (the "what"). Each decision lists context, options, the choice, the
 measured evidence, the cost of the choice, and when to reopen it. Each is an ADR (architecture decision record),
-numbered so they can point at each other. Read the competence section, then jump to any of them.
+numbered so they can point at each other. Read "Core competence of this architecture" first, then jump to any of them.
 
 Words used: the first listener (Scribe) and second listener (Qwen) turn audio into text; the reader (Gemini) fills
 the card from both transcripts; 25 tuning recordings shaped the prompt, 25 held-out recordings test it.
@@ -245,7 +245,7 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
 ## ADR-11: Caching and a hard spend cap
 
 - **Status:** Accepted
-- **Context.** The brief provided one OpenRouter key for pipeline inference only. A runaway loop or a repeated benchmark must
+- **Context.** The brief came with one funded OpenRouter key, for pipeline inference only. A runaway loop or a repeated benchmark must
   not burn the budget.
 - **Options considered.** (1) Trust ourselves. (2) Count spend in our own code. (3) Cache every reply, and check the key's
   real usage before any paid call.
