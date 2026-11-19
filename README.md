@@ -1,18 +1,37 @@
 # TCCC cards from recorded handovers
 
-Fifty casualties came through, and each one needs a TCCC card before the vehicle arrives. This project listens to
-the recorded handover for each casualty and fills in the card: a PDF ready to print, plus a short sheet telling the
-medic what to ask the person who handed over, and which values to check. The medic always reviews and signs; the
-system only drafts.
+It is 03:00 in an abandoned farmhouse being used as a trauma ward. Fifty wounded soldiers have come through since
+the last evacuation. Each was handed over by the first responder, the soldier or medic who treated them where they
+were hit, in person or over a radio link that is often noisy. They say what hit the casualty, where they are hurt,
+their vital signs, what treatment was given and how urgently they need to move, often in that order (MIST).
+Every handover was recorded.
+
+Each casualty needs a TCCC card (DD Form 1380) before the evacuation vehicle arrives in 3 to 4 hours. It is the
+only record of care that travels with them, and the surgeon at the next stop decides what to do first from it. The
+few medics there are still treating and cannot write 50 cards by hand, and a missed or made-up detail can cost a
+limb or cause an overdose. This project listens to each recording and fills in the card: a PDF ready to print, plus
+a short sheet telling the medic what to ask the person who handed over and which values to check. It is built for
+the medic at the casualty collection point. The medic always reviews and signs; the system only drafts.
+
+**Headline:** on 25 recordings held out from tuning, 93.8% accuracy on the details the handover actually gave (F1,
+which balances writing them correctly and not missing them); 97.6% of what it writes is right, and it makes up
+0.08 values a card. All 50 cards are filled.
+How that is measured is under "How well it works" below.
 
 ## Quickstart
 
 ```bash
-make setup && make app      # then open http://localhost:8000 (it opens by itself)
+git clone https://github.com/Razal-stack/tccc-pipeline && cd tccc-pipeline && make setup && make app
 ```
 
-That is all. It needs Python 3.9 or newer and `make` (both come with macOS). No API key and no spending: all 50
-cards are rebuilt from cached results. To run it live on new recordings, see "Try it live" below. Without `make`: `python3 -m pip install -r requirements.txt && python3 -m tccc`.
+The app opens at http://localhost:8000 by itself. It needs Python 3.9 or newer and `make` (both come with macOS).
+No API key and no spending: all 50 cards are rebuilt from cached results. Without `make`:
+`python3 -m pip install -r requirements.txt && python3 -m tccc`.
+
+**What needs to be where.** For the cached view, nothing: the repo carries what it needs (`data/` has the blank
+card, field map and answer key; `transcripts/` and `out/raw/` hold the cached model results). Only live runs need
+the audio. Put the task's `recordings/` folder next to this repo (so it is at `../recordings`), or point at another
+folder with `make live-all RECORDINGS=/path/to/recordings`. To run it live, see "Try it live" below.
 
 Reading the code for the first time? Start with
 [docs/ARCHITECTURE.md, "Reading the code"](docs/ARCHITECTURE.md#reading-the-code): entry points, the order to read
