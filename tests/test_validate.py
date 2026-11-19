@@ -80,10 +80,16 @@ def test_systolic_not_above_diastolic_is_blanked():
 
 
 def test_to_card_expands_every_field_and_passes_check_card():
-    card, _ = to_card("x.wav", {"fields": {"evac_urgent": True}}, "")
+    card, _ = to_card("x.wav", {"fields": {"evac_urgent": [True, "evac urgent"]}}, "evac urgent please")
     assert all(f in card for f in BOOLS + TEXTS)
     assert card["evac_urgent"] is True
     assert check_card(card) == []
+
+
+def test_tick_without_backing_words_is_left_unticked():
+    card, flags = to_card("x.wav", {"fields": {"splint": [True, "traction splint applied"]}}, "pelvic binder on")
+    assert card["splint"] is False
+    assert any("ticked without words" in f for f in flags)
 
 
 def test_check_card_reports_problems():

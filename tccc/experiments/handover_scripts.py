@@ -7,7 +7,7 @@ Speak the scripts aloud (phone, macOS `say`, ElevenLabs, etc.), then run
 `make live FILE=...` to draft a card. Not part of the scoring pipeline.
 """
 from pathlib import Path
-from typing import List, Optional
+from typing import Optional
 
 from ..config import OUT
 from ..score import TRUTH
@@ -102,7 +102,7 @@ def _pain(v: str) -> str:
     return v  # already "8 Horrible" style; speak as written
 
 
-def _identity(card: dict) -> List[str]:
+def _identity(card: dict) -> list[str]:
     parts = []
     if card.get("battle_roster"):
         parts.append(f"Battle roster {card['battle_roster']}")
@@ -131,7 +131,7 @@ def _identity(card: dict) -> List[str]:
     return [f"{lead}."]
 
 
-def _mechanism(card: dict) -> List[str]:
+def _mechanism(card: dict) -> list[str]:
     mechs = [label for key, label in MECH.items() if card.get(key)]
     other = (card.get("mechanism_other_text") or "").strip()
     if other and "other mechanism" in mechs:
@@ -151,7 +151,7 @@ def _mechanism(card: dict) -> List[str]:
     return [f"Mechanism: {hit}."]
 
 
-def _injuries(card: dict) -> List[str]:
+def _injuries(card: dict) -> list[str]:
     notes = (card.get("notes") or "").strip()
     if not notes:
         return []
@@ -184,11 +184,11 @@ def _vitals_line(card: dict, n: int) -> Optional[str]:
         bits.append(f"AVPU {_avpu(card[p + 'avpu'])}")
     if card.get(p + "pain"):
         bits.append(f"pain {_pain(card[p + 'pain'])}")
-    label = "Vitals" if n == 1 else f"Repeat vitals"
+    label = "Vitals" if n == 1 else "Repeat vitals"
     return f"{label}: {', '.join(bits)}."
 
 
-def _tourniquets(card: dict) -> List[str]:
+def _tourniquets(card: dict) -> list[str]:
     lines = []
     for key, limb in TQ_LIMB.items():
         typ = card.get(f"{key}_type") or ""
@@ -213,7 +213,7 @@ def _tourniquets(card: dict) -> List[str]:
     return lines
 
 
-def _flag_treatments(card: dict) -> List[str]:
+def _flag_treatments(card: dict) -> list[str]:
     items = []
     for key, label in DRESSING.items():
         if card.get(key):
@@ -264,7 +264,7 @@ def _med_line(prefix: str, card: dict, n: int, label: str) -> Optional[str]:
     return " ".join(bits) + "."
 
 
-def _medications(card: dict) -> List[str]:
+def _medications(card: dict) -> list[str]:
     lines = []
     for prefix, label in MED_GROUPS:
         for n in (1, 2, 3):
@@ -278,19 +278,19 @@ def _medications(card: dict) -> List[str]:
     return lines
 
 
-def _evac(card: dict) -> List[str]:
+def _evac(card: dict) -> list[str]:
     for key, label in EVAC:
         if card.get(key):
             return [f"Evacuation: {label}."]
     return []
 
 
-def _allergies(card: dict) -> List[str]:
+def _allergies(card: dict) -> list[str]:
     a = (card.get("allergies") or "").strip()
     return [f"Allergies: {a}."] if a else []
 
 
-def _responder(card: dict) -> List[str]:
+def _responder(card: dict) -> list[str]:
     name = card.get("first_responder_name") or ""
     last4 = card.get("first_responder_last4") or ""
     if name and last4:

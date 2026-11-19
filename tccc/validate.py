@@ -71,7 +71,11 @@ def to_card(file: str, reply: dict, transcript: str) -> tuple:
     for field, item in (reply.get("fields") or {}).items():
         value, evidence = (item + [""])[:2] if isinstance(item, list) else (item, "")
         if field in BOOLS:
-            card[field] = value is True or str(value).lower() == "true"
+            ticked = value is True or str(value).lower() == "true"
+            if ticked and not supported("", evidence, transcript):  # a tick needs words from the recording too
+                flags.append(f"{label(field)}: ticked without words from the recording to back it, so it was left unticked")
+                continue
+            card[field] = ticked
             continue
         if field not in TEXTS or value in (None, "", False):
             flags.append(f"dropped unknown field {field}") if field not in TEXTS else None

@@ -80,11 +80,23 @@ def main():
     key = load_key()
     guard_budget(key)
     print(f"Listening with {STT_MODEL} and {SECOND_MODEL}, reading with {LLM_MODEL}...")
-    total = 0.0
+    def safe(w):  # one bad recording must not stop the other casualties' cards
+        try:
+            return process(w, a.out, key)
+        except Exception as e:  # noqa: BLE001
+            return dict(file=w.name, error=str(e)[:200], cost=0.0)
+
+    total, failed = 0.0, []
     with ThreadPoolExecutor(8) as pool:  # each casualty is independent: 50 cards take about as long as one
-        for r in pool.map(lambda w: process(w, a.out, key), a.recordings):
+        for r in pool.map(safe, a.recordings):
             total += r["cost"]
+            if "error" in r:
+                failed.append(r["file"])
+                print(f"{r['file']}: FAILED, no card made ({r['error']})")
+                continue
             print(f"{r['file']}: {len(r['flags'])} to check, {len(r['ask'])} to ask, ${r['cost']:.4f} -> {r['pdf']}")
+    if failed:
+        print(f"\n{len(failed)} recording(s) failed and need a card written by hand: {', '.join(failed)}")
     print(f"\n{len(a.recordings)} card(s), ${total:.4f} spent. Outputs in {a.out}/: cards/ (PDF), predictions/ (card JSON),"
           f" review/ (what to ask and check), transcripts/ (both listens).")
 
