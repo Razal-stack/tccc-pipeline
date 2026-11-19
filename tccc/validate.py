@@ -22,7 +22,8 @@ def _words(text):
 def label(field: str) -> str:
     """tq_right_leg_time -> 'Tourniquet right leg time': field names a medic can read."""
     words = field.replace("tq_", "tourniquet_").replace("signs_", "obs set ").replace("bp_", "BP ").replace("spo2", "SpO2")
-    return words.replace("_", " ").replace("other med", "drug").strip().capitalize()
+    words = words.replace("_", " ").replace("other med", "drug").strip()
+    return words[:1].upper() + words[1:]
 
 
 def supported(value: str, evidence: str, transcript: str) -> bool:

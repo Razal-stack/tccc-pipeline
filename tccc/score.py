@@ -67,6 +67,9 @@ def norm(v):
     return s or None
 
 
+OUTCOMES = ("correct", "wrong", "invented", "missed", "blank_ok")
+
+
 def outcome(pred, truth):
     p, t = norm(pred), norm(truth)
     if t is None and p is None:
@@ -133,8 +136,8 @@ def score(preds: dict, files: Optional[list] = None) -> dict:
     br = boxes["tp"] / (boxes["tp"] + boxes["fn"]) if boxes["tp"] + boxes["fn"] else 1.0
     return dict(
         cards=len(truths), predicted=len([f for f in truths if f in preds]),
-        overall=dict(zip(("precision", "recall", "f1"), prf(total)), **total),
-        critical=dict(zip(("precision", "recall", "f1"), prf(critical)), **critical),
+        overall=dict(zip(("precision", "recall", "f1"), prf(total)), **{**dict.fromkeys(OUTCOMES, 0), **total}),
+        critical=dict(zip(("precision", "recall", "f1"), prf(critical)), **{**dict.fromkeys(OUTCOMES, 0), **critical}),
         groups={g: dict(zip(("precision", "recall", "f1"), prf(c)), **c) for g, c in by_group.items()},
         injury_boxes=dict(precision=bp, recall=br, f1=2 * bp * br / (bp + br) if bp + br else 0.0, **boxes),
         naive_accuracy=naive, empty_card_baseline=empty_baseline, f1_interval=bootstrap(by_file), by_file=by_file,

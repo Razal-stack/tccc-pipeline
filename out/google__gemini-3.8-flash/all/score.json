@@ -5,21 +5,21 @@
   "precision": 0.9750747756729811,
   "recall": 0.9209039548022598,
   "f1": 0.9472154963680388,
-  "blank_ok": 5782,
   "correct": 978,
   "wrong": 19,
+  "invented": 6,
   "missed": 65,
-  "invented": 6
+  "blank_ok": 5782
  },
  "critical": {
   "precision": 0.9790996784565916,
   "recall": 0.9500780031201248,
   "f1": 0.9643705463182898,
-  "blank_ok": 3955,
   "correct": 609,
-  "missed": 23,
   "wrong": 9,
-  "invented": 4
+  "invented": 4,
+  "missed": 23,
+  "blank_ok": 3955
  },
  "groups": {
   "identity": {
