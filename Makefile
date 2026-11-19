@@ -6,7 +6,7 @@ MODEL ?= google/gemini-3.8-flash
 PORT  := 8000
 RECORDINGS ?= ../recordings
 
-.PHONY: help setup app stop test lint eval cards check-key live live-all bakeoff relisten diagram clean
+.PHONY: help setup app stop test lint eval cards check-key live live-all bakeoff relisten handover-scripts diagram clean
 
 help:  ## list the targets
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk 'BEGIN{FS=":.*## "}{printf "  make %-10s %s\n", $$1, $$2}'
@@ -57,6 +57,9 @@ bakeoff: setup  ## PAID: speech-to-text bake-off on the shortlist (fetches only 
 
 relisten: setup  ## simulate a third listen from cached transcripts (free)
 	$(BIN)/python -m tccc.experiments.relisten
+
+handover-scripts: setup  ## write speakable MIST scripts from the answer key into out/handover-scripts/ (free)
+	$(BIN)/python -m tccc.experiments.handover_scripts
 
 diagram: setup  ## redraw docs/how-it-works.svg
 	$(BIN)/python docs/diagram.py

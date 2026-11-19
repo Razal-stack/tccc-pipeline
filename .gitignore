@@ -5,6 +5,7 @@ __pycache__/
 !.env.example
 out/*/*/cards/
 out/denoised/
+out/handover-scripts/
 
 .venv/
 out/live/uploads/

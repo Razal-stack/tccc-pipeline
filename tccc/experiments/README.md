@@ -6,3 +6,5 @@ Not part of the pipeline. Each script backs a claim on the Benchmark page or in 
   second listener. Writes `transcripts/<model>/` and `transcripts/_bakeoff.csv`.
 - `denoise.py` (local, needs torch): the denoiser test behind "send raw audio" (DECISIONS.md, "Whole raw recording").
 - `relisten.py` (free, `make relisten`): replays cached transcripts as a third listener (DECISIONS.md, "Targeted re-listen").
+- `handover_scripts.py` (free, `make handover-scripts`): plain-English MIST scripts from the answer key, for TTS or
+  reading aloud when you want live audio that matches ground truth. Writes `out/handover-scripts/`.

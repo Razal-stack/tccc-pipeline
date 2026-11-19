@@ -5,9 +5,13 @@ drafts the card that must travel with the casualty (the TCCC card, DD Form 1380)
 medic what to ask the sender and which values to check. The scenario: 50 casualties, every card needed before the
 evacuation vehicle arrives in 3 to 4 hours. The system only drafts; the medic reviews and signs.
 
+Those 50 casualties are backed by **50 recorded handovers**: short spoken reports (often noisy radio, sometimes two
+voices) used to build and measure everything in this repo. The WAV files are not included; the transcripts, filled
+cards, and scores from them are. See [The dataset](#the-dataset) below.
+
 ## Headline
 
-On 25 casualty handover recordings held out from tuning:
+On 25 of those 50 handovers held out from tuning:
 
 | What we measure | Score |
 |---|---|
@@ -18,8 +22,8 @@ On 25 casualty handover recordings held out from tuning:
 | Tourniquets, and drugs and fluids | 100% each |
 | Values made up that were never said | 2 in 25 cards (0.08 per card) |
 
-On all 50: 94.7% F1, 97.5% precision, 92.1% recall, 96.4% on safety-critical fields. All 50 filled PDF cards are in
-`out/google__gemini-3.8-flash/all/cards/`. How the % is calculated is under [Outcomes](#outcomes) below.
+On all 50 handovers: 94.7% F1, 97.5% precision, 92.1% recall, 96.4% on safety-critical fields. All 50 filled PDF cards
+are in `out/google__gemini-3.8-flash/all/cards/`. How the % is calculated is under [Outcomes](#outcomes) below.
 
 ## How it works
 
@@ -51,9 +55,7 @@ share of agreed values and names the single-listener values, so the medic knows 
 
 ## Quickstart
 
-Needs Python 3.9 or newer and `make` (both come with macOS). No API key and no spending for the steps below.
-
-### 1. Clone and install
+Needs Python 3.9 or newer and `make` (both come with macOS). Three ways to use the repo; pick the path that fits.
 
 ```bash
 git clone https://github.com/Razal-stack/tccc-pipeline
@@ -63,53 +65,47 @@ make setup
 
 Without `make`: `python3 -m pip install -r requirements.txt && python3 -m tccc`.
 
-### 2. What you get with no audio and no API key
+The 50 WAV files are **not in this repo** and are **not required** for path A. The repo already carries `data/`
+(blank card, field map, answer key), cached transcripts and reader replies, and the filled PDFs under
+`out/google__gemini-3.8-flash/all/cards/`.
 
-The repo already carries everything needed to browse and re-score the 50 cards:
+### A. Browse and re-score (no audio, no key)
 
-- `data/`: blank card, field map, answer key
-- `transcripts/` and `out/raw/`: cached speech and reader results
-- `out/google__gemini-3.8-flash/all/cards/`: filled PDFs and review sheets
-
-You do **not** need the WAV files to open the app, run tests, or re-score from cache.
-
-### 3. Casualty handover recordings (audio)
-
-A **casualty handover recording** is the audio of a first responder handing over a casualty: what hit them,
-injuries, vitals, treatment given, and anything else said for the card.
-
-Those 50 WAV files are **not in this repo**. Cached cards and scores still work without them.
-
-For a live run (fresh model calls), put the WAVs in a folder next to the repo so the path is `../recordings`,
-or point at another folder:
+Free. Open the app, run the tests, and re-score from cached model replies.
 
 ```bash
-make live-all RECORDINGS=/path/to/your-handovers
+make app     # http://localhost:8000: casualty list, each card beside its PDF, benchmark, guide
+make test    # offline unit tests + check that held-out score is still 93.8%
+make eval    # score the 25 held-out handovers, then all 50, from cache
+make cards   # rebuild all 50 PDF cards and review sheets from cache
 ```
 
-Each file should be a `.wav` of one handover. The bake-off and live-all targets also accept
-`./recordings` inside the repo if you prefer to keep the audio there.
+Stop the app with Ctrl+C or `make stop`. Reading the code for the first time? Start with
+[docs/ARCHITECTURE.md, "Reading the code"](docs/ARCHITECTURE.md#reading-the-code).
 
-### 4. Open the app
+### B. Live with your own recording (paid, optional)
+
+Record a short MIST-style handover on a phone (wav, mp3, or m4a), or read this sample aloud:
+
+```text
+Handover. Casualty Smith, John, last four 4417, male, Army.
+Gunshot wound to the right thigh at zero nine thirty.
+Tourniquet on the right leg, CAT, applied at zero nine thirty-two.
+Vitals at zero nine forty: pulse 110 radial, blood pressure 100 over 60,
+respirations 22, sats 96 percent, AVPU Alert, pain 7.
+TXA 2 grams IV at zero nine forty-five. Evacuation urgent.
+```
+
+Needs an OpenRouter key (copy `.env.example` to `.env` and set `OPENROUTER_API_KEY`). About 1.3 US cents and about
+20 seconds per card.
 
 ```bash
-make app
+cp .env.example .env
+make check-key                         # free: confirms the key works, shows spend vs the cap
+make live FILE=path/to/your-handover.wav   # -> PDF, card, review sheet in out/live/
 ```
 
-Opens http://localhost:8000: casualty list, each card beside its PDF, how it works, benchmark, and guide.
-Stop with Ctrl+C or `make stop`.
-
-### 5. Try one live recording (paid, optional)
-
-Needs an OpenRouter key. About 1.3 US cents and about 20 seconds per card.
-
-```bash
-cp .env.example .env                                  # then put your key after OPENROUTER_API_KEY=
-make check-key                                        # free: confirms the key works, shows spend vs the cap
-make live FILE=../recordings/handover-isa.wav         # one recording -> PDF, card, review sheet in out/live/
-```
-
-Or, with the app running, use **New handover** to upload a WAV; the card opens when it is done.
+Or, with the app running, use **New handover** to upload a recording; the card opens when it is done.
 
 What it calls: ElevenLabs Scribe v2 Medical and Qwen 3.8 Omni Flash listen at the same time; Gemini 3.8 Flash
 reads both transcripts (GPT-6.1 Terra steps in if Gemini errors). All through OpenRouter, so one key covers all four.
@@ -117,18 +113,27 @@ Before any paid call the code reads your key's real usage and stops once it reac
 The key is read from the environment first, then `.env` in this folder, then `../.env`. It is never printed;
 `.env` is git-ignored.
 
-To re-run all 50 with fresh calls (about $0.65, cache untouched): `make live-all`.
+If you already have the original 50 WAVs, put them next to the repo as `../recordings` (or set `RECORDINGS=...`)
+and use `make live-all` to re-run all 50 with fresh calls (about $0.65, cache untouched).
 
-### 6. Tests and eval from cache (free)
+### C. Scripts that match the answer key (free to generate; live run is paid)
+
+Want audio that lines up with the ground truth for one of those 50 handovers? Generate speakable scripts from the
+answer key, turn any one into speech, then run live. Match % on that stem is the check against ground truth.
 
 ```bash
-make test    # offline unit tests + check that held-out score is still 93.8%
-make eval    # score the 25 held-out recordings, then all 50, from cached replies
-make cards   # rebuild all 50 PDF cards and review sheets from cache
+make handover-scripts                  # -> out/handover-scripts/handover-*.txt + INDEX.md
+# TTS any .txt (ElevenLabs, macOS `say`, a phone voice memo, etc.), save as .wav
+make live FILE=path/to/handover-isa.wav
 ```
 
-Reading the code for the first time? Start with
-[docs/ARCHITECTURE.md, "Reading the code"](docs/ARCHITECTURE.md#reading-the-code).
+Example with macOS `say`:
+
+```bash
+say -f out/handover-scripts/handover-isa.txt -o /tmp/handover-isa.aiff
+afconvert -f WAVE -d LEI16 /tmp/handover-isa.aiff /tmp/handover-isa.wav
+make live FILE=/tmp/handover-isa.wav
+```
 
 ### Commands at a glance
 
@@ -138,8 +143,9 @@ Reading the code for the first time? Start with
 | `make app` | the app on port 8000: casualty list, each card beside its PDF, how it works, benchmark, guide | free |
 | `make test` | offline unit tests, plus a check that the held-out score is still 93.8% | free |
 | `make lint` | style and unused-code checks (ruff, vulture) | free |
-| `make eval` | score the 25 held-out recordings, then all 50, from cached model replies | free |
+| `make eval` | score the 25 held-out handovers, then all 50, from cached model replies | free |
 | `make cards` | rebuild all 50 PDF cards and review sheets from cache | free |
+| `make handover-scripts` | speakable MIST scripts from the answer key into `out/handover-scripts/` | free |
 | `make relisten` | simulate a third listener from cached transcripts (see `docs/DECISIONS.md`, "Targeted re-listen") | free |
 | `make check-key` | check your OpenRouter key works and show spend against the cap | free |
 | `make live FILE=x.wav` | one recording end to end with fresh model calls, into `out/live/` | **paid**, about 1.3 cents |
@@ -149,7 +155,7 @@ Reading the code for the first time? Start with
 
 **Where things land:** filled cards `out/google__gemini-3.8-flash/all/cards/*.pdf`; card data `.../predictions/*.json`;
 the medic's sheet `.../review/*.md`; scored reports `out/google__gemini-3.8-flash/<split>/report.md`; every run
-`out/runs.jsonl`; live recordings `out/live/`.
+`out/runs.jsonl`; live recordings `out/live/`; answer-key scripts `out/handover-scripts/`.
 
 ## What I tested, and what I decided
 
@@ -170,13 +176,21 @@ blank box and a flag is safer than a confident guess.
 
 ## Cost
 
-About $0.65 to run all 50 recordings end to end (1.3 cents a card). Development runs on the OpenRouter key have
+About $0.65 to run those 50 handovers end to end (1.3 cents a card). Development runs on the OpenRouter key have
 used $4.52 of the $7 cap (checked with `make check-key` on 18 Nov 2026). Re-scoring and rebuilding cards is free
 because every model call is cached.
 
 ## Outcomes
 
-Before any tuning I split the 50 recordings in two: the file names sorted alphabetically, every other one set aside.
+### The dataset
+
+There are **50 recorded casualty handovers** used to build and measure this system. Each is one audio file of a first
+responder handing over a casualty: what hit them, injuries, vitals, treatment given, and evacuation priority,
+typically a short spoken MIST-style report, often noisy (radio, two voices). Every card, score, and Benchmark number
+in this repo comes from those 50. The WAV files themselves are not in the repo; the transcripts, filled cards, and
+scores from them are.
+
+Before any tuning I split those 50 in two: the file names sorted alphabetically, every other one set aside.
 25 were for **tuning**: every instruction and rule was written from mistakes on these. The other 25 are
 **held-out**: no prompt rule was written from them. They were, though, used to choose between the last two or three
 models (tied on the tuning set; I picked the one that made up the fewest values) and to confirm the second listener,
