@@ -10,6 +10,13 @@ the answer key before I accepted it.
 Development ran on my own subscriptions. The provided OpenRouter key was used only for the pipeline's own inference
 (speech-to-text and card reading), under a hard spending cap.
 
+## How I worked: plan, build, measure, revise
+
+I started with a lot of planning in Claude sessions, before any code. I wrote specs for how the pipeline should
+work, then revised and revisited them as results came in. Every round was the same loop: plan, build, measure
+against the answer key, revise the plan. The prompt versions (v3 to v5), the move from one listener to two, and the
+decision to drop audio clean-up all came out of that loop, not out of the first plan.
+
 ## What I did myself
 
 These are the inputs and decisions that shaped the pipeline.
@@ -19,15 +26,26 @@ These are the inputs and decisions that shaped the pipeline.
   casualty"), radio read-backs, a vital given under the wrong name ("pulse 28, sorry that's resps"), numbers that
   break first, and NATO letters spoken for initials. That list became the checklist the whole project was tested
   against.
+- **Listened with Claude, using an audio skill.** I used a Claude skill that lets Claude listen to audio
+  recordings (offline transcription with timestamps and speaker separation). With it, Claude could listen to the
+  handovers alongside me. That helped me catalogue the audio traps, and later check transcripts against what was
+  actually said.
 - **Explored OpenRouter by hand.** I tried several speech and language models myself, uploaded a few audio files,
   looked at what came back, and iterated before deciding what to automate.
 - **Moved from a few hard cases to all 50.** I started with small scripts on the hard recordings and a handful of
-  models. Then I realised a few hard cases are not enough to choose a model fairly. I asked for every candidate to
-  be benchmarked across all 50 recordings, with a fixed dev / held-out split made before any tuning, so the choice
-  is measured and honest.
-- **Model research and the final choices.** I picked the speech model (ElevenLabs Scribe v2 Medical with key
-  terms), the second listener (Qwen 3.8 Omni Flash) and the reader (Gemini 3.8 Flash), from the benchmark numbers
-  and cost, not from reputation.
+  models. Working through the results with AI, we saw that a few hard cases are not enough to choose a model
+  fairly. I made the call to benchmark every candidate across all 50 recordings, with a fixed dev / held-out
+  split made before any tuning, so the choice is measured and honest. The AI helped me analyse and spot the
+  problem; the decision was mine.
+- **Model research and the final choices.** The benchmark runs were done with help from agents, but picking the
+  models was my decision. I weighed accuracy on the unseen recordings, invented values, cost per card and speed.
+  - Reader: Gemini 3.8 Flash over Gemini 4 Argon. The top six were tied on accuracy, so invented values broke the
+    tie: on the held-out set Gemini 3.8 Flash made up 2 values, Terra 5, Argon 9. Terra was $0.16 cheaper for 50
+    cards ($0.18 against $0.34), but two and a half times the invented values is not worth 16 cents on a
+    casualty card.
+  - Hearing: Scribe v2 Medical with key terms (93% of answer-key values reached the transcript, 86% on hard
+    audio) at a sensible cost. Qwen 3.8 Omni Flash as the second listener, best on IDs, costing about a fifth
+    of the price and adding about $0.03 for all 50. Argon as second listener invented more (12 against 4 on dev).
 - **Orchestration and architecture.** A fixed pipeline, not an agent loop. Two independent listeners, and when
   they disagree the value is flagged, not guessed. The reader quotes the exact words behind every value it fills,
   and leaves a field blank rather than guess. The real loop is the human one: the medic asks the sender, re-listens
@@ -42,14 +60,16 @@ These are the inputs and decisions that shaped the pipeline.
 ## What I used AI for
 
 - **Claude Code wrote the functional code from my spec** (the scorer, PDF filler, speech-to-text benchmark,
-  extraction, validation, runner, web app), ran the evals, and spun up several worker agents in parallel for the
-  bake-offs, the large benchmarks, the PDF filling and the frontend. I reviewed each piece against real outputs
-  before moving on.
-- **A separate worker agent built the body-diagram mapper.** My brief: build it from the 25 tuning recordings only,
+  extraction, validation, runner, web app) and ran the evals. I reviewed each piece against real outputs before
+  moving on.
+- **I orchestrated the agents.** I ran parallel worker agents locally and cloud agents, and I decided what to
+  delegate: the bake-offs, the large benchmarks, the PDF filling and the frontend. Each worker got a self-contained
+  brief, and I reviewed what came back before anything went in.
+- **One worker agent built the body-diagram mapper.** My brief: build it from the 25 tuning recordings only,
   report held-out honestly, and list anything odd in the ground truth. It came back at 94% held-out and pointed
   out that the answer key swaps left and right on two cards. I kept its mapper and did not "fix" the held-out
   misses, because that would be tuning on the test set.
-- **Agents for research legwork:** which speech and language models were worth testing, TCCC form conventions
+- **Research agents for the legwork:** which speech and language models were worth testing, TCCC form conventions
   (dropdown labels, route options), and which denoisers exist.
 - **Cursor, with its agents, for the final streamlining:** reviewing the code, refactoring (paths and chosen models
   into `tccc/config.py`, experiments into `tccc/experiments/`), adding unit and golden tests, the one-command run,
