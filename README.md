@@ -5,81 +5,9 @@ drafts the card that must travel with the casualty (the TCCC card, DD Form 1380)
 medic what to ask the sender and which values to check. The scenario: 50 casualties, every card needed before the
 evacuation vehicle arrives in 3 to 4 hours. The system only drafts; the medic reviews and signs.
 
-**Headline:** on 25 recordings held out from tuning, 93.8% accuracy on the details the handover actually gave (F1,
-which balances writing them correctly and not missing them); 97.6% of what it writes is right, and it makes up
-0.08 values a card. All 50 cards are filled.
-How that is measured is under "How well it works" below.
+## Headline
 
-## Quickstart
-
-```bash
-git clone https://github.com/Razal-stack/tccc-pipeline && cd tccc-pipeline && make setup && make app
-```
-
-The app opens at http://localhost:8000 by itself. It needs Python 3.9 or newer and `make` (both come with macOS).
-No API key and no spending: all 50 cards are rebuilt from cached results. Without `make`:
-`python3 -m pip install -r requirements.txt && python3 -m tccc`.
-
-**What needs to be where.** For the cached view, nothing: the repo carries what it needs (`data/` has the blank
-card, field map and answer key; `transcripts/` and `out/raw/` hold the cached model results). Only live runs need
-the audio. Put the task's `recordings/` folder next to this repo (so it is at `../recordings`), or point at another
-folder with `make live-all RECORDINGS=/path/to/recordings`. To run it live, see "Try it live" below.
-
-Reading the code for the first time? Start with
-[docs/ARCHITECTURE.md, "Reading the code"](docs/ARCHITECTURE.md#reading-the-code): entry points, the order to read
-the modules in, and which test to open first.
-
-| Command | What it does | Cost |
-|---|---|---|
-| `make setup` | create `.venv` and install everything | free |
-| `make app` | the app on port 8000: casualty list, each card beside its PDF, how it works, benchmark, guide | free |
-| `make test` | offline unit tests, plus a check that the held-out score is still 93.8% | free |
-| `make lint` | style and unused-code checks (ruff, vulture) | free |
-| `make eval` | score the 25 held-out recordings, then all 50, from cached model replies | free |
-| `make cards` | rebuild all 50 PDF cards and review sheets from cache | free |
-| `make relisten` | simulate a third listener from cached transcripts (see `docs/DECISIONS.md`, "Targeted re-listen") | free |
-| `make check-key` | check your OpenRouter key works and show spend against the cap | free |
-| `make live FILE=x.wav` | one recording end to end with fresh model calls, into `out/live/` | **paid**, about 1.3 cents |
-| `make live-all` | all 50 recordings with fresh calls into `out/live-all/` (cached results untouched), then scored | **paid**, about $0.65 |
-| `make bakeoff` | the speech-to-text bake-off (fetches only missing transcripts) | **paid** |
-| `make stop`, `make clean` | stop the app; remove Python caches | free |
-
-**Where things land:** filled cards `out/google__gemini-3.8-flash/all/cards/*.pdf`; card data `.../predictions/*.json`;
-the medic's sheet `.../review/*.md`; scored reports `out/google__gemini-3.8-flash/<split>/report.md`; every run
-`out/runs.jsonl`; live recordings `out/live/`.
-
-## Try it live with your own key
-
-The quickstart replays cached results so you can look around for free. To run new recordings through the real
-models:
-
-```bash
-cp .env.example .env                                  # then put your key after OPENROUTER_API_KEY=
-make check-key                                        # free: confirms the key works, shows spend vs the cap
-make live FILE=../recordings/handover-isa.wav         # one recording -> PDF, card, review sheet in out/live/
-```
-
-Or start the app (`make app`) and use **New handover** to upload a recording; the card opens when it is done.
-
-- **What it calls:** ElevenLabs Scribe v2 Medical and Qwen 3.8 Omni Flash listen at the same time; Gemini 3.8 Flash
-  reads both transcripts (GPT-6.1 Terra steps in if Gemini errors). All through OpenRouter, so one key covers all four.
-- **Cost and time:** about 1.3 US cents and about 20 seconds a card; `make live-all` reruns all 50 for about $0.65 in
-  about a minute and scores the fresh cards against the answer key. Each run prints what it spent.
-- **Spend cap:** before any paid call the code reads your key's real usage and stops once it reaches $7. Change it
-  with `TCCC_BUDGET_USD` in `.env`. If no key is found, you get a plain message saying where to put it, in the
-  terminal or in the app.
-- The key is read from the environment first, then `.env` in this folder, then `../.env`. It is never printed, and
-  `.env` is git-ignored.
-
-## How well it works
-
-Before any tuning I split the 50 recordings in two: the file names sorted alphabetically, every other one set aside.
-25 were for **tuning**: every instruction and rule was written from mistakes on these. The other 25 are
-**held-out**: no prompt rule was written from them. They were, though, used to choose between the last two or three
-models (tied on the tuning set; I picked the one that made up the fewest values) and to confirm the second listener,
-and one evidence-check fix (a time spoken as "10/12") came from a held-out card. So the held-out score is slightly
-optimistic.
-It is still the best guide to a new recording. On those 25:
+On 25 casualty handover recordings held out from tuning:
 
 | What we measure | Score |
 |---|---|
@@ -88,28 +16,10 @@ It is still the best guide to a new recording. On those 25:
 | Of the values that should be on the card, how many it wrote correctly (recall) | 90.4% |
 | Safety-critical fields (drugs, doses, tourniquets, vitals, evac) | 96.8% |
 | Tourniquets, and drugs and fluids | 100% each |
-| Values made up that were never said | 2 in 25 cards |
+| Values made up that were never said | 2 in 25 cards (0.08 per card) |
 
-On all 50 recordings (which includes the 25 it was tuned on, so it flatters a little): 94.7% F1, 97.5% precision, 92.1% recall, 96.4% on safety-critical fields. All 50 filled PDF cards are in
-`out/google__gemini-3.8-flash/all/cards/`.
-
-### How the % is calculated
-
-A blank card already "matches" most of the form, because most fields on any one card are empty: a card that writes
-nothing would score 85% if you just counted matching boxes. So I only score the fields that matter, the ones where
-either the true card or ours has something written. Each is correct, wrong, made up (written but never said) or
-missed (left blank when something was said). Then:
-
-- **Precision**: of everything we wrote, how much was right.
-- **Recall**: of everything that should be on the card, how much we got.
-- **F1**: one number that balances the two. It only goes up if we are both careful and thorough.
-
-Values are compared after light tidying ("800mcg" equals "800 mcg"). Free-text notes are not scored; the
-body-diagram ticks are scored separately (89% on all 50, 81% on the held-out 25).
-
-The split is fixed in code (`SPLITS` in `tccc/extract.py`: even positions tune, odd positions held-out). Every result also
-has a 95% interval from resampling the cards, and a change only counts as better when the interval on the gap
-excludes zero.
+On all 50: 94.7% F1, 97.5% precision, 92.1% recall, 96.4% on safety-critical fields. All 50 filled PDF cards are in
+`out/google__gemini-3.8-flash/all/cards/`. How the % is calculated is under [Outcomes](#outcomes) below.
 
 ## How it works
 
@@ -130,24 +40,7 @@ excludes zero.
    checking** (anything garbled, corrected or in dispute).
 6. **Score.** Against the answer key, with every mistake tagged by the step that caused it.
 
-**Time it saves (planning assumptions, not measured).** Nobody has timed medics doing this, so treat these as a
-starting point. Each range runs from a calm best case to a busy collection point.
-
-- By hand: 5 to 12 minutes a card. The low end is a quiet desk (listen once, write about 22 boxes, mark the body
-  diagram). The high end adds finding the right recording, re-listening through static and corrections, stopping to
-  treat, and printing, signing and attaching the card.
-- With the system: the medic still reviews every card (1 to 2 minutes each), plus 0.5 to 1.5 minutes for each of the
-  118 things the 50 cards ask them to ask or check. The app counts these live from the cards.
-- Not included: treating, triage decisions, and waiting for answers that never come (a sender who has left). Those
-  stay flagged on the card. Two medics assumes a perfectly even split.
-
-| All 50 cards | 1 medic | 2 medics |
-|---|---|---|
-| By hand | 4.2 to 10.0 hours (the 3 to 4 hour evacuation window is missed even in the best case) | 2.1 to 5.0 hours |
-| With the system, medic reviews every card | 1.8 to 4.6 hours | 0.9 to 2.3 hours |
-
-How to replace the assumptions with numbers: a short tabletop exercise where two or three medics each write 5 cards by
-hand and review 5 system cards, timed, with a few planned interruptions.
+About 20 seconds and about 1.3 US cents per card; all 50 run in parallel in about a minute.
 
 **Human in the loop.** The system only drafts. It gives the medic what they need to judge each card quickly (the to-do
 list, a confidence mark per value, both transcripts, the words behind each value); the medic decides and signs.
@@ -156,7 +49,107 @@ list, a confidence mark per value, both transcripts, the words behind each value
 97.9% correct; values only one heard are 81.1% correct, about nine times the error rate. The app shows each card's
 share of agreed values and names the single-listener values, so the medic knows where to look first.
 
-About 20 seconds and about 1.3 US cents per card; all 50 run in parallel in about a minute.
+## Quickstart
+
+Needs Python 3.9 or newer and `make` (both come with macOS). No API key and no spending for the steps below.
+
+### 1. Clone and install
+
+```bash
+git clone https://github.com/Razal-stack/tccc-pipeline
+cd tccc-pipeline
+make setup
+```
+
+Without `make`: `python3 -m pip install -r requirements.txt && python3 -m tccc`.
+
+### 2. What you get with no audio and no API key
+
+The repo already carries everything needed to browse and re-score the 50 cards:
+
+- `data/`: blank card, field map, answer key
+- `transcripts/` and `out/raw/`: cached speech and reader results
+- `out/google__gemini-3.8-flash/all/cards/`: filled PDFs and review sheets
+
+You do **not** need the WAV files to open the app, run tests, or re-score from cache.
+
+### 3. Casualty handover recordings (audio)
+
+A **casualty handover recording** is the audio of a first responder handing over a casualty: what hit them,
+injuries, vitals, treatment given, and anything else said for the card.
+
+Those 50 WAV files are **not in this repo**. Cached cards and scores still work without them.
+
+For a live run (fresh model calls), put the WAVs in a folder next to the repo so the path is `../recordings`,
+or point at another folder:
+
+```bash
+make live-all RECORDINGS=/path/to/your-handovers
+```
+
+Each file should be a `.wav` of one handover. The bake-off and live-all targets also accept
+`./recordings` inside the repo if you prefer to keep the audio there.
+
+### 4. Open the app
+
+```bash
+make app
+```
+
+Opens http://localhost:8000: casualty list, each card beside its PDF, how it works, benchmark, and guide.
+Stop with Ctrl+C or `make stop`.
+
+### 5. Try one live recording (paid, optional)
+
+Needs an OpenRouter key. About 1.3 US cents and about 20 seconds per card.
+
+```bash
+cp .env.example .env                                  # then put your key after OPENROUTER_API_KEY=
+make check-key                                        # free: confirms the key works, shows spend vs the cap
+make live FILE=../recordings/handover-isa.wav         # one recording -> PDF, card, review sheet in out/live/
+```
+
+Or, with the app running, use **New handover** to upload a WAV; the card opens when it is done.
+
+What it calls: ElevenLabs Scribe v2 Medical and Qwen 3.8 Omni Flash listen at the same time; Gemini 3.8 Flash
+reads both transcripts (GPT-6.1 Terra steps in if Gemini errors). All through OpenRouter, so one key covers all four.
+Before any paid call the code reads your key's real usage and stops once it reaches $7 (`TCCC_BUDGET_USD` in `.env`).
+The key is read from the environment first, then `.env` in this folder, then `../.env`. It is never printed;
+`.env` is git-ignored.
+
+To re-run all 50 with fresh calls (about $0.65, cache untouched): `make live-all`.
+
+### 6. Tests and eval from cache (free)
+
+```bash
+make test    # offline unit tests + check that held-out score is still 93.8%
+make eval    # score the 25 held-out recordings, then all 50, from cached replies
+make cards   # rebuild all 50 PDF cards and review sheets from cache
+```
+
+Reading the code for the first time? Start with
+[docs/ARCHITECTURE.md, "Reading the code"](docs/ARCHITECTURE.md#reading-the-code).
+
+### Commands at a glance
+
+| Command | What it does | Cost |
+|---|---|---|
+| `make setup` | create `.venv` and install everything | free |
+| `make app` | the app on port 8000: casualty list, each card beside its PDF, how it works, benchmark, guide | free |
+| `make test` | offline unit tests, plus a check that the held-out score is still 93.8% | free |
+| `make lint` | style and unused-code checks (ruff, vulture) | free |
+| `make eval` | score the 25 held-out recordings, then all 50, from cached model replies | free |
+| `make cards` | rebuild all 50 PDF cards and review sheets from cache | free |
+| `make relisten` | simulate a third listener from cached transcripts (see `docs/DECISIONS.md`, "Targeted re-listen") | free |
+| `make check-key` | check your OpenRouter key works and show spend against the cap | free |
+| `make live FILE=x.wav` | one recording end to end with fresh model calls, into `out/live/` | **paid**, about 1.3 cents |
+| `make live-all` | all 50 recordings with fresh calls into `out/live-all/` (cached results untouched), then scored | **paid**, about $0.65 |
+| `make bakeoff` | the speech-to-text bake-off (fetches only missing transcripts) | **paid** |
+| `make stop`, `make clean` | stop the app; remove Python caches | free |
+
+**Where things land:** filled cards `out/google__gemini-3.8-flash/all/cards/*.pdf`; card data `.../predictions/*.json`;
+the medic's sheet `.../review/*.md`; scored reports `out/google__gemini-3.8-flash/<split>/report.md`; every run
+`out/runs.jsonl`; live recordings `out/live/`.
 
 ## What I tested, and what I decided
 
@@ -174,6 +167,60 @@ I benchmarked every step on our own recordings and answer key, not on vendor cla
 The pattern behind all of it: **the audio is the ceiling, not the AI.** Changing the card model moves the score by
 tenths of a point; hearing better moves it by whole points. And on a casualty card, careful beats complete: a
 blank box and a flag is safer than a confident guess.
+
+## Cost
+
+About $0.65 to run all 50 recordings end to end (1.3 cents a card). Development runs on the OpenRouter key have
+used $4.52 of the $7 cap (checked with `make check-key` on 18 Nov 2026). Re-scoring and rebuilding cards is free
+because every model call is cached.
+
+## Outcomes
+
+Before any tuning I split the 50 recordings in two: the file names sorted alphabetically, every other one set aside.
+25 were for **tuning**: every instruction and rule was written from mistakes on these. The other 25 are
+**held-out**: no prompt rule was written from them. They were, though, used to choose between the last two or three
+models (tied on the tuning set; I picked the one that made up the fewest values) and to confirm the second listener,
+and one evidence-check fix (a time spoken as "10/12") came from a held-out card. So the held-out score is slightly
+optimistic. It is still the best guide to a new recording.
+
+### How the % is calculated
+
+A blank card already "matches" most of the form, because most fields on any one card are empty: a card that writes
+nothing would score 85% if you just counted matching boxes. So I only score the fields that matter, the ones where
+either the true card or ours has something written. Each is correct, wrong, made up (written but never said) or
+missed (left blank when something was said). Then:
+
+- **Precision**: of everything we wrote, how much was right.
+- **Recall**: of everything that should be on the card, how much we got.
+- **F1**: one number that balances the two. It only goes up if we are both careful and thorough.
+
+Values are compared after light tidying ("800mcg" equals "800 mcg"). Free-text notes are not scored; the
+body-diagram ticks are scored separately (89% on all 50, 81% on the held-out 25).
+
+The split is fixed in code (`SPLITS` in `tccc/extract.py`: even positions tune, odd positions held-out). Every result also
+has a 95% interval from resampling the cards, and a change only counts as better when the interval on the gap
+excludes zero.
+
+### Time it saves (planning assumptions, not measured)
+
+Nobody has timed medics doing this, so treat these as a starting point. Each range runs from a calm best case to a
+busy collection point.
+
+- By hand: 5 to 12 minutes a card. The low end is a quiet desk (listen once, write about 22 boxes, mark the body
+  diagram). The high end adds finding the right recording, re-listening through static and corrections, stopping to
+  treat, and printing, signing and attaching the card.
+- With the system: the medic still reviews every card (1 to 2 minutes each), plus 0.5 to 1.5 minutes for each of the
+  118 things the 50 cards ask them to ask or check. The app counts these live from the cards.
+- Not included: treating, triage decisions, and waiting for answers that never come (a sender who has left). Those
+  stay flagged on the card. Two medics assumes a perfectly even split.
+
+| All 50 cards | 1 medic | 2 medics |
+|---|---|---|
+| By hand | 4.2 to 10.0 hours (the 3 to 4 hour evacuation window is missed even in the best case) | 2.1 to 5.0 hours |
+| With the system, medic reviews every card | 1.8 to 4.6 hours | 0.9 to 2.3 hours |
+
+How to replace the assumptions with numbers: a short tabletop exercise where two or three medics each write 5 cards by
+hand and review 5 system cards, timed, with a few planned interruptions.
 
 ## Where it still goes wrong (honest limits)
 
@@ -205,11 +252,6 @@ time; and splitting very long recordings at pauses (not needed here: the longest
 The web app (`make app`) lists every casualty, most urgent first, with each card's status: **Complete**, **Missing
 information** (naming what to ask for) or **Needs checking**. Each card opens in MIST order (mechanism, injuries, signs, treatment) beside the filled PDF.
 A benchmark page shows the results above, and a guide explains how a medic uses it.
-
-## Cost
-
-About $0.65 to run all 50 recordings end to end (1.3 cents a card). All development runs on the provided key
-have used $4.52 of the $7 cap (checked with `make check-key` on 18 Nov 2026). Re-scoring and rebuilding cards is free because every model call is cached.
 
 ## More detail
 
