@@ -40,7 +40,7 @@ Commands: `make` (setup, app, test, eval, cards; `pipeline` and `bakeoff` are pa
 | `tccc/config.py` | paths and the four chosen models |
 | `tccc/openrouter.py` | API key, one HTTP call, hard spend cap (`TCCC_BUDGET_USD`, default 7) checked against real key usage |
 | `tccc/stt.py` | Speech-to-text with domain `keyterms` |
-| `tccc/extract.py` | Prompt (v5) + one LLM call; replies cached by prompt+transcript hash in `out/raw/` |
+| `tccc/extract.py` | Reader prompt + one LLM call; replies cached by prompt+transcript hash in `out/raw/` |
 | `tccc/validate.py` | Format/range/evidence checks, `check_card` schema, `missing_critical` (ask the sender) |
 | `tccc/injury.py` | Notes -> 163 body-diagram boxes (lookup) |
 | `tccc/fill_pdf.py` | Fill DD 1380 with drawn text appearances; `read_back` |
@@ -51,7 +51,7 @@ Commands: `make` (setup, app, test, eval, cards; `pipeline` and `bakeoff` are pa
 | `tccc/experiments/` | `stt_bakeoff` (paid speech benchmark), `denoise` (local, needs torch), `relisten` (free third-listen simulation) |
 | `docs/diagram.py`, `tests/` | Draws `docs/how-it-works.svg`; offline pytest suite with golden held-out regression |
 
-Chosen: speech `elevenlabs/scribe-v2-medical` + keyterms, plus a second listen `qwen/qwen3.8-omni-flash`
+Chosen: speech `elevenlabs/scribe-v2-medical` + keyterms, plus a second listener `qwen/qwen3.8-omni-flash`
 (`TCCC_SECOND`); extraction `google/gemini-3.8-flash` reading both; fallback `openai/gpt-6.1-terra`. Raw audio, no
 denoiser (tested 4). See docs/DECISIONS.md and docs/ARCHITECTURE.md "Experiments behind the choices".
 
@@ -104,7 +104,7 @@ docs). Next steps and known limits: `docs/ARCHITECTURE.md` "Known limits and nex
 - Never print or commit the API key. The GitHub repo is public (Rasal's decision, to share with reviewers), so
   scan history for secrets before every push.
 - **Spend:** The provided OpenRouter key is only for pipeline inference (speech-to-text, extraction), run at the
-  end on the cheapest model that holds accuracy (chosen: `google/gemini-3.8-flash`, see ADR-05). No Opus or premium
+  end on the cheapest model that holds accuracy (chosen: `google/gemini-3.8-flash`, see docs/DECISIONS.md). No Opus or premium
   models on it. Development uses our own Claude Code. Tune offline against cached replies in `out/raw/`.
 - Docs and README: plain, warm, human tone; no em dashes.
 - Commit after each working step with a clear message.

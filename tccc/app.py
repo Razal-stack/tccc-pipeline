@@ -37,7 +37,7 @@ TREAT = {"dressing_hemostatic": "hemostatic dressing", "dressing_pressure": "pre
          "hypothermia_prevention": "hypothermia prevention"}
 STATUS = {"ok": ("Complete", "Everything important was said. Print, sign and attach."),
           "get": ("Missing information", "Something important was not said. Ask the person who handed over, before they leave."),
-          "conf": ("Needs checking", "A value was unclear, corrected or heard differently by the two listens. Check it against the recording.")}
+          "conf": ("Needs checking", "A value was unclear, corrected or heard differently by the two listeners. Check it against the recording.")}
 app = FastAPI(title="TCCC Casualty Cards")
 esc = html.escape
 
@@ -290,15 +290,15 @@ def card_page(name: str, stem: str):
 
 
 def heard(text):
-    """The two listens side by side, named, with why there are two."""
+    """The two transcripts side by side, named, with why there are two."""
     if "TRANSCRIPT B" not in text:
         return f"<div class=say>{esc(text)}</div>"
     a, b = text.split("TRANSCRIPT B (second listen):")
     a = a.replace("TRANSCRIPT A (medical speech model):", "").strip()
     return (f"<p class=sub style='margin:-4px 0 12px'>Two different models listened to the same recording. Where they heard a value "
             f"differently, the card leaves it blank and asks you to check.</p><div class=listens>"
-            f"<div><h4>Listen 1 · ElevenLabs Scribe v2 Medical</h4><div class=say>{esc(a)}</div></div>"
-            f"<div><h4>Listen 2 · Qwen 3.8 Omni Flash</h4><div class=say>{esc(b.strip())}</div></div></div>")
+            f"<div><h4>First listener · ElevenLabs Scribe v2 Medical</h4><div class=say>{esc(a)}</div></div>"
+            f"<div><h4>Second listener · Qwen 3.8 Omni Flash</h4><div class=say>{esc(b.strip())}</div></div></div>")
 
 
 def bar(v, dim=False, places=0):
@@ -403,7 +403,7 @@ up 2 values where Argon made up 9 and GPT-6.1 Terra 5. Terra is $0.16 cheaper fo
 times as many invented values is not worth 16 cents.</p>
 <table><tr><th>Language model</th><th>Tuning set</th><th>Held-out</th><th>Made up (held-out)</th><th>Cost for 50 cards</th></tr>{model_rows}</table></div>
 <div class='panel finding'><h2>What a run costs</h2>
-<p class=note>The final pipeline on all 50 recordings: Scribe v2 Medical $0.15, second listen $0.03, Gemini reading both transcripts
+<p class=note>The final pipeline on all 50 recordings: Scribe v2 Medical $0.15, second listener $0.03, Gemini reading both transcripts
 $0.47. About <b>$0.65 for all 50</b>, 1.3 cents a card, about 20 seconds each, all 50 in parallel in about a minute. Every model
 call is cached, so re-scoring or changing the checks costs nothing.</p></div>""")
 
@@ -545,14 +545,14 @@ reassess or convert a tourniquet within about two hours, so confirm the category
 <div class=panel><h2>What the labels mean</h2><div class=legend>
 <span><span class='tag ok'><span class='dot ok'></span>Complete</span></span><span>Everything a surgeon needs was said and nothing is in doubt.</span>
 <span><span class='tag get'><span class='dot get'></span>Missing information</span></span><span>Not said: who the casualty is, evacuation priority, a tourniquet time, a drug's dose or route.</span>
-<span><span class='tag conf'><span class='dot conf'></span>Needs checking</span></span><span>Garbled, corrected, or heard differently by the two listens. Left blank, not guessed.</span>
+<span><span class='tag conf'><span class='dot conf'></span>Needs checking</span></span><span>Garbled, corrected, or heard differently by the two listeners. Left blank, not guessed.</span>
 <span><span class='tag u'><span class='dot u'></span>Urgent</span></span><span>Evacuation priority from the handover (also Cat A or T1). Shown first; then Priority, Routine, Not stated.</span>
 <span class=sub>Answer key</span><span>Testing only: how closely a card agrees with the official answer for that recording.</span></div></div>
 <div class=panel><h2>Rules the system follows</h2><ul>
 <li><b>Blank means not said.</b> It never fills a value it did not hear.</li>
 <li><b>No name, no guess.</b> If no name, battle roster number or last four was said, take them from the casualty's ID tags.</li>
 <li><b>Corrections win; retractions are dropped</b> ("ignore that, other casualty").</li>
-<li><b>Two listens.</b> Where they disagree on a value, it is flagged for you rather than chosen.</li></ul></div>
+<li><b>Two listeners.</b> Where they disagree on a value, it is flagged for you rather than chosen.</li></ul></div>
 <div class=panel><h2>What it does not do</h2><ul><li>Replace the medic's judgement or signature. Every card is checked by a person before it is attached.</li>
 <li>Work offline yet. In the same speech test, NVIDIA Parakeet, a model small enough to run on a laptop with no internet, caught
 about 80% of the details against 93% for the online model we use (and only about half on radio and noisy recordings). A device in the

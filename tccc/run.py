@@ -1,4 +1,4 @@
-"""Pipeline: transcript -> LLM extraction -> validation -> card JSON, PDF and medic review sheet -> score.
+"""Evaluation: cached transcripts and replies through the same finish() as production, then a scored report.
 
     python -m tccc.run <model> [--split dev|heldout|all] [--pdf]
 

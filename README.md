@@ -14,14 +14,19 @@ make setup && make app      # then open http://localhost:8000 (it opens by itsel
 That is all. It needs Python 3.9 or newer and `make` (both come with macOS). No API key and no spending: all 50
 cards are rebuilt from cached results. To run it live on new recordings, see "Try it live" below. Without `make`: `python3 -m pip install -r requirements.txt && python3 -m tccc`.
 
+Reading the code for the first time? Start with
+[docs/ARCHITECTURE.md, "Reading the code"](docs/ARCHITECTURE.md#reading-the-code): entry points, the order to read
+the modules in, and which test to open first.
+
 | Command | What it does | Cost |
 |---|---|---|
 | `make setup` | create `.venv` and install everything | free |
 | `make app` | the app on port 8000: casualty list, each card beside its PDF, how it works, benchmark, guide | free |
 | `make test` | offline unit tests, plus a check that the held-out score is still 93.8% | free |
+| `make lint` | style and unused-code checks (ruff, vulture) | free |
 | `make eval` | score the 25 held-out recordings, then all 50, from cached model replies | free |
 | `make cards` | rebuild all 50 PDF cards and review sheets from cache | free |
-| `make relisten` | simulate a third listener from cached transcripts (see `docs/DECISIONS.md`, ADR-16) | free |
+| `make relisten` | simulate a third listener from cached transcripts (see `docs/DECISIONS.md`, "Targeted re-listen") | free |
 | `make check-key` | check your OpenRouter key works and show spend against the cap | free |
 | `make live FILE=x.wav` | one recording end to end with fresh model calls, into `out/live/` | **paid**, about 1.3 cents |
 | `make live-all` | all 50 recordings with fresh calls into `out/live-all/` (cached results untouched), then scored | **paid**, about $0.65 |
@@ -151,7 +156,7 @@ I benchmarked every step on our own recordings and answer key, not on vendor cla
 | Clean the audio first? | 4 methods: spectral gating, radio band-pass, DeepFilterNet3, Meta Denoiser (Demucs) | **No.** Every one made hard audio worse (86% fell to 79-80% with the neural denoisers). Modern speech models are trained on noise; denoisers remove parts of words |
 | Which model fills the card? | 14 models on the final prompt (OpenAI, Google, Qwen, GLM, DeepSeek, Mistral), the top 3 also on the held-out set; Anthropic models in an earlier round | **Gemini 3.8 Flash.** The top six are statistically tied (about 95%); Gemini had the best held-out score and fewest made-up values. Qwen 4 Max scored well but made up twice as many |
 | A second model to verify? | Two card models side by side | **No.** They make the same mistakes (agree on 99.6% of fields): errors come from the audio, not the reading |
-| A second listen? | Scribe plus a second speech model, disagreements flagged | **Yes.** It holds 21 of the 80 values Scribe misses. Held-out F1 92.5% to 93.8% (gap interval +0.2 to +2.8 points), precision 95.8% to 97.6%, identity 85% to 89.5% |
+| A second listener? | Scribe plus a second speech model, disagreements flagged | **Yes.** It holds 21 of the 80 values Scribe misses. Held-out F1 92.5% to 93.8% (gap interval +0.2 to +2.8 points), precision 95.8% to 97.6%, identity 85% to 89.5% |
 | A vision model for the PDF? | Not needed | The body diagram is named tick boxes; filling it is exact code |
 
 The pattern behind all of it: **the audio is the ceiling, not the AI.** Changing the card model moves the score by
@@ -162,7 +167,7 @@ blank box and a flag is safer than a confident guess.
 
 - **Some audio is gone.** One radio recording (vdi) is mostly static; another (kdb) is 36 seconds long with about
   5 seconds of speech surviving. No model recovers them.
-- **Names spelled the way they sound.** "Kaur" heard as "Carr". The second listen helps (identity 85% to 89.5%),
+- **Names spelled the way they sound.** "Kaur" heard as "Carr". The second listener helps (identity 85% to 89.5%),
   and in real use the casualty's ID tag settles it, which is why the card asks for it.
 - **The answer key has a few slips.** One card (roo) leaves out a TXA dose and oxygen that are clearly spoken, and
   two body-diagram entries swap left and right. I did not bend the system to match them, so they count against us.

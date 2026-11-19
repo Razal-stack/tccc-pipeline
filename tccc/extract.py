@@ -10,6 +10,7 @@ import hashlib
 import json
 import time
 from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 
 from .config import OUT, PRIMARY_TRANSCRIPTS as TRANSCRIPTS, SECOND, TRANSCRIPTS as ALL_TRANSCRIPTS, slug
 from .score import FIELDS, TRUTH
@@ -146,7 +147,7 @@ def ask(model: str, transcript: str, key: str) -> tuple:
     return check_reply(reply), (r.get("usage") or {}).get("cost", 0.0)
 
 
-def run(model: str, names: list) -> float:
+def run(model: str, names: list) -> Path:
     """Cached replies for these recordings; only missing ones are paid for. Returns the cache folder."""
     version = hashlib.sha1((PROMPT + TRANSCRIPTS.name + SECOND).encode()).hexdigest()[:8]  # new prompt/transcripts -> new cache
     out = OUT / "raw" / slug(model) / version

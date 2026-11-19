@@ -12,7 +12,7 @@ Read `CLAUDE.md`, `docs/ARCHITECTURE.md` and `docs/DECISIONS.md` first.
    Cached replies in `out/raw/<model>/<prompt hash>/` mean validation, body-map and scoring changes cost nothing.
 3. Open `out/<model>/dev/report.md`. Read "Where the errors come from", then the error table.
 4. Fix the step the error belongs to:
-   - `transcription` -> nothing in extraction can help; note it (see the re-listen idea, ADR-16 in `docs/DECISIONS.md`).
+   - `transcription` -> nothing in extraction can help; note it (see the re-listen idea, "Targeted re-listen" in `docs/DECISIONS.md`).
    - `extraction` -> a general rule in `PROMPT` (`tccc/extract.py`). Never a rule keyed to one file.
    - `validation` -> loosen the check in `tccc/validate.py`.
    - `invented` -> tighten a rule or the evidence check.
@@ -22,7 +22,7 @@ Read `CLAUDE.md`, `docs/ARCHITECTURE.md` and `docs/DECISIONS.md` first.
 
 ## Rules
 
-- Tune on dev only. Held-out has already been used to pick between tied models (so it is slightly optimistic);
+- Tune on the tuning recordings (`--split dev`) only. Held-out has already been used to pick between tied models (so it is slightly optimistic);
   do not use it for more decisions. Report it first.
 - The provided OpenRouter key: final inference only, cheapest model that holds accuracy. No Opus or premium
   models. Check spend in each run's "new spend" line. The cap is `TCCC_BUDGET_USD` (default $7).

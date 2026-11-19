@@ -1,10 +1,14 @@
 # Decision record: why the TCCC pipeline looks the way it does
 
 This is the "why" behind `docs/ARCHITECTURE.md` (the "what"). Each decision lists context, options, the choice, the
-measured evidence, the cost of the choice, and when to reopen it. Read the competence section, then jump to any ADR.
+measured evidence, the cost of the choice, and when to reopen it. Each is an ADR (architecture decision record),
+numbered so they can point at each other. Read the competence section, then jump to any of them.
+
+Words used: the first listener (Scribe) and second listener (Qwen) turn audio into text; the reader (Gemini) fills
+the card from both transcripts; 25 tuning recordings shaped the prompt, 25 held-out recordings test it.
 
 Numbers come from `README.md`, `docs/ARCHITECTURE.md`, `AI_LOG.md`, `out/runs.jsonl`, the bake-off table
-(`transcripts/_bakeoff.csv`) and the code. Where sources disagreed, the newer or more specific figure is used (see "Notes on sources" at the end).
+(`transcripts/_bakeoff.csv`) and the code. Where sources disagreed, the newer or more specific figure is used (see "Notes on the numbers" at the end).
 
 ## Core competence of this architecture
 
@@ -28,7 +32,7 @@ recordings 94.7%.
 
 ADR index: 01 fixed pipeline, 02 raw whole audio, 03 main listener, 04 second listener, 05 reader model, 06 one call
 with evidence, 07 validation in code, 08 blank over guess, 09 injury lookup, 10 PDF, 11 cache and spend cap, 12 split
-and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (proposed).
+and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (proposed), 17 structured output and guardrails.
 
 ---
 
@@ -41,7 +45,7 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
   and loops until satisfied. (3) A fixed chain plus a second model as verifier or majority vote.
 - **Decision.** A fixed chain. Agents helped build it (a worker agent wrote the body-diagram mapper), not run it.
 - **Evidence.**
-  - Gemini 3.8 Flash and Opus 5.5 disagreed on only 14 of 3,425 fields on dev (99.6% agreement). A perfect referee
+  - Gemini 3.8 Flash and Opus 5.5 disagreed on only 14 of 3,425 fields on the tuning recordings (99.6% agreement). A perfect referee
     would lift F1 from 93.3% to 93.7%; a 3-model majority vote gives 93.5%.
   - Extra medical rules (drug doses, timings such as a tourniquet applied before the injury) caught 0 of the 25
     remaining errors. Those are believable misheard values, not impossible ones.
@@ -105,10 +109,10 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
   - Calibrated on all 50: values both listeners heard are 97.9% correct (753 values); single-listener values are 81.1%
     correct (37 values), about nine times the error rate.
   - Qwen 3.8 Omni Flash was best on IDs and costs about a fifth of the price; it adds about $0.03 for all 50.
-  - Gemini 4 Argon was also tried as the second listen on dev: F1 95.0% with 12 made-up values, against 95.5% and 4
+  - Gemini 4 Argon was also tried as the second listener on the tuning recordings: F1 95.0% with 12 made-up values, against 95.5% and 4
     for Qwen (`out/runs.jsonl`). A stronger listener that makes the reader invent more is the wrong trade.
-- **Trade-offs.** Two listens per recording and a longer reader prompt. Both still miss what every model misses (the vdi
-  radio recording, "Kaur" heard as "Carr"). Latency stays about 20 s because the listens run at once.
+- **Trade-offs.** Two listeners per recording and a longer reader prompt. Both still miss what every model misses (the vdi
+  radio recording, "Kaur" heard as "Carr"). Latency stays about 20 s because the listeners run at once.
 - **Revisit when.** Flagged disagreements overwhelm the medic, or a stronger second model appears. See ADR-16.
 
 ## ADR-05: Gemini 3.8 Flash as the reader, GPT-6.1 Terra as fallback
@@ -117,18 +121,18 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
 - **Context.** The reader turns transcripts into card fields. Many models are good enough, so reputation should not
   decide it.
 - **Options considered.** 14 models on the final prompt (OpenAI, Google, Qwen, GLM, DeepSeek, Mistral), the top three
-  again on held-out. An earlier round included Anthropic (Opus 5.5 93.0%, Gemini 3.8 Flash 93.3% on dev, at a sixth of
+  again on held-out. An earlier round included Anthropic (Opus 5.5 93.0%, Gemini 3.8 Flash 93.3% on the tuning recordings, at a sixth of
   the cost).
 - **Decision.** `google/gemini-3.8-flash`. If it errors, the live path retries once on `openai/gpt-6.1-terra`, so no card
   is lost to an API failure.
 - **Evidence.**
-  - On dev the top six are tied inside their 95% intervals: Gemini 4 Argon 95.5%, Gemini 3.8 Flash 95.3%, Gemini 4
+  - On the tuning recordings the top six are tied inside their 95% intervals: Gemini 4 Argon 95.5%, Gemini 3.8 Flash 95.3%, Gemini 4
     Hydrogen 95.3%, GPT-6.1 Terra 95.2%, DeepSeek V4.1 Flash 95.0%, GLM 5.3 94.6%.
   - Held-out made-up values broke the tie: Gemini 3.8 Flash 2, GPT-6.1 Terra 5, Gemini 4 Argon 9 (F1 92.5%, 91.8%,
     92.4%, single-listener transcripts).
   - Cost for 50 cards on one transcript: Gemini 3.8 Flash $0.34, Terra $0.18, so Terra is $0.16 cheaper. Two and a half
     times the invented values is not worth 16 cents on a casualty card. Qwen 4 Max scored well but made up 12.
-- **Trade-offs.** Terra was the best value on dev and fell behind on held-out. The split did its job, but it is a sample of
+- **Trade-offs.** Terra was the best value on the tuning recordings and fell behind on held-out. The split did its job, but it is a sample of
   25. Not run for budget: Kimi, Grok 4.7, MiniMax, Mistral Medium, Nemotron Ultra.
 - **Revisit when.** A larger synthetic test set exists (25-card gaps are inside the noise) or prices change enough to
   matter. Invented values stay the tie-break.
@@ -140,15 +144,15 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
   structured output we can check.
 - **Options considered.** (1) Return all 138 fields. (2) One call per field group. (3) One call returning only the
   fields said, each as `[value, "exact transcript words"]`, plus `notes` and `flags`.
-- **Decision.** Option 3, temperature 0, JSON object output. The prompt (v5) carries the formats and the literal
+- **Decision.** Option 3, temperature 0, JSON object output. The final prompt carries the formats and the literal
   conventions of ADR-08.
 - **Evidence.**
-  - Only filled fields come back, so output tokens stay low: about $0.65 for all 50 cards (Scribe $0.15, second listen
+  - Only filled fields come back, so output tokens stay low: about $0.65 for all 50 cards (Scribe $0.15, second listener
     $0.03, Gemini $0.47), 1.3 cents a card.
   - The evidence quote is what makes ADR-07 possible. Without it there is nothing to check a value against.
-  - Prompt history on dev (single listener): v2 93.3%, v3 94.3%, v3 with keyterm transcripts 94.5%, v4 95.4%, v5 95.3%.
+  - Prompt history on the tuning recordings (first listener only): v2 93.3%, v3 94.3%, v3 with keyterm transcripts 94.5%, v4 95.4%, v5 95.3%.
 - **Trade-offs.** The model decides which fields exist, so a forgotten field is silently blank (an `extraction` error in
-  the report). Every prompt rule came from dev errors, and the unit-name list was written after seeing units in the answer
+  the report). Every prompt rule came from errors on the tuning recordings, and the unit-name list was written after seeing units in the answer
   key, so the held-out `unit` field is slightly flattered.
 - **Revisit when.** The form changes, or a needed rule hurts held-out results. Then split calls by field group.
 
@@ -211,12 +215,12 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
   Unknown locations tick nothing.
 - **Evidence.**
   - Output is always a subset of the 163 valid names, so a box can never be misnamed.
-  - Body boxes F1: dev 97.0%, held-out 80.5%, all 50 89.0%. Dev rose from 87% to 97% with targeted prompt rules.
-  - Conventions (which sub-boxes a "forearm" or "leg" fills) were read off dev only. A worker agent built it from the 25
+  - Body boxes F1: tuning 97.0%, held-out 80.5%, all 50 89.0%. Tuning rose from 87% to 97% with targeted prompt rules.
+  - Conventions (which sub-boxes a "forearm" or "leg" fills) were read off the tuning recordings only. A worker agent built it from the 25
     tuning recordings, reported held-out honestly, and flagged that the answer key swaps left and right on two cards.
     We kept its mapper and did not fix those misses, since that would be tuning on the test set.
-- **Trade-offs.** The gap of about 16 points between dev and held-out shows the conventions are partly fitted to dev. The
-  mirroring rule for hip and back copies what dev shows, which may be an answer-key quirk.
+- **Trade-offs.** The gap of about 16 points between tuning and held-out shows the conventions are partly fitted to the tuning recordings. The
+  mirroring rule for hip and back copies what the tuning recordings show, which may be an answer-key quirk.
 - **Revisit when.** More labelled cards exist to learn the conventions properly, or the form's box names change.
 
 ## ADR-10: PDF with drawn text appearances, XFA removed, read-back after every fill
@@ -259,7 +263,7 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
   the cache. The cap is checked before a batch starts, not per request.
 - **Revisit when.** The pipeline serves real traffic, where per-request limits, backoff and spend alerts matter.
 
-## ADR-12: Fixed dev / held-out split; F1 on filled fields, not naive accuracy
+## ADR-12: Fixed tuning / held-out split; F1 on filled fields, not naive accuracy
 
 - **Status:** Accepted
 - **Context.** Most of a card is blank, so counting matching boxes misleads: a card that writes nothing scores about 85%.
@@ -267,16 +271,16 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
 - **Options considered.** (1) Naive field accuracy on all 50. (2) F1 on fields where the truth or our card has something,
   tuned and scored on the same 50. (3) The same F1 with a fixed split chosen before tuning and intervals on comparisons.
 - **Decision.** Option 3.
-  - Split: sort the file names; even positions are dev (25), odd are held-out (25) (`SPLITS` in `tccc/extract.py`). All
-    prompt rules come from dev. Held-out is reported first, then all 50.
+  - Split: sort the file names; even positions are tuning recordings (25, `dev` in code), odd are held-out (25) (`SPLITS` in `tccc/extract.py`). All
+    prompt rules come from the tuning recordings. Held-out is reported first, then all 50.
   - Held-out was not untouched: it chose between the final tied readers (on made-up values), confirmed the second
-    listen, and prompted one evidence-check fix (a time spoken as "10/12" on ato). So it is slightly optimistic.
+    listener, and prompted one evidence-check fix (a time spoken as "10/12" on ato). So it is slightly optimistic.
   - Each field is correct, wrong, invented (written, never said) or missed. F1 balances precision and recall.
   - 95% intervals by bootstrap: 2,000 resamples of cards, with a paired interval on the gap between two models.
 - **Evidence.**
-  - Held-out caught a wrong choice: GPT-6.1 Terra looked best on value on dev and fell behind.
-  - Intervals showed the top six readers were tied, and confirmed the second listen as a real gain (+0.2 to +2.8).
-  - Limits are written down: every prompt rule came from dev, the unit list slightly flatters one held-out field, and the
+  - Held-out caught a wrong choice: GPT-6.1 Terra looked best on value on the tuning recordings and fell behind.
+  - Intervals showed the top six readers were tied, and confirmed the second listener as a real gain (+0.2 to +2.8).
+  - Limits are written down: every prompt rule came from the tuning recordings, the unit list slightly flatters one held-out field, and the
     answer key has a few slips we did not tune to.
 - **Trade-offs.** 25 cards per half is small, so intervals are wide. Free-text notes are not scored. The all-50 number
   includes the tuning half and flatters a little.
@@ -375,6 +379,41 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
 
 ---
 
+## ADR-17: Structured output and guardrails
+
+- **Context.** The reader's reply drives what goes on a medical card, so its shape and content must be checked
+  before anything is written.
+- **Options considered.** (1) Strict JSON schema mode, so the provider enforces the shape. (2) JSON object mode plus
+  a shape check in code. (3) Free text, parsed afterwards (rejected: fragile).
+- **Decision.** Option 2: `response_format: json_object`, then `check_reply` in `tccc/extract.py`.
+  - Why not strict schema: strict mode makes every property required, so the reader would return all 138 fields
+    instead of the roughly 22 that were said, losing the low output cost and the "only what was said" design (ADR-06).
+    Support also varies across the providers behind OpenRouter, and 14 readers were compared on the same request.
+  - A reply that was cut off at the output limit, is not JSON, or has the wrong shape raises `BadReply`. It is not
+    retried (the same prompt at temperature 0 gives the same reply); the recording is scored as an empty card and
+    the run says so.
+- **Guardrails in code** (`tccc/validate.py`, `tccc/fill_pdf.py`, `tccc/openrouter.py`): unknown fields dropped and
+  flagged; formats and dropdown labels checked; ranges (blood pressure, vital signs); every text value must have its
+  quoted words and digits in the transcript; tourniquet tick derived from the limb fields; body boxes by lookup, never
+  chosen by the model; schema check before the PDF; the PDF read back and compared; a spend cap before any paid batch.
+- **Guardrails in the prompt only:** retractions and corrections, the literal answer-key conventions (no composed IDs,
+  no clinical defaults), blank and flag when the two transcripts disagree, the notes format, and which checkboxes to
+  tick.
+- **Known limits.**
+  - Checkboxes and the free-text notes have no evidence check; a wrongly ticked box is caught only by the medic.
+  - The transcript is not framed as untrusted input. Someone speaking instructions into the radio could, in
+    principle, steer the reader; the evidence check limits what it can write into text fields.
+  - The spend cap is checked once per batch, not per call, so one batch can overshoot it by up to its own cost
+    (about $0.65 for all 50).
+  - The cache hash covers the prompt and the transcript folder names but not the two-transcript instructions or the
+    JSON-mode setting (see ARCHITECTURE.md, "Prompts").
+- **Next steps, for the user to decide.** Each changes the prompt or the request, so each means a fresh reader run of
+  about $0.47 for all 50: evidence quotes for checkboxes; wrapping the transcript in clearly marked delimiters as
+  untrusted data; adding the two-transcript text and JSON mode to the hash; trying strict schema mode on the readers
+  that support it.
+
+---
+
 ## What would change these decisions
 
 - **Offline or forward use.** NVIDIA Parakeet, running on the Mac with no internet, got 80% of answer-key values into
@@ -393,6 +432,6 @@ and metric, 13 app, 14 gateway, 15 human in the loop, 16 targeted re-listen (pro
 
 ## Notes on the numbers
 
-- Held-out F1 92.5% is the single-listener result; 93.8% is the final result with the second listen.
+- Held-out F1 92.5% is the single-listener result; 93.8% is the final result with the second listener.
 - Speech capture figures come from the bake-off table (`transcripts/_bakeoff.csv`), the latest run of each model.
 - Spend is the key's own usage, read with `make check-key` on 18 Nov 2026 ($4.52 of the $7 cap).
